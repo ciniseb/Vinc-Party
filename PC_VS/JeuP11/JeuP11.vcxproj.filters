@@ -21,12 +21,18 @@
     <ClCompile Include="include\serial\SerialPort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ES.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\serial\SerialPort.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="include\json.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ES.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

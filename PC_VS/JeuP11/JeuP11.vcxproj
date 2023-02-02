@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ES.cpp" />
     <ClCompile Include="include\serial\SerialPort.cpp" />
     <ClCompile Include="JeuP11.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ES.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\serial\SerialPort.hpp" />
   </ItemGroup>
