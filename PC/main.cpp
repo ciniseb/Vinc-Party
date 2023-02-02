@@ -73,14 +73,14 @@ int main(){
             // Transfert du message en json
             
             j_msg_rcv = json::parse(raw_msg);
-            cout << "Message de l'Arduino: " << j_msg_rcv["analog"] << endl;
+            cout << raw_msg << endl;
         }
         
         //Changement de l'etat led
         led_state = !led_state;
 
         // Bloquer le fil pour environ 1 sec
-        Sleep(j_msg_rcv["analog"]); // 1000ms
+        Sleep(50); // 1000ms
     }
     return 0;
 }

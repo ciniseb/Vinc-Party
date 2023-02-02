@@ -152,7 +152,13 @@ void sendMsg() {
   StaticJsonDocument<500> doc;
   // Elements du message
   doc["time"] = millis();
-  //doc["analog"] = potValue;
+  doc["btn_1"]=btn_1;
+  doc["btn_2"]=btn_2;
+  doc["btn_3"]=btn_3;
+  doc["btn_4"]=btn_4;
+  doc["btn_joy"]=btn_joy;
+  doc["joy_hb"]=joy_hb;
+  doc["joy_gd"]=joy_gd;
 
   // Serialisation
   serializeJson(doc, Serial);
@@ -193,15 +199,15 @@ void readMsg(){
 
 
 void lireEntrees(){
-  bool btn_1 = digitalRead(BTN_1_PIN);
-  bool btn_2 = digitalRead(BTN_2_PIN);
-  bool btn_3 = digitalRead(BTN_3_PIN);
-  bool btn_4 = digitalRead(BTN_4_PIN);
+   btn_1 = !digitalRead(BTN_1_PIN);
+   btn_2 = !digitalRead(BTN_2_PIN);
+   btn_3 = !digitalRead(BTN_3_PIN);
+   btn_4 = !digitalRead(BTN_4_PIN);
 
 
-  bool btn_joy = digitalRead(BTN_JOY_PIN);
-  int joy_hb = 0;
-  int joy_gd = 0;
+   btn_joy = !digitalRead(BTN_JOY_PIN);
+   joy_hb = analogRead(JOY_HB_PIN);
+   joy_gd = analogRead(JOY_GD_PIN);
 
 }
 
@@ -233,7 +239,6 @@ void ecrireSorties(){
   if(compteurMultiplex >= 4){
     compteurMultiplex =0;
   }
-  Serial.println(compteurMultiplex);
   
 }
 
