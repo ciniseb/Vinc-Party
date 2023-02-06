@@ -1,0 +1,20 @@
+/*====================================================================================================
+Fichier: Acteur.h
+Auteurs: Antoine Allard
+         Charles Beaulieu
+         Émile Bois
+         Enes Caku
+         Zachari Gervais
+         Anne-Sophie Nguyen
+         Sébastien St-Denis
+         Date: 02 février 2023
+Description: Struct pour Joueur et Adversaire
+====================================================================================================*/
+#include <iostream>
+#include "Coordonnee.h"
+
+struct Acteur
+{
+    std::string nom = "";
+    Coordonnee position;
+};
