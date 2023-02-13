@@ -19,6 +19,11 @@ Tuile::Tuile()
     remplissage = PLEIN;
     chemin_image = "";
 }
+Tuile::Tuile(int r, std::string c)
+{
+    remplissage = r;
+    chemin_image = c;
+}
 Tuile::~Tuile() {}
 
 //Getteurs & setteurs

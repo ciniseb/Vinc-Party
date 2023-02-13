@@ -54,17 +54,14 @@
     <ClCompile Include="Niveau.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Chronometre.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\serial\SerialPort.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\json.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ES.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="FenetreMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -81,9 +78,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Niveau.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pointage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tuile.h">
@@ -107,5 +101,28 @@
     <ClInclude Include="FenetreJeuX.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ES.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pointage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\serial\SerialPort.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chronometre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="c_gabarit_20_40.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

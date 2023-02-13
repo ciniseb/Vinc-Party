@@ -10,6 +10,9 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: FenetreJeuX est un nom temporaire pour expliquer la Classe de la fenêtre d'un mini-jeu
 ====================================================================================================*/
+#ifndef FENETREJEUX_H
+#define FENETREJEUX_H
+
 #include <iostream>
 #include "MiniJeu.h"
 #include "Fenetre.h"
@@ -31,3 +34,5 @@ public:
     //Méthodes
     
 };
+
+#endif

@@ -10,6 +10,9 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: 
 ====================================================================================================*/
+#ifndef NIVEAU_H
+#define NIVEAU_H
+
 #include <iostream>
 
 class Niveau
@@ -43,3 +46,5 @@ public:
     //Méthodes
     bool niveauSuivant();
 };
+
+#endif

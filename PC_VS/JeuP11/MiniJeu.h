@@ -10,6 +10,9 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: Classe abstraite pour chaque classe d'un mini-jeu spécifique
 ====================================================================================================*/
+#ifndef MINIJEU_H
+#define MINIJEU_H
+
 #include <iostream>
 
 class MiniJeu
@@ -29,3 +32,5 @@ public:
     //Méthodes
     //TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
 };
+
+#endif
