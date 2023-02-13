@@ -24,7 +24,7 @@ public:
     ~MiniJeu();
 
     //Getteurs & setteurs
-
+    
 
     //Méthodes
     //TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
