@@ -5,20 +5,34 @@
 #include "./include/serial/SerialPort.hpp"
 #include "./include/json.hpp"
 #include <mutex>
+#include <Windows.h>
 using json = nlohmann::json;
 using namespace std;
+
+
+#define MODE_CLAVIER true
 
 ES::ES() {
 	
 	// Initialisation du port de communication
 	//cout << "Entrer le port de communication du Arduino: ";
 	//cin >> com;
-	com = "COM3";
-	arduino = new SerialPort(com.c_str(), BAUD);
-	if (!arduino->isConnected()) {
-		cerr << "Impossible de se connecter au port " << string(com) << ". Fermeture du programme!" << endl;
-		exit(1);
-	}
+#
+
+#if MODE_CLAVIER
+
+#else
+    com = "COM3";
+    arduino = new SerialPort(com.c_str(), BAUD);
+    if (!arduino->isConnected()) {
+        cerr << "Impossible de se connecter au port " << string(com) << ". Fermeture du programme!" << endl;
+        exit(1);
+    }
+#endif // MODE_CLAVIER
+
+
+
+	
 
     es_thread = new std::thread([this] { exec(); });
 }
@@ -30,6 +44,37 @@ ES::~ES() {
 
 
 void ES::exec() {
+
+#if MODE_CLAVIER
+    while (true) {
+
+        bool tempW = (GetKeyState('W') & 0x8000);
+        if (W != tempW) {
+            ajouterAuQueue({ JOYSTICK,tempW ? HAUT:ARRET });
+        }
+        W = tempW;
+
+        bool tempA = (GetKeyState('A') & 0x8000);
+        if (A != tempA) {
+            ajouterAuQueue({ JOYSTICK,tempA ? GAUCHE : ARRET });
+        }
+        A = tempA;
+
+        bool tempS = (GetKeyState('S') & 0x8000);
+        if (S != tempS) {
+            ajouterAuQueue({ JOYSTICK,tempS ? BAS : ARRET });
+        }
+        S = tempS;
+
+        bool tempD = (GetKeyState('D') & 0x8000);
+        if (D != tempD) {
+            ajouterAuQueue({ JOYSTICK,tempD ? DROITE : ARRET });
+        }
+        D = tempD;
+
+    }
+
+#else
     // Boucle pour tester la communication bidirectionnelle Arduino-PC
     cout << "Thread E/S OK" << endl;
     while (true) {
@@ -48,24 +93,24 @@ void ES::exec() {
             cout << "raw_msg: " << raw_msg << endl;  // debug
             // Transfert du message en json
 
-            j_msg_rcv = json::parse(raw_msg,nullptr,false);
+            j_msg_rcv = json::parse(raw_msg, nullptr, false);
             if (!j_msg_rcv.is_discarded()) {
                 //decoderEvenement(j_msg_rcv);
-            }else {
+            }
+            else {
                 cout << "out" << endl;
             }
-            
+
         }
 
         //Changement de l'etat led
 
         // Bloquer le fil pour environ 1 sec
         Sleep(300); // 1000ms
-        
-    }
-	
 
-	
+    }
+#endif // MODE_CLAVIER
+
 }
 
 
@@ -130,4 +175,17 @@ void ES::ajouterAuQueue(struct Evenement evenement) {
     evenementRecu.push(evenement);
     lockQueue.unlock();
 
+}
+
+
+Evenement ES::prochainEvenement() {
+    lockQueue.lock();
+    Evenement e = evenementRecu.front();
+    evenementRecu.pop();
+    lockQueue.unlock();
+    return e;
+}
+
+bool ES::evenementDisponible() {
+    return !evenementRecu.empty();
 }

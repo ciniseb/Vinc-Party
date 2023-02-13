@@ -17,6 +17,13 @@ using namespace std;
 #define ACCEL 2
 #define JOYSTICK 3
 
+#define HAUT 1
+#define BAS 2
+#define GAUCHE 3
+#define DROITE 4
+#define ARRET 0
+
+
 
 struct Evenement
 {
@@ -42,12 +49,24 @@ private:
     bool RcvFromSerial(SerialPort* arduino, string& msg);
     void decoderEvenement(json data);
     void ajouterAuQueue(struct Evenement evenement);
+    
     mutex lockQueue;
+
+
+
+
+    //Etats pour mode clavier
+    bool W = 0;
+    bool A = 0;
+    bool S = 0;
+    bool D = 0;
     
 public:
     ES();
     ~ES();
     void exec();
+    Evenement prochainEvenement();
+    bool evenementDisponible();
 };
 
 
