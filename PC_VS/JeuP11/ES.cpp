@@ -4,6 +4,7 @@
 #include <string>
 #include "./include/serial/SerialPort.hpp"
 #include "./include/json.hpp"
+#include <mutex>
 using json = nlohmann::json;
 using namespace std;
 
@@ -24,6 +25,7 @@ ES::ES() {
 
 ES::~ES() {
 	es_thread->join();
+    delete es_thread;
 }
 
 
@@ -43,18 +45,23 @@ void ES::exec() {
 
         // Impression du message de l'Arduino si valide
         if (raw_msg.size() > 0) {
-            //cout << "raw_msg: " << raw_msg << endl;  // debug
+            cout << "raw_msg: " << raw_msg << endl;  // debug
             // Transfert du message en json
 
-            j_msg_rcv = json::parse(raw_msg);
-            cout << raw_msg << endl;
+            j_msg_rcv = json::parse(raw_msg,nullptr,false);
+            if (!j_msg_rcv.is_discarded()) {
+                //decoderEvenement(j_msg_rcv);
+            }else {
+                cout << "out" << endl;
+            }
+            
         }
 
         //Changement de l'etat led
 
         // Bloquer le fil pour environ 1 sec
-        Sleep(50); // 1000ms
-
+        Sleep(300); // 1000ms
+        
     }
 	
 
@@ -88,9 +95,12 @@ bool ES::RcvFromSerial(SerialPort* arduino, string& msg) {
             return false;
         }
 
-        buffer_size = arduino->readSerialPort(char_buffer, MSG_MAX_SIZE);
+        buffer_size = arduino->readSerialPort(char_buffer, 1);
         str_buffer.assign(char_buffer, buffer_size);
         msg.append(str_buffer);
+        if (msg[0] != '{') {
+            msg.clear();
+        }
     }
 
 
@@ -101,4 +111,23 @@ bool ES::RcvFromSerial(SerialPort* arduino, string& msg) {
     msg.pop_back(); //remove '/n' from string
 
     return true;
+}
+
+
+
+void ES::decoderEvenement(json data) {
+    if (data["btn_1"])  ajouterAuQueue({ BOUTON, 1 });
+    if (data["btn_2"])  ajouterAuQueue({ BOUTON, 2 });
+    if (data["btn_3"])  ajouterAuQueue({ BOUTON, 3 });
+    if (data["btn_4"])  ajouterAuQueue({ BOUTON, 4 });
+
+
+}
+
+
+void ES::ajouterAuQueue(struct Evenement evenement) {
+    lockQueue.lock();
+    evenementRecu.push(evenement);
+    lockQueue.unlock();
+
 }

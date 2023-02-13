@@ -2,6 +2,10 @@
 #define ES_H
 #include <thread>
 
+#define BOUTON 1
+#define ACCEL 2
+#define JOYSTICK 3
+
 
 class ES
 {

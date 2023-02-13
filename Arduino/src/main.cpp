@@ -2,14 +2,17 @@
  * Auteurs: Jean-Samuel Lauzon    
  * Date: Fevrier 2022
 */
+#define USE_TIMER_3 true
+
 
 /*------------------------------ Librairies ---------------------------------*/
 #include <Arduino.h>
 #include <ArduinoJson.h>
+#include <TimerInterrupt.h>
 
 /*------------------------------ Constantes ---------------------------------*/
 
-#define BAUD 9600        // Frequence de transmission serielle
+#define BAUD 1000000        // Frequence de transmission serielle
 #define	BTN_1_PIN	21
 #define	BTN_2_PIN	20
 #define	BTN_3_PIN	19
@@ -38,12 +41,14 @@
 #define	JOY_GD_PIN	A0
 
 
+
 /*---------------------------- Variables globales ---------------------------*/
 
 volatile bool shouldSend_ = false;  // Drapeau prêt à envoyer un message
 volatile bool shouldRead_ = false;  // Drapeau prêt à lire un message
 
 int ledPin[] = {LED_1_PIN,LED_2_PIN,LED_3_PIN,LED_4_PIN,LED_5_PIN,LED_6_PIN,LED_7_PIN,LED_8_PIN,LED_9_PIN,LED_10_PIN};
+int barPin[] = {BAR_1_PIN,BAR_2_PIN,BAR_3_PIN,BAR_4_PIN};
 
 bool bargraph[4][10];
 
@@ -63,7 +68,7 @@ bool btn_joy = false;
 int joy_hb = 0;
 int joy_gd = 0;
 
-int compteurMultiplex = 0;
+volatile int compteurMultiplex = 0;
 
 
 /*------------------------- Prototypes de fonctions -------------------------*/
@@ -73,6 +78,7 @@ void serialEvent();
 void lireEntrees();
 void ecrireSorties();
 void routineTest();
+void multiplexLED();
 /*---------------------------- Fonctions "Main" -----------------------------*/
 
 void setup() {
@@ -112,6 +118,11 @@ pinMode(BTN_JOY_PIN,INPUT);
 pinMode(JOY_HB_PIN,INPUT);
 pinMode(JOY_GD_PIN,INPUT);
   
+
+
+ITimer3.init();
+ITimer3.attachInterruptInterval(5, multiplexLED);
+
 }
 
 /* Boucle principale (infinie) */
@@ -123,7 +134,6 @@ void loop() {
   }
 
   routineTest();
-
 
 
   lireEntrees();
@@ -162,9 +172,10 @@ void sendMsg() {
 
   // Serialisation
   serializeJson(doc, Serial);
-
+  //noInterrupts();
   // Envoie
   Serial.println();
+  //interrupts();
   shouldSend_ = false;
 }
 
@@ -180,9 +191,10 @@ void readMsg(){
   JsonVariant parse_msg;
 
   // Lecture sur le port Seriel
-  DeserializationError error = deserializeJson(doc, Serial);
+  //DeserializationError error = deserializeJson(doc, Serial);
   shouldRead_ = false;
-
+  delay(50);
+/*
   // Si erreur dans le message
   if (error) {
     Serial.print("deserialize() failed: ");
@@ -192,9 +204,15 @@ void readMsg(){
   
   // Analyse des éléments du message message
   parse_msg = doc["led"];
+  led_n=doc["led_n"];
+  led_e=doc["led_e"];
+  led_w=doc["led_w"];
+  led_s=doc["led_s"];
+  mot=doc["mot"];
+  //bargraph=doc["bargraph"];
   if (!parse_msg.isNull()) {
     // mettre la led a la valeur doc["led"]
-  }
+  }*/
 }
 
 
@@ -216,49 +234,23 @@ void ecrireSorties(){
   digitalWrite(LED_E_PIN,led_e);
   digitalWrite(LED_W_PIN,led_w);
   digitalWrite(LED_S_PIN,led_s);
-
-  digitalWrite(BAR_1_PIN,LOW);
-  digitalWrite(BAR_2_PIN,LOW);
-  digitalWrite(BAR_3_PIN,LOW);
-  digitalWrite(BAR_4_PIN,LOW);
   digitalWrite(MOT_PIN,mot);
-
-
-  for (int i = 0; i < 10; i++)
-  {
-    digitalWrite(ledPin[i],bargraph[compteurMultiplex][i]);
-  }
-
-  digitalWrite(BAR_1_PIN,compteurMultiplex==0);
-  digitalWrite(BAR_2_PIN,compteurMultiplex==1);
-  digitalWrite(BAR_3_PIN,compteurMultiplex==2);
-  digitalWrite(BAR_4_PIN,compteurMultiplex==3);
-
-  compteurMultiplex++;
-
-  if(compteurMultiplex >= 4){
-    compteurMultiplex =0;
-  }
+  //multiplexLED();
+  
   
 }
 
 
 
 void routineTest(){
-  int testNo = (millis() / 500) % 18;
+  int testNo = (millis() / 500) % 19;
 
   led_n = false;
   led_e = false;
   led_w = false;
   led_s = false;
 
-  for (int i = 0; i < 4; i++)
-  {
-    for (int j = 0; j < 10; j++)
-    {
-      bargraph[i][j] = false;
-    }
-  }
+  
 
   mot = false;
 
@@ -280,27 +272,84 @@ void routineTest(){
     mot =true;
     break;
   case 5:
-    bargraph[0][0] = true;
-    bargraph[0][2] = true;
-    bargraph[1][1] = true;
-    bargraph[2][0] = true;
-    bargraph[0][0] = true;
-    bargraph[2][2] = true;
-    bargraph[3][0] = true;
-    bargraph[3][1] = true;
-    bargraph[3][2] = true;
+    for(int i =0; i<4;i++){
+      for (int j = 0; j < 3; j++)
+      {
+        bargraph[i][j] = true;
+      }
+      
+    }
+    break;
+  case 6:
+    for(int i =0; i<4;i++){
+      for (int j = 0; j < 3; j++)
+      {
+        bargraph[i][j] = false;
+      }
+      
+    }
     break;
 
 
 
-
   default: {
-              int ledNo = testNo - 5;
+              int ledNo = testNo - 6;
               int barNo = ledNo / 3;
               int posNo = ledNo - (barNo * 3);
               bargraph[barNo][posNo] = true;
               break;
            }
     
+  }
+}
+
+
+/*void multiplexLED(){
+  digitalWrite(BAR_1_PIN,LOW);
+  digitalWrite(BAR_2_PIN,LOW);
+  digitalWrite(BAR_3_PIN,LOW);
+  digitalWrite(BAR_4_PIN,LOW);
+  
+
+
+  for (int i = 0; i < 10; i++)
+  {
+    digitalWrite(ledPin[i],bargraph[compteurMultiplex][i]);
+  }
+
+  digitalWrite(BAR_1_PIN,compteurMultiplex==0);
+  digitalWrite(BAR_2_PIN,compteurMultiplex==1);
+  digitalWrite(BAR_3_PIN,compteurMultiplex==2);
+  digitalWrite(BAR_4_PIN,compteurMultiplex==3);
+
+  compteurMultiplex++;
+
+  if(compteurMultiplex >= 4){
+    compteurMultiplex =0;
+  }
+}*/
+
+
+void multiplexLED(){
+
+  if(compteurMultiplex == 0){
+    digitalWrite(barPin[3],LOW);
+  }else{
+    digitalWrite(barPin[compteurMultiplex-1],LOW);
+  }
+  
+
+
+  for (int i = 0; i < 10; i++)
+  {
+    digitalWrite(ledPin[i],bargraph[compteurMultiplex][i]);
+  }
+
+  digitalWrite(barPin[compteurMultiplex],HIGH);
+
+  compteurMultiplex++;
+
+  if(compteurMultiplex >= 4){
+    compteurMultiplex =0;
   }
 }
