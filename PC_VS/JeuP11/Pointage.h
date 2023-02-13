@@ -10,6 +10,9 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: Le pointage d'un joueur x.
 ====================================================================================================*/
+#ifndef POINTAGE_H
+#define POINTAGE_H
+
 #include <iostream>
 
 class Pointage
@@ -42,3 +45,5 @@ public:
     //Méthodes
     
 };
+
+#endif

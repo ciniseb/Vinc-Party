@@ -10,6 +10,9 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: Classe abstraite pour l'UI des fenêtres.
 ====================================================================================================*/
+#ifndef FENETRE_H
+#define FENETRE_H
+
 #include <iostream>
 
 class Fenetre
@@ -29,3 +32,5 @@ public:
     //Méthodes
     
 };
+
+#endif

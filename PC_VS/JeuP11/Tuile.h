@@ -10,6 +10,9 @@ Auteurs: Antoine Allard
          Date: 02 février 2023
 Description: 
 ====================================================================================================*/
+#ifndef TUILE_H
+#define TUILE_H
+
 #include <iostream>
 
 class Tuile
@@ -21,6 +24,7 @@ private:
 public:
     //Constructeurs & destructeurs
     Tuile();
+    Tuile(int, std::string);
     ~Tuile();
 
     //Getteurs & setteurs
@@ -34,3 +38,5 @@ public:
     
 
 };
+
+#endif

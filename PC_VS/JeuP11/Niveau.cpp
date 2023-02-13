@@ -73,29 +73,34 @@ bool Niveau::niveauSuivant()
     switch (++numero)
     {
     case 1:
-        nb_pleins_variables = 4;
+        nb_pleins_variables = 8;
         nb_mj_dispo = 2;
         v_adversaire = 1;
         break;
     case 2:
-        nb_pleins_variables = 8;
+        nb_pleins_variables = 16;
         nb_mj_dispo = 3;
         v_adversaire = 1.2;
         break;
     case 3:
-        nb_pleins_variables = 12;
+        nb_pleins_variables = 24;
         nb_mj_dispo = 3;
         v_adversaire = 1.4;
         break;
     case 4:
-        nb_pleins_variables = 12;
+        nb_pleins_variables = 24;
         nb_mj_dispo = 4;
         v_adversaire = 1.8;
         break;
     case 5:
-        nb_pleins_variables = 18;
+        nb_pleins_variables = 36;
         nb_mj_dispo = 4;
         v_adversaire = 1.8;
+        break;
+    case 6:
+        nb_pleins_variables = 44;
+        nb_mj_dispo = 5;
+        v_adversaire = 2;
         break;
     default:
         numero--;

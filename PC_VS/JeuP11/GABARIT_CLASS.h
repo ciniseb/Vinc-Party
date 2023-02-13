@@ -10,6 +10,9 @@ Auteurs: Antoine Allard
          Date: 02 février 2023
 Description: Gabarit de class
 ====================================================================================================*/
+#ifndef GABARIT_CLASS_H
+#define GABARIT_CLASS_H
+
 #include <iostream>
 
 class GABARIT_CLASS
@@ -28,3 +31,5 @@ public:
     //Méthodes
     
 };
+
+#endif
