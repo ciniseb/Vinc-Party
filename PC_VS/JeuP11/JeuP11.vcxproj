@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -139,14 +139,45 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Chronometre.cpp" />
     <ClCompile Include="ES.cpp" />
+    <ClCompile Include="Fenetre.cpp" />
+    <ClCompile Include="FenetreJeu.cpp" />
+    <ClCompile Include="FenetreJeuX.cpp" />
+    <ClCompile Include="FenetreMenu.cpp" />
+    <ClCompile Include="FenetrePointages.cpp" />
+    <ClCompile Include="FenetreTests.cpp" />
     <ClCompile Include="include\serial\SerialPort.cpp" />
     <ClCompile Include="JeuP11.cpp" />
+    <ClCompile Include="MiniJeu.cpp" />
+    <ClCompile Include="Niveau.cpp" />
+    <ClCompile Include="Pointage.cpp" />
+    <ClCompile Include="Tests.cpp" />
+    <ClCompile Include="Tuile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Acteur.h" />
+    <ClInclude Include="Chronometre.h" />
+    <ClInclude Include="CONSTANTES.h" />
+    <ClInclude Include="Coordonnee.h" />
     <ClInclude Include="ES.h" />
+    <ClInclude Include="Fenetre.h" />
+    <ClInclude Include="FenetreJeu.h" />
+    <ClInclude Include="FenetreJeuX.h" />
+    <ClInclude Include="FenetreMenu.h" />
+    <ClInclude Include="FenetrePointages.h" />
+    <ClInclude Include="FenetreTests.h" />
+    <ClInclude Include="GABARIT_CLASS.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\serial\SerialPort.hpp" />
+    <ClInclude Include="MiniJeu.h" />
+    <ClInclude Include="Niveau.h" />
+    <ClInclude Include="Pointage.h" />
+    <ClInclude Include="Tests.h" />
+    <ClInclude Include="Tuile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="c_gabarit_20_40.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

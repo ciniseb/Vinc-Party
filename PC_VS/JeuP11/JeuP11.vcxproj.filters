@@ -24,16 +24,105 @@
     <ClCompile Include="ES.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pointage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tuile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fenetre.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetreJeu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetreJeuX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetreMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetrePointages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetreTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniJeu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Niveau.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chronometre.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\serial\SerialPort.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="FenetreMenu.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\json.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="FenetrePointages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GABARIT_CLASS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniJeu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Niveau.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tuile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Acteur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CONSTANTES.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordonnee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fenetre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreJeu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreJeuX.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ES.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pointage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\serial\SerialPort.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chronometre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="c_gabarit_20_40.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

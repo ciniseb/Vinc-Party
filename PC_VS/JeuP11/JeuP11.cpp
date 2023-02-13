@@ -10,11 +10,11 @@
 /*------------------------------ Librairies ---------------------------------*/
 #include <iostream>
 #include <string>
-using namespace std;
 
 /*-------------------------- Librairies externes ----------------------------*/
 
 #include"ES.h"
+#include "Tests.h"
 
 
 /*------------------------------ Constantes ---------------------------------*/
@@ -31,7 +31,7 @@ using namespace std;
 
 
 /*---------------------------- Variables globales ---------------------------*/
-ES es;
+//ES es;
 
 
 
@@ -42,11 +42,15 @@ int main() {
     
     // Structure de donnees JSON pour envoie et reception
     
-    while (true) {
+    /*while (true) {
 
-    }
+    }*/
 
-    
+    //Tests. � commenter au besoin
+    Tests tests;
+    //tests.tests_chronometre();
+    tests.tests_fenetrejeu();
+    // tests.tests_autre();
 
     
     return 0;
