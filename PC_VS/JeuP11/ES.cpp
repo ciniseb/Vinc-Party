@@ -5,21 +5,20 @@
 #include "./include/serial/SerialPort.hpp"
 #include "./include/json.hpp"
 using json = nlohmann::json;
-using namespace std;
 
 ES::ES() {
 	
 	// Initialisation du port de communication
 	//cout << "Entrer le port de communication du Arduino: ";
 	//cin >> com;
-	com = "COM3";
+	/*com = "COM3";
 	arduino = new SerialPort(com.c_str(), BAUD);
 	if (!arduino->isConnected()) {
-		cerr << "Impossible de se connecter au port " << string(com) << ". Fermeture du programme!" << endl;
+        std::cerr << "Impossible de se connecter au port " << std::string(com) << ". Fermeture du programme!" << std::endl;
 		exit(1);
 	}
 
-    es_thread = new std::thread([this] { exec(); });
+    es_thread = new std::thread([this] { exec(); });*/
 }
 
 ES::~ES() {
@@ -29,16 +28,16 @@ ES::~ES() {
 
 void ES::exec() {
     // Boucle pour tester la communication bidirectionnelle Arduino-PC
-    cout << "Thread E/S OK" << endl;
+    std::cout << "Thread E/S OK" << std::endl;
     while (true) {
         // Envoie message Arduino
         if (!SendToSerial(arduino, j_msg_send)) {
-            cerr << "Erreur lors de l'envoie du message. " << endl;
+            std::cerr << "Erreur lors de l'envoie du message. " << std::endl;
         }
         // Reception message Arduino
         j_msg_rcv.clear(); // effacer le message precedent
         if (!RcvFromSerial(arduino, raw_msg)) {
-            cerr << "Erreur lors de la reception du message. " << endl;
+            std::cerr << "Erreur lors de la reception du message. " << std::endl;
         }
 
         // Impression du message de l'Arduino si valide
@@ -47,7 +46,7 @@ void ES::exec() {
             // Transfert du message en json
 
             j_msg_rcv = json::parse(raw_msg);
-            cout << raw_msg << endl;
+            std::cout << raw_msg << std::endl;
         }
 
         //Changement de l'etat led
@@ -65,16 +64,16 @@ void ES::exec() {
 
 bool ES::SendToSerial(SerialPort* arduino, json j_msg) {
     // Return 0 if error
-    string msg = j_msg.dump();
+    std::string msg = j_msg.dump();
     bool ret = arduino->writeSerialPort(msg.c_str(), msg.length());
     return ret;
 }
 
 
-bool ES::RcvFromSerial(SerialPort* arduino, string& msg) {
+bool ES::RcvFromSerial(SerialPort* arduino, std::string& msg) {
     // Return 0 if error
     // Message output in msg
-    string str_buffer;
+    std::string str_buffer;
     char char_buffer[MSG_MAX_SIZE];
     int buffer_size;
 

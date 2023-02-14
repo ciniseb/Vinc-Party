@@ -24,3 +24,7 @@ FenetreTests::~FenetreTests() {}
 
 
 //Méthodes
+void FenetreTests::ouvrir()
+{
+
+}

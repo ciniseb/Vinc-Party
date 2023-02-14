@@ -8,7 +8,6 @@
 #define BAUD 9600           // Frequence de transmission serielle
 #define MSG_MAX_SIZE 1024   // Longueur maximale d'un message
 using json = nlohmann::json;
-using namespace std;
 class ES
 {
 private:
@@ -19,7 +18,7 @@ private:
     
     json j_msg_send, j_msg_rcv;
     bool SendToSerial(SerialPort* arduino, json j_msg);
-    bool RcvFromSerial(SerialPort* arduino, string& msg);
+    bool RcvFromSerial(SerialPort* arduino, std::string& msg);
     
 public:
     ES();

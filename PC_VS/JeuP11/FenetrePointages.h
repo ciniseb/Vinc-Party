@@ -35,7 +35,7 @@ public:
     void setPointages(std::vector<Pointage>);
 
     //Méthodes
-
+    void ouvrir();
 };
 
 #endif

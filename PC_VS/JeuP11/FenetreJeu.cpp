@@ -20,8 +20,7 @@ FenetreJeu::FenetreJeu(std::string nom_joueur)
 
     genererCarte();
 
-    mini_jeux; //TODO : Charger les mini-jeux.
-
+    //mini_jeux; //TODO : Charger les mini-jeux.
     joueur = Acteur{nom_joueur, Coordonnee{19, 19}};
 
     Coordonnee pos_adversaire{19, 20};//TODO : générer une position aléatoire dans la map pour l'adversaire
@@ -40,10 +39,10 @@ Tuile FenetreJeu::getTuile(Coordonnee coord)
 {
     return carte[coord.Y][coord.X];
 }
-std::vector<Fenetre> FenetreJeu::getMiniJeux()
+/*std::vector<Fenetre> FenetreJeu::getMiniJeux()
 {
     return mini_jeux;
-}
+}*/
 Acteur FenetreJeu::getJoueur()
 {
     return joueur;
@@ -65,10 +64,10 @@ void FenetreJeu::setTuile(Coordonnee coord, Tuile tuile)
 {
     carte[coord.Y][coord.X] = tuile;
 }
-void FenetreJeu::setMiniJeux(std::vector<Fenetre> mjx)
+/*void FenetreJeu::setMiniJeux(std::vector<Fenetre> mjx)
 {
     mini_jeux = mjx;
-}
+}*/
 void FenetreJeu::setJoueur(Acteur j)
 {
     joueur = j;
@@ -127,8 +126,6 @@ bool FenetreJeu::chargerGabaritCarte(int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE]
     std::cout << "Fichier introuvable..." << std::endl;
     return false;
 }
-
-
 
 std::vector<bool> variablesAleatoires(int nb_total, int nb_variables)
 {
@@ -206,6 +203,19 @@ bool FenetreJeu::genererCarte()
     }
 
     return true;
+}
+
+void FenetreJeu::ouvrir()
+{
+    std::cout << "FENETRE DE JEU OUVERTE" << std::endl;
+}
+void FenetreJeu::jouer()
+{
+    /*while (true)
+    {
+        //threadArduino.getProchainEvent();
+        affichage_DEBUG(std::cout);
+    }*/
 }
 
 void FenetreJeu::affichage_DEBUG(std::ostream &flux)

@@ -23,3 +23,7 @@ FenetreJeuX::~FenetreJeuX() {}
 
 
 //Méthodes
+void FenetreJeuX::ouvrir()
+{
+
+}

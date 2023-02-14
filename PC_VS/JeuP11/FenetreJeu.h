@@ -34,7 +34,7 @@ private:
     Niveau niveau;
 
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
-    std::vector<Fenetre> mini_jeux;
+    //std::vector<Fenetre> mini_jeux;
 
     Acteur joueur;
     Acteur adversaire;
@@ -52,14 +52,14 @@ public:
     //Getteurs & setteurs
     Niveau getNiveau();
     Tuile getTuile(Coordonnee);
-    std::vector<Fenetre> getMiniJeux();
+    //std::vector<Fenetre> getMiniJeux();
     Acteur getJoueur();
     Acteur getAdversaire();
     Chronometre getTemps();
 
     void setNiveau(Niveau);
     void setTuile(Coordonnee, Tuile);
-    void setMiniJeux(std::vector<Fenetre>);
+    //void setMiniJeux(std::vector<Fenetre>);
     void setJoueur(Acteur);
     void setAdversaire(Acteur);
     void setTemps(Chronometre);
@@ -67,6 +67,9 @@ public:
     //Méthodes
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
+
+    void ouvrir();
+    void jouer();
 
     void affichage_DEBUG(std::ostream &);
 };

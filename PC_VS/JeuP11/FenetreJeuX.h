@@ -32,7 +32,7 @@ public:
 
 
     //Méthodes
-    
+    void ouvrir();
 };
 
 #endif

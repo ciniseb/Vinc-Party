@@ -24,13 +24,13 @@ private:
 public:
     //Constructeurs & destructeurs
     Fenetre();
-    ~Fenetre();
+    virtual ~Fenetre();
 
     //Getteurs & setteurs
 
 
     //Méthodes
-    
+    virtual void ouvrir() = 0;
 };
 
 #endif

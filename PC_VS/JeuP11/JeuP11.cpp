@@ -10,46 +10,22 @@
 /*------------------------------ Librairies ---------------------------------*/
 #include <iostream>
 #include <string>
-
 /*-------------------------- Librairies externes ----------------------------*/
-
-#include"ES.h"
+#include "FenetreMenu.h"
 #include "Tests.h"
-
-
-/*------------------------------ Constantes ---------------------------------*/
-
-
-
-
-
-
-
-
-/*------------------------- Prototypes de fonctions -------------------------*/
-
-
-
 /*---------------------------- Variables globales ---------------------------*/
-//ES es;
-
-
-
 
 /*----------------------------- Fonction "Main" -----------------------------*/
-int main() {
-    
-    
-    // Structure de donnees JSON pour envoie et reception
-    
-    /*while (true) {
+int main()
+{
+    FenetreMenu menu;
 
-    }*/
+    menu.ouvrir();
 
     //Tests. à commenter au besoin
-    Tests tests;
+    //Tests tests;
     //tests.tests_chronometre();
-    tests.tests_fenetrejeu();
+    //tests.tests_fenetrejeu();
     // tests.tests_autre();
 
     

@@ -14,13 +14,21 @@ Description:
 #define FENETREMENU_H
 
 #include <iostream>
+#include <Windows.h>
+#include <conio.h>
 #include "Fenetre.h"
+#include "ES.h"
+#include "FenetreJeu.h"
+#include "FenetrePointages.h"
+#include "FenetreTests.h"
 
 class FenetreMenu : public Fenetre
 {
 private:
     //Attributs
-
+    //ES threadArduino;
+    Fenetre *fenetres[3];
+    //Fenetre *f0;
 
 public:
     //Constructeurs & destructeurs
@@ -31,7 +39,9 @@ public:
 
 
     //Méthodes
+    void ouvrir();
 
+    void affichage_DEBUG(int);
 };
 
 #endif

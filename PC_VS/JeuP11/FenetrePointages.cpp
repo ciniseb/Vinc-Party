@@ -31,3 +31,7 @@ void FenetrePointages::setPointages(std::vector<Pointage> p)
 }
 
 //Méthodes
+void FenetrePointages::ouvrir()
+{
+
+}
