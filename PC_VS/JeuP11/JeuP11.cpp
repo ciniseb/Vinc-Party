@@ -51,7 +51,7 @@ int main() {
     // tests.tests_autre();
     ES es;
      while (true) {
-         if (es.evenementDisponible()) {
+         while (es.evenementDisponible()) {
              Evenement e = es.prochainEvenement();
              switch (e.arg1)
              {
@@ -73,6 +73,7 @@ int main() {
                  break;
              }
          }
+         Sleep(100);
 
     }
     return 0;

@@ -10,7 +10,7 @@ using json = nlohmann::json;
 using namespace std;
 
 
-#define MODE_CLAVIER true
+#define MODE_CLAVIER false
 
 ES::ES() {
 	
@@ -106,7 +106,7 @@ void ES::exec() {
         //Changement de l'etat led
 
         // Bloquer le fil pour environ 1 sec
-        Sleep(300); // 1000ms
+        Sleep(200); // 1000ms
 
     }
 #endif // MODE_CLAVIER

@@ -73,7 +73,7 @@ volatile int compteurMultiplex = 0;
 
 /*------------------------- Prototypes de fonctions -------------------------*/
 void sendMsg(); 
-void readMsg();
+int readMsg();
 void serialEvent();
 void lireEntrees();
 void ecrireSorties();
@@ -128,9 +128,10 @@ ITimer3.attachInterruptInterval(5, multiplexLED);
 /* Boucle principale (infinie) */
 void loop() {
 
-  if(shouldRead_){
-    readMsg();
-    sendMsg();
+  if(Serial.available()){
+    if(readMsg() == 1){
+      sendMsg();
+    }
   }
 
   routineTest();
@@ -149,7 +150,6 @@ void loop() {
 
 /*---------------------------Definition de fonctions ------------------------*/
 
-void serialEvent() { shouldRead_ = true; }
 
 
 /*---------------------------Definition de fonctions ------------------------
@@ -185,21 +185,20 @@ Entrée : Aucun
 Sortie : Aucun
 Traitement : Réception du message
 -----------------------------------------------------------------------------*/
-void readMsg(){
+int readMsg(){
   // Lecture du message Json
   StaticJsonDocument<500> doc;
   JsonVariant parse_msg;
 
-  // Lecture sur le port Seriel
-  //DeserializationError error = deserializeJson(doc, Serial);
-  shouldRead_ = false;
-  delay(50);
-/*
+    // Lecture sur le port Seriel
+  DeserializationError error = deserializeJson(doc, Serial);
+  //delay(50);
+
   // Si erreur dans le message
   if (error) {
     Serial.print("deserialize() failed: ");
     Serial.println(error.c_str());
-    return;
+    return 0;
   }
   
   // Analyse des éléments du message message
@@ -212,7 +211,8 @@ void readMsg(){
   //bargraph=doc["bargraph"];
   if (!parse_msg.isNull()) {
     // mettre la led a la valeur doc["led"]
-  }*/
+  }
+  return 1;
 }
 
 
