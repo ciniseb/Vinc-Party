@@ -49,8 +49,9 @@ int main() {
     //Tests. � commenter au besoin
     Tests tests;
     //tests.tests_chronometre();
-    tests.tests_fenetrejeu();
-    // tests.tests_autre();
+    //tests.tests_fenetrejeu();
+    //tests.tests_autre();
+    tests.tests_FenetreJeuPiano();
 
     
     return 0;

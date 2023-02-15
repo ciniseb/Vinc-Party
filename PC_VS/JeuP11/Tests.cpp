@@ -126,3 +126,8 @@ void Tests::tests_autre()
         std::cout << std::endl;
     }
 }
+
+void Tests::tests_FenetreJeuPiano()
+{
+    FenetreJeuPiano();
+}
