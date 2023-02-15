@@ -20,14 +20,11 @@ FenetreJeu::FenetreJeu(std::string nom_joueur)
 
     genererCarte();
 
-    mini_jeux; //TODO : Charger les mini-jeux.
-
+    //mini_jeux; //TODO : Charger les mini-jeux.
     joueur = Acteur{nom_joueur, Coordonnee{19, 19}};
 
     Coordonnee pos_adversaire{19, 20};//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{"BOB", pos_adversaire};
-
-    temps.demarrer();
 }
 FenetreJeu::~FenetreJeu() {}
 
@@ -40,10 +37,10 @@ Tuile FenetreJeu::getTuile(Coordonnee coord)
 {
     return carte[coord.Y][coord.X];
 }
-std::vector<Fenetre> FenetreJeu::getMiniJeux()
+/*std::vector<Fenetre> FenetreJeu::getMiniJeux()
 {
     return mini_jeux;
-}
+}*/
 Acteur FenetreJeu::getJoueur()
 {
     return joueur;
@@ -56,6 +53,10 @@ Chronometre FenetreJeu::getTemps()
 {
     return temps;
 }
+Pointage FenetreJeu::getPointage()
+{
+    return pointage;
+}
 
 void FenetreJeu::setNiveau(Niveau n)
 {
@@ -65,10 +66,10 @@ void FenetreJeu::setTuile(Coordonnee coord, Tuile tuile)
 {
     carte[coord.Y][coord.X] = tuile;
 }
-void FenetreJeu::setMiniJeux(std::vector<Fenetre> mjx)
+/*void FenetreJeu::setMiniJeux(std::vector<Fenetre> mjx)
 {
     mini_jeux = mjx;
-}
+}*/
 void FenetreJeu::setJoueur(Acteur j)
 {
     joueur = j;
@@ -127,8 +128,6 @@ bool FenetreJeu::chargerGabaritCarte(int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE]
     std::cout << "Fichier introuvable..." << std::endl;
     return false;
 }
-
-
 
 std::vector<bool> variablesAleatoires(int nb_total, int nb_variables)
 {
@@ -208,12 +207,41 @@ bool FenetreJeu::genererCarte()
     return true;
 }
 
+void FenetreJeu::ouvrir()
+{
+    //std::cout << "FENETRE DE JEU OUVERTE" << std::endl;
+    jouer();
+}
+void FenetreJeu::jouer()
+{
+    genererCarte();
+    temps.demarrer();
+
+    system("cls");
+    affichage_DEBUG(std::cout);
+    while (true)
+    {
+        //threadArduino.evenementDisponible();
+        affichage_DEBUG(std::cout);
+        //std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+
+    pointage = Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m());
+}
+
 void FenetreJeu::affichage_DEBUG(std::ostream &flux)
 {
     int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
     int nb_p_variables = 0;
     int nb_mj_variables = 0;
     chargerGabaritCarte(c_gabarit, &nb_p_variables, &nb_mj_variables);
+
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
+    //system("cls");
+
+    std::cout << "--------------------------------------------------------------------------------" << std::endl;
+    std::cout << "      | " << joueur.nom << std::endl;
+    std::cout << "--------------------------------------------------------------------------------" << std::endl;
 
     for (int r = 0; r < HAUTEUR_CARTE; r++)
     {

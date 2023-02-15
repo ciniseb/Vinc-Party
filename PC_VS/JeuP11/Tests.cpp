@@ -63,6 +63,7 @@ void Tests::tests_chronometre()
 
 void Tests::tests_fenetrejeu()
 {
+    ES thread;
     FenetreJeu partie("Ciniseb");
 
     /*int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
@@ -90,6 +91,7 @@ void Tests::tests_fenetrejeu()
 
     for (int i = 0 ; i < 6 ; i++)
     {
+
         niveau.niveauSuivant();
         partie.setNiveau(niveau);
         std::cout << niveau.getNumero() << std::endl;
@@ -98,7 +100,6 @@ void Tests::tests_fenetrejeu()
         std::cout << std::endl << std::endl;
     }
 }
-
 
 void assignerTableau(int t[3][3])
 {
