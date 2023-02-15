@@ -11,8 +11,6 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "FenetreMenu.h"
-#define HAUT '1'
-#define BAS '0'
 
 //Constructeurs & destructeurs
 FenetreMenu::FenetreMenu()
@@ -37,33 +35,55 @@ FenetreMenu::~FenetreMenu()
 //Méthodes
 void FenetreMenu::ouvrir()
 {
-    //threadArduino.exec();
-
-    char reponse;
+    int reponse = -1;
     int selection = 0;
+
+    affichage_DEBUG(selection);
     while(true)
     {
-        affichage_DEBUG(selection);
-        reponse = _getch();//TODO avec thread
-        //std::cout << reponse << std::endl;
-        if (reponse == VK_RETURN && 2 >= selection && selection >= 0)
+        if(threadArduino.evenementDisponible())
         {
-            fenetres[selection]->ouvrir();
-            //f0->ouvrir();
-        }
-        else if (reponse == VK_RETURN && selection == 3)
-        {
-            return;
-        }
-        else
-        {
-            if(reponse == HAUT && (selection > 0 ))
+            reponse = threadArduino.prochainEvenement().arg1;
+
+            if (reponse == ENTER && 2 >= selection && selection >= 0)
             {
-                selection--;
+                if (selection == 0)
+                {
+                    std::cin.clear();
+                    std::cin.ignore(10000, '\n');
+
+                    system("cls");
+                    affichage_DEBUG(selection);
+
+                    std::string nom_joueur;
+                    std::cout << "Nom du joueur : ";
+                    getline(std::cin, nom_joueur);
+                    std::cout << std::endl;
+                    fenetres[selection] = new FenetreJeu(nom_joueur);
+                }
+                fenetres[selection]->ouvrir();
+                system("cls");
+                if (selection == 0)
+                {
+                    //TOTO getPointage et etc.
+                }
             }
-            else if(reponse == BAS && selection < 3)
+            else if (reponse == ENTER && selection == 3)
             {
-                selection++;
+                exit(1);
+            }
+            else
+            {
+                if (reponse == HAUT && (selection > 0))
+                {
+                    selection--;
+                    affichage_DEBUG(selection);
+                }
+                else if (reponse == BAS && selection < 3)
+                {
+                    selection++;
+                    affichage_DEBUG(selection);
+                }
             }
         }
     }

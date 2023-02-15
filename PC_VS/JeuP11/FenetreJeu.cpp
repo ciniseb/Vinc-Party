@@ -25,8 +25,6 @@ FenetreJeu::FenetreJeu(std::string nom_joueur)
 
     Coordonnee pos_adversaire{19, 20};//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{"BOB", pos_adversaire};
-
-    temps.demarrer();
 }
 FenetreJeu::~FenetreJeu() {}
 
@@ -54,6 +52,10 @@ Acteur FenetreJeu::getAdversaire()
 Chronometre FenetreJeu::getTemps()
 {
     return temps;
+}
+Pointage FenetreJeu::getPointage()
+{
+    return pointage;
 }
 
 void FenetreJeu::setNiveau(Niveau n)
@@ -207,15 +209,24 @@ bool FenetreJeu::genererCarte()
 
 void FenetreJeu::ouvrir()
 {
-    std::cout << "FENETRE DE JEU OUVERTE" << std::endl;
+    //std::cout << "FENETRE DE JEU OUVERTE" << std::endl;
+    jouer();
 }
 void FenetreJeu::jouer()
 {
-    /*while (true)
+    genererCarte();
+    temps.demarrer();
+
+    system("cls");
+    affichage_DEBUG(std::cout);
+    while (true)
     {
-        //threadArduino.getProchainEvent();
+        //threadArduino.evenementDisponible();
         affichage_DEBUG(std::cout);
-    }*/
+        //std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+
+    pointage = Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m());
 }
 
 void FenetreJeu::affichage_DEBUG(std::ostream &flux)
@@ -224,6 +235,13 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     int nb_p_variables = 0;
     int nb_mj_variables = 0;
     chargerGabaritCarte(c_gabarit, &nb_p_variables, &nb_mj_variables);
+
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
+    //system("cls");
+
+    std::cout << "--------------------------------------------------------------------------------" << std::endl;
+    std::cout << "      | " << joueur.nom << std::endl;
+    std::cout << "--------------------------------------------------------------------------------" << std::endl;
 
     for (int r = 0; r < HAUTEUR_CARTE; r++)
     {

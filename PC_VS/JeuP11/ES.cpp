@@ -11,27 +11,24 @@ using json = nlohmann::json;
 
 #define MODE_CLAVIER true
 
-ES::ES() {
+ES::ES()
+{
 	
-	// Initialisation du port de communication
-	//cout << "Entrer le port de communication du Arduino: ";
-	//cin >> com;
-#
+    // Initialisation du port de communication
+    //cout << "Entrer le port de communication du Arduino: ";
+    //cin >> com;
+    #
 
-#if MODE_CLAVIER
+    #if MODE_CLAVIER
 
-#else
+    #else
     com = "COM3";
     arduino = new SerialPort(com.c_str(), BAUD);
     if (!arduino->isConnected()) {
         std::cerr << "Impossible de se connecter au port " << std::string(com) << ". Fermeture du programme!" << std:endl;
         exit(1);
     }
-#endif // MODE_CLAVIER
-
-
-
-	
+    #endif // MODE_CLAVIER
 
     es_thread = new std::thread([this] { exec(); });
 }
@@ -70,6 +67,12 @@ void ES::exec() {
             ajouterAuQueue({ JOYSTICK,tempD ? DROITE : ARRET });
         }
         D = tempD;
+
+        bool tempENTER = (GetKeyState(VK_RETURN) & 0x8000);
+        if (E != tempENTER) {
+            ajouterAuQueue({ JOYSTICK,tempENTER ? ENTER : ARRET });
+        }
+        E = tempENTER;
 
     }
 

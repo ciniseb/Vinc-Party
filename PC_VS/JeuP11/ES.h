@@ -20,6 +20,7 @@ using json = nlohmann::json;
 #define GAUCHE 3
 #define DROITE 4
 #define ARRET 0
+#define ENTER 5
 
 struct Evenement
 {
@@ -35,15 +36,15 @@ private:
     std::string raw_msg;
     std::string com;
     SerialPort* arduino;
-    queue<Evenement> evenementRecu;
+    std::queue<Evenement> evenementRecu;
 
     json j_msg_send, j_msg_rcv;
     bool SendToSerial(SerialPort* arduino, json j_msg);
-    bool RcvFromSerial(SerialPort* arduino, string& msg);
+    bool RcvFromSerial(SerialPort* arduino, std::string& msg);
     void decoderEvenement(json data);
     void ajouterAuQueue(struct Evenement evenement);
     
-    mutex lockQueue;
+    std::mutex lockQueue;
 
 
 
@@ -53,6 +54,7 @@ private:
     bool A = 0;
     bool S = 0;
     bool D = 0;
+    bool E = 0;
     
 public:
     ES();

@@ -14,6 +14,7 @@ Description:
 #define FENETRETESTS_H
 
 #include <iostream>
+#include "ES.h"
 #include "Fenetre.h"
 
 class FenetreTests : public Fenetre

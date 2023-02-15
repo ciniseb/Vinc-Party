@@ -18,6 +18,7 @@
 /*----------------------------- Fonction "Main" -----------------------------*/
 int main()
 {
+    //ES threadArduino;
     FenetreMenu menu;
 
     menu.ouvrir();
@@ -27,32 +28,32 @@ int main()
     //tests.tests_chronometre();
     //tests.tests_fenetrejeu();
     // tests.tests_autre();
-    ES es;
+    /*ES es;
      while (true) {
          if (es.evenementDisponible()) {
              Evenement e = es.prochainEvenement();
              switch (e.arg1)
              {
-             case HAUT: cout << "HAUT" << endl;
+             case HAUT: std::cout << "HAUT" << std::endl;
                  break;
 
-             case BAS: cout << "BAS" << endl;
+             case BAS: std::cout << "BAS" << std::endl;
                  break;
 
-             case GAUCHE: cout << "GAUCHE" << endl;
+             case GAUCHE: std::cout << "GAUCHE" << std::endl;
                  break;
 
-             case DROITE: cout << "DROITE" << endl;
+             case DROITE: std::cout << "DROITE" << std::endl;
                  break;
 
-             case ARRET: cout << "ARRET" << endl;
+             case ARRET: std::cout << "ARRET" << std::endl;
                  break;
              default:
                  break;
              }
          }
 
-    }
+    }*/
     return 0;
 }
 

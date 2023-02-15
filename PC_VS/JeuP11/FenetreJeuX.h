@@ -14,6 +14,7 @@ Description: FenetreJeuX est un nom temporaire pour expliquer la Classe de la fe
 #define FENETREJEUX_H
 
 #include <iostream>
+#include "ES.h"
 #include "MiniJeu.h"
 #include "Fenetre.h"
 

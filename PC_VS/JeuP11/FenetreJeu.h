@@ -20,17 +20,21 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include <sstream>
 #include <algorithm>
 #include <random>
+#include "ES.h"
 #include "CONSTANTES.h"
 #include "Fenetre.h"
 #include "Niveau.h"
 #include "Tuile.h"
 #include "Acteur.h"
 #include "Chronometre.h"
+#include "Pointage.h"
 
 class FenetreJeu : public Fenetre
 {
 private:
     //Attributs
+    ES threadArduino;
+
     Niveau niveau;
 
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
@@ -40,6 +44,8 @@ private:
     Acteur adversaire;
 
     Chronometre temps;
+
+    Pointage pointage;
 
     //Méthodes
 
@@ -56,6 +62,7 @@ public:
     Acteur getJoueur();
     Acteur getAdversaire();
     Chronometre getTemps();
+    Pointage getPointage();
 
     void setNiveau(Niveau);
     void setTuile(Coordonnee, Tuile);

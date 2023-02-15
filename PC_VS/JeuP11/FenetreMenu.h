@@ -26,9 +26,8 @@ class FenetreMenu : public Fenetre
 {
 private:
     //Attributs
-    //ES threadArduino;
+    ES threadArduino;
     Fenetre *fenetres[3];
-    //Fenetre *f0;
 
 public:
     //Constructeurs & destructeurs
