@@ -12,6 +12,25 @@ using namespace std;
 
 #define MODE_CLAVIER false
 
+
+
+
+struct donnesArduinoVersPC {
+    byte btn_1;
+    byte btn_2;
+    byte btn_3;
+    byte btn_4;
+
+    uint16_t joy_HB;
+    uint16_t joy_GD;
+
+};
+
+struct donnesPCVersArduino {
+
+
+};
+
 ES::ES() {
 	
 	// Initialisation du port de communication
@@ -77,7 +96,7 @@ void ES::exec() {
 #else
     // Boucle pour tester la communication bidirectionnelle Arduino-PC
     cout << "Thread E/S OK" << endl;
-    while (true) {
+    /*while (true) {
         // Envoie message Arduino
         if (!SendToSerial(arduino, j_msg_send)) {
             cerr << "Erreur lors de l'envoie du message. " << endl;
@@ -103,12 +122,19 @@ void ES::exec() {
 
         }
 
-        //Changement de l'etat led
+        
 
         // Bloquer le fil pour environ 1 sec
         Sleep(200); // 1000ms
 
+    }*/
+
+    while (true) {
+        arduino->readSerialPort()
     }
+
+
+
 #endif // MODE_CLAVIER
 
 }

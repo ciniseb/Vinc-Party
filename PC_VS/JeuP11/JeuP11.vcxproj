@@ -139,8 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Accel.cpp" />
+    <ClCompile Include="Bouton.cpp" />
     <ClCompile Include="Chronometre.cpp" />
     <ClCompile Include="ES.cpp" />
+    <ClCompile Include="Evenement.cpp" />
     <ClCompile Include="Fenetre.cpp" />
     <ClCompile Include="FenetreJeu.cpp" />
     <ClCompile Include="FenetreJeuX.cpp" />
@@ -149,6 +152,7 @@
     <ClCompile Include="FenetreTests.cpp" />
     <ClCompile Include="include\serial\SerialPort.cpp" />
     <ClCompile Include="JeuP11.cpp" />
+    <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="MiniJeu.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Pointage.cpp" />
@@ -156,11 +160,14 @@
     <ClCompile Include="Tuile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Accel.h" />
     <ClInclude Include="Acteur.h" />
+    <ClInclude Include="Bouton.h" />
     <ClInclude Include="Chronometre.h" />
     <ClInclude Include="CONSTANTES.h" />
     <ClInclude Include="Coordonnee.h" />
     <ClInclude Include="ES.h" />
+    <ClInclude Include="Evenement.h" />
     <ClInclude Include="Fenetre.h" />
     <ClInclude Include="FenetreJeu.h" />
     <ClInclude Include="FenetreJeuX.h" />
@@ -170,6 +177,7 @@
     <ClInclude Include="GABARIT_CLASS.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\serial\SerialPort.hpp" />
+    <ClInclude Include="Joystick.h" />
     <ClInclude Include="MiniJeu.h" />
     <ClInclude Include="Niveau.h" />
     <ClInclude Include="Pointage.h" />
