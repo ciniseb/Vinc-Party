@@ -10,18 +10,30 @@
 /*------------------------------ Librairies ---------------------------------*/
 #include <iostream>
 #include <string>
+using namespace std;
 /*-------------------------- Librairies externes ----------------------------*/
 #include "FenetreMenu.h"
 #include "Tests.h"
+#include "FenetreJeuPiano.h"
+#include <conio.h>
+#include <cstdlib>
 /*---------------------------- Variables globales ---------------------------*/
 
 /*----------------------------- Fonction "Main" -----------------------------*/
 int main()
 {
     //ES threadArduino;
-    FenetreMenu menu;
+    //FenetreMenu menu;
 
-    menu.ouvrir();
+    //menu.ouvrir();
+        FenetreJeuPiano* fenetreJeuPiano = new FenetreJeuPiano();
+    while (true) {
+        if (_kbhit())
+        {
+            fenetreJeuPiano->VersBoutonPressee(_getch());
+        }
+    }
+
 
     //Tests. � commenter au besoin
     //Tests tests;

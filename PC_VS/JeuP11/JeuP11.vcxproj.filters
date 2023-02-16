@@ -36,7 +36,7 @@
     <ClCompile Include="FenetreJeu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetreJeuX.cpp">
+    <ClCompile Include="FenetreJeuPiano.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FenetreMenu.cpp">
@@ -98,7 +98,7 @@
     <ClInclude Include="FenetreJeu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreJeuX.h">
+    <ClInclude Include="FenetreJeuPiano.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ES.h">
