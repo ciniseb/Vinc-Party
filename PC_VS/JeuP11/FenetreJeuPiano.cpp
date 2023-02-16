@@ -37,7 +37,7 @@ bool FenetreJeuPiano::VersBoutonPressee(char c)
     switch (c)
     {
     case'a': std::cout << "a marche" << std::endl;
-        if (c == this->chanson[this->index])
+        if (c == chanson[index])
         { 
             std::cout << "Pareille!" << std::endl;
             index++;
@@ -51,7 +51,7 @@ bool FenetreJeuPiano::VersBoutonPressee(char c)
         }
         break;
     case's': std::cout << "s marche" << std::endl;
-        if (c == this->chanson[this->index])
+        if (c == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
             index++;
@@ -65,7 +65,7 @@ bool FenetreJeuPiano::VersBoutonPressee(char c)
         }
         break;
     case'd': std::cout << "d marche" << std::endl;
-        if (c == this->chanson[this->index])
+        if (c == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
             index++;
@@ -79,7 +79,7 @@ bool FenetreJeuPiano::VersBoutonPressee(char c)
         }
         break;
     case'f': std::cout << "f marche" << std::endl;
-        if (c == this->chanson[this->index])
+        if (c == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
             index++;
