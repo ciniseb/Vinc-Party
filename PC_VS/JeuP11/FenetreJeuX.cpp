@@ -25,5 +25,9 @@ FenetreJeuX::~FenetreJeuX() {}
 //Méthodes
 void FenetreJeuX::ouvrir()
 {
+    std::cout << "FENETRE MINI JEU OUVERTE" << std::endl;
+    while (true)
+    {
 
+    }
 }

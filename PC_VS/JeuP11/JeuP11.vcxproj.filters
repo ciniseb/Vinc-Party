@@ -48,7 +48,7 @@
     <ClCompile Include="FenetreTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MiniJeu.cpp">
+    <ClCompile Include="FenetreMiniJeu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Niveau.cpp">
@@ -74,7 +74,7 @@
     <ClInclude Include="GABARIT_CLASS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MiniJeu.h">
+    <ClInclude Include="FenetreMiniJeu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Niveau.h">

@@ -15,10 +15,9 @@ Description: FenetreJeuX est un nom temporaire pour expliquer la Classe de la fe
 
 #include <iostream>
 #include "ES.h"
-#include "MiniJeu.h"
-#include "Fenetre.h"
+#include "FenetreMiniJeu.h"
 
-class FenetreJeuX : public MiniJeu, public Fenetre
+class FenetreJeuX : public FenetreMiniJeu
 {
 private:
     //Attributs

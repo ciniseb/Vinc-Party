@@ -20,5 +20,10 @@ Description: Constantes utiles à la compréhension du programme
 #define PLEIN_VARIABLE -2
 #define MINI_JEU_VARIABLE 2
 
+#define NB_MINI_JEUX 1
+
+#define DT_DEPLACEMENT_JOUEUR 333 //Milisecondes
+#define DT_DEPLACEMENT_ADVERSAIRE 250 //Milisecondes
+
 //ERREURS
 //...
