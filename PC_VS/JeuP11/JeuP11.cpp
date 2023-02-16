@@ -22,17 +22,12 @@ using namespace std;
 /*----------------------------- Fonction "Main" -----------------------------*/
 int main()
 {
-    //ES threadArduino;
-    //FenetreMenu menu;
+    ES threadArduino;
+    FenetreMenu menu(&threadArduino);
 
-    //menu.ouvrir();
-        FenetreJeuPiano* fenetreJeuPiano = new FenetreJeuPiano();
-    while (true) {
-        if (_kbhit())
-        {
-            fenetreJeuPiano->VersBoutonPressee(_getch());
-        }
-    }
+    menu.ouvrir();
+    //FenetreMiniJeu *fenetreJeuPiano = new FenetreJeuPiano();
+    //fenetreJeuPiano->ouvrir();
 
 
     //Tests. � commenter au besoin

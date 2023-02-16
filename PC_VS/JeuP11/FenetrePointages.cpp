@@ -13,7 +13,7 @@ Description:
 #include "FenetrePointages.h"
 
 //Constructeurs & destructeurs
-FenetrePointages::FenetrePointages()
+FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread)
 {
 
 }

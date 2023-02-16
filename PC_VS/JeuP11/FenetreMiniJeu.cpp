@@ -13,7 +13,7 @@ Description:
 #include "FenetreMiniJeu.h"
 
 //Constructeurs & destructeurs
-FenetreMiniJeu::FenetreMiniJeu()
+FenetreMiniJeu::FenetreMiniJeu(ES *thread) : Fenetre(thread)
 {
 
 }

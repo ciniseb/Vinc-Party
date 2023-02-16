@@ -25,7 +25,7 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    FenetreTests();
+    FenetreTests(ES *);
     ~FenetreTests();
 
     //Getteurs & setteurs

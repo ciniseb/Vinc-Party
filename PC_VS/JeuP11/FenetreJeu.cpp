@@ -14,16 +14,14 @@ Description:
 
 //Constructeurs & destructeurs
 FenetreJeu::FenetreJeu() {}
-FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread)
+FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
 {
-    threadArduino = thread;
-
     niveau.niveauSuivant();
 
     genererCarte();
     
     //TODO : Charger les mini-jeux.
-    mini_jeux[0] = new FenetreJeuX();
+    mini_jeux[0] = new FenetreJeuPiano(thread);
     //mini_jeux[1] = ...
     //mini_jeux[2] = ...
 

@@ -27,7 +27,7 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    FenetrePointages();
+    FenetrePointages(ES *);
     ~FenetrePointages();
 
     //Getteurs & setteurs

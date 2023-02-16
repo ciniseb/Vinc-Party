@@ -46,7 +46,7 @@ void ES::exec() {
 
         bool tempW = (GetKeyState('W') & 0x8000);
         if (W != tempW) {
-            ajouterAuQueue({ JOYSTICK,tempW ? HAUT:ARRET });
+            ajouterAuQueue({ JOYSTICK,tempW ? HAUT : ARRET });
         }
         W = tempW;
 
@@ -68,11 +68,17 @@ void ES::exec() {
         }
         D = tempD;
 
+        bool tempF = (GetKeyState('F') & 0x8000);
+        if (F != tempF) {
+            ajouterAuQueue({ JOYSTICK,tempF ? TOUCHE_4 : ARRET });
+        }
+        F = tempF;
+
         bool tempENTER = (GetKeyState(VK_RETURN) & 0x8000);
-        if (E != tempENTER) {
+        if (Enter != tempENTER) {
             ajouterAuQueue({ JOYSTICK,tempENTER ? ENTER : ARRET });
         }
-        E = tempENTER;
+        Enter = tempENTER;
 
     }
 

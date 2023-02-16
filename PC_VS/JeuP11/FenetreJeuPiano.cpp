@@ -1,5 +1,5 @@
 /*====================================================================================================
-Fichier: FenetreJeuX.cpp
+Fichier: FenetreJeuPiano.cpp
 Auteurs: Antoine Allard
          Charles Beaulieu
          Émile Bois
@@ -13,31 +13,32 @@ Description:
 #include "FenetreJeuPiano.h"
 
 //Constructeurs & destructeurs
-FenetreJeuPiano::FenetreJeuPiano(){
-    chanson[0] = 'a';
-    chanson[1] = 'a';
-    chanson[2] = 'd';
-    chanson[3] = 's';
-    chanson[4] = 'f';
-    chanson[5] = 'f';
-    chanson[6] = 'd';
-    chanson[7] = 'd';
-    chanson[8] = 's';
-    chanson[9] = 'f';
-    chanson[10] = 'a';
-    chanson[11] = 'd';
-    chanson[12] = 's';
+FenetreJeuPiano::FenetreJeuPiano(ES *thread) : FenetreMiniJeu(thread)
+{
+    chanson[0] = TOUCHE_1;
+    chanson[1] = TOUCHE_1;
+    chanson[2] = TOUCHE_3;
+    chanson[3] = TOUCHE_2;
+    chanson[4] = TOUCHE_4;
+    chanson[5] = TOUCHE_4;
+    chanson[6] = TOUCHE_3;
+    chanson[7] = TOUCHE_3;
+    chanson[8] = TOUCHE_2;
+    chanson[9] = TOUCHE_4;
+    chanson[10] = TOUCHE_1;
+    chanson[11] = TOUCHE_3;
+    chanson[12] = TOUCHE_2;
 
 }
 FenetreJeuPiano::~FenetreJeuPiano() {}
 
 //Getteurs & setteurs
-bool FenetreJeuPiano::VersBoutonPressee(char c)
+bool FenetreJeuPiano::VersBoutonPressee(int touche)
 {
-    switch (c)
+    switch (touche)
     {
-    case'a': std::cout << "a marche" << std::endl;
-        if (c == chanson[index])
+    case TOUCHE_1: std::cout << "a marche" << std::endl;
+        if (touche == chanson[index])
         { 
             std::cout << "Pareille!" << std::endl;
             index++;
@@ -50,8 +51,8 @@ bool FenetreJeuPiano::VersBoutonPressee(char c)
             return 0;
         }
         break;
-    case's': std::cout << "s marche" << std::endl;
-        if (c == chanson[index])
+    case TOUCHE_2: std::cout << "s marche" << std::endl;
+        if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
             index++;
@@ -64,8 +65,8 @@ bool FenetreJeuPiano::VersBoutonPressee(char c)
             return 0;
         }
         break;
-    case'd': std::cout << "d marche" << std::endl;
-        if (c == chanson[index])
+    case TOUCHE_3: std::cout << "d marche" << std::endl;
+        if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
             index++;
@@ -78,8 +79,8 @@ bool FenetreJeuPiano::VersBoutonPressee(char c)
             return 0;
         }
         break;
-    case'f': std::cout << "f marche" << std::endl;
-        if (c == chanson[index])
+    case TOUCHE_4: std::cout << "f marche" << std::endl;
+        if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
             index++;
@@ -99,17 +100,16 @@ bool FenetreJeuPiano::VersBoutonPressee(char c)
 //Méthodes
 void FenetreJeuPiano::ouvrir()
 {
-    chanson[1] = 'a';
-    chanson[2] = 'd';
-    chanson[3] = 's';
-    chanson[4] = 'f';
-    chanson[5] = 'f';
-    chanson[6] = 'd';
-    chanson[7] = 'd';
-    chanson[8] = 's';
-    chanson[9] = 'f';
-    chanson[10] = 'a';
-    chanson[11] = 'd';
-    chanson[12] = 's';
+    std::cout << "FENETRE MINI JEU OUVERTE" << std::endl;
+    int reponse = ARRET;
 
+    while (true)
+    {
+        if (threadArduino->evenementDisponible())
+        {
+            reponse = threadArduino->prochainEvenement().arg1;
+        }
+        VersBoutonPressee(reponse);
+        reponse = ARRET;
+    }
 }

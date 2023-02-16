@@ -15,6 +15,7 @@ Description: Mini-jeu de piano style Piano tiles
 
 #include <iostream>
 #include <chrono>
+#include <conio.h>
 #include "ES.h"
 #include "FenetreMiniJeu.h"
 
@@ -22,17 +23,17 @@ class FenetreJeuPiano : public FenetreMiniJeu
 {
 private:
     //Attribut
-    char chanson[200];
+    int chanson[200];
     int index = 0;
     
 
 public:
     //Constructeurs & destructeurs
-    FenetreJeuPiano();
+    FenetreJeuPiano(ES *);
     ~FenetreJeuPiano();
 
     //Getteurs & setteurs
-    bool VersBoutonPressee(char c);
+    bool VersBoutonPressee(int);
 
     //Méthodes
     void ouvrir();

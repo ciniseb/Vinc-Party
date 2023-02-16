@@ -18,13 +18,13 @@ Description: Classe abstraite pour chaque classe d'un mini-jeu spécifique
 
 class FenetreMiniJeu : public Fenetre
 {
-private:
+protected:
     //Attributs
     
 
 public:
     //Constructeurs & destructeurs
-    FenetreMiniJeu();
+    FenetreMiniJeu(ES *);
     ~FenetreMiniJeu();
 
     //Getteurs & setteurs

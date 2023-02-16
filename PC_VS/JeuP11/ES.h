@@ -20,7 +20,13 @@ using json = nlohmann::json;
 #define GAUCHE 3
 #define DROITE 4
 #define ARRET 0
-#define ENTER 5
+#define ENTER 32
+
+#define TOUCHE_1 3
+#define TOUCHE_2 2
+#define TOUCHE_3 4
+#define TOUCHE_4 5
+
 
 struct Evenement
 {
@@ -54,7 +60,8 @@ private:
     bool A = 0;
     bool S = 0;
     bool D = 0;
-    bool E = 0;
+    bool F = 0;
+    bool Enter = 0;
     
 public:
     ES();

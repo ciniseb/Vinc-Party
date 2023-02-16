@@ -29,14 +29,12 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Acteur.h"
 #include "Chronometre.h"
 #include "Pointage.h"
-#include "FenetreJeuX.h"
+#include "FenetreJeuPiano.h"
 
 class FenetreJeu : public Fenetre
 {
 private:
     //Attributs
-    ES *threadArduino;
-
     Niveau niveau;
 
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];

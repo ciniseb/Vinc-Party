@@ -13,12 +13,11 @@ Description:
 #include "FenetreMenu.h"
 
 //Constructeurs & destructeurs
-FenetreMenu::FenetreMenu()
+FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 {
-    //TODO threadArduino
     fenetres[0] = new FenetreJeu();
-    fenetres[1] = new FenetrePointages();
-    fenetres[2] = new FenetreTests();
+    fenetres[1] = new FenetrePointages(thread);
+    fenetres[2] = new FenetreTests(thread);
     //f0 = new FenetreJeu();
 }
 FenetreMenu::~FenetreMenu()
@@ -41,9 +40,9 @@ void FenetreMenu::ouvrir()
     affichage_DEBUG(selection);
     while(true)
     {
-        if(threadArduino.evenementDisponible())
+        if(threadArduino->evenementDisponible())
         {
-            reponse = threadArduino.prochainEvenement().arg1;
+            reponse = threadArduino->prochainEvenement().arg1;
 
             if (reponse == ENTER && 2 >= selection && selection >= 0)
             {
@@ -59,7 +58,7 @@ void FenetreMenu::ouvrir()
                     std::cout << "Nom du joueur : ";
                     getline(std::cin, nom_joueur);
                     std::cout << std::endl;
-                    fenetres[selection] = new FenetreJeu(nom_joueur, &threadArduino);
+                    fenetres[selection] = new FenetreJeu(nom_joueur, threadArduino);
                 }
                 fenetres[selection]->ouvrir();
                 system("cls");
@@ -74,12 +73,12 @@ void FenetreMenu::ouvrir()
             }
             else
             {
-                if (reponse == HAUT && (selection > 0))
+                if (reponse == TOUCHE_4 && (selection > 0))
                 {
                     selection--;
                     affichage_DEBUG(selection);
                 }
-                else if (reponse == BAS && selection < 3)
+                else if (reponse == TOUCHE_2 && selection < 3)
                 {
                     selection++;
                     affichage_DEBUG(selection);
