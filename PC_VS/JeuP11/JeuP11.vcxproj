@@ -177,6 +177,7 @@
     <ClInclude Include="Tuile.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="chanson_1.csv" />
     <None Include="c_gabarit_20_40.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -15,9 +15,33 @@ Description:
 //Constructeurs & destructeurs
 FenetreJeuPiano::FenetreJeuPiano() // Main du jeu
 {
-    
+    chargerChanson(matrice);
 }
 FenetreJeuPiano::~FenetreJeuPiano() {}
+
+bool FenetreJeuPiano::chargerChanson(bool matrice[40][4])
+{
+    std::ifstream fichier;
+
+    fichier.open("chanson_1.csv");
+
+    if (fichier.is_open())
+    {
+        std::string ligne;
+
+        for (int r = 0; getline(fichier, ligne) && r < 40; r++)
+        {
+            std::istringstream flux(ligne);
+            std::string nombre;
+            for (int c = 0; getline(flux, nombre, ';') && c < 4; c++)
+            {
+                matrice[r][c] = stoi(nombre);
+            }
+        }
+    }
+    fichier.close();
+    return true;
+}
 
 void FenetreJeuPiano::ouvrir()
 {

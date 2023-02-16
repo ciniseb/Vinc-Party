@@ -124,5 +124,8 @@
     <None Include="c_gabarit_20_40.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="chanson_1.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
