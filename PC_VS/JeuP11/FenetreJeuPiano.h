@@ -1,5 +1,5 @@
 /*====================================================================================================
-Fichier: FenetreJeuX.h
+Fichier: FenetreJeuPiano.h
 Auteurs: Antoine Allard
          Charles Beaulieu
          Émile Bois
@@ -8,7 +8,7 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 05 février 2023
-Description: FenetreJeuX est un nom temporaire pour expliquer la Classe de la fenêtre d'un mini-jeu
+Description: Mini-jeu de piano style Piano tiles
 ====================================================================================================*/
 #ifndef FENETREJEUPIANO_H
 #define FENETREJEUPIANO_H
@@ -16,13 +16,9 @@ Description: FenetreJeuX est un nom temporaire pour expliquer la Classe de la fe
 #include <iostream>
 #include <chrono>
 #include "ES.h"
-#include "MiniJeu.h"
-#include "Fenetre.h"
-//using namespace std::chrono;
-//milliseconds mil(1000);
+#include "FenetreMiniJeu.h"
 
-
-class FenetreJeuPiano : public MiniJeu, public Fenetre
+class FenetreJeuPiano : public FenetreMiniJeu
 {
 private:
     //Attribut

@@ -64,7 +64,7 @@ void Tests::tests_chronometre()
 void Tests::tests_fenetrejeu()
 {
     ES thread;
-    FenetreJeu partie("Ciniseb");
+    FenetreJeu partie("Ciniseb", &thread);
 
     /*int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
     int nb_p_variables = 0;

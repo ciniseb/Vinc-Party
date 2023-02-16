@@ -59,7 +59,7 @@ void FenetreMenu::ouvrir()
                     std::cout << "Nom du joueur : ";
                     getline(std::cin, nom_joueur);
                     std::cout << std::endl;
-                    fenetres[selection] = new FenetreJeu(nom_joueur);
+                    fenetres[selection] = new FenetreJeu(nom_joueur, &threadArduino);
                 }
                 fenetres[selection]->ouvrir();
                 system("cls");

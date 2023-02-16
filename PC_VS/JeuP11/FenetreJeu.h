@@ -23,22 +23,24 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "ES.h"
 #include "CONSTANTES.h"
 #include "Fenetre.h"
+#include "FenetreMiniJeu.h"
 #include "Niveau.h"
 #include "Tuile.h"
 #include "Acteur.h"
 #include "Chronometre.h"
 #include "Pointage.h"
+#include "FenetreJeuX.h"
 
 class FenetreJeu : public Fenetre
 {
 private:
     //Attributs
-    ES threadArduino;
+    ES *threadArduino;
 
     Niveau niveau;
 
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
-    //std::vector<Fenetre> mini_jeux;
+    FenetreMiniJeu *mini_jeux[NB_MINI_JEUX];
 
     Acteur joueur;
     Acteur adversaire;
@@ -52,7 +54,7 @@ private:
 public:
     //Constructeurs & destructeurs
     FenetreJeu();
-    FenetreJeu(std::string);
+    FenetreJeu(std::string, ES *);
     ~FenetreJeu();
 
     //Getteurs & setteurs
@@ -74,6 +76,8 @@ public:
     //Méthodes
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
+
+    bool deplacementJoueur(int, double *);
 
     void ouvrir();
     void jouer();

@@ -14,13 +14,19 @@ Description:
 
 //Constructeurs & destructeurs
 FenetreJeu::FenetreJeu() {}
-FenetreJeu::FenetreJeu(std::string nom_joueur)
+FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread)
 {
+    threadArduino = thread;
+
     niveau.niveauSuivant();
 
     genererCarte();
+    
+    //TODO : Charger les mini-jeux.
+    mini_jeux[0] = new FenetreJeuX();
+    //mini_jeux[1] = ...
+    //mini_jeux[2] = ...
 
-    //mini_jeux; //TODO : Charger les mini-jeux.
     joueur = Acteur{nom_joueur, Coordonnee{19, 19}};
 
     Coordonnee pos_adversaire{19, 20};//TODO : générer une position aléatoire dans la map pour l'adversaire
@@ -207,6 +213,41 @@ bool FenetreJeu::genererCarte()
     return true;
 }
 
+bool FenetreJeu::deplacementJoueur(int reponse, double *t_dernier_deplacement_joueur)
+{
+    int NouveauX = joueur.position.X;
+    int NouveauY = joueur.position.Y;
+
+    switch (reponse)
+    {
+    case HAUT:
+        NouveauY--;
+        break;
+    case BAS:
+        NouveauY++;
+        break;
+    case DROITE:
+        NouveauX++;
+        break;
+    case GAUCHE:
+        NouveauX--;
+        break;
+    case ENTER:
+        break;
+    default:
+        break;
+    }
+    double t_ecoule = temps.tempsEcoule_ms();
+    if (((*t_dernier_deplacement_joueur + DT_DEPLACEMENT_JOUEUR) <= t_ecoule) && carte[NouveauY][NouveauX].getRemplissage() != PLEIN && NouveauX < LARGEUR_CARTE && NouveauY < HAUTEUR_CARTE && NouveauX>0 && NouveauY>0)
+    {
+        joueur.position.X = NouveauX;
+        joueur.position.Y = NouveauY;
+        *t_dernier_deplacement_joueur = t_ecoule;
+        return true;
+    }
+    return false;
+}
+
 void FenetreJeu::ouvrir()
 {
     //std::cout << "FENETRE DE JEU OUVERTE" << std::endl;
@@ -214,6 +255,11 @@ void FenetreJeu::ouvrir()
 }
 void FenetreJeu::jouer()
 {
+    double *t_dernier_deplacement_joueur = new double(temps.tempsEcoule_ms());
+    int reponse = ARRET;
+    int mj_actif = 0;
+    //TODO : selection mini-jeu actif random sur nb mini jeux
+
     genererCarte();
     temps.demarrer();
 
@@ -221,12 +267,45 @@ void FenetreJeu::jouer()
     affichage_DEBUG(std::cout);
     while (true)
     {
-        //threadArduino.evenementDisponible();
-        affichage_DEBUG(std::cout);
-        //std::this_thread::sleep_for(std::chrono::seconds(1));
-    }
+        if (threadArduino->evenementDisponible())
+        {
+            reponse = threadArduino->prochainEvenement().arg1;
+        }
 
-    pointage = Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m());
+        if (reponse != ARRET && deplacementJoueur(reponse, t_dernier_deplacement_joueur))
+        {
+            affichage_DEBUG(std::cout);
+        }
+
+        if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)//TODO : case mini jeu
+        {
+            mini_jeux[mj_actif]->ouvrir();
+            if (mini_jeux[mj_actif]->reussi())
+            {
+                //mj_actif = niveau.miniJeuReussi(mj_actif); //TODO
+                if (niveau.niveauFinit())
+                {
+                    if (niveau.niveauSuivant())
+                    {
+                        genererCarte();
+                    }
+                    else
+                    {
+                        pointage = Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m());
+                        return;
+                    }
+                }
+                else
+                {
+                    //TODO : retirer mini jeu
+                }
+            }
+            else
+            {
+                //TODO : bouger le mini jeu
+            }
+        }
+    }
 }
 
 void FenetreJeu::affichage_DEBUG(std::ostream &flux)
@@ -243,13 +322,19 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     std::cout << "      | " << joueur.nom << std::endl;
     std::cout << "--------------------------------------------------------------------------------" << std::endl;
 
+    //TODO : Champ de vision
+
     for (int r = 0; r < HAUTEUR_CARTE; r++)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
+            if (joueur.position.X == c && joueur.position.Y == r)
             {
-                flux << "00";
+                flux << "**";
+            }
+            else if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
+            {
+                flux << "HH";
             }
             else if (carte[r][c].getRemplissage() == PLEIN)
             {
