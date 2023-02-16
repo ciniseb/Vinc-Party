@@ -15,14 +15,26 @@ Description:
 //Constructeurs & destructeurs
 FenetreJeuPiano::FenetreJeuPiano() // Main du jeu
 {
+    
+}
+FenetreJeuPiano::~FenetreJeuPiano() {}
+
+void FenetreJeuPiano::ouvrir()
+{
     //std::cout << "main" << std::endl;
+    for (int i = 0; i < 22; i++)
+    {
+        noteA[i] = ' ';
+        noteS[i] = ' ';
+        noteD[i] = ' ';
+        noteF[i] = ' ';
+    }
     system("cls");
     AffichageEcran(Menu);
     Sleep(5000);
     chrono.demarrer();
     Temps();
 }
-FenetreJeuPiano::~FenetreJeuPiano() {}
 
 bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
 {
@@ -30,12 +42,16 @@ bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
     system("cls");
     double bit;
     double bitCount = 0;
-    while(chrono.tempsEcoule_s() < 40)
+    
+    while(chrono.tempsEcoule_s() < 60)
     {
+        
         bit = bitCount - chrono.tempsEcoule_s();
-        if (bit == 0)
+        
+        if (bit == 0 && bitCount < 40)
         {
             SetNote(bitCount);
+            //std::cout << "Oue oue oue" << std::endl;
             AffichageEcran(Jeu);
             bitCount++;
         }
@@ -45,26 +61,15 @@ bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
 
 void FenetreJeuPiano::SetNote(int t)
 {
-    char valeur;
-    if (t == 0)
+    for (int j = 21; j > 0; j--)
     {
-        for (int i = 0; i < 22; i++)
-        {
-            noteA[i] = ' ';
-            noteS[i] = ' ';
-            noteD[i] = ' ';
-            noteF[i] = ' ';
-        }
+        noteA[j] = noteA[j - 1];
+        noteS[j] = noteS[j - 1];
+        noteD[j] = noteD[j - 1];
+        noteF[j] = noteF[j - 1];
     }
     for (int i = 0; i < 4; i++)
     {
-        for (i = 22; i > 0; i--)
-        {
-            noteA[i] = noteA[i - 1];
-            noteS[i] = noteS[i - 1];
-            noteD[i] = noteD[i - 1];
-            noteF[i] = noteF[i - 1];
-        }
         if (matrice[t][i] == 0)
         {
             switch (i)
@@ -83,7 +88,7 @@ void FenetreJeuPiano::SetNote(int t)
                 break;
             }
         }
-        else 
+        else
         {
             switch (i)
             {
@@ -100,7 +105,7 @@ void FenetreJeuPiano::SetNote(int t)
                 noteF[0] = 'F';
                 break;
             }
-        }  
+        }
     }
 }
 
@@ -108,18 +113,21 @@ void FenetreJeuPiano::AffichageEcran(int mode)
 {
     //std::cout << "Affichage" << std::endl;
     char screen[25][50];
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 1 });
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
     switch (mode)
     {
     case Menu:
         std::cout << "Appuyez sur A,S,D ou F pour commencer" << '\n';
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 24; i++)
         {
+            //std::cout << i << '\n';
             for (int j = 0; j < 50; j++)
             {
-                if (i == 0 || i == 24 || j == 0 || j == 49)
+               
+                if (i == 0 || i == 23 || j == 0 || j == 49)
                 {
+                    
                     screen[i][j] = '#';
                 }
                 else
@@ -130,6 +138,8 @@ void FenetreJeuPiano::AffichageEcran(int mode)
         }
         break;
     case Jeu:
+        std::cout << "Appuyez sur A,S,D ou F au bon moment pour gagner" << '\n';
+        //std::cout << "Affichage Jeu" << std::endl;
         for (int i = 0; i < 24; i++)
         {
             for (int j = 0; j < 50; j++)
@@ -138,10 +148,14 @@ void FenetreJeuPiano::AffichageEcran(int mode)
                 {
                     screen[i][j] = '#';
                 }
+                else if (i == 20 && j != 0 && j != 49)
+                {
+                    screen[i][j] = '=';
+                }
                 else
                 {
                     screen[i][j] = ' ';
-                    if (j == 10 && i<22)
+                    if (j == 10)
                     {
                         screen[i][j] = GetNote(A, i-1);
                     }

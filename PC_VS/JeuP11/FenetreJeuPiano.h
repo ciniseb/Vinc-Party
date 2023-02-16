@@ -58,35 +58,36 @@ private:
                             0, 1, 0, 0,
                             0, 0, 1, 0,
                             0, 0, 0, 1,
-                            0, 0, 1, 0,
-                            0, 1, 0, 0,
-                            1, 0, 0, 0,
-                            0, 1, 0, 0,
-                            0, 0, 1, 0,
-                            0, 0, 0, 1,
-                            0, 0, 1, 0,
-                            0, 1, 0, 0,
-                            1, 0, 0, 0,
-                            0, 1, 0, 0,
-                            0, 0, 1, 0,
-                            0, 0, 0, 1,
-                            0, 0, 1, 0,
-                            0, 0, 0, 0,
-                            0, 0, 0, 0,
-                            0, 0, 0, 0,
-                            0, 0, 0, 0,
-                            0, 0, 0, 0,
                             1, 1, 1, 1,
                             0, 0, 0, 0,
                             0, 0, 0, 0,
                             0, 0, 0, 0,
-                            0, 0, 0, 0, }; 
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0,
+                            0, 0, 0, 0, };
 
     // Methodes
+
     bool Temps(); // Gère le temps et l'appel des methodes
     void AffichageEcran(int mode); // affiche l'ecran et ses valeurs
     char GetNote(int btn, int ligne); // Renvoie les 4 tableaux de note
-    void SetNote(int i); // prend la matrice et change les 4 tableaux de note
+    void SetNote(int t); // prend la matrice et change les 4 tableaux de note
 
 public:
     //Constructeurs & destructeurs
@@ -97,7 +98,7 @@ public:
 
 
     //Méthodes
-    
+    void ouvrir();
 };
 
 #endif

@@ -130,5 +130,6 @@ void Tests::tests_autre()
 
 void Tests::tests_FenetreJeuPiano()
 {
-    FenetreJeuPiano();
+    FenetreJeuPiano piano;
+    piano.ouvrir();
 }

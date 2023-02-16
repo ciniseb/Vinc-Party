@@ -19,12 +19,12 @@
 int main()
 {
     //ES threadArduino;
-    FenetreMenu menu;
+    //FenetreMenu menu;
 
-    menu.ouvrir();
+    //menu.ouvrir();
 
     //Tests. � commenter au besoin
-    //Tests tests;
+    Tests tests;
     //tests.tests_chronometre();
     //tests.tests_fenetrejeu();
     //tests.tests_autre();
