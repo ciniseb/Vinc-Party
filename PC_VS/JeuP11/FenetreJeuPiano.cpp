@@ -37,7 +37,7 @@ bool FenetreJeuPiano::VersBoutonPressee(int touche)
 {
     switch (touche)
     {
-    case TOUCHE_1: std::cout << "a marche" << std::endl;
+    case TOUCHE_1: std::cout << "z marche" << std::endl;
         if (touche == chanson[index])
         { 
             std::cout << "Pareille!" << std::endl;
@@ -51,7 +51,7 @@ bool FenetreJeuPiano::VersBoutonPressee(int touche)
             return 0;
         }
         break;
-    case TOUCHE_2: std::cout << "s marche" << std::endl;
+    case TOUCHE_2: std::cout << "x marche" << std::endl;
         if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
@@ -65,7 +65,7 @@ bool FenetreJeuPiano::VersBoutonPressee(int touche)
             return 0;
         }
         break;
-    case TOUCHE_3: std::cout << "d marche" << std::endl;
+    case TOUCHE_3: std::cout << "c marche" << std::endl;
         if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
@@ -79,7 +79,7 @@ bool FenetreJeuPiano::VersBoutonPressee(int touche)
             return 0;
         }
         break;
-    case TOUCHE_4: std::cout << "f marche" << std::endl;
+    case TOUCHE_4: std::cout << "v marche" << std::endl;
         if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;

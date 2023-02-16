@@ -22,10 +22,10 @@ using json = nlohmann::json;
 #define ARRET 0
 #define ENTER 32
 
-#define TOUCHE_1 3
-#define TOUCHE_2 2
-#define TOUCHE_3 4
-#define TOUCHE_4 5
+#define TOUCHE_1 5
+#define TOUCHE_2 6
+#define TOUCHE_3 7
+#define TOUCHE_4 8
 
 
 struct Evenement
@@ -60,7 +60,10 @@ private:
     bool A = 0;
     bool S = 0;
     bool D = 0;
-    bool F = 0;
+    bool Z = 0;
+    bool X = 0;
+    bool C = 0;
+    bool V = 0;
     bool Enter = 0;
     
 public:

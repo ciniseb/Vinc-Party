@@ -68,11 +68,29 @@ void ES::exec() {
         }
         D = tempD;
 
-        bool tempF = (GetKeyState('F') & 0x8000);
-        if (F != tempF) {
-            ajouterAuQueue({ JOYSTICK,tempF ? TOUCHE_4 : ARRET });
+        bool tempZ = (GetKeyState('Z') & 0x8000);
+        if (Z != tempZ) {
+            ajouterAuQueue({ JOYSTICK,tempZ ? TOUCHE_1 : ARRET });
         }
-        F = tempF;
+        Z = tempZ;
+
+        bool tempX = (GetKeyState('X') & 0x8000);
+        if (X != tempX) {
+            ajouterAuQueue({ JOYSTICK,tempX ? TOUCHE_2 : ARRET });
+        }
+        X = tempX;
+
+        bool tempC = (GetKeyState('C') & 0x8000);
+        if (C != tempC) {
+            ajouterAuQueue({ JOYSTICK,tempC ? TOUCHE_3 : ARRET });
+        }
+        C = tempC;
+
+        bool tempV = (GetKeyState('V') & 0x8000);
+        if (V != tempV) {
+            ajouterAuQueue({ JOYSTICK,tempV ? TOUCHE_4 : ARRET });
+        }
+        V = tempV;
 
         bool tempENTER = (GetKeyState(VK_RETURN) & 0x8000);
         if (Enter != tempENTER) {
