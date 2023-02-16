@@ -15,6 +15,10 @@
 
 #include"ES.h"
 #include "Tests.h"
+#include "Evenement.h"
+#include "Bouton.h"
+#include "Joystick.h"
+#include "Accel.h"
 
 
 /*------------------------------ Constantes ---------------------------------*/
@@ -38,11 +42,11 @@
 
 /*----------------------------- Fonction "Main" -----------------------------*/
 int main() {
-    
-    
+
+
     // Structure de donnees JSON pour envoie et reception
-    
-   
+
+
 
     //Tests. � commenter au besoin
     Tests tests;
@@ -50,31 +54,29 @@ int main() {
     tests.tests_fenetrejeu();
     // tests.tests_autre();
     ES es;
-     while (true) {
-         while (es.evenementDisponible()) {
-             Evenement e = es.prochainEvenement();
-             switch (e.arg1)
-             {
-             case HAUT: cout << "HAUT" << endl;
-                 break;
+    es.demarrer();
+    while (true) {
+        while (es.evenementDisponible()) {
+            std::unique_ptr<Evenement> e = es.prochainEvenement();
+            if (e->getCode() == BOUTON) {
+                NomBouton nom = static_cast<Bouton*>(e.get())->getNom();
+                switch (nom)
+                {
+                case D: cout << "D" << endl;
+                    break;
+                case I: cout << "I" << endl;
+                    break;
+                case E: cout << "E" << endl;
+                    break;
+                case U: cout << "U" << endl;
+                    break;
+                default:
+                    break;
+                }
+            }
 
-             case BAS: cout << "BAS" << endl;
-                 break;
-
-             case GAUCHE: cout << "GAUCHE" << endl;
-                 break;
-
-             case DROITE: cout << "DROITE" << endl;
-                 break;
-
-             case ARRET: cout << "ARRET" << endl;
-                 break;
-             default:
-                 break;
-             }
-         }
-         Sleep(100);
-
+        }
+        
     }
     return 0;
 }

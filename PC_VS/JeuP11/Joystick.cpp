@@ -1,4 +1,5 @@
 #include "Joystick.h"
+#include "Evenement.h"
 
 Joystick::Joystick(Direction direction) :Evenement(JOYSTICK) {
 	this->direction = direction;

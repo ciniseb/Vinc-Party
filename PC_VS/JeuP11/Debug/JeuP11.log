@@ -1,9 +1,4 @@
-﻿  Accel.cpp
-  Bouton.cpp
-  ES.cpp
-C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\ES.cpp(133,33): error C2660: 'SerialPort::readSerialPort': function does not take 0 arguments
-C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\include\serial\SerialPort.hpp(27,9): message : see declaration of 'SerialPort::readSerialPort'
-C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\ES.cpp(134,5): error C2143: syntax error: missing ';' before '}'
-  Evenement.cpp
-  Joystick.cpp
+﻿  ES.cpp
+  JeuP11.cpp
   Generating Code...
+  JeuP11.vcxproj -> C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe

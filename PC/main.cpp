@@ -14,6 +14,8 @@ using namespace std;
 #include "include/json.hpp"
 using json = nlohmann::json;
 
+#include "Bouton.h"
+
 /*------------------------------ Constantes ---------------------------------*/
 #define BAUD 9600           // Frequence de transmission serielle
 #define MSG_MAX_SIZE 1024   // Longueur maximale d'un message
@@ -31,6 +33,19 @@ bool RcvFromSerial(SerialPort *arduino, string &msg);
 
 /*---------------------------- Variables globales ---------------------------*/
 SerialPort * arduino; //doit etre un objet global!
+
+
+struct donnesArduinoVersPC {
+    uint8_t btn_1;
+    uint8_t btn_2;
+    uint8_t btn_3;
+    uint8_t btn_4;
+
+    uint16_t joy_HB;
+    uint16_t joy_GD;
+
+};
+
 
 /*----------------------------- Fonction "Main" -----------------------------*/
 int main(){

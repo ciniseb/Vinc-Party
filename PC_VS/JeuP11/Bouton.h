@@ -15,9 +15,12 @@ class Bouton :
 {
 private:
 	NomBouton nom;
+	bool pianoReussi;
 public:
-	Bouton(NomBouton nom);
+	Bouton(NomBouton nom, bool pianoReussi = false);
+	Bouton(char data);
 	~Bouton();
 	NomBouton getNom();
+	bool getPianoReussi();
 };
 

@@ -6,31 +6,15 @@
 #include<string>
 #include <queue>
 #include <mutex>
+#include "Evenement.h"
 
-#define BAUD 1000000           // Frequence de transmission serielle
+#define BAUD 9600           // Frequence de transmission serielle
 #define MSG_MAX_SIZE 1024   // Longueur maximale d'un message
 using json = nlohmann::json;
 using namespace std;
 
 
-#define BOUTON 1
-#define ACCEL 2
-#define JOYSTICK 3
 
-#define HAUT 1
-#define BAS 2
-#define GAUCHE 3
-#define DROITE 4
-#define ARRET 0
-
-
-
-struct Evenement
-{
-    int type;
-    int arg1;
-    int arg2;
-};
 
 
 
@@ -42,13 +26,12 @@ private:
     std::string raw_msg;
     std::string com;
     SerialPort* arduino;
-    queue<Evenement> evenementRecu;
+    queue<unique_ptr<Evenement>> evenementRecu;
 
     json j_msg_send, j_msg_rcv;
     bool SendToSerial(SerialPort* arduino, json j_msg);
     bool RcvFromSerial(SerialPort* arduino, string& msg);
-    void decoderEvenement(json data);
-    void ajouterAuQueue(struct Evenement evenement);
+    void ajouterAuQueue(std::unique_ptr<Evenement> evenement);
     
     mutex lockQueue;
 
@@ -65,8 +48,9 @@ public:
     ES();
     ~ES();
     void exec();
-    Evenement prochainEvenement();
+    std::unique_ptr<Evenement> prochainEvenement();
     bool evenementDisponible();
+    void demarrer();
 };
 
 

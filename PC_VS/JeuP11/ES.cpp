@@ -6,6 +6,11 @@
 #include "./include/json.hpp"
 #include <mutex>
 #include <Windows.h>
+#include "Evenement.h"
+#include "Bouton.h"
+#include "Joystick.h"
+#include "Accel.h"
+
 using json = nlohmann::json;
 using namespace std;
 
@@ -15,27 +20,21 @@ using namespace std;
 
 
 
-struct donnesArduinoVersPC {
-    byte btn_1;
-    byte btn_2;
-    byte btn_3;
-    byte btn_4;
-
-    uint16_t joy_HB;
-    uint16_t joy_GD;
-
-};
-
-struct donnesPCVersArduino {
-
-
-};
 
 ES::ES() {
-	
-	// Initialisation du port de communication
-	//cout << "Entrer le port de communication du Arduino: ";
-	//cin >> com;
+
+}
+
+ES::~ES() {
+	es_thread->join();
+    delete es_thread;
+}
+
+void ES::demarrer() {
+
+    // Initialisation du port de communication
+    //cout << "Entrer le port de communication du Arduino: ";
+    //cin >> com;
 #
 
 #if MODE_CLAVIER
@@ -51,16 +50,10 @@ ES::ES() {
 
 
 
-	
+
 
     es_thread = new std::thread([this] { exec(); });
 }
-
-ES::~ES() {
-	es_thread->join();
-    delete es_thread;
-}
-
 
 void ES::exec() {
 
@@ -128,9 +121,15 @@ void ES::exec() {
         Sleep(200); // 1000ms
 
     }*/
-
+    char buf = 0;
     while (true) {
-        arduino->readSerialPort()
+        int nbrLu = arduino->readSerialPort(&buf,1);
+        if (nbrLu > 0) {
+            std::unique_ptr<Evenement> ev = Evenement::decoder(buf);
+            ajouterAuQueue(move(ev));
+
+        }
+
     }
 
 
@@ -186,27 +185,19 @@ bool ES::RcvFromSerial(SerialPort* arduino, string& msg) {
 
 
 
-void ES::decoderEvenement(json data) {
-    if (data["btn_1"])  ajouterAuQueue({ BOUTON, 1 });
-    if (data["btn_2"])  ajouterAuQueue({ BOUTON, 2 });
-    if (data["btn_3"])  ajouterAuQueue({ BOUTON, 3 });
-    if (data["btn_4"])  ajouterAuQueue({ BOUTON, 4 });
 
 
-}
-
-
-void ES::ajouterAuQueue(struct Evenement evenement) {
+void ES::ajouterAuQueue(std::unique_ptr<Evenement> evenement) {
     lockQueue.lock();
-    evenementRecu.push(evenement);
+    evenementRecu.push(move(evenement));
     lockQueue.unlock();
 
 }
 
 
-Evenement ES::prochainEvenement() {
+std::unique_ptr<Evenement> ES::prochainEvenement() {
     lockQueue.lock();
-    Evenement e = evenementRecu.front();
+    std::unique_ptr<Evenement> e = std::move(evenementRecu.front());
     evenementRecu.pop();
     lockQueue.unlock();
     return e;
@@ -215,3 +206,5 @@ Evenement ES::prochainEvenement() {
 bool ES::evenementDisponible() {
     return !evenementRecu.empty();
 }
+
+

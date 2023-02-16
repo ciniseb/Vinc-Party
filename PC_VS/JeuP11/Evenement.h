@@ -1,20 +1,22 @@
 #pragma once
-
+#include <memory>
 
 enum CodeEvenement
 {
 	BOUTON,
 	JOYSTICK,
-	ACCEL
+	ACCELEROMETRE
 };
 
 class Evenement
 {
 private:
-	CodeEvenement type;
+	CodeEvenement code;
 public:
 	Evenement(CodeEvenement code);
-	virtual ~Evenement() = 0;
+	~Evenement();
 	CodeEvenement getCode();
+	
+	static std::unique_ptr<Evenement> decoder(char data);
 };
 

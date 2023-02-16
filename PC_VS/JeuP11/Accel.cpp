@@ -1,7 +1,8 @@
 #include "Accel.h"
+#include "Evenement.h"
 
 
-Accel::Accel(TypeMotion type) :Evenement(ACCEL) {
+Accel::Accel(TypeMotion type) :Evenement(ACCELEROMETRE) {
 	this->type = type;
 
 }

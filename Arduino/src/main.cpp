@@ -10,9 +10,11 @@
 #include <ArduinoJson.h>
 #include <TimerInterrupt.h>
 
+#include "Bouton.h"
+
 /*------------------------------ Constantes ---------------------------------*/
 
-#define BAUD 1000000        // Frequence de transmission serielle
+#define BAUD 9600        // Frequence de transmission serielle
 #define	BTN_1_PIN	21
 #define	BTN_2_PIN	20
 #define	BTN_3_PIN	19
@@ -128,11 +130,6 @@ ITimer3.attachInterruptInterval(5, multiplexLED);
 /* Boucle principale (infinie) */
 void loop() {
 
-  if(Serial.available()){
-    if(readMsg() == 1){
-      sendMsg();
-    }
-  }
 
   routineTest();
 
@@ -140,6 +137,38 @@ void loop() {
   lireEntrees();
   ecrireSorties();
 
+
+  if(btn_1){
+    Bouton btn = Bouton(D);
+    char test = btn.dataOut();
+    Serial.print(test);
+    delay(10);
+  }
+
+  if(btn_2){
+    Bouton btn = Bouton(I);
+    char test = btn.dataOut();
+    Serial.print(test);
+    delay(10);
+  }
+
+  if(btn_3){
+    Bouton btn = Bouton(E);
+    char test = btn.dataOut();
+    Serial.print(test);
+    delay(10);
+  }
+
+  if(btn_4){
+    Bouton btn = Bouton(U);
+    char test = btn.dataOut();
+    Serial.print(test);
+    delay(10);
+  }
+
+
+  delay(20);
+  //Serial.println("test");
 
 
 
@@ -150,70 +179,6 @@ void loop() {
 
 /*---------------------------Definition de fonctions ------------------------*/
 
-
-
-/*---------------------------Definition de fonctions ------------------------
-Fonction d'envoi
-Entrée : Aucun
-Sortie : Aucun
-Traitement : Envoi du message
------------------------------------------------------------------------------*/
-void sendMsg() {
-  StaticJsonDocument<500> doc;
-  // Elements du message
-  doc["time"] = millis();
-  doc["btn_1"]=btn_1;
-  doc["btn_2"]=btn_2;
-  doc["btn_3"]=btn_3;
-  doc["btn_4"]=btn_4;
-  doc["btn_joy"]=btn_joy;
-  doc["joy_hb"]=joy_hb;
-  doc["joy_gd"]=joy_gd;
-
-  // Serialisation
-  serializeJson(doc, Serial);
-  //noInterrupts();
-  // Envoie
-  Serial.println();
-  //interrupts();
-  shouldSend_ = false;
-}
-
-/*---------------------------Definition de fonctions ------------------------
-Fonction de reception
-Entrée : Aucun
-Sortie : Aucun
-Traitement : Réception du message
------------------------------------------------------------------------------*/
-int readMsg(){
-  // Lecture du message Json
-  StaticJsonDocument<500> doc;
-  JsonVariant parse_msg;
-
-    // Lecture sur le port Seriel
-  DeserializationError error = deserializeJson(doc, Serial);
-  //delay(50);
-
-  // Si erreur dans le message
-  if (error) {
-    Serial.print("deserialize() failed: ");
-    Serial.println(error.c_str());
-    return 0;
-  }
-  
-  // Analyse des éléments du message message
-  parse_msg = doc["led"];
-  led_n=doc["led_n"];
-  led_e=doc["led_e"];
-  led_w=doc["led_w"];
-  led_s=doc["led_s"];
-  mot=doc["mot"];
-  //bargraph=doc["bargraph"];
-  if (!parse_msg.isNull()) {
-    // mettre la led a la valeur doc["led"]
-  }
-  return 1;
-}
 
 
 void lireEntrees(){
