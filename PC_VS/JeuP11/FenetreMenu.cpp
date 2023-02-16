@@ -73,12 +73,12 @@ void FenetreMenu::ouvrir()
             }
             else
             {
-                if (reponse == TOUCHE_4 && (selection > 0))
+                if (reponse == HAUT && (selection > 0))
                 {
                     selection--;
                     affichage_DEBUG(selection);
                 }
-                else if (reponse == TOUCHE_2 && selection < 3)
+                else if (reponse == BAS && selection < 3)
                 {
                     selection++;
                     affichage_DEBUG(selection);
