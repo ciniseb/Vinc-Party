@@ -108,6 +108,7 @@ void FenetreMenu::ouvrir()
 
 void FenetreMenu::affichage_DEBUG(int selection)
 {
+    system("cls");
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
     std::cout << "-----------------------------------------------" << std::endl;
