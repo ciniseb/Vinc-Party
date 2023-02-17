@@ -14,6 +14,7 @@ private:
 	TypeMotion type;
 public:
 	Accel(TypeMotion type);
+	Accel(char data);
 	~Accel();
 	TypeMotion getType();
 

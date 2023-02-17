@@ -5,7 +5,10 @@ enum CodeEvenement
 {
 	BOUTON,
 	JOYSTICK,
-	ACCELEROMETRE
+	ACCELEROMETRE,
+	BOUSSOLE,
+	BARGRAPH,
+	VIBRATION
 };
 
 class Evenement
@@ -18,5 +21,6 @@ public:
 	CodeEvenement getCode();
 	
 	static std::unique_ptr<Evenement> decoder(char data);
+	virtual char dataOut();
 };
 

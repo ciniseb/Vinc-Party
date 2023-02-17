@@ -1,21 +1,13 @@
-enum NomBouton
-{
-	D,
-	I,
-	E,
-	U
-};
-
-
+#include "constantes.h"
 class Bouton
 {
 private:
-	NomBouton nom;
+	Dieu nom;
 	bool pianoReussi;
 public:
-	Bouton(NomBouton nom, bool pianoReussi = false);
+	Bouton(Dieu nom, bool pianoReussi = false);
 	~Bouton();
-	NomBouton getNom();
+	Dieu getNom();
 	bool getPianoReussi();
     char dataOut();
 };

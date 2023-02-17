@@ -2,20 +2,17 @@
 #define ES_H
 #include <thread>
 #include "./include/serial/SerialPort.hpp"
-#include "./include/json.hpp"
 #include<string>
 #include <queue>
 #include <mutex>
 #include "Evenement.h"
 
 #define BAUD 9600           // Frequence de transmission serielle
-#define MSG_MAX_SIZE 1024   // Longueur maximale d'un message
-using json = nlohmann::json;
 using namespace std;
 
 
 
-
+#define MODE_CLAVIER true
 
 
 
@@ -27,28 +24,32 @@ private:
     std::string com;
     SerialPort* arduino;
     queue<unique_ptr<Evenement>> evenementRecu;
+    queue<unique_ptr<Evenement>> evenementAEnvoyer;
 
-    json j_msg_send, j_msg_rcv;
-    bool SendToSerial(SerialPort* arduino, json j_msg);
-    bool RcvFromSerial(SerialPort* arduino, string& msg);
     void ajouterAuQueue(std::unique_ptr<Evenement> evenement);
     
-    mutex lockQueue;
+    mutex lockQueueRecu;
+    mutex lockQueueAEnvoyer;
 
+    bool evenementAEnvoyerDisponible();
+    std::unique_ptr<Evenement> prochainEvenementAEnvoyer();
 
-
-
+#if MODE_CLAVIER
     //Etats pour mode clavier
     bool W = 0;
     bool A = 0;
     bool S = 0;
     bool D = 0;
+#endif // MODE_CLAVIER
+
+   
     
 public:
     ES();
     ~ES();
     void exec();
     std::unique_ptr<Evenement> prochainEvenement();
+    void envoyerEvenement(std::unique_ptr<Evenement> evenement);
     bool evenementDisponible();
     void demarrer();
 };

@@ -24,3 +24,8 @@ Evenement::~Evenement() {
 CodeEvenement Evenement::getCode() {
 	return code;
 }
+
+
+char Evenement::dataOut() {
+	return 0;
+}

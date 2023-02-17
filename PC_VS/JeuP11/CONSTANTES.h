@@ -11,6 +11,8 @@ Auteurs: Antoine Allard
 Description: Constantes utiles à la compréhension du programme
 ====================================================================================================*/
 //CARTE et TUILE
+#pragma once
+
 #define LARGEUR_CARTE 40
 #define HAUTEUR_CARTE 20
 
@@ -19,6 +21,15 @@ Description: Constantes utiles à la compréhension du programme
 #define MINI_JEU 1
 #define PLEIN_VARIABLE -2
 #define MINI_JEU_VARIABLE 2
+
+
+enum class Dieu
+{
+    D,
+    I,
+    E,
+    U
+};
 
 //ERREURS
 //...

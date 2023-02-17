@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Accel.cpp" />
+    <ClCompile Include="Bargraph.cpp" />
+    <ClCompile Include="Boussole.cpp" />
     <ClCompile Include="Bouton.cpp" />
     <ClCompile Include="Chronometre.cpp" />
     <ClCompile Include="ES.cpp" />
@@ -158,10 +160,13 @@
     <ClCompile Include="Pointage.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="Tuile.cpp" />
+    <ClCompile Include="Vibration.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accel.h" />
     <ClInclude Include="Acteur.h" />
+    <ClInclude Include="Bargraph.h" />
+    <ClInclude Include="Boussole.h" />
     <ClInclude Include="Bouton.h" />
     <ClInclude Include="Chronometre.h" />
     <ClInclude Include="CONSTANTES.h" />
@@ -183,6 +188,7 @@
     <ClInclude Include="Pointage.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Tuile.h" />
+    <ClInclude Include="Vibration.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="c_gabarit_20_40.csv" />

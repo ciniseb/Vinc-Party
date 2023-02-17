@@ -1,6 +1,7 @@
 #include "Bouton.h"
+#include "constantes.h"
 
-Bouton::Bouton(NomBouton nom, bool pianoReussi) {
+Bouton::Bouton(Dieu nom, bool pianoReussi) {
 	this->nom = nom;
 	this->pianoReussi = pianoReussi;
 
@@ -13,7 +14,7 @@ Bouton::~Bouton() {
 }
 
 
-NomBouton Bouton::getNom() {
+Dieu Bouton::getNom() {
 	return nom;
 }
 
@@ -38,7 +39,7 @@ char Bouton::dataOut(){
     case U:
         data |= 0b00000011;
         break;
-    default:
+    default: data |= 0b00000000;
         break;
     }
 

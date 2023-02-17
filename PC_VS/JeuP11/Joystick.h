@@ -17,6 +17,7 @@ private:
 	Direction direction;
 public:
 	Joystick(Direction direction);
+	Joystick(char data);
 	~Joystick();
 	Direction getDirection();
 

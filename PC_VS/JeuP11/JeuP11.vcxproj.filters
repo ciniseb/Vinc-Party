@@ -72,6 +72,15 @@
     <ClCompile Include="Accel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bargraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vibration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Boussole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FenetreMenu.h">
@@ -141,6 +150,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Accel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bargraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vibration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boussole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

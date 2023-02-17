@@ -1,26 +1,21 @@
 #pragma once
 #include "Evenement.h"
+#include "CONSTANTES.h"
 
-enum NomBouton
-{
-	D,
-	I,
-	E,
-	U
-};
+
 
 
 class Bouton :
     public Evenement
 {
 private:
-	NomBouton nom;
+	Dieu nom;
 	bool pianoReussi;
 public:
-	Bouton(NomBouton nom, bool pianoReussi = false);
+	Bouton(Dieu nom, bool pianoReussi = false);
 	Bouton(char data);
 	~Bouton();
-	NomBouton getNom();
+	Dieu getNom();
 	bool getPianoReussi();
 };
 
