@@ -5,26 +5,18 @@
 #include<string>
 #include <queue>
 #include <mutex>
+#include <memory>
 #include "Evenement.h"
 
-#define HAUT 1
-#define BAS 2
-#define GAUCHE 3
-#define DROITE 4
-#define ARRET 0
-#define ENTER 32
 
-#define TOUCHE_1 5
-#define TOUCHE_2 6
-#define TOUCHE_3 7
-#define TOUCHE_4 8
+#define ARRET 0
+
 
 #define BAUD 9600           // Frequence de transmission serielle
-using namespace std;
 
 
 
-#define MODE_CLAVIER true
+#define MODE_CLAVIER false
 
 
 
@@ -32,16 +24,15 @@ class ES
 {
 private:
     std::thread *es_thread = nullptr;
-    std::string raw_msg;
     std::string com;
     SerialPort* arduino;
-    queue<unique_ptr<Evenement>> evenementRecu;
-    queue<unique_ptr<Evenement>> evenementAEnvoyer;
+    std::queue<std::unique_ptr<Evenement>> evenementRecu;
+    std::queue<std::unique_ptr<Evenement>> evenementAEnvoyer;
 
     void ajouterAuQueue(std::unique_ptr<Evenement> evenement);
     
-    mutex lockQueueRecu;
-    mutex lockQueueAEnvoyer;
+    std::mutex lockQueueRecu;
+    std::mutex lockQueueAEnvoyer;
 
     bool evenementAEnvoyerDisponible();
     std::unique_ptr<Evenement> prochainEvenementAEnvoyer();

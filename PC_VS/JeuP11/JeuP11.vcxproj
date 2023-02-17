@@ -155,7 +155,6 @@
     <ClCompile Include="include\serial\SerialPort.cpp" />
     <ClCompile Include="JeuP11.cpp" />
     <ClCompile Include="Joystick.cpp" />
-    <ClCompile Include="MiniJeu.cpp" />
     <ClCompile Include="FenetreMiniJeu.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Pointage.cpp" />
@@ -184,7 +183,6 @@
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\serial\SerialPort.hpp" />
     <ClInclude Include="Joystick.h" />
-    <ClInclude Include="MiniJeu.h" />
     <ClInclude Include="FenetreMiniJeu.h" />
     <ClInclude Include="Niveau.h" />
     <ClInclude Include="Pointage.h" />

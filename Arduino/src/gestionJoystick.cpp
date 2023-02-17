@@ -1,0 +1,73 @@
+#include "gestionJoystick.h"
+#include <Arduino.h>
+#include "constantes.h"
+#include "Joystick.h"
+
+
+GestionJoystick::GestionJoystick(/* args */){
+
+}
+GestionJoystick::~GestionJoystick(){
+
+}
+void GestionJoystick::init(){
+    pinMode(JOY_HB_PIN,INPUT);
+    pinMode(JOY_GD_PIN,INPUT);
+}
+
+bool GestionJoystick::getMouvementDetecte(){
+    return mouvementDetecte;
+}
+
+Direction GestionJoystick::getMouvement(){
+    mouvementDetecte =false;
+    return mouvement;
+}
+
+void GestionJoystick::rafraichir(){
+    axeGaucheDroite = analogRead(JOY_GD_PIN);
+    axeHautBas = analogRead(JOY_HB_PIN);
+    
+
+    //Algo vite fait pour pouvoir tester
+    axeGaucheDroite -= 512;
+    axeHautBas -= 512;
+
+    int abs_axeGaucheDroite = abs(axeGaucheDroite);
+    int abs_axeHautBas = abs(axeHautBas);
+    Direction temporaire;
+    //deadzone
+    if(abs_axeGaucheDroite < 75 && abs_axeHautBas < 75){
+        temporaire = AUCUNE;
+    }else{
+        
+        //Trouver axe dominant
+        if(abs_axeGaucheDroite > abs_axeHautBas){
+            //GD dominant
+            if(axeGaucheDroite > 0){
+                temporaire = DROITE;
+            }else{
+                temporaire = GAUCHE;
+            }
+
+        }else{
+            //HB dominant
+            if(axeHautBas > 0){
+                temporaire = HAUT;
+            }else{
+                temporaire = BAS;
+            }
+        }
+    }
+
+    
+
+    
+
+    if(temporaire != mouvement){
+        mouvement = temporaire;
+        mouvementDetecte = true;
+    }
+
+
+}

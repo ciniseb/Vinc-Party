@@ -36,6 +36,7 @@
 GestionBoussole gestionBoussole;
 GestionVibration gestionVibration;
 GestionBargraph gestionBargraph;
+GestionJoystick gestionJoystick;
 
 int ledPin[] = {LED_1_PIN,LED_2_PIN,LED_3_PIN,LED_4_PIN,LED_5_PIN,LED_6_PIN,LED_7_PIN,LED_8_PIN,LED_9_PIN,LED_10_PIN};
 
@@ -88,10 +89,11 @@ gestionBoussole.init();
 gestionVibration.init();
 gestionBargraph.init();
 
+gestionJoystick.init();
+
 
 pinMode(BTN_JOY_PIN,INPUT);
-pinMode(JOY_HB_PIN,INPUT);
-pinMode(JOY_GD_PIN,INPUT);
+
   
 
 
@@ -106,6 +108,9 @@ void loop() {
 
   lireEntrees();
   
+  gestionJoystick.rafraichir();
+
+
   gestionBargraph.calculer();
 
 
@@ -113,32 +118,42 @@ void loop() {
   gestionBoussole.afficher();
 
 
+
+
+
   if(btn_1){
     Bouton btn = Bouton(D);
     char test = btn.dataOut();
-    Serial.print(test);
+    Serial.write(test);
     delay(10);
   }
 
   if(btn_2){
     Bouton btn = Bouton(I);
     char test = btn.dataOut();
-    Serial.print(test);
+    Serial.write(test);
     delay(10);
   }
 
   if(btn_3){
     Bouton btn = Bouton(E);
     char test = btn.dataOut();
-    Serial.print(test);
+    Serial.write(test);
     delay(10);
   }
 
   if(btn_4){
     Bouton btn = Bouton(U);
     char test = btn.dataOut();
-    Serial.print(test);
+    Serial.write(test);
     delay(10);
+  }
+
+
+  if(gestionJoystick.getMouvementDetecte()){
+    Direction mouvememt = gestionJoystick.getMouvement();
+    Joystick joy = Joystick(mouvememt);
+    Serial.write(joy.dataOut());
   }
 
   while (Serial.available())
@@ -185,8 +200,6 @@ void lireEntrees(){
 
 
    btn_joy = !digitalRead(BTN_JOY_PIN);
-   joy_hb = analogRead(JOY_HB_PIN);
-   joy_gd = analogRead(JOY_GD_PIN);
 
 }
 

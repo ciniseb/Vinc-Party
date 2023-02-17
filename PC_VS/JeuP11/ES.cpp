@@ -12,7 +12,6 @@
 #include "Accel.h"
 #include "CONSTANTES.h"
 
-using namespace std;
 
 
 
@@ -39,7 +38,7 @@ void ES::demarrer() {
     com = "COM3";
     arduino = new SerialPort(com.c_str(), BAUD);
     if (!arduino->isConnected()) {
-        std::cerr << "Impossible de se connecter au port " << std::string(com) << ". Fermeture du programme!" << std:endl;
+        std::cerr << "Impossible de se connecter au port " << std::string(com) << ". Fermeture du programme!" << std::endl;
         exit(1);
     }
 #endif // MODE_CLAVIER
@@ -54,7 +53,7 @@ void ES::demarrer() {
 void ES::exec() {
 
 #if MODE_CLAVIER
-    cout << "Thread E/S OK" << endl;
+    std::cout << "Thread E/S OK" << std::endl;
     while (true) {
         bool tempW = (GetKeyState('W') & 0x8000);
         if (W != tempW) {
@@ -82,38 +81,42 @@ void ES::exec() {
 
         bool tempZ = (GetKeyState('Z') & 0x8000);
         if (Z != tempZ) {
-            ajouterAuQueue({ JOYSTICK,tempZ ? TOUCHE_1 : ARRET });
+            ajouterAuQueue(std::make_unique<Bouton>(Dieu::D));
         }
         Z = tempZ;
 
         bool tempX = (GetKeyState('X') & 0x8000);
         if (X != tempX) {
-            ajouterAuQueue({ JOYSTICK,tempX ? TOUCHE_2 : ARRET });
+            ajouterAuQueue(std::make_unique<Bouton>(Dieu::I));
         }
         X = tempX;
 
         bool tempC = (GetKeyState('C') & 0x8000);
         if (C != tempC) {
-            ajouterAuQueue({ JOYSTICK,tempC ? TOUCHE_3 : ARRET });
+            ajouterAuQueue(std::make_unique<Bouton>(Dieu::E));
         }
         C = tempC;
 
         bool tempV = (GetKeyState('V') & 0x8000);
         if (V != tempV) {
-            ajouterAuQueue({ JOYSTICK,tempV ? TOUCHE_4 : ARRET });
+            ajouterAuQueue(std::make_unique<Bouton>(Dieu::U));
         }
         V = tempV;
 
+
+        ///
+        /// !!!!ENTER == BOUTON D!!!! ////
+        /// 
         bool tempENTER = (GetKeyState(VK_RETURN) & 0x8000);
         if (Enter != tempENTER) {
-            ajouterAuQueue({ JOYSTICK,tempENTER ? ENTER : ARRET });
+            ajouterAuQueue(std::make_unique<Bouton>(Dieu::D));
         }
         Enter = tempENTER;
 
     }
 
 #else
-    cout << "Thread E/S OK" << endl;
+    std::cout << "Thread E/S OK" << std::endl;
     
     char buf = 0;
     while (true) {

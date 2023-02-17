@@ -11,6 +11,7 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "FenetreJeu.h"
+#include "Joystick.h"
 
 //Constructeurs & destructeurs
 FenetreJeu::FenetreJeu() {}
@@ -211,7 +212,7 @@ bool FenetreJeu::genererCarte()
     return true;
 }
 
-bool FenetreJeu::deplacementJoueur(int reponse, double *t_dernier_deplacement_joueur)
+bool FenetreJeu::deplacementJoueur(Direction reponse, double *t_dernier_deplacement_joueur)
 {
     int NouveauX = joueur.position.X;
     int NouveauY = joueur.position.Y;
@@ -229,8 +230,6 @@ bool FenetreJeu::deplacementJoueur(int reponse, double *t_dernier_deplacement_jo
         break;
     case GAUCHE:
         NouveauX--;
-        break;
-    case ENTER:
         break;
     default:
         break;
@@ -254,7 +253,7 @@ void FenetreJeu::ouvrir()
 void FenetreJeu::jouer()
 {
     double *t_dernier_deplacement_joueur = new double(temps.tempsEcoule_ms());
-    int reponse = ARRET;
+    std::unique_ptr<Evenement> evenement;
     int mj_actif = 0;
     //TODO : selection mini-jeu actif random sur nb mini jeux
 
@@ -267,13 +266,19 @@ void FenetreJeu::jouer()
     {
         if (threadArduino->evenementDisponible())
         {
-            reponse = threadArduino->prochainEvenement().arg1;
+            evenement = threadArduino->prochainEvenement();
+
+
+            if (evenement->getCode() == JOYSTICK) {
+                Joystick *eJoystick = static_cast<Joystick*>(evenement.get());
+                Direction direction = eJoystick->getDirection();
+                deplacementJoueur(direction, t_dernier_deplacement_joueur);
+            }
+            
         }
 
-        if (reponse != ARRET && deplacementJoueur(reponse, t_dernier_deplacement_joueur))
-        {
-            affichage_DEBUG(std::cout);
-        }
+        
+        
 
         if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)//TODO : case mini jeu
         {
@@ -303,6 +308,8 @@ void FenetreJeu::jouer()
                 //TODO : bouger le mini jeu
             }
         }
+        affichage_DEBUG(std::cout);
+        Sleep(200);
     }
 }
 

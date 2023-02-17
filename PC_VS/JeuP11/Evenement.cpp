@@ -11,6 +11,12 @@ std::unique_ptr<Evenement> Evenement::decoder(char data) {
 	if (type == 0) {
 		return std::make_unique<Bouton>(data);
 	}
+	if (type == 1) {
+		return std::make_unique<Joystick>(data);
+	}
+	if (type == 2) {
+		return std::make_unique<Accel>(data);
+	}
 }
 
 

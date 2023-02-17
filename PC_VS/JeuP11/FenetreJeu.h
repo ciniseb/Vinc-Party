@@ -30,6 +30,7 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Chronometre.h"
 #include "Pointage.h"
 #include "FenetreJeuPiano.h"
+#include "Joystick.h"
 
 class FenetreJeu : public Fenetre
 {
@@ -75,7 +76,7 @@ public:
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
 
-    bool deplacementJoueur(int, double *);
+    bool deplacementJoueur(Direction, double *);
 
     void ouvrir();
     void jouer();

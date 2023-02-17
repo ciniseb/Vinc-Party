@@ -1,16 +1,10 @@
 // JeuP11.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-/*
- * Auteurs: Jean-Samuel Lauzon
- * Date: Fevrier 2022
- * Modif : Janvier 2023, Compatible VisualStudio, JpGouin
-*/
 
 /*------------------------------ Librairies ---------------------------------*/
 #include <iostream>
 #include <string>
-using namespace std;
 /*-------------------------- Librairies externes ----------------------------*/
 #include "FenetreMenu.h"
 #include "Tests.h"
@@ -45,6 +39,7 @@ using namespace std;
 int main()
 {
     ES es;
+    es.demarrer();
     FenetreMenu menu(&es);
 
     menu.ouvrir();
@@ -111,9 +106,9 @@ int main()
 
 
         es.envoyerEvenement(std::make_unique<Vibration>());
-        Sleep(1000);*/
+        Sleep(1000);
         
-    }
+    }*/
     return 0;
 }
 

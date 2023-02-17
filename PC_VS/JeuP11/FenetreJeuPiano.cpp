@@ -11,33 +11,36 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "FenetreJeuPiano.h"
+#include "CONSTANTES.h"
+#include "Joystick.h"
+#include "Bouton.h"
 
 //Constructeurs & destructeurs
 FenetreJeuPiano::FenetreJeuPiano(ES *thread) : FenetreMiniJeu(thread)
 {
-    chanson[0] = TOUCHE_1;
-    chanson[1] = TOUCHE_1;
-    chanson[2] = TOUCHE_3;
-    chanson[3] = TOUCHE_2;
-    chanson[4] = TOUCHE_4;
-    chanson[5] = TOUCHE_4;
-    chanson[6] = TOUCHE_3;
-    chanson[7] = TOUCHE_3;
-    chanson[8] = TOUCHE_2;
-    chanson[9] = TOUCHE_4;
-    chanson[10] = TOUCHE_1;
-    chanson[11] = TOUCHE_3;
-    chanson[12] = TOUCHE_2;
+    chanson[0] = Dieu::D;
+    chanson[1] = Dieu::D;
+    chanson[2] = Dieu::E;
+    chanson[3] = Dieu::I;
+    chanson[4] = Dieu::U;
+    chanson[5] = Dieu::U;
+    chanson[6] = Dieu::E;
+    chanson[7] = Dieu::E;
+    chanson[8] = Dieu::I;
+    chanson[9] = Dieu::U;
+    chanson[10] = Dieu::D;
+    chanson[11] = Dieu::E;
+    chanson[12] = Dieu::I;
 
 }
 FenetreJeuPiano::~FenetreJeuPiano() {}
 
 //Getteurs & setteurs
-bool FenetreJeuPiano::VersBoutonPressee(int touche)
+bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
 {
     switch (touche)
     {
-    case TOUCHE_1: std::cout << "z marche" << std::endl;
+    case Dieu::D: std::cout << "z marche" << std::endl;
         if (touche == chanson[index])
         { 
             std::cout << "Pareille!" << std::endl;
@@ -51,7 +54,7 @@ bool FenetreJeuPiano::VersBoutonPressee(int touche)
             return 0;
         }
         break;
-    case TOUCHE_2: std::cout << "x marche" << std::endl;
+    case Dieu::I: std::cout << "x marche" << std::endl;
         if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
@@ -65,7 +68,7 @@ bool FenetreJeuPiano::VersBoutonPressee(int touche)
             return 0;
         }
         break;
-    case TOUCHE_3: std::cout << "c marche" << std::endl;
+    case Dieu::E: std::cout << "c marche" << std::endl;
         if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
@@ -79,7 +82,7 @@ bool FenetreJeuPiano::VersBoutonPressee(int touche)
             return 0;
         }
         break;
-    case TOUCHE_4: std::cout << "v marche" << std::endl;
+    case Dieu::U: std::cout << "v marche" << std::endl;
         if (touche == chanson[index])
         {
             std::cout << "Pareille!" << std::endl;
@@ -101,15 +104,17 @@ bool FenetreJeuPiano::VersBoutonPressee(int touche)
 void FenetreJeuPiano::ouvrir()
 {
     std::cout << "FENETRE MINI JEU OUVERTE" << std::endl;
-    int reponse = ARRET;
+    std::unique_ptr<Evenement> evenement;
 
     while (true)
     {
         if (threadArduino->evenementDisponible())
         {
-            reponse = threadArduino->prochainEvenement().arg1;
+            evenement = threadArduino->prochainEvenement();
+            Bouton* eBouton = static_cast<Bouton*>(evenement.get());
+            Dieu lettreAppuyee = eBouton->getNom();
+            VersBoutonPressee(lettreAppuyee);
         }
-        VersBoutonPressee(reponse);
-        reponse = ARRET;
+        
     }
 }
