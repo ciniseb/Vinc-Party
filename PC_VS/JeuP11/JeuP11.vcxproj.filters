@@ -36,7 +36,7 @@
     <ClCompile Include="FenetreJeu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetreJeuX.cpp">
+    <ClCompile Include="FenetreJeuPiano.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FenetreMenu.cpp">
@@ -48,7 +48,7 @@
     <ClCompile Include="FenetreTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MiniJeu.cpp">
+    <ClCompile Include="FenetreMiniJeu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Niveau.cpp">
@@ -95,7 +95,7 @@
     <ClInclude Include="GABARIT_CLASS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MiniJeu.h">
+    <ClInclude Include="FenetreMiniJeu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Niveau.h">
@@ -119,7 +119,7 @@
     <ClInclude Include="FenetreJeu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreJeuX.h">
+    <ClInclude Include="FenetreJeuPiano.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ES.h">

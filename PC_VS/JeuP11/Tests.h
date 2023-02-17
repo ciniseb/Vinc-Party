@@ -15,6 +15,7 @@ Description: Tests unitaires et d'intégration
 
 #include <iostream>
 #include <thread>
+#include "ES.h"
 #include "Chronometre.h"
 #include "FenetreJeu.h"
 

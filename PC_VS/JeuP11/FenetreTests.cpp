@@ -14,7 +14,7 @@ Description:
 #include "FenetreTests.h"
 
 //Constructeurs & destructeurs
-FenetreTests::FenetreTests()
+FenetreTests::FenetreTests(ES *thread) : Fenetre(thread)
 {
 
 }
@@ -24,3 +24,7 @@ FenetreTests::~FenetreTests() {}
 
 
 //Méthodes
+void FenetreTests::ouvrir()
+{
+
+}

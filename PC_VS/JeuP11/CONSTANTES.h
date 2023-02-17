@@ -30,6 +30,10 @@ enum class Dieu
     E,
     U
 };
+#define NB_MINI_JEUX 1
+
+#define DT_DEPLACEMENT_JOUEUR 333 //Milisecondes
+#define DT_DEPLACEMENT_ADVERSAIRE 250 //Milisecondes
 
 //ERREURS
 //...

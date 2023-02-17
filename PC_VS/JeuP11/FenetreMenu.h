@@ -14,24 +14,32 @@ Description:
 #define FENETREMENU_H
 
 #include <iostream>
+#include <Windows.h>
+#include <conio.h>
 #include "Fenetre.h"
+#include "ES.h"
+#include "FenetreJeu.h"
+#include "FenetrePointages.h"
+#include "FenetreTests.h"
 
 class FenetreMenu : public Fenetre
 {
 private:
     //Attributs
-
+    Fenetre *fenetres[3];
 
 public:
     //Constructeurs & destructeurs
-    FenetreMenu();
+    FenetreMenu(ES *);
     ~FenetreMenu();
 
     //Getteurs & setteurs
 
 
     //Méthodes
+    void ouvrir();
 
+    void affichage_DEBUG(int);
 };
 
 #endif

@@ -33,13 +33,13 @@ void ES::demarrer() {
 
 
 
-#if MODE_CLAVIER
+    #if MODE_CLAVIER
 
-#else
+    #else
     com = "COM3";
     arduino = new SerialPort(com.c_str(), BAUD);
     if (!arduino->isConnected()) {
-        cerr << "Impossible de se connecter au port " << string(com) << ". Fermeture du programme!" << endl;
+        std::cerr << "Impossible de se connecter au port " << std::string(com) << ". Fermeture du programme!" << std:endl;
         exit(1);
     }
 #endif // MODE_CLAVIER
@@ -79,6 +79,36 @@ void ES::exec() {
             ajouterAuQueue(std::make_unique<Joystick>(tempD ? DROITE : AUCUNE));
         }
         D = tempD;
+
+        bool tempZ = (GetKeyState('Z') & 0x8000);
+        if (Z != tempZ) {
+            ajouterAuQueue({ JOYSTICK,tempZ ? TOUCHE_1 : ARRET });
+        }
+        Z = tempZ;
+
+        bool tempX = (GetKeyState('X') & 0x8000);
+        if (X != tempX) {
+            ajouterAuQueue({ JOYSTICK,tempX ? TOUCHE_2 : ARRET });
+        }
+        X = tempX;
+
+        bool tempC = (GetKeyState('C') & 0x8000);
+        if (C != tempC) {
+            ajouterAuQueue({ JOYSTICK,tempC ? TOUCHE_3 : ARRET });
+        }
+        C = tempC;
+
+        bool tempV = (GetKeyState('V') & 0x8000);
+        if (V != tempV) {
+            ajouterAuQueue({ JOYSTICK,tempV ? TOUCHE_4 : ARRET });
+        }
+        V = tempV;
+
+        bool tempENTER = (GetKeyState(VK_RETURN) & 0x8000);
+        if (Enter != tempENTER) {
+            ajouterAuQueue({ JOYSTICK,tempENTER ? ENTER : ARRET });
+        }
+        Enter = tempENTER;
 
     }
 

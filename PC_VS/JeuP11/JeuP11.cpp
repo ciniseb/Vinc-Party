@@ -10,10 +10,9 @@
 /*------------------------------ Librairies ---------------------------------*/
 #include <iostream>
 #include <string>
-
+using namespace std;
 /*-------------------------- Librairies externes ----------------------------*/
-
-#include"ES.h"
+#include "FenetreMenu.h"
 #include "Tests.h"
 #include "Evenement.h"
 #include "Bouton.h"
@@ -37,27 +36,28 @@
 
 
 
+#include "FenetreJeuPiano.h"
+#include <conio.h>
+#include <cstdlib>
 /*---------------------------- Variables globales ---------------------------*/
-//ES es;
-
-
-
 
 /*----------------------------- Fonction "Main" -----------------------------*/
-int main() {
+int main()
+{
+    ES es;
+    FenetreMenu menu(&es);
 
-
-    // Structure de donnees JSON pour envoie et reception
-
+    menu.ouvrir();
+    //FenetreMiniJeu *fenetreJeuPiano = new FenetreJeuPiano();
+    //fenetreJeuPiano->ouvrir();
 
 
     //Tests. � commenter au besoin
-    Tests tests;
+    //Tests tests;
     //tests.tests_chronometre();
-    tests.tests_fenetrejeu();
+    //tests.tests_fenetrejeu();
     // tests.tests_autre();
-    ES es;
-    es.demarrer();
+    /*es.demarrer();
     while (true) {
         while (es.evenementDisponible()) {
             std::unique_ptr<Evenement> e = es.prochainEvenement();
@@ -111,7 +111,7 @@ int main() {
 
 
         es.envoyerEvenement(std::make_unique<Vibration>());
-        Sleep(1000);
+        Sleep(1000);*/
         
     }
     return 0;

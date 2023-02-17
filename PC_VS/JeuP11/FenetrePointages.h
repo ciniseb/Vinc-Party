@@ -15,6 +15,7 @@ Description:
 
 #include <iostream>
 #include <vector>
+#include "ES.h"
 #include "Fenetre.h"
 #include "Pointage.h"
 
@@ -26,7 +27,7 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    FenetrePointages();
+    FenetrePointages(ES *);
     ~FenetrePointages();
 
     //Getteurs & setteurs
@@ -35,7 +36,12 @@ public:
     void setPointages(std::vector<Pointage>);
 
     //Méthodes
+    bool chargerPointages();
+    bool enregistrerPointages();
 
+    void ouvrir();
+
+    void affichage_DEBUG(int);
 };
 
 #endif

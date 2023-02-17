@@ -148,7 +148,7 @@
     <ClCompile Include="Evenement.cpp" />
     <ClCompile Include="Fenetre.cpp" />
     <ClCompile Include="FenetreJeu.cpp" />
-    <ClCompile Include="FenetreJeuX.cpp" />
+    <ClCompile Include="FenetreJeuPiano.cpp" />
     <ClCompile Include="FenetreMenu.cpp" />
     <ClCompile Include="FenetrePointages.cpp" />
     <ClCompile Include="FenetreTests.cpp" />
@@ -156,6 +156,7 @@
     <ClCompile Include="JeuP11.cpp" />
     <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="MiniJeu.cpp" />
+    <ClCompile Include="FenetreMiniJeu.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Pointage.cpp" />
     <ClCompile Include="Tests.cpp" />
@@ -175,7 +176,7 @@
     <ClInclude Include="Evenement.h" />
     <ClInclude Include="Fenetre.h" />
     <ClInclude Include="FenetreJeu.h" />
-    <ClInclude Include="FenetreJeuX.h" />
+    <ClInclude Include="FenetreJeuPiano.h" />
     <ClInclude Include="FenetreMenu.h" />
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
@@ -184,6 +185,7 @@
     <ClInclude Include="include\serial\SerialPort.hpp" />
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="MiniJeu.h" />
+    <ClInclude Include="FenetreMiniJeu.h" />
     <ClInclude Include="Niveau.h" />
     <ClInclude Include="Pointage.h" />
     <ClInclude Include="Tests.h" />

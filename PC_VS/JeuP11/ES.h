@@ -7,6 +7,18 @@
 #include <mutex>
 #include "Evenement.h"
 
+#define HAUT 1
+#define BAS 2
+#define GAUCHE 3
+#define DROITE 4
+#define ARRET 0
+#define ENTER 32
+
+#define TOUCHE_1 5
+#define TOUCHE_2 6
+#define TOUCHE_3 7
+#define TOUCHE_4 8
+
 #define BAUD 9600           // Frequence de transmission serielle
 using namespace std;
 
@@ -40,6 +52,11 @@ private:
     bool A = 0;
     bool S = 0;
     bool D = 0;
+    bool Z = 0;
+    bool X = 0;
+    bool C = 0;
+    bool V = 0;
+    bool Enter = 0;
 #endif // MODE_CLAVIER
 
    
@@ -55,4 +72,5 @@ public:
 };
 
 
-#endif#pragma once
+#endif
+#pragma once

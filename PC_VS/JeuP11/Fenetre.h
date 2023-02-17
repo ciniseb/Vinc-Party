@@ -14,23 +14,26 @@ Description: Classe abstraite pour l'UI des fenêtres.
 #define FENETRE_H
 
 #include <iostream>
+#include "ES.h"
 
 class Fenetre
 {
-private:
+protected:
     //Attributs
+    ES *threadArduino;
     
 
 public:
     //Constructeurs & destructeurs
     Fenetre();
-    ~Fenetre();
+    Fenetre(ES *);
+    virtual ~Fenetre();
 
     //Getteurs & setteurs
 
 
     //Méthodes
-    
+    virtual void ouvrir() = 0;
 };
 
 #endif
