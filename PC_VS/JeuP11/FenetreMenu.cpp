@@ -11,8 +11,6 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "FenetreMenu.h"
-#include "Joystick.h"
-#include "Bouton.h"
 
 #define DEMANDER_NOM false
 
@@ -25,10 +23,10 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 }
 FenetreMenu::~FenetreMenu()
 {
-    /*for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
         delete fenetres[i];
-    }*/
+    }
 }
 
 //Getteurs & setteurs
@@ -57,9 +55,6 @@ void FenetreMenu::ouvrir()
                     if (selection == 0)
                     {
 #if DEMANDER_NOM
-
-
-
                         std::cin.clear();
                         std::cin.ignore(10000, '\n');
 
@@ -93,6 +88,7 @@ void FenetreMenu::ouvrir()
             {
                 Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
                 Direction direction = eJoystick->getDirection();
+
                 if (direction == Direction::HAUT && (selection > 0))
                 {
                     selection--;
@@ -110,7 +106,7 @@ void FenetreMenu::ouvrir()
 
 void FenetreMenu::affichage_DEBUG(int selection)
 {
-    system("cls");
+    //system("cls");
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
     std::cout << "-----------------------------------------------" << std::endl;

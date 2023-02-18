@@ -53,7 +53,7 @@ void ES::demarrer() {
 void ES::exec() {
 
 #if MODE_CLAVIER
-    std::cout << "Thread E/S OK" << std::endl;
+    //std::cout << "Thread E/S OK" << std::endl;
     while (true) {
         bool tempW = (GetKeyState('W') & 0x8000);
         if (W != tempW) {
@@ -80,25 +80,25 @@ void ES::exec() {
         D = tempD;
 
         bool tempZ = (GetKeyState('Z') & 0x8000);
-        if (Z != tempZ) {
+        if (Z != tempZ && tempZ == true) {
             ajouterAuQueue(std::make_unique<Bouton>(Dieu::D));
         }
         Z = tempZ;
 
         bool tempX = (GetKeyState('X') & 0x8000);
-        if (X != tempX) {
+        if (X != tempX && tempX == true) {
             ajouterAuQueue(std::make_unique<Bouton>(Dieu::I));
         }
         X = tempX;
 
         bool tempC = (GetKeyState('C') & 0x8000);
-        if (C != tempC) {
+        if (C != tempC && tempC == true) {
             ajouterAuQueue(std::make_unique<Bouton>(Dieu::E));
         }
         C = tempC;
 
         bool tempV = (GetKeyState('V') & 0x8000);
-        if (V != tempV) {
+        if (V != tempV && tempV == true) {
             ajouterAuQueue(std::make_unique<Bouton>(Dieu::U));
         }
         V = tempV;
@@ -108,7 +108,7 @@ void ES::exec() {
         /// !!!!ENTER == BOUTON D!!!! ////
         /// 
         bool tempENTER = (GetKeyState(VK_RETURN) & 0x8000);
-        if (Enter != tempENTER) {
+        if (Enter != tempENTER && tempENTER == true) {
             ajouterAuQueue(std::make_unique<Bouton>(Dieu::D));
         }
         Enter = tempENTER;

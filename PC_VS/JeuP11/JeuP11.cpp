@@ -5,8 +5,11 @@
 /*------------------------------ Librairies ---------------------------------*/
 #include <iostream>
 #include <string>
+#include <conio.h>
+#include <cstdlib>
 /*-------------------------- Librairies externes ----------------------------*/
 #include "FenetreMenu.h"
+#include "FenetreJeuPiano.h"
 #include "Tests.h"
 #include "Evenement.h"
 #include "Bouton.h"
@@ -17,9 +20,7 @@
 #include "Boussole.h"
 #include "CONSTANTES.h"
 /*------------------------- Prototypes de fonctions -------------------------*/
-#include "FenetreJeuPiano.h"
-#include <conio.h>
-#include <cstdlib>
+void ShowConsoleCursor(bool showFlag);
 /*----------------------------- Fonction "Main" -----------------------------*/
 int main()
 {

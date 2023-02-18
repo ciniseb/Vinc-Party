@@ -14,6 +14,7 @@ Description:
 #define FENETREPOINTAGES_H
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -21,6 +22,8 @@ Description:
 #include "ES.h"
 #include "Fenetre.h"
 #include "Pointage.h"
+#include "Joystick.h"
+#include "Bouton.h"
 
 class FenetrePointages : public Fenetre
 {

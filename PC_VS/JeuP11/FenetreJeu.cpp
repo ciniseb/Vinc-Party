@@ -262,7 +262,7 @@ void FenetreJeu::jouer()
     std::unique_ptr<Evenement> evenement;
     int mj_actif = 0;
     //TODO : selection mini-jeu actif random sur nb mini jeux
-
+    Direction directionActuelle = AUCUNE;
     genererCarte();
     temps.demarrer();
 
@@ -270,21 +270,21 @@ void FenetreJeu::jouer()
     affichage_DEBUG(std::cout);
     while (true)
     {
+        if (directionActuelle != AUCUNE && deplacementJoueur(directionActuelle, t_dernier_deplacement_joueur))
+        {
+            affichage_DEBUG(std::cout);
+        }
+
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
 
-
-            if (evenement->getCode() == JOYSTICK) {
+            if (evenement->getCode() == JOYSTICK)
+            {
                 Joystick *eJoystick = static_cast<Joystick*>(evenement.get());
-                Direction direction = eJoystick->getDirection();
-                deplacementJoueur(direction, t_dernier_deplacement_joueur);
+                directionActuelle = eJoystick->getDirection();
             }
-            
         }
-
-        
-        
 
         if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)
         {
@@ -315,7 +315,6 @@ void FenetreJeu::jouer()
             }
         }
         affichage_DEBUG(std::cout);
-        Sleep(200);
     }
 }
 

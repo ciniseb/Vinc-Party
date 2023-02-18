@@ -89,7 +89,7 @@ bool FenetrePointages::enregistrerPointages()
 
 void FenetrePointages::ouvrir()
 {
-    int reponse = -1;
+    std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
     affichage_DEBUG(selection);
@@ -97,25 +97,30 @@ void FenetrePointages::ouvrir()
     {
         if (threadArduino->evenementDisponible())
         {
-            reponse = threadArduino->prochainEvenement().arg1;
+            evenement = threadArduino->prochainEvenement();
 
-            if (reponse == ENTER)
+            if (evenement->getCode() == BOUTON)
             {
-                std::cin.clear();
-                std::cin.ignore(10000, '\n');
+                Bouton* eBouton = static_cast<Bouton*>(evenement.get());
+                Dieu lettreAppuyee = eBouton->getNom();
 
-                system("cls");
-                return;
-
+                if (lettreAppuyee == Dieu::D)
+                {
+                    system("cls");
+                    return;
+                }
             }
-            else
+            else if(evenement->getCode() == JOYSTICK)
             {
-                if (reponse == HAUT && (selection > 0))
+                Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
+                Direction direction = eJoystick->getDirection();
+
+                if (direction == Direction::HAUT && (selection > 0))
                 {
                     selection--;
                     affichage_DEBUG(selection);
                 }
-                else if (reponse == BAS && selection < 1)
+                else if (direction == Direction::BAS && selection < 1)
                 {
                     selection++;
                     affichage_DEBUG(selection);

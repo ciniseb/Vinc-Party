@@ -21,6 +21,8 @@ Description:
 #include "FenetreJeu.h"
 #include "FenetrePointages.h"
 #include "FenetreTests.h"
+#include "Joystick.h"
+#include "Bouton.h"
 
 class FenetreMenu : public Fenetre
 {
