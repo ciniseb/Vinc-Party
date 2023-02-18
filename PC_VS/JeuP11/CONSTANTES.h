@@ -11,8 +11,8 @@ Auteurs: Antoine Allard
 Description: Constantes utiles à la compréhension du programme
 ====================================================================================================*/
 //CARTE et TUILE
-#define LARGEUR_CARTE 40
-#define HAUTEUR_CARTE 20
+#define LARGEUR_CARTE 60
+#define HAUTEUR_CARTE 30
 
 #define VIDE 0
 #define PLEIN -1
@@ -24,6 +24,9 @@ Description: Constantes utiles à la compréhension du programme
 
 #define DT_DEPLACEMENT_JOUEUR 333 //Milisecondes
 #define DT_DEPLACEMENT_ADVERSAIRE 250 //Milisecondes
+
+#define RAYON_VISION 8
+#define RAYON_VIBRATION 12
 
 //ERREURS
 //...

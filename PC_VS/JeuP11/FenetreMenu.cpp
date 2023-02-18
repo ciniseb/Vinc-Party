@@ -44,7 +44,7 @@ void FenetreMenu::ouvrir()
         {
             reponse = threadArduino->prochainEvenement().arg1;
 
-            if (reponse == ENTER && 2 >= selection && selection >= 0)
+            if (reponse == ENTER && 1 >= selection && selection >= 0)
             {
                 if (selection == 0)
                 {
@@ -62,12 +62,13 @@ void FenetreMenu::ouvrir()
                 }
                 fenetres[selection]->ouvrir();
                 system("cls");
+                affichage_DEBUG(selection);
                 if (selection == 0)
                 {
                     //TOTO getPointage et etc.
                 }
             }
-            else if (reponse == ENTER && selection == 3)
+            else if (reponse == ENTER && selection == 2)
             {
                 exit(1);
             }
@@ -78,7 +79,7 @@ void FenetreMenu::ouvrir()
                     selection--;
                     affichage_DEBUG(selection);
                 }
-                else if (reponse == BAS && selection < 3)
+                else if (reponse == BAS && selection < 2)
                 {
                     selection++;
                     affichage_DEBUG(selection);
@@ -98,34 +99,23 @@ void FenetreMenu::affichage_DEBUG(int selection)
     if (selection == 0)
     {
         std::cout << " ---> | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
+        std::cout << "      | Pointages" << std::endl << std::endl;
 
-        std::cout << "      | Quitter" << std::endl << std::endl;
+        std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << " ---> | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
+        std::cout << " ---> | Pointages" << std::endl << std::endl;
 
-        std::cout << "      | Quitter" << std::endl << std::endl;
+        std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << " ---> | Tests" << std::endl << std::endl;
+        std::cout << "      | Pointages" << std::endl << std::endl;
 
-        std::cout << "      | Quitter" << std::endl << std::endl;
-    }
-    else if (selection == 3)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
-
-        std::cout << " ---> | Quitter" << std::endl << std::endl;
+        std::cout << " ---> | Quitter" << std::endl;
     }
     else
     {

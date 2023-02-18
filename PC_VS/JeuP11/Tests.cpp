@@ -101,6 +101,23 @@ void Tests::tests_fenetrejeu()
     }
 }
 
+void Tests::tests_fenetrePointages()
+{
+    ES threadArduino;
+
+    FenetrePointages f_pointages(&threadArduino);
+    /*f_pointages.ajoutPointage(Pointage("Ciniseb", 5, 18));
+    f_pointages.ajoutPointage(Pointage("LordAllard", 6, 38));
+    f_pointages.ajoutPointage(Pointage("Chef QuartUS", 6, 20));
+    f_pointages.ajoutPointage(Pointage("Mimile", 5, 21));
+    f_pointages.ajoutPointage(Pointage("Enes", 4, 10));
+    f_pointages.ajoutPointage(Pointage("Zahckarye", 4, 12));
+    f_pointages.ajoutPointage(Pointage("ANNE-SOPHIE", 6, 28));
+    f_pointages.ajoutPointage(Pointage("Bob", 1, 5));*/
+
+    f_pointages.affichage_DEBUG(0);
+}
+
 void assignerTableau(int t[3][3])
 {
     t[0][0] = 6;

@@ -15,6 +15,9 @@ Description:
 
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
 #include "ES.h"
 #include "Fenetre.h"
 #include "Pointage.h"
@@ -24,7 +27,6 @@ class FenetrePointages : public Fenetre
 private:
     //Attributs
     std::vector<Pointage> pointages;
-
 public:
     //Constructeurs & destructeurs
     FenetrePointages(ES *);
@@ -34,6 +36,7 @@ public:
     std::vector<Pointage> getPointages();
 
     void setPointages(std::vector<Pointage>);
+    void ajoutPointage(Pointage);
 
     //Méthodes
     bool chargerPointages();

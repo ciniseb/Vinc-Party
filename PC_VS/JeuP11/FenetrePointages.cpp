@@ -15,9 +15,12 @@ Description:
 //Constructeurs & destructeurs
 FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread)
 {
-
+    chargerPointages();
 }
-FenetrePointages::~FenetrePointages() {}
+FenetrePointages::~FenetrePointages()
+{
+    enregistrerPointages();
+}
 
 //Getteurs & setteurs
 std::vector<Pointage> FenetrePointages::getPointages()
@@ -29,11 +32,15 @@ void FenetrePointages::setPointages(std::vector<Pointage> p)
 {
     pointages = p;
 }
+void FenetrePointages::ajoutPointage(Pointage p)
+{
+    pointages.push_back(p);
+}
 
 //Méthodes
 bool FenetrePointages::chargerPointages()
 {
-    /*std::ifstream fichier;
+    std::ifstream fichier;
 
     fichier.open("pointages.txt");
 
@@ -41,83 +48,65 @@ bool FenetrePointages::chargerPointages()
     {
         std::string ligne;
 
-        for (int r = 0; getline(fichier, ligne) && r < HAUTEUR_CARTE; r++)
+        std::string nom_joueur, n_atteint, temps;
+
+        while (getline(fichier, ligne))
         {
             std::istringstream flux(ligne);
-            std::string nombre;
 
-            for (int c = 0; getline(flux, nombre, ';') && c < LARGEUR_CARTE; c++)
-            {
-                if (stoi(nombre) >= -2 && stoi(nombre) <= 2)
-                {
-                    c_gabarit[r][c] = stoi(nombre);
-                    if (c_gabarit[r][c] == -2)
-                    {
-                        (*nb_p_variables)++;
-                    }
-                    else if (c_gabarit[r][c] == 2)
-                    {
-                        (*nb_mj_variables)++;
-                    }
-                }
-                else
-                {
-                    fichier.close();
-                    std::cout << "Mauvais fichier..." << std::endl;
-                    return false;
-                }
-            }
+            getline(flux, nom_joueur, ';');
+            getline(flux, n_atteint, ';');
+            getline(flux, temps);
+
+            pointages.push_back(Pointage(nom_joueur, stoi(n_atteint), stod(temps)));
         }
 
         fichier.close();
         return true;
     }
-    std::cout << "Fichier introuvable..." << std::endl;*/
+    std::cout << "Fichier introuvable..." << std::endl;
     return false;
 }
 bool FenetrePointages::enregistrerPointages()
 {
+    std::ofstream fichier;
+
+    fichier.open("pointages.txt");
+
+    if (fichier.is_open())
+    {
+        for (int r = 0; r < pointages.size(); r++)
+        {
+            fichier << pointages.at(r).getNomJoueur() << ";" << pointages.at(r).getN_Atteint() << ";" << pointages.at(r).getTemps() << std::endl;
+        }
+
+        fichier.close();
+        return true;
+    }
+    std::cout << "Fichier introuvable..." << std::endl;
     return false;
 }
 
 void FenetrePointages::ouvrir()
 {
-    /*int reponse = -1;
+    int reponse = -1;
     int selection = 0;
 
     affichage_DEBUG(selection);
     while (true)
     {
-        if (threadArduino.evenementDisponible())
+        if (threadArduino->evenementDisponible())
         {
-            reponse = threadArduino.prochainEvenement().arg1;
+            reponse = threadArduino->prochainEvenement().arg1;
 
-            if (reponse == ENTER && 2 >= selection && selection >= 0)
+            if (reponse == ENTER)
             {
-                if (selection == 0)
-                {
-                    std::cin.clear();
-                    std::cin.ignore(10000, '\n');
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
 
-                    system("cls");
-                    affichage_DEBUG(selection);
-
-                    std::string nom_joueur;
-                    std::cout << "Nom du joueur : ";
-                    getline(std::cin, nom_joueur);
-                    std::cout << std::endl;
-                    fenetres[selection] = new FenetreJeu(nom_joueur);
-                }
-                fenetres[selection]->ouvrir();
                 system("cls");
-                if (selection == 0)
-                {
-                    //TOTO getPointage et etc.
-                }
-            }
-            else if (reponse == ENTER && selection == 3)
-            {
-                exit(1);
+                return;
+
             }
             else
             {
@@ -126,54 +115,89 @@ void FenetrePointages::ouvrir()
                     selection--;
                     affichage_DEBUG(selection);
                 }
-                else if (reponse == BAS && selection < 3)
+                else if (reponse == BAS && selection < 1)
                 {
                     selection++;
                     affichage_DEBUG(selection);
                 }
             }
         }
-    }*/
+    }
 }
 
+bool plusHautNiveau(const Pointage& p1, const Pointage& p2)
+{
+    return p1.getN_Atteint() > p2.getN_Atteint();
+}
+bool plusPetitTemps(const Pointage& p1, const Pointage& p2)
+{
+    if (p1.getN_Atteint() != p2.getN_Atteint())
+    {
+        return plusHautNiveau(p1, p2);
+    }
+    else
+    {
+        return p1.getTemps() < p2.getTemps();
+    }
+}
 void FenetrePointages::affichage_DEBUG(int selection)
 {
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
+    system("cls");
 
-    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << "-------------------------------------------------------------" << std::endl;
     switch (selection)
     {
     case 0:
-        std::cout << "  | Pointages : temps" << std::endl;
+        std::cout << "  | Pointages : temps total (m)" << std::endl;
+        std::cout << "-------------------------------------------------------------" << std::endl;
+        std::cout << "Niveau atteint  |  Temps  |  Temps/niveau  |  Nom du joueur" << std::endl;
         break;
     case 1:
-        std::cout << "  | Pointages : temps/niveau" << std::endl;
-        break;
-    case 2:
-        std::cout << "  | Pointages : nombre de niveaux" << std::endl;
-        break;
-    case 3:
-        std::cout << "  | Pointages : distance parcourue/minute" << std::endl;
+        std::cout << "  | Pointages : distance parcourue par minute (tuiles)" << std::endl;
+        std::cout << "-------------------------------------------------------------" << std::endl;
+        std::cout << "Niveau atteint  |  Distance/minute  |  Nom du joueur" << std::endl;
         break;
     default:
         break;
     }
-    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << "-------------------------------------------------------------" << std::endl;
 
-
+    std::streamsize precision = std::cout.precision();
+    std::vector<Pointage> trie_pointages = pointages;
     switch (selection)
     {
     case 0:
-        
+        std::sort(trie_pointages.begin(), trie_pointages.end(), plusPetitTemps);
+        for (int index = 0; index < trie_pointages.size(); index++)
+        {
+            if (index != 0 && trie_pointages.at(index -1).getN_Atteint() > trie_pointages.at(index).getN_Atteint())
+            {
+                std::cout << std::endl;
+            }
+
+            std::cout << trie_pointages.at(index).getN_Atteint();
+            std::cout << "  |  ";
+            if (trie_pointages.at(index).getTemps() <= 9)
+            {
+                std::cout << "00";
+            }
+            else if (trie_pointages.at(index).getTemps() <= 99)
+            {
+                std::cout << "0";
+            }
+            std::cout << trie_pointages.at(index).getTemps();
+            std::cout << "  |  ";
+            if (trie_pointages.at(index).getMoy_t_n() <= 9)
+            {
+                std::cout << "0";
+            }
+            std::cout << std::setprecision(2) << std::fixed << trie_pointages.at(index).getMoy_t_n();
+            std::cout << "  |  ";
+            std::cout << trie_pointages.at(index).getNomJoueur();
+            std::cout << std::setprecision(precision) << std::resetiosflags(std::ios::fixed) << std::endl;
+        }
         break;
     case 1:
-        
-        break;
-    case 2:
-        
-        break;
-    case 3:
-        
         break;
     default:
         break;

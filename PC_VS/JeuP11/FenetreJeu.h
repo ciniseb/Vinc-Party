@@ -20,6 +20,7 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include <sstream>
 #include <algorithm>
 #include <random>
+#include <cstdlib>
 #include "ES.h"
 #include "CONSTANTES.h"
 #include "Fenetre.h"
@@ -76,6 +77,7 @@ public:
     bool genererCarte();
 
     bool deplacementJoueur(int, double *);
+    float distanceJoueur(Coordonnee);
 
     void ouvrir();
     void jouer();

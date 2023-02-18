@@ -10,7 +10,6 @@
 /*------------------------------ Librairies ---------------------------------*/
 #include <iostream>
 #include <string>
-using namespace std;
 /*-------------------------- Librairies externes ----------------------------*/
 #include "FenetreMenu.h"
 #include "Tests.h"
@@ -20,8 +19,21 @@ using namespace std;
 /*---------------------------- Variables globales ---------------------------*/
 
 /*----------------------------- Fonction "Main" -----------------------------*/
+void ShowConsoleCursor(bool showFlag)
+{
+    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    CONSOLE_CURSOR_INFO     cursorInfo;
+
+    GetConsoleCursorInfo(out, &cursorInfo);
+    cursorInfo.bVisible = showFlag;
+    SetConsoleCursorInfo(out, &cursorInfo);
+}
+
 int main()
 {
+    ShowConsoleCursor(false);
+
     ES threadArduino;
     FenetreMenu menu(&threadArduino);
 
@@ -34,6 +46,7 @@ int main()
     //Tests tests;
     //tests.tests_chronometre();
     //tests.tests_fenetrejeu();
+    //tests.tests_fenetrePointages();
     // tests.tests_autre();
     /*ES es;
      while (true) {

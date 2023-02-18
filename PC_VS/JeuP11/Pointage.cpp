@@ -30,19 +30,19 @@ Pointage::Pointage(std::string nom, int niveau, double t)
 Pointage::~Pointage() {}
 
 //Getteurs & setteurs
-std::string Pointage::getNomJoueur()
+std::string Pointage::getNomJoueur() const
 {
     return nom_joueur;
 }
-int Pointage::getN_Atteint()
+int Pointage::getN_Atteint() const
 {
     return n_atteint;
 }
-double Pointage::getTemps()
+double Pointage::getTemps() const
 {
     return temps;
 }
-float Pointage::getMoy_t_n()
+float Pointage::getMoy_t_n() const
 {
     return moy_t_n;
 }
