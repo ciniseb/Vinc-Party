@@ -139,8 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Accel.cpp" />
+    <ClCompile Include="Bargraph.cpp" />
+    <ClCompile Include="Boussole.cpp" />
+    <ClCompile Include="Bouton.cpp" />
     <ClCompile Include="Chronometre.cpp" />
     <ClCompile Include="ES.cpp" />
+    <ClCompile Include="Evenement.cpp" />
     <ClCompile Include="Fenetre.cpp" />
     <ClCompile Include="FenetreJeu.cpp" />
     <ClCompile Include="FenetreJeuPiano.cpp" />
@@ -149,18 +154,25 @@
     <ClCompile Include="FenetreTests.cpp" />
     <ClCompile Include="include\serial\SerialPort.cpp" />
     <ClCompile Include="JeuP11.cpp" />
+    <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="FenetreMiniJeu.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Pointage.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="Tuile.cpp" />
+    <ClCompile Include="Vibration.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Accel.h" />
     <ClInclude Include="Acteur.h" />
+    <ClInclude Include="Bargraph.h" />
+    <ClInclude Include="Boussole.h" />
+    <ClInclude Include="Bouton.h" />
     <ClInclude Include="Chronometre.h" />
     <ClInclude Include="CONSTANTES.h" />
     <ClInclude Include="Coordonnee.h" />
     <ClInclude Include="ES.h" />
+    <ClInclude Include="Evenement.h" />
     <ClInclude Include="Fenetre.h" />
     <ClInclude Include="FenetreJeu.h" />
     <ClInclude Include="FenetreJeuPiano.h" />
@@ -170,11 +182,13 @@
     <ClInclude Include="GABARIT_CLASS.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\serial\SerialPort.hpp" />
+    <ClInclude Include="Joystick.h" />
     <ClInclude Include="FenetreMiniJeu.h" />
     <ClInclude Include="Niveau.h" />
     <ClInclude Include="Pointage.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Tuile.h" />
+    <ClInclude Include="Vibration.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="c_gabarit_20_40.csv" />

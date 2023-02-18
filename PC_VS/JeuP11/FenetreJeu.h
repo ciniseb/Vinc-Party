@@ -2,12 +2,12 @@
 Fichier: FenetreJeu.h
 Auteurs: Antoine Allard
          Charles Beaulieu
-         Émile Bois
+         ï¿½mile Bois
          Enes Caku
          Zachari Gervais
          Anne-Sophie Nguyen
-         Sébastien St-Denis
-         Date: 05 février 2023
+         Sï¿½bastien St-Denis
+         Date: 05 fï¿½vrier 2023
 Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 ====================================================================================================*/
 #ifndef FENETREJEU_H
@@ -31,6 +31,7 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Chronometre.h"
 #include "Pointage.h"
 #include "FenetreJeuPiano.h"
+#include "Joystick.h"
 
 class FenetreJeu : public Fenetre
 {
@@ -48,7 +49,7 @@ private:
 
     Pointage pointage;
 
-    //Méthodes
+    //Mï¿½thodes
 
 public:
     //Constructeurs & destructeurs
@@ -72,11 +73,11 @@ public:
     void setAdversaire(Acteur);
     void setTemps(Chronometre);
 
-    //Méthodes
+    //Mï¿½thodes
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
 
-    bool deplacementJoueur(int, double *);
+    bool deplacementJoueur(Direction, double *);
     float distanceJoueur(Coordonnee);
 
     void ouvrir();

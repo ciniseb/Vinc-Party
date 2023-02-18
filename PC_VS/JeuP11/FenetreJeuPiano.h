@@ -18,12 +18,13 @@ Description: Mini-jeu de piano style Piano tiles
 #include <conio.h>
 #include "ES.h"
 #include "FenetreMiniJeu.h"
+#include "CONSTANTES.h"
 
 class FenetreJeuPiano : public FenetreMiniJeu
 {
 private:
     //Attribut
-    int chanson[200];
+    Dieu chanson[200];
     int index = 0;
     
 
@@ -33,7 +34,7 @@ public:
     ~FenetreJeuPiano();
 
     //Getteurs & setteurs
-    bool VersBoutonPressee(int);
+    bool VersBoutonPressee(Dieu touche);
 
     //Méthodes
     void ouvrir();
