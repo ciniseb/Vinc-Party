@@ -37,21 +37,25 @@
 
 /*----------------------------- Fonction "Main" -----------------------------*/
 int main()
-{
+{   
+   // Tests oui;
+    //oui.tests_autre();
     ES es;
     es.demarrer();
     FenetreMenu menu(&es);
 
     menu.ouvrir();
+   
+ 
     //FenetreMiniJeu *fenetreJeuPiano = new FenetreJeuPiano();
-    //fenetreJeuPiano->ouvrir();
+   // fenetreJeuPiano->ouvrir();
 
 
     //Tests. � commenter au besoin
     //Tests tests;
     //tests.tests_chronometre();
     //tests.tests_fenetrejeu();
-    // tests.tests_autre();
+    //tests.tests_autre();
     /*es.demarrer();
     while (true) {
         while (es.evenementDisponible()) {

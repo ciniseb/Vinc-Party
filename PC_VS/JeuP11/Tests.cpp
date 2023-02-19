@@ -115,15 +115,11 @@ void assignerTableau(int t[3][3])
 }
 void Tests::tests_autre()
 {
-    int tab[3][3];
-    assignerTableau(tab);
+    Niveau niveau;
+    ES thread;
+    FenetreJeu partie("Ciniseb", &thread);
 
-    for (int i = 0 ; i < 3 ; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            std::cout << tab[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
+    partie.genererCarte();
+    partie.affichage_DEBUG(std::cout);
+
 }
