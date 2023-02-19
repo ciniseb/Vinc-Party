@@ -18,6 +18,7 @@ Description: Tests unitaires et d'intégration
 #include "ES.h"
 #include "Chronometre.h"
 #include "FenetreJeu.h"
+#include "FenetrePointages.h"
 
 class Tests
 {
@@ -30,6 +31,8 @@ public:
     void tests_chronometre();
 
     void tests_fenetrejeu();
+
+    void tests_fenetrePointages();
 
     void tests_autre();
 

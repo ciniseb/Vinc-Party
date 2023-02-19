@@ -166,5 +166,13 @@
     <None Include="c_gabarit_20_40.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="c_gabarit_30_60.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="pointages.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

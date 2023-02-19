@@ -26,7 +26,7 @@ FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
     //mini_jeux[1] = ...
     //mini_jeux[2] = ...
 
-    joueur = Acteur{nom_joueur, Coordonnee{19, 19}};
+    joueur = Acteur{nom_joueur, Coordonnee{(LARGEUR_CARTE/2)-1, HAUTEUR_CARTE-1}};
 
     Coordonnee pos_adversaire{14, 1};//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{"BOB", pos_adversaire};
@@ -245,9 +245,15 @@ bool FenetreJeu::deplacementJoueur(Direction reponse, double *t_dernier_deplacem
     return false;
 }
 
+float FenetreJeu::distanceJoueur(Coordonnee coord)
+{
+    double a = abs(coord.X - joueur.position.X);
+    double b = abs(coord.Y - joueur.position.Y);
+    return sqrt((a*a) + (b*b));
+}
+
 void FenetreJeu::ouvrir()
 {
-    //std::cout << "FENETRE DE JEU OUVERTE" << std::endl;
     jouer();
 }
 void FenetreJeu::jouer()
@@ -257,7 +263,7 @@ void FenetreJeu::jouer()
     std::unique_ptr<Evenement> evenement;
     int mj_actif = 0;
     //TODO : selection mini-jeu actif random sur nb mini jeux
-
+    Direction directionActuelle = AUCUNE;
     genererCarte();
     temps.demarrer();
 
@@ -265,26 +271,24 @@ void FenetreJeu::jouer()
     affichage_DEBUG(std::cout);
     while (true)
     {
+        if (directionActuelle != AUCUNE && deplacementJoueur(directionActuelle, t_dernier_deplacement_joueur))
+        {
+            affichage_DEBUG(std::cout);
+        }
 
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
 
-
             if (evenement->getCode() == JOYSTICK)
-            {    
+            {
                 Joystick *eJoystick = static_cast<Joystick*>(evenement.get());
-                Direction direction = eJoystick->getDirection();
-                deplacementJoueur(direction, t_dernier_deplacement_joueur);
-                DeplacementAdversaire();
+                directionActuelle = eJoystick->getDirection();
+                 DeplacementAdversaire();
             }
-            
         }
 
-        
-        
-
-        if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)//TODO : case mini jeu
+        if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)
         {
             mini_jeux[mj_actif]->ouvrir();
             if (mini_jeux[mj_actif]->reussi())
@@ -313,7 +317,6 @@ void FenetreJeu::jouer()
             }
         }
         affichage_DEBUG(std::cout);
-        Sleep(200);
     }
 }
 
@@ -327,17 +330,19 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
     //system("cls");
 
-    std::cout << "--------------------------------------------------------------------------------" << std::endl;
+    std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
     std::cout << "      | " << joueur.nom << std::endl;
-    std::cout << "--------------------------------------------------------------------------------" << std::endl;
-
-    //TODO : Champ de vision
+    std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
 
     for (int r = 0; r < HAUTEUR_CARTE; r++)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            if (joueur.position.X == c && joueur.position.Y == r)
+            if (distanceJoueur({c, r}) > RAYON_VISION)
+            {
+                flux << "  ";
+            }
+            else if (joueur.position.X == c && joueur.position.Y == r)
             {
                 flux << "**";
             }

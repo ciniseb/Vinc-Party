@@ -11,8 +11,6 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "FenetreMenu.h"
-#include "Joystick.h"
-#include "Bouton.h"
 
 #define DEMANDER_NOM false
 
@@ -22,14 +20,13 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
     fenetres[0] = new FenetreJeu();
     fenetres[1] = new FenetrePointages(thread);
     fenetres[2] = new FenetreTests(thread);
-    //f0 = new FenetreJeu();
 }
 FenetreMenu::~FenetreMenu()
 {
-    /*for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
         delete fenetres[i];
-    }*/
+    }
 }
 
 //Getteurs & setteurs
@@ -48,18 +45,16 @@ void FenetreMenu::ouvrir()
         {
             evenement = threadArduino->prochainEvenement();
 
-            if (evenement->getCode() == BOUTON) {
+            if (evenement->getCode() == BOUTON)
+            {
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D && 2 >= selection && selection >= 0)
+                if (lettreAppuyee == Dieu::D && 1 >= selection && selection >= 0)
                 {
                     if (selection == 0)
                     {
 #if DEMANDER_NOM
-
-
-
                         std::cin.clear();
                         std::cin.ignore(10000, '\n');
 
@@ -78,25 +73,28 @@ void FenetreMenu::ouvrir()
                     }
                     fenetres[selection]->ouvrir();
                     system("cls");
+                    affichage_DEBUG(selection);
                     if (selection == 0)
                     {
                         //TOTO getPointage et etc.
                     }
                 }
-                else if (lettreAppuyee == Dieu::D && selection == 3)
+                else if (lettreAppuyee == Dieu::D && selection == 2)
                 {
                     exit(1);
                 }
             }
-            else if (evenement->getCode() == JOYSTICK) {
+            else if (evenement->getCode() == JOYSTICK)
+            {
                 Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
                 Direction direction = eJoystick->getDirection();
+
                 if (direction == Direction::HAUT && (selection > 0))
                 {
                     selection--;
                     affichage_DEBUG(selection);
                 }
-                else if (direction == Direction::BAS && selection < 3)
+                else if (direction == Direction::BAS && selection < 2)
                 {
                     selection++;
                     affichage_DEBUG(selection);
@@ -108,7 +106,7 @@ void FenetreMenu::ouvrir()
 
 void FenetreMenu::affichage_DEBUG(int selection)
 {
-    system("cls");
+    //system("cls");
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
     std::cout << "-----------------------------------------------" << std::endl;
@@ -117,34 +115,23 @@ void FenetreMenu::affichage_DEBUG(int selection)
     if (selection == 0)
     {
         std::cout << " ---> | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
+        std::cout << "      | Pointages" << std::endl << std::endl;
 
-        std::cout << "      | Quitter" << std::endl << std::endl;
+        std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << " ---> | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
+        std::cout << " ---> | Pointages" << std::endl << std::endl;
 
-        std::cout << "      | Quitter" << std::endl << std::endl;
+        std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << " ---> | Tests" << std::endl << std::endl;
+        std::cout << "      | Pointages" << std::endl << std::endl;
 
-        std::cout << "      | Quitter" << std::endl << std::endl;
-    }
-    else if (selection == 3)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
-
-        std::cout << " ---> | Quitter" << std::endl << std::endl;
+        std::cout << " ---> | Quitter" << std::endl;
     }
     else
     {

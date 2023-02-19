@@ -14,17 +14,22 @@ Description:
 #define FENETREPOINTAGES_H
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
 #include "ES.h"
 #include "Fenetre.h"
 #include "Pointage.h"
+#include "Joystick.h"
+#include "Bouton.h"
 
 class FenetrePointages : public Fenetre
 {
 private:
     //Attributs
     std::vector<Pointage> pointages;
-
 public:
     //Constructeurs & destructeurs
     FenetrePointages(ES *);
@@ -34,6 +39,7 @@ public:
     std::vector<Pointage> getPointages();
 
     void setPointages(std::vector<Pointage>);
+    void ajoutPointage(Pointage);
 
     //Méthodes
     bool chargerPointages();

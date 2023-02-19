@@ -192,6 +192,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="c_gabarit_20_40.csv" />
+    <None Include="c_gabarit_30_60.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="pointages.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
