@@ -1,9 +1,11 @@
-Ciniseb;5;18
-LordAllard;6;38
-Chef QuartUS;6;20
-Mimile;5;21
-Enes;4;10
-Zahckarye;4;12
-ANNE-SOPHIE;6;28
-Bob;1;5
-Vincent;6;69
+Ciniseb;5;18;632
+LordAllard;6;38;888
+Chef QuartUS;6;20;591
+Mimile;5;21;654
+Enes;4;10;512
+Zahckarye;4;12;322
+ANNE-SOPHIE;6;28;702
+Bob;1;5;73
+Vincent;6;69;666
+Roger Laperdrie;1;32;2000
+73PeuplierBlanc;1;10;67

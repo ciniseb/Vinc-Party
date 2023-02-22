@@ -14,6 +14,7 @@ Description: Chronomètre qui gère le temps d'une partie
 #define CHRONOMETRE_H
 
 #include <iostream>
+#include <iomanip>
 #include <chrono>
 #include <cmath>
 
@@ -38,7 +39,10 @@ public:
     //Méthodes
     void demarrer();
 
-    bool tempsAtteint_ms(double ms);
+    bool tempsAtteint_ms(double);
+
+    //Opérateurs surchargés
+    friend std::ostream& operator<<(std::ostream &, Chronometre &);
 };
 
 #endif

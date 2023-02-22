@@ -28,7 +28,7 @@ FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
 
     joueur = Acteur{nom_joueur, Coordonnee{(LARGEUR_CARTE/2)-1, HAUTEUR_CARTE-1}};
 
-    Coordonnee pos_adversaire{19, 20};//TODO : générer une position aléatoire dans la map pour l'adversaire
+    Coordonnee pos_adversaire{(LARGEUR_CARTE / 2), HAUTEUR_CARTE - 1};//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{"BOB", pos_adversaire};
 }
 FenetreJeu::~FenetreJeu() {}
@@ -57,10 +57,6 @@ Acteur FenetreJeu::getAdversaire()
 Chronometre FenetreJeu::getTemps()
 {
     return temps;
-}
-Pointage FenetreJeu::getPointage()
-{
-    return pointage;
 }
 
 void FenetreJeu::setNiveau(Niveau n)
@@ -212,7 +208,28 @@ bool FenetreJeu::genererCarte()
     return true;
 }
 
-bool FenetreJeu::deplacementJoueur(Direction reponse, double *t_dernier_deplacement_joueur)
+bool FenetreJeu::deplacementAdversaire()
+{
+    if (true/*distanceJoueurAdversaire > rayon de vibration*/)
+    {
+        //ANTOINE 2/3 et ENES 1/3
+    }
+    else
+    {
+        //ENES
+    }
+    
+    double t_ecoule = temps.tempsEcoule_ms();
+    if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_JOUEUR)/niveau.getV_Adversaire() <= t_ecoule)
+    {
+        //adversaire.position.X = NouveauX; TODO nouveauY
+        //adversaire.position.Y = NouveauY; TODO nouveauY
+        adversaire.t_dernier_deplacement = t_ecoule;
+        return true;
+    }
+    return false;
+}
+bool FenetreJeu::deplacementJoueur(Direction reponse)
 {
     int NouveauX = joueur.position.X;
     int NouveauY = joueur.position.Y;
@@ -235,11 +252,11 @@ bool FenetreJeu::deplacementJoueur(Direction reponse, double *t_dernier_deplacem
         break;
     }
     double t_ecoule = temps.tempsEcoule_ms();
-    if (((*t_dernier_deplacement_joueur + DT_DEPLACEMENT_JOUEUR) <= t_ecoule) && carte[NouveauY][NouveauX].getRemplissage() != PLEIN && NouveauX < LARGEUR_CARTE && NouveauY < HAUTEUR_CARTE && NouveauX>0 && NouveauY>0)
+    if (((joueur.t_dernier_deplacement + DT_DEPLACEMENT_JOUEUR) <= t_ecoule) && carte[NouveauY][NouveauX].getRemplissage() != PLEIN && NouveauX < LARGEUR_CARTE && NouveauY < HAUTEUR_CARTE && NouveauX>0 && NouveauY>0)
     {
         joueur.position.X = NouveauX;
         joueur.position.Y = NouveauY;
-        *t_dernier_deplacement_joueur = t_ecoule;
+        joueur.t_dernier_deplacement = t_ecoule;
         return true;
     }
     return false;
@@ -258,11 +275,13 @@ void FenetreJeu::ouvrir()
 }
 void FenetreJeu::jouer()
 {
-    double *t_dernier_deplacement_joueur = new double(temps.tempsEcoule_ms());
+    double dernier_t = 0;
+    joueur.t_dernier_deplacement = temps.tempsEcoule_ms();
+    adversaire.t_dernier_deplacement = temps.tempsEcoule_ms();
     std::unique_ptr<Evenement> evenement;
-    int mj_actif = 0;
-    //TODO : selection mini-jeu actif random sur nb mini jeux
+    int mj_actif = 0; //TODO : selection mini-jeu actif random sur nb mini jeux
     Direction directionActuelle = AUCUNE;
+
     genererCarte();
     temps.demarrer();
 
@@ -270,11 +289,34 @@ void FenetreJeu::jouer()
     affichage_DEBUG(std::cout);
     while (true)
     {
-        if (directionActuelle != AUCUNE && deplacementJoueur(directionActuelle, t_dernier_deplacement_joueur))
+        //Mise à jour du temps de jeu à l'écran
+        if (temps.tempsAtteint_ms(dernier_t+1000))
+        {
+            affichage_DEBUG(std::cout);
+            dernier_t += 1000;
+        }
+
+        //Tague du joueur par l'adversaire = fin de jeu
+        if (adversaire.position.X == joueur.position.X && adversaire.position.Y == joueur.position.Y)
+        {
+            Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m(), joueur.nb_tuiles_parcourues).enregistrerPointage();
+            return;
+        }
+
+        //Déplacement de l'adversaire
+        if (deplacementAdversaire())
         {
             affichage_DEBUG(std::cout);
         }
 
+        //Mise à jour du déplacement du joueur
+        if (directionActuelle != AUCUNE && deplacementJoueur(directionActuelle))
+        {
+            joueur.nb_tuiles_parcourues++;
+            affichage_DEBUG(std::cout);
+        }
+
+        //Lecture des entrées
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
@@ -286,35 +328,41 @@ void FenetreJeu::jouer()
             }
         }
 
+        //Joueur sur une tuile de MINI_JEU
         if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)
         {
-            mini_jeux[mj_actif]->ouvrir();
+            //mini_jeux[mj_actif]->ouvrir();
             if (mini_jeux[mj_actif]->reussi())
             {
-                //mj_actif = niveau.miniJeuReussi(mj_actif); //TODO
+                mj_actif = 0; //TODO
+                niveau.miniJeuReussi(mj_actif); //TODO
+                carte[joueur.position.Y][joueur.position.X].setRemplissage(VIDE);
                 if (niveau.niveauFinit())
                 {
                     if (niveau.niveauSuivant())
                     {
                         genererCarte();
+                        joueur.position = Coordonnee{ (LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1 };
+                        adversaire.position = Coordonnee{ (LARGEUR_CARTE / 2), HAUTEUR_CARTE - 1 };//TODO : générer une position aléatoire dans la map pour l'adversaire
                     }
                     else
                     {
-                        pointage = Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m());
+                        Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m(), joueur.nb_tuiles_parcourues).enregistrerPointage();
                         return;
                     }
                 }
                 else
                 {
                     //TODO : retirer mini jeu
+                    affichage_DEBUG(std::cout);
                 }
             }
             else
             {
                 //TODO : bouger le mini jeu
+                affichage_DEBUG(std::cout);
             }
         }
-        affichage_DEBUG(std::cout);
     }
 }
 
@@ -326,10 +374,9 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     chargerGabaritCarte(c_gabarit, &nb_p_variables, &nb_mj_variables);
 
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
-    //system("cls");
 
     std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
-    std::cout << "      | " << joueur.nom << std::endl;
+    std::cout << "  Joueur : " << joueur.nom << "  |  " << "Dsitance parcourue : " << joueur.nb_tuiles_parcourues << "  |  temps de jeu : " << temps << "  |  Niveau : " << niveau.getNumero() << "  |  " << niveau.getNB_Mj_Restants() << " (!!)" << std::endl;
     std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
 
     for (int r = 0; r < HAUTEUR_CARTE; r++)
@@ -344,10 +391,14 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
             {
                 flux << "**";
             }
-            else if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
+            else if (adversaire.position.X == c && adversaire.position.Y == r)
+            {
+                flux << "XX";
+            }
+            /*else if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
             {
                 flux << "HH";
-            }
+            }*/
             else if (carte[r][c].getRemplissage() == PLEIN)
             {
                 flux << "##";
@@ -363,4 +414,5 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
         }
         flux << std::endl;
     }
+    flux << ++nb_affichages << std::endl;
 }
