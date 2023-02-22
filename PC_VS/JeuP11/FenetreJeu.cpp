@@ -28,7 +28,7 @@ FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
 
     joueur = Acteur{nom_joueur, Coordonnee{(LARGEUR_CARTE/2)-1, HAUTEUR_CARTE-1}};
 
-    Coordonnee pos_adversaire{14, 1};//TODO : générer une position aléatoire dans la map pour l'adversaire
+    Coordonnee pos_adversaire{30, 24};//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{"BOB", pos_adversaire};
 }
 FenetreJeu::~FenetreJeu() {}
@@ -240,6 +240,7 @@ bool FenetreJeu::deplacementJoueur(Direction reponse, double *t_dernier_deplacem
         joueur.position.X = NouveauX;
         joueur.position.Y = NouveauY;
         *t_dernier_deplacement_joueur = t_ecoule;
+        DeplacementAdversaire();
         return true;
     }
     return false;
@@ -270,7 +271,8 @@ void FenetreJeu::jouer()
     system("cls");
     affichage_DEBUG(std::cout);
     while (true)
-    {
+    {                 
+
         if (directionActuelle != AUCUNE && deplacementJoueur(directionActuelle, t_dernier_deplacement_joueur))
         {
             affichage_DEBUG(std::cout);
@@ -284,7 +286,6 @@ void FenetreJeu::jouer()
             {
                 Joystick *eJoystick = static_cast<Joystick*>(evenement.get());
                 directionActuelle = eJoystick->getDirection();
-                 DeplacementAdversaire();
             }
         }
 
@@ -338,11 +339,11 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            if (distanceJoueur({c, r}) > RAYON_VISION)
-            {
-                flux << "  ";
-            }
-            else if (joueur.position.X == c && joueur.position.Y == r)
+           // if (distanceJoueur({c, r}) > RAYON_VISION)
+           // {
+            //    flux << "  ";
+           // }
+            if (joueur.position.X == c && joueur.position.Y == r)
             {
                 flux << "**";
             }
@@ -373,24 +374,12 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
 }
 
 
-bool FenetreJeu::Validation(bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE], int AXE_x, int AXE_y)
-{
-    if (AXE_x < 0 || AXE_y < 0 || AXE_x >= HAUTEUR_CARTE || AXE_y >= LARGEUR_CARTE || carte[AXE_x][AXE_y].getRemplissage()!=PLEIN)
-    {
-        return false; 
-    }
-    if (Visite[AXE_x][AXE_y])
-    {
-        return false;
-    }
-    else
-    return true;
-}
 
-void FenetreJeu::AIMBOT_PART1()
+
+bool FenetreJeu::AIMBOT_PART1()
 {
-    std::queue<int> q1;
-    std::queue<int> q2;
+    std::queue<int> Xq;
+    std::queue<int> Yq;
     int ADJx, ADJy, x, y;
     int Longueur = 5;
     int PossibiliteRestant = 1;
@@ -400,34 +389,55 @@ void FenetreJeu::AIMBOT_PART1()
     int fin = false;
     bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE];
 
-    q1.push(joueur.position.X);
-    q2.push(joueur.position.Y);
+    Xq.push(joueur.position.X);
+    Yq.push(joueur.position.Y);
     Visite[joueur.position.X][joueur.position.Y] = true;
-    while (!q1.empty())
+    std::cout << Xq.size() << std::endl;
+    while (!fin)
     {
-        x = q1.front();
-        y = q2.front();
-        q1.pop();
-        q2.pop();
+       // std::cout << Xq.size() << std::endl;
+
+        x = Xq.front();
+        y = Yq.front();
+        Xq.pop();
+        Yq.pop();
         if (x == adversaire.position.X && y == adversaire.position.Y)
         {
             fin = true;
+            std::cout << "CEST SUPPOSER DETRE FINIS" <<std::endl <<std::endl;
+            return true;
         }
 
         for (int i = 0; i < 4; i++)
         {
-            ADJx = x + NS[i];
-            ADJy = y + EO[i];
-            if (Validation(Visite, ADJx, ADJy))
-            {
+            int ADJx = x + NS[i];
+            int ADJy = y + EO[i];
+           // std::cout << ADJx << std::endl;
+           // std::cout << ADJy << std::endl;
+
+
+            if ( (ADJx>=0 || ADJy >= 0) && (ADJx <HAUTEUR_CARTE || ADJy < LARGEUR_CARTE) && (carte[ADJx][ADJy].getRemplissage() == VIDE) && (Visite[ADJx][ADJy] != true))
+            {      
+               // std::cout << " ADJx " << ADJx << std::endl;
+
                 COPIE_DE_CARTE[ADJx][ADJy] = Longueur;
-                q1.push(ADJx);
-                q2.push(ADJy);
+                Xq.push(ADJx);
+                Yq.push(ADJy);
                 Visite[ADJx][ADJy] = true;
                 ProchainePossibilite++;
-                COPIE_DE_CARTE[joueur.position.X][joueur.position.Y] = 4;
+
+                for (int r = 0; r < HAUTEUR_CARTE; r++)
+                {
+                    for (int c = 0; c < LARGEUR_CARTE; c++)
+                    {
+                        std::cout << COPIE_DE_CARTE[r][c] <<" ";
+                    }
+                std::cout << std::endl;
+                }
             }
         }
+        std::cout << Xq.size() << std::endl;
+
         PossibiliteRestant--;
         if (PossibiliteRestant == 0)
         {
@@ -436,14 +446,7 @@ void FenetreJeu::AIMBOT_PART1()
             Longueur++;
         }
     }    
-    for (int r = 0; r < HAUTEUR_CARTE; r++)
-    {
-        for (int c = 0; c < LARGEUR_CARTE; c++)
-        {
-            std::cout << COPIE_DE_CARTE[r][c]<<" ";
-        }
-        std::cout << std::endl;
-    }
+ 
 }
 
 void FenetreJeu::AIMBOT_PART2()
@@ -500,5 +503,4 @@ void FenetreJeu::DeplacementAdversaire()
 {
     int distance_entre_adv_jou = sqrt(((adversaire.position.X - joueur.position.X) ^ 2) + ((adversaire.position.Y - joueur.position.Y) ^ 2));
     AIMBOT_PART1();
-    AIMBOT_PART2();
 }

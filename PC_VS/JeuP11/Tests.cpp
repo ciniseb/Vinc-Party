@@ -137,6 +137,6 @@ void Tests::tests_autre()
     FenetreJeu partie("Ciniseb", &thread);
 
     partie.genererCarte();
-    partie.affichage_DEBUG(std::cout);
+    partie.AIMBOT_PART1();
 
 }
