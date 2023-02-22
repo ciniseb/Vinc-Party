@@ -47,7 +47,7 @@ private:
 
     Chronometre temps;
 
-    Pointage pointage;
+    double nb_affichages = 0;
 
     //M�thodes
 
@@ -66,7 +66,6 @@ public:
     Acteur getJoueur();
     Acteur getAdversaire();
     Chronometre getTemps();
-    Pointage getPointage();
 
     void setNiveau(Niveau);
     void setTuile(Coordonnee, Tuile);
@@ -79,7 +78,8 @@ public:
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
 
-    bool deplacementJoueur(Direction, double *);
+    bool deplacementAdversaire();
+    bool deplacementJoueur(Direction);
     float distanceJoueur(Coordonnee);
 
     void ouvrir();

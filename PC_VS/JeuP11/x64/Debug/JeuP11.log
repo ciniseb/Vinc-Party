@@ -1,11 +1,5 @@
 ﻿  FenetreJeu.cpp
-C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(253,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(383,15): warning C4101: 'ADJy': unreferenced local variable
-C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(383,9): warning C4101: 'ADJx': unreferenced local variable
-C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(504,32): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  FenetreMenu.cpp
-  JeuP11.cpp
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(269,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
   Tests.cpp
-  Generating Code...
-C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(450): warning C4715: 'FenetreJeu::AIMBOT_PART1': not all control paths return a value
-  JeuP11.vcxproj -> C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe
+  Génération de code en cours...
+  JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe
