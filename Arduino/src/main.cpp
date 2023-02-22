@@ -48,6 +48,11 @@ bool btn_2 = false;
 bool btn_3 = false;
 bool btn_4 = false;
 
+bool btn_1_vieux = false;
+bool btn_2_vieux = false;
+bool btn_3_vieux = false;
+bool btn_4_vieux = false;
+
 
 
 bool mot = false;
@@ -121,33 +126,38 @@ void loop() {
 
 
 
-  if(btn_1){
+  if((btn_1 != btn_1_vieux) && btn_1){
     Bouton btn = Bouton(D);
     char test = btn.dataOut();
     Serial.write(test);
     delay(10);
   }
 
-  if(btn_2){
+  if((btn_2 != btn_2_vieux) && btn_2){
     Bouton btn = Bouton(I);
     char test = btn.dataOut();
     Serial.write(test);
     delay(10);
   }
 
-  if(btn_3){
+  if((btn_3 != btn_3_vieux) && btn_3){
     Bouton btn = Bouton(E);
     char test = btn.dataOut();
     Serial.write(test);
     delay(10);
   }
 
-  if(btn_4){
+  if((btn_4 != btn_4_vieux) && btn_4){
     Bouton btn = Bouton(U);
     char test = btn.dataOut();
     Serial.write(test);
     delay(10);
   }
+
+  btn_1_vieux = btn_1;
+  btn_2_vieux = btn_2;
+  btn_3_vieux = btn_3;
+  btn_4_vieux = btn_4;
 
 
   if(gestionJoystick.getMouvementDetecte()){

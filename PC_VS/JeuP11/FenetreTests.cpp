@@ -43,6 +43,7 @@ void FenetreTests::ouvrir()
     dernierTemps = temps.tempsEcoule_ms();
 
     system("cls");
+    std::cout << "DEMO OK" << std::endl;
     while (active)
     {
 
