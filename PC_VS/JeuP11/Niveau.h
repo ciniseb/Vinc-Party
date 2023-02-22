@@ -47,6 +47,8 @@ public:
     void setV_Adversaire(int);
 
     //Méthodes
+    int getNB_Mj_Restants();
+
     void miniJeuReussi(int);
     bool niveauFinit();
     bool niveauSuivant();

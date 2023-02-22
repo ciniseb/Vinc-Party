@@ -20,12 +20,13 @@ Pointage::Pointage()
     temps = 0;
     moy_t_n = 0;
 }
-Pointage::Pointage(std::string nom, int niveau, double t)
+Pointage::Pointage(std::string nom, int niveau, double t, int nb)
 {
     nom_joueur = nom;
     n_atteint = niveau;
     temps = t;
     moy_t_n = temps/niveau;
+    nb_tuiles_parcourues = nb;
 }
 Pointage::~Pointage() {}
 
@@ -46,6 +47,10 @@ float Pointage::getMoy_t_n() const
 {
     return moy_t_n;
 }
+int Pointage::getNb_tuiles_parcourues() const
+{
+    return nb_tuiles_parcourues;
+}
 
 void Pointage::setNomJoueur(std::string n)
 {
@@ -63,5 +68,25 @@ void Pointage::setMoy_t_n(float m)
 {
     moy_t_n = m;
 }
+void Pointage::setNb_tuiles_parcourues(int nb)
+{
+    nb_tuiles_parcourues = nb;
+}
 
 //Méthodes
+bool Pointage::enregistrerPointage()
+{
+    std::ofstream fichier;
+
+    fichier.open("pointages.txt", std::fstream::app);
+
+    if (fichier.is_open())
+    {
+        fichier << nom_joueur << ";" << n_atteint << ";" << temps << ";" << nb_tuiles_parcourues << std::endl;
+
+        fichier.close();
+        return true;
+    }
+    std::cout << "Fichier introuvable..." << std::endl;
+    return false;
+}

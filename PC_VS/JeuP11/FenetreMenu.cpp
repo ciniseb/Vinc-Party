@@ -76,7 +76,7 @@ void FenetreMenu::ouvrir()
                     affichage_DEBUG(selection);
                     if (selection == 0)
                     {
-                        //TOTO getPointage et etc.
+                        
                     }
                 }
                 else if (lettreAppuyee == Dieu::D && selection == 2)
@@ -109,9 +109,9 @@ void FenetreMenu::affichage_DEBUG(int selection)
     //system("cls");
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
-    std::cout << "-----------------------------------------------" << std::endl;
-    std::cout << "               20-100 party!!!" << std::endl;
-    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << "------------------------------------------------" << std::endl;
+    std::cout << "               Le Chemin de Croix               " << std::endl;
+    std::cout << "------------------------------------------------" << std::endl;
     if (selection == 0)
     {
         std::cout << " ---> | Jouer" << std::endl;
