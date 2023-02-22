@@ -1,5 +1,6 @@
 #include "Accel.h"
 #include "Evenement.h"
+#include <string>
 
 
 Accel::Accel(TypeMotion type) :Evenement(ACCELEROMETRE) {
@@ -18,4 +19,17 @@ Accel::Accel(char data):Evenement(ACCELEROMETRE) {
 
 TypeMotion Accel::getType() {
 	return type;
+}
+
+std::string Accel::getDesciption() {
+	std::string type_str = "";
+	if (type == PECHE) {
+		type_str = "PECHE";
+	}
+	else {
+		type_str = "MINER";
+	}
+
+	return "Accelerometre: " + type_str;
+
 }

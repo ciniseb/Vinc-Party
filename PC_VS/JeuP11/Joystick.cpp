@@ -38,3 +38,27 @@ Direction Joystick::getDirection() {
 
 
 
+std::string Joystick::getDesciption() {
+	std::string direction_str = "_";
+
+	switch (direction)
+	{
+	case HAUT: direction_str = "vers le HAUT";
+		break;
+	case BAS: direction_str = "vers le BAS";
+		break;
+	case GAUCHE: direction_str = "vers la GAUCHE";
+		break;
+	case DROITE: direction_str = "vers la DROITE";
+		break;
+	case AUCUNE: direction_str = "AUCUNE";
+		break;
+	default:
+		break;
+	}
+
+
+	return std::string("Joystick: ") + direction_str;
+}
+
+

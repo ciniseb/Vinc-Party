@@ -17,5 +17,5 @@ public:
 	Accel(char data);
 	~Accel();
 	TypeMotion getType();
-
+	std::string getDesciption();
 };

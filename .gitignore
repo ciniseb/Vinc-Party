@@ -1,1 +1,6 @@
 *.ipch
+*.exe
+*.pdb
+*.ilk
+*.tlog
+PC_VS/JeuP11/.vs/JeuP11/v16/.suo

@@ -1,7 +1,7 @@
 #include "Bouton.h"
 #include "Evenement.h"
 #include "CONSTANTES.h"
-
+#include <string>
 
 Bouton::Bouton(Dieu nom, bool pianoReussi) :Evenement(BOUTON) {
 	this->nom = nom;
@@ -40,4 +40,30 @@ Dieu Bouton::getNom() {
 
 bool Bouton::getPianoReussi() {
 	return pianoReussi;
+}
+
+
+std::string Bouton::getDesciption() {
+	std::string lettre = "_";
+
+	switch (nom)
+	{
+	case Dieu::D: lettre = "D";
+		break;
+	case Dieu::I: lettre = 'I';
+		break;
+	case Dieu::E: lettre = 'E';
+		break;
+	case Dieu::U: lettre = 'U';
+		break;
+	default:
+		break;
+	}
+
+	std::string pianoOk = "";
+	if (pianoReussi) {
+		pianoOk = "Piano OK";
+	}
+
+	return std::string("Bouton appuye: ") + std::string(lettre) + std::string(" ") + pianoOk;
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "Evenement.h"
+#include <string>
 enum Direction
 {
 	HAUT,
@@ -20,5 +21,6 @@ public:
 	Joystick(char data);
 	~Joystick();
 	Direction getDirection();
+	std::string getDesciption();
 
 };
