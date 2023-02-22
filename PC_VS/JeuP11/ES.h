@@ -2,67 +2,66 @@
 #define ES_H
 #include <thread>
 #include "./include/serial/SerialPort.hpp"
-#include "./include/json.hpp"
 #include<string>
 #include <queue>
 #include <mutex>
+#include <memory>
+#include "Evenement.h"
 
-#define BAUD 1000000           // Frequence de transmission serielle
-#define MSG_MAX_SIZE 1024   // Longueur maximale d'un message
-using json = nlohmann::json;
 
-#define BOUTON 1
-#define ACCEL 2
-#define JOYSTICK 3
-
-#define HAUT 1
-#define BAS 2
-#define GAUCHE 3
-#define DROITE 4
 #define ARRET 0
-#define ENTER 5
 
-struct Evenement
-{
-    int type;
-    int arg1;
-    int arg2;
-};
+
+#define BAUD 9600           // Frequence de transmission serielle
+
+
+
+#define MODE_CLAVIER false
+
+
 
 class ES
 {
 private:
     std::thread *es_thread = nullptr;
-    std::string raw_msg;
     std::string com;
     SerialPort* arduino;
-    std::queue<Evenement> evenementRecu;
+    std::queue<std::unique_ptr<Evenement>> evenementRecu;
+    std::queue<std::unique_ptr<Evenement>> evenementAEnvoyer;
 
-    json j_msg_send, j_msg_rcv;
-    bool SendToSerial(SerialPort* arduino, json j_msg);
-    bool RcvFromSerial(SerialPort* arduino, std::string& msg);
-    void decoderEvenement(json data);
-    void ajouterAuQueue(struct Evenement evenement);
+    void ajouterAuQueue(std::unique_ptr<Evenement> evenement);
     
-    std::mutex lockQueue;
+    std::mutex lockQueueRecu;
+    std::mutex lockQueueAEnvoyer;
 
+    bool evenementAEnvoyerDisponible();
+    std::unique_ptr<Evenement> prochainEvenementAEnvoyer();
 
-
-
+#if MODE_CLAVIER
     //Etats pour mode clavier
     bool W = 0;
     bool A = 0;
     bool S = 0;
     bool D = 0;
-    bool E = 0;
+    bool Z = 0;
+    bool X = 0;
+    bool C = 0;
+    bool V = 0;
+    bool Enter = 0;
+#endif // MODE_CLAVIER
+
+   
     
 public:
     ES();
     ~ES();
     void exec();
-    Evenement prochainEvenement();
+    std::unique_ptr<Evenement> prochainEvenement();
+    void envoyerEvenement(std::unique_ptr<Evenement> evenement);
     bool evenementDisponible();
+    void demarrer();
 };
 
 
-#endif#pragma once
+#endif
+#pragma once

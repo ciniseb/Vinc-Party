@@ -11,14 +11,32 @@ Auteurs: Antoine Allard
 Description: Constantes utiles à la compréhension du programme
 ====================================================================================================*/
 //CARTE et TUILE
-#define LARGEUR_CARTE 40
-#define HAUTEUR_CARTE 20
+#pragma once
+
+#define LARGEUR_CARTE 60
+#define HAUTEUR_CARTE 30
 
 #define VIDE 0
 #define PLEIN -1
 #define MINI_JEU 1
 #define PLEIN_VARIABLE -2
 #define MINI_JEU_VARIABLE 2
+
+
+enum class Dieu
+{
+    D,
+    I,
+    E,
+    U
+};
+#define NB_MINI_JEUX 1
+
+#define DT_DEPLACEMENT_JOUEUR 333 //Milisecondes
+#define DT_DEPLACEMENT_ADVERSAIRE 250 //Milisecondes
+
+#define RAYON_VISION 8
+#define RAYON_VIBRATION 12
 
 //ERREURS
 //...

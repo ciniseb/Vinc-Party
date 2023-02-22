@@ -64,7 +64,7 @@ void Tests::tests_chronometre()
 void Tests::tests_fenetrejeu()
 {
     ES thread;
-    FenetreJeu partie("Ciniseb");
+    FenetreJeu partie("Ciniseb", &thread);
 
     /*int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
     int nb_p_variables = 0;
@@ -99,6 +99,23 @@ void Tests::tests_fenetrejeu()
         partie.affichage_DEBUG(std::cout);
         std::cout << std::endl << std::endl;
     }
+}
+
+void Tests::tests_fenetrePointages()
+{
+    ES threadArduino;
+
+    FenetrePointages f_pointages(&threadArduino);
+    /*f_pointages.ajoutPointage(Pointage("Ciniseb", 5, 18));
+    f_pointages.ajoutPointage(Pointage("LordAllard", 6, 38));
+    f_pointages.ajoutPointage(Pointage("Chef QuartUS", 6, 20));
+    f_pointages.ajoutPointage(Pointage("Mimile", 5, 21));
+    f_pointages.ajoutPointage(Pointage("Enes", 4, 10));
+    f_pointages.ajoutPointage(Pointage("Zahckarye", 4, 12));
+    f_pointages.ajoutPointage(Pointage("ANNE-SOPHIE", 6, 28));
+    f_pointages.ajoutPointage(Pointage("Bob", 1, 5));*/
+
+    f_pointages.affichage_DEBUG(0);
 }
 
 void assignerTableau(int t[3][3])

@@ -2,13 +2,13 @@
 Fichier: Tests.h
 Auteurs: Antoine Allard
          Charles Beaulieu
-         Émile Bois
+         ï¿½mile Bois
          Enes Caku
          Zachari Gervais
          Anne-Sophie Nguyen
-         Sébastien St-Denis
-         Date: 12 février 2023
-Description: Tests unitaires et d'intégration
+         Sï¿½bastien St-Denis
+         Date: 12 fï¿½vrier 2023
+Description: Tests unitaires et d'intï¿½gration
 ====================================================================================================*/
 #ifndef TESTS_H
 #define TESTS_H
@@ -19,6 +19,7 @@ Description: Tests unitaires et d'intégration
 #include "Chronometre.h"
 #include "FenetreJeu.h"
 #include "FenetreJeuPiano.h"
+#include "FenetrePointages.h"
 
 class Tests
 {
@@ -27,10 +28,12 @@ public:
     Tests();
     ~Tests();
 
-    //Méthodes
+    //Mï¿½thodes
     void tests_chronometre();
 
     void tests_fenetrejeu();
+
+    void tests_fenetrePointages();
 
     void tests_autre();
 

@@ -32,10 +32,10 @@ public:
     ~Pointage();
 
     //Getteurs & setteurs
-    std::string getNomJoueur();
-    int getN_Atteint();
-    double getTemps();
-    float getMoy_t_n();
+    std::string getNomJoueur() const;
+    int getN_Atteint() const;
+    double getTemps() const;
+    float getMoy_t_n() const;
 
     void setNomJoueur(std::string);
     void setN_Atteint(int);

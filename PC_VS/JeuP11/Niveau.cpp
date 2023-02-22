@@ -19,6 +19,10 @@ Niveau::Niveau()
     nb_mj_finis = 0;
     nb_pleins_variables = 0;
     nb_mj_dispo = 0;
+    for (int i = 0; i < NB_MINI_JEUX; i++)
+    {
+        mjx_faits[i] = false;
+    }
     v_adversaire = 0;
 }
 Niveau::~Niveau() {}
@@ -67,38 +71,56 @@ void Niveau::setV_Adversaire(int v)
 }
 
 //Méthodes
+void Niveau::miniJeuReussi(int mj)
+{
+    mjx_faits[mj] = true;
+    nb_mj_finis++;
+}
+bool Niveau::niveauFinit()
+{
+    if (nb_mj_finis == nb_mj_dispo)
+    {
+        return true;
+    }
+    return false;
+}
 bool Niveau::niveauSuivant()
 {
+    for (int i = 0; i < NB_MINI_JEUX; i++)
+    {
+        mjx_faits[i] = false;
+    }
+
     nb_mj_finis = 0;
     switch (++numero)
     {
     case 1:
-        nb_pleins_variables = 8;
+        nb_pleins_variables = 45;
         nb_mj_dispo = 2;
         v_adversaire = 1;
         break;
     case 2:
-        nb_pleins_variables = 16;
+        nb_pleins_variables = 60;
         nb_mj_dispo = 3;
         v_adversaire = 1.2;
         break;
     case 3:
-        nb_pleins_variables = 24;
+        nb_pleins_variables = 75;
         nb_mj_dispo = 3;
         v_adversaire = 1.4;
         break;
     case 4:
-        nb_pleins_variables = 24;
+        nb_pleins_variables = 90;
         nb_mj_dispo = 4;
         v_adversaire = 1.8;
         break;
     case 5:
-        nb_pleins_variables = 36;
+        nb_pleins_variables = 105;
         nb_mj_dispo = 4;
         v_adversaire = 1.8;
         break;
     case 6:
-        nb_pleins_variables = 44;
+        nb_pleins_variables = 120;
         nb_mj_dispo = 5;
         v_adversaire = 2;
         break;

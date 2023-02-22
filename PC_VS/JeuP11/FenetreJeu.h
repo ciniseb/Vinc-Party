@@ -2,12 +2,12 @@
 Fichier: FenetreJeu.h
 Auteurs: Antoine Allard
          Charles Beaulieu
-         Émile Bois
+         ï¿½mile Bois
          Enes Caku
          Zachari Gervais
          Anne-Sophie Nguyen
-         Sébastien St-Denis
-         Date: 05 février 2023
+         Sï¿½bastien St-Denis
+         Date: 05 fï¿½vrier 2023
 Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 ====================================================================================================*/
 #ifndef FENETREJEU_H
@@ -20,25 +20,27 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include <sstream>
 #include <algorithm>
 #include <random>
+#include <cstdlib>
 #include "ES.h"
 #include "CONSTANTES.h"
 #include "Fenetre.h"
+#include "FenetreMiniJeu.h"
 #include "Niveau.h"
 #include "Tuile.h"
 #include "Acteur.h"
 #include "Chronometre.h"
 #include "Pointage.h"
+#include "FenetreJeuPiano.h"
+#include "Joystick.h"
 
 class FenetreJeu : public Fenetre
 {
 private:
     //Attributs
-    ES threadArduino;
-
     Niveau niveau;
 
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
-    //std::vector<Fenetre> mini_jeux;
+    FenetreMiniJeu *mini_jeux[NB_MINI_JEUX];
 
     Acteur joueur;
     Acteur adversaire;
@@ -47,12 +49,12 @@ private:
 
     Pointage pointage;
 
-    //Méthodes
+    //Mï¿½thodes
 
 public:
     //Constructeurs & destructeurs
     FenetreJeu();
-    FenetreJeu(std::string);
+    FenetreJeu(std::string, ES *);
     ~FenetreJeu();
 
     //Getteurs & setteurs
@@ -71,9 +73,12 @@ public:
     void setAdversaire(Acteur);
     void setTemps(Chronometre);
 
-    //Méthodes
+    //Mï¿½thodes
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
+
+    bool deplacementJoueur(Direction, double *);
+    float distanceJoueur(Coordonnee);
 
     void ouvrir();
     void jouer();

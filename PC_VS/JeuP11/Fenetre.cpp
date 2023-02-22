@@ -17,6 +17,10 @@ Fenetre::Fenetre()
 {
 
 }
+Fenetre::Fenetre(ES *thread)
+{
+    threadArduino = thread;
+}
 Fenetre::~Fenetre() {}
 
 //Getteurs & setteurs

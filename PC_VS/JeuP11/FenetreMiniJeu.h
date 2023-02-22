@@ -1,5 +1,5 @@
 /*====================================================================================================
-Fichier: FenetreJeuX.h
+Fichier: FenetreMiniJeu.h
 Auteurs: Antoine Allard
          Charles Beaulieu
          Émile Bois
@@ -8,32 +8,32 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 05 février 2023
-Description: FenetreJeuX est un nom temporaire pour expliquer la Classe de la fenêtre d'un mini-jeu
+Description: Classe abstraite pour chaque classe d'un mini-jeu spécifique
 ====================================================================================================*/
-#ifndef FENETREJEUX_H
-#define FENETREJEUX_H
+#ifndef FENETREMINIJEU_H
+#define FENETREMINIJEU_H
 
 #include <iostream>
-#include "ES.h"
-#include "MiniJeu.h"
 #include "Fenetre.h"
 
-class FenetreJeuX : public MiniJeu, public Fenetre
+class FenetreMiniJeu : public Fenetre
 {
-private:
+protected:
     //Attributs
     
 
 public:
     //Constructeurs & destructeurs
-    FenetreJeuX();
-    ~FenetreJeuX();
+    FenetreMiniJeu(ES *);
+    ~FenetreMiniJeu();
 
     //Getteurs & setteurs
 
 
     //Méthodes
-    void ouvrir();
+    //TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
+    virtual void ouvrir() = 0;
+    bool reussi();
 };
 
 #endif

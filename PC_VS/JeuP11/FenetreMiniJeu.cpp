@@ -1,5 +1,5 @@
 /*====================================================================================================
-Fichier: MiniJeu.h
+Fichier: FenetreMiniJeu.cpp
 Auteurs: Antoine Allard
          Charles Beaulieu
          Émile Bois
@@ -8,29 +8,23 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 05 février 2023
-Description: Classe abstraite pour chaque classe d'un mini-jeu spécifique
+Description: 
 ====================================================================================================*/
-#ifndef MINIJEU_H
-#define MINIJEU_H
+#include "FenetreMiniJeu.h"
 
-#include <iostream>
-
-class MiniJeu
+//Constructeurs & destructeurs
+FenetreMiniJeu::FenetreMiniJeu(ES *thread) : Fenetre(thread)
 {
-private:
-    //Attributs
-    
 
-public:
-    //Constructeurs & destructeurs
-    MiniJeu();
-    ~MiniJeu();
+}
+FenetreMiniJeu::~FenetreMiniJeu() {}
 
-    //Getteurs & setteurs
+//Getteurs & setteurs
 
 
-    //Méthodes
-    //TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
-};
-
-#endif
+//Méthodes
+//TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
+bool FenetreMiniJeu::reussi()
+{
+    return false;
+}

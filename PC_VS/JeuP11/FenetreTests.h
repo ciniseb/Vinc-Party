@@ -16,16 +16,29 @@ Description:
 #include <iostream>
 #include "ES.h"
 #include "Fenetre.h"
+#include "Chronometre.h"
+#include "Joystick.h"
+#include "Bouton.h"
+#include "Evenement.h"
+#include "Accel.h"
+#include "Bargraph.h"
+#include "Vibration.h"
+#include "Boussole.h"
+#include "CONSTANTES.h"
 
 class FenetreTests : public Fenetre
 {
 private:
     //Attributs
-
+    bool active = true;
+    Chronometre temps;
+    double dernierTemps = 0;
+    int compteur = 0;
+    std::unique_ptr<Evenement> listeEvenements[10];
 
 public:
     //Constructeurs & destructeurs
-    FenetreTests();
+    FenetreTests(ES *);
     ~FenetreTests();
 
     //Getteurs & setteurs
@@ -33,6 +46,9 @@ public:
 
     //Méthodes
     void ouvrir();
+    void afficher();
+    void remplirListe();
+
 };
 
 #endif

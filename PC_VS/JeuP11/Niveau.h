@@ -14,6 +14,7 @@ Description:
 #define NIVEAU_H
 
 #include <iostream>
+#include "CONSTANTES.h"
 
 class Niveau
 {
@@ -22,6 +23,7 @@ private:
     int numero;
     int nb_pleins_variables;
     int nb_mj_dispo;
+    bool mjx_faits[NB_MINI_JEUX];
     int nb_mj_finis;
     int v_adversaire; //TODO : à discuter. La vitesse de déplacement de l'adversaire de plus en plus vite à chaque niveau suivant ?
 
@@ -34,6 +36,7 @@ public:
     int getNumero();
     int getNb_PleinsVariables();
     int getNb_Mj_Dispo();
+    //bool[] getNb_Mjx_Faits();
     int getNb_Mj_Finis();
     int getV_Adversaire();
 
@@ -44,6 +47,8 @@ public:
     void setV_Adversaire(int);
 
     //Méthodes
+    void miniJeuReussi(int);
+    bool niveauFinit();
     bool niveauSuivant();
 };
 

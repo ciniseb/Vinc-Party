@@ -12,21 +12,21 @@ Description:
 ====================================================================================================*/
 #include "FenetreMenu.h"
 
+#define DEMANDER_NOM false
+
 //Constructeurs & destructeurs
-FenetreMenu::FenetreMenu()
+FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 {
-    //TODO threadArduino
     fenetres[0] = new FenetreJeu();
-    fenetres[1] = new FenetrePointages();
-    fenetres[2] = new FenetreTests();
-    //f0 = new FenetreJeu();
+    fenetres[1] = new FenetrePointages(thread);
+    fenetres[2] = new FenetreTests(thread);
 }
 FenetreMenu::~FenetreMenu()
 {
-    /*for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
         delete fenetres[i];
-    }*/
+    }
 }
 
 //Getteurs & setteurs
@@ -35,51 +35,67 @@ FenetreMenu::~FenetreMenu()
 //Méthodes
 void FenetreMenu::ouvrir()
 {
-    int reponse = -1;
+    std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
     affichage_DEBUG(selection);
     while(true)
     {
-        if(threadArduino.evenementDisponible())
+        if(threadArduino->evenementDisponible())
         {
-            reponse = threadArduino.prochainEvenement().arg1;
+            evenement = threadArduino->prochainEvenement();
 
-            if (reponse == ENTER && 2 >= selection && selection >= 0)
+            if (evenement->getCode() == BOUTON)
             {
-                if (selection == 0)
-                {
-                    std::cin.clear();
-                    std::cin.ignore(10000, '\n');
+                Bouton* eBouton = static_cast<Bouton*>(evenement.get());
+                Dieu lettreAppuyee = eBouton->getNom();
 
+                if (lettreAppuyee == Dieu::D && selection < 3 && selection >= 0)
+                {
+                    if (selection == 0)
+                    {
+#if DEMANDER_NOM
+                        std::cin.clear();
+                        std::cin.ignore(10000, '\n');
+
+                        system("cls");
+                        affichage_DEBUG(selection);
+
+                        std::string nom_joueur;
+                        std::cout << "Nom du joueur : ";
+                        getline(std::cin, nom_joueur);
+                        std::cout << std::endl;
+#else
+                        std::string nom_joueur = "PeuplierBlanc";
+
+#endif // DEMANDER_NOM
+                        
+                        fenetres[selection] = new FenetreJeu(nom_joueur, threadArduino);
+                    }
+                    fenetres[selection]->ouvrir();
                     system("cls");
                     affichage_DEBUG(selection);
-
-                    std::string nom_joueur;
-                    std::cout << "Nom du joueur : ";
-                    getline(std::cin, nom_joueur);
-                    std::cout << std::endl;
-                    fenetres[selection] = new FenetreJeu(nom_joueur);
+                    if (selection == 0)
+                    {
+                        //TOTO getPointage et etc.
+                    }
                 }
-                fenetres[selection]->ouvrir();
-                system("cls");
-                if (selection == 0)
+                else if (lettreAppuyee == Dieu::D && selection == 3)
                 {
-                    //TOTO getPointage et etc.
+                    exit(1);
                 }
             }
-            else if (reponse == ENTER && selection == 3)
+            else if (evenement->getCode() == JOYSTICK)
             {
-                exit(1);
-            }
-            else
-            {
-                if (reponse == HAUT && (selection > 0))
+                Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
+                Direction direction = eJoystick->getDirection();
+
+                if (direction == Direction::HAUT && (selection > 0))
                 {
                     selection--;
                     affichage_DEBUG(selection);
                 }
-                else if (reponse == BAS && selection < 3)
+                else if (direction == Direction::BAS && selection < 3)
                 {
                     selection++;
                     affichage_DEBUG(selection);
@@ -91,42 +107,39 @@ void FenetreMenu::ouvrir()
 
 void FenetreMenu::affichage_DEBUG(int selection)
 {
+    //system("cls");
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
     std::cout << "-----------------------------------------------" << std::endl;
-    std::cout << "               20-100 party!!!" << std::endl;
+    std::cout << "               Le Chemin de Croix" << std::endl;
     std::cout << "-----------------------------------------------" << std::endl;
     if (selection == 0)
     {
         std::cout << " ---> | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
-
-        std::cout << "      | Quitter" << std::endl << std::endl;
+        std::cout << "      | Pointages"  << std::endl;
+        std::cout << "      | Demo materiel" << std::endl << std::endl;
+        std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << " ---> | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
-
-        std::cout << "      | Quitter" << std::endl << std::endl;
+        std::cout << "      | Demo materiel" << std::endl << std::endl;
+        std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << " ---> | Tests" << std::endl << std::endl;
-
-        std::cout << "      | Quitter" << std::endl << std::endl;
+        std::cout << "      | Pointages" <<  std::endl;
+        std::cout << " ---> | Demo materiel" << std::endl << std::endl;
+        std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 3)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Tests" << std::endl << std::endl;
-
-        std::cout << " ---> | Quitter" << std::endl << std::endl;
+        std::cout << "      | Pointages" <<  std::endl;
+        std::cout << "      | Demo materiel" << std::endl << std::endl;
+        std::cout << " ---> | Quitter" << std::endl;
     }
     else
     {
