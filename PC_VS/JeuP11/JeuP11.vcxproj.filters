@@ -166,6 +166,9 @@
     <None Include="c_gabarit_20_40.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="chanson_1.csv">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="c_gabarit_30_60.csv">
       <Filter>Resource Files</Filter>
     </None>

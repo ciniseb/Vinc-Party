@@ -144,3 +144,10 @@ void Tests::tests_autre()
         std::cout << std::endl;
     }
 }
+
+void Tests::tests_FenetreJeuPiano()
+{
+    ES thread;
+    FenetreJeuPiano piano(&thread);
+    piano.ouvrir();
+}

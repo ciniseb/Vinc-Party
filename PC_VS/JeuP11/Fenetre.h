@@ -22,7 +22,6 @@ protected:
     //Attributs
     ES *threadArduino;
     
-
 public:
     //Constructeurs & destructeurs
     Fenetre();

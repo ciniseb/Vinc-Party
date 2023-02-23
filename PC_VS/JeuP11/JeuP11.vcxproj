@@ -191,6 +191,7 @@
     <ClInclude Include="Vibration.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="chanson_1.csv" />
     <None Include="c_gabarit_20_40.csv" />
     <None Include="c_gabarit_30_60.csv" />
   </ItemGroup>
