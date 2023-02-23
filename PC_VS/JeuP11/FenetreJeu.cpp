@@ -290,7 +290,7 @@ void FenetreJeu::deplacementAdversaireRandom()
 bool FenetreJeu::deplacementAdversaire()
 {
     double t_ecoule = temps.tempsEcoule_ms();
-    if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_JOUEUR)/niveau.getV_Adversaire() <= t_ecoule)
+    if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_ADVERSAIRE)/niveau.getV_Adversaire() <= t_ecoule)
     {
         if (true)
         {
@@ -463,11 +463,11 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            /*if (distanceJoueur({c, r}) > RAYON_VISION)
+            if (distanceJoueur({c, r}) > RAYON_VISION)
             {
                 flux << "  ";
             }
-            else */if (joueur.position.X == c && joueur.position.Y == r)
+            else if (joueur.position.X == c && joueur.position.Y == r)
             {
                 flux << "**";
             }
