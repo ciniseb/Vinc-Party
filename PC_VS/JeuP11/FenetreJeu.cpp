@@ -331,7 +331,7 @@ void FenetreJeu::jouer()
         //Joueur sur une tuile de MINI_JEU
         if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)
         {
-            //mini_jeux[mj_actif]->ouvrir();
+            mini_jeux[mj_actif]->ouvrir();
             if (mini_jeux[mj_actif]->reussi())
             {
                 mj_actif = 0; //TODO
