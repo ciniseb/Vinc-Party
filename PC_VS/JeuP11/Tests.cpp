@@ -147,6 +147,7 @@ void Tests::tests_autre()
 
 void Tests::tests_FenetreJeuPiano()
 {
-    FenetreJeuPiano piano;
+    ES thread;
+    FenetreJeuPiano piano(&thread);
     piano.ouvrir();
 }
