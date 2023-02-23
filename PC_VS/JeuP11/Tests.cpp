@@ -2,12 +2,12 @@
 Fichier: Tests.cpp
 Auteurs: Antoine Allard
          Charles Beaulieu
-         Émile Bois
+         ï¿½mile Bois
          Enes Caku
          Zachari Gervais
          Anne-Sophie Nguyen
-         Sébastien St-Denis
-         Date: 12 février 2023
+         Sï¿½bastien St-Denis
+         Date: 12 fï¿½vrier 2023
 Description: 
 ====================================================================================================*/
 #include "Tests.h"
@@ -16,49 +16,49 @@ Description:
 Tests::Tests() {}
 Tests::~Tests() {}
 
-//Méthodes
+//Mï¿½thodes
 void Tests::tests_chronometre()
 {
     Chronometre chrono;
 
-    std::cout << "  Résultat attendu : -1 secondes" << std::endl;
+    std::cout << "  Rï¿½sultat attendu : -1 secondes" << std::endl;
 
     std::cout << "temps (ms) : " << chrono.tempsEcoule_ms() << std::endl;
     std::cout << "temps (s) : " << chrono.tempsEcoule_s() << std::endl;
     std::cout << "temps (m) : " << chrono.tempsEcoule_m() << std::endl;
 
     chrono.demarrer();
-    std::cout << "  Chronomètre démarré..." << std::endl;
+    std::cout << "  Chronomï¿½tre dï¿½marrï¿½..." << std::endl;
 
-    std::cout << "  Résultat attendu : 0 secondes" << std::endl;
+    std::cout << "  Rï¿½sultat attendu : 0 secondes" << std::endl;
 
     std::cout << "temps (ms) : " << chrono.tempsEcoule_ms() << std::endl;
     std::cout << "temps (s) : " << chrono.tempsEcoule_s() << std::endl;
     std::cout << "temps (m) : " << chrono.tempsEcoule_m() << std::endl;
 
     std::this_thread::sleep_for(std::chrono::seconds(5));
-    std::cout << "  Résultat attendu : 5 secondes" << std::endl;
+    std::cout << "  Rï¿½sultat attendu : 5 secondes" << std::endl;
 
     std::cout << "temps (ms) : " << chrono.tempsEcoule_ms() << std::endl;
     std::cout << "temps (s) : " << chrono.tempsEcoule_s() << std::endl;
     std::cout << "temps (m) : " << chrono.tempsEcoule_m() << std::endl;
 
     std::this_thread::sleep_for(std::chrono::seconds(50));
-    std::cout << "  Résultat attendu : 55 secondes" << std::endl;
+    std::cout << "  Rï¿½sultat attendu : 55 secondes" << std::endl;
 
     std::cout << "temps (ms) : " << chrono.tempsEcoule_ms() << std::endl;
     std::cout << "temps (s) : " << chrono.tempsEcoule_s() << std::endl;
     std::cout << "temps (m) : " << chrono.tempsEcoule_m() << std::endl;
 
     std::this_thread::sleep_for(std::chrono::seconds(5));
-    std::cout << "  Résultat attendu : 1 minute" << std::endl;
+    std::cout << "  Rï¿½sultat attendu : 1 minute" << std::endl;
 
     std::cout << "temps (ms) : " << chrono.tempsEcoule_ms() << std::endl;
     std::cout << "temps (s) : " << chrono.tempsEcoule_s() << std::endl;
     std::cout << "temps (m) : " << chrono.tempsEcoule_m() << std::endl;
 
-    std::cout << "  Est-ce que 55 secondes on été atteintes ? :" << chrono.tempsAtteint_ms(55000) << std::endl;
-    std::cout << "  Est-ce que 65 secondes on été atteintes ? :" << chrono.tempsAtteint_ms(65000) << std::endl;
+    std::cout << "  Est-ce que 55 secondes on ï¿½tï¿½ atteintes ? :" << chrono.tempsAtteint_ms(55000) << std::endl;
+    std::cout << "  Est-ce que 65 secondes on ï¿½tï¿½ atteintes ? :" << chrono.tempsAtteint_ms(65000) << std::endl;
 }
 
 void Tests::tests_fenetrejeu()
@@ -132,8 +132,12 @@ void assignerTableau(int t[3][3])
 }
 void Tests::tests_autre()
 {
-    int tab[3][3];
-    assignerTableau(tab);
+    Niveau niveau;
+    ES thread;
+    FenetreJeu partie("Ciniseb", &thread);
+
+    partie.genererCarte();
+    partie.affichage_DEBUG(std::cout);
 
     for (int i = 0 ; i < 3 ; i++)
     {

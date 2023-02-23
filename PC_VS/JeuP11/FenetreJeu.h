@@ -56,6 +56,8 @@ public:
     FenetreJeu();
     FenetreJeu(std::string, ES *);
     ~FenetreJeu();
+    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
+
 
     //Getteurs & setteurs
     Niveau getNiveau();
@@ -76,6 +78,12 @@ public:
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
 
+    bool verificationVide(Coordonnee);
+
+    bool verificationCoord(Coordonnee, Coordonnee);
+
+    void deplacementAdversaireRandom();
+
     bool deplacementAdversaire();
     bool deplacementJoueur(Direction);
     float distanceJoueur(Coordonnee);
@@ -84,6 +92,11 @@ public:
     void jouer();
 
     void affichage_DEBUG(std::ostream &);
+    bool Validation(bool Visite[][LARGEUR_CARTE], int AXE_x, int AXE_y);
+    void AIMBOT_PART1();
+    void AIMBOT_PART2();
+    void RESETVERIFICATION(bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE]);
+    //void DeplacementAdversaire();
 };
 
 #endif

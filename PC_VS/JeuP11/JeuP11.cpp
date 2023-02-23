@@ -39,8 +39,10 @@ int main()
     FenetreMenu menu(&threadArduino);
 
     menu.ouvrir();
+   
+ 
     //FenetreMiniJeu *fenetreJeuPiano = new FenetreJeuPiano();
-    //fenetreJeuPiano->ouvrir();
+   // fenetreJeuPiano->ouvrir();
 
 
     //Tests. � commenter au besoin
