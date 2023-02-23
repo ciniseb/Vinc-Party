@@ -12,6 +12,7 @@ Description:
 ====================================================================================================*/
 #include "FenetreJeu.h"
 #include "Joystick.h"
+#include <cstdlib>
 
 //Constructeurs & destructeurs
 FenetreJeu::FenetreJeu() {}
@@ -28,7 +29,8 @@ FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
 
     joueur = Acteur{nom_joueur, Coordonnee{(LARGEUR_CARTE/2)-1, HAUTEUR_CARTE-1}};
 
-    Coordonnee pos_adversaire{(LARGEUR_CARTE / 2), HAUTEUR_CARTE - 1};//TODO : générer une position aléatoire dans la map pour l'adversaire
+    //Coordonnee pos_adversaire{(LARGEUR_CARTE / 2), HAUTEUR_CARTE - 1};//TODO : générer une position aléatoire dans la map pour l'adversaire
+    Coordonnee pos_adversaire{ 32, 8 };//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{"BOB", pos_adversaire};
 }
 FenetreJeu::~FenetreJeu() {}
@@ -208,22 +210,99 @@ bool FenetreJeu::genererCarte()
     return true;
 }
 
-bool FenetreJeu::deplacementAdversaire()
+bool FenetreJeu::verificationVide(Coordonnee coord)
 {
-    if (true/*distanceJoueurAdversaire > rayon de vibration*/)
+    if (carte[coord.Y][coord.X].getRemplissage() != PLEIN && coord.X < LARGEUR_CARTE && coord.Y < HAUTEUR_CARTE && coord.X>0 && coord.Y>0)
+        return true;
+    else
+        return false;
+}
+
+bool FenetreJeu::verificationCoord(Coordonnee actuelle, Coordonnee ancienne)
+{
+    int Xactuelle = actuelle.X;
+    int Yactuelle = actuelle.Y;
+    int Xancienne = ancienne.X;
+    int Yancienne = ancienne.Y;
+
+    if (Xactuelle == Xancienne && Yactuelle == Yancienne)
+        return true;
+    else
+        return false;
+
+}
+
+void FenetreJeu::deplacementAdversaireRandom()
+{
+    Coordonnee haut = { adversaire.position.X, adversaire.position.Y + 1 };
+    Coordonnee droite = { adversaire.position.X + 1, adversaire.position.Y };
+    Coordonnee bas = { adversaire.position.X, adversaire.position.Y - 1 };
+    Coordonnee gauche = { adversaire.position.X - 1, adversaire.position.Y };
+    Coordonnee anciennecoord = { adversaire.ancienneposition.X, adversaire.ancienneposition.Y };
+    int Choix = 0;
+
+    std::vector<Coordonnee> coord;
+
+    if (verificationVide(haut) && !verificationCoord(haut, anciennecoord))
     {
-        //ANTOINE 2/3 et ENES 1/3
+        coord.push_back(haut);
+        Choix++;
+    }
+
+    if (verificationVide(droite) && !verificationCoord(droite, anciennecoord))
+    {
+        coord.push_back(droite);
+        Choix++;
+    }
+
+    if (verificationVide(bas) && !verificationCoord(bas, anciennecoord))
+    {
+        coord.push_back(bas);
+        Choix++;
+    }
+
+    if (verificationVide(gauche) && !verificationCoord(gauche, anciennecoord))
+    {
+        coord.push_back(gauche);
+        Choix++;
+    }
+
+    if (Choix == 0)
+    {
+        adversaire.position.X = adversaire.ancienneposition.X;
+        adversaire.position.Y = adversaire.ancienneposition.Y;
+
     }
     else
     {
-        //ENES
+        int aleatoire = rand() % Choix;
+        Coordonnee NouvelleCoord = coord[aleatoire];
+
+        adversaire.ancienneposition.X = adversaire.position.X;
+        adversaire.ancienneposition.Y = adversaire.position.Y;
+
+        adversaire.position.X = NouvelleCoord.X;
+        adversaire.position.Y = NouvelleCoord.Y;
+
     }
-    
+}
+
+bool FenetreJeu::deplacementAdversaire()
+{
     double t_ecoule = temps.tempsEcoule_ms();
     if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_JOUEUR)/niveau.getV_Adversaire() <= t_ecoule)
     {
-        //adversaire.position.X = NouveauX; TODO nouveauY
-        //adversaire.position.Y = NouveauY; TODO nouveauY
+        if (true)
+        {
+            deplacementAdversaireRandom();
+            //ANTOINE 2/3 et ENES 
+        }
+        else
+        {
+
+            //ENES
+        }
+
         adversaire.t_dernier_deplacement = t_ecoule;
         return true;
     }
@@ -307,6 +386,7 @@ void FenetreJeu::jouer()
         if (deplacementAdversaire())
         {
             affichage_DEBUG(std::cout);
+            std::cout << adversaire.position.Y << ", " << adversaire.position.X;
         }
 
         //Mise à jour du déplacement du joueur
@@ -325,7 +405,6 @@ void FenetreJeu::jouer()
             {
                 Joystick *eJoystick = static_cast<Joystick*>(evenement.get());
                 directionActuelle = eJoystick->getDirection();
-                 DeplacementAdversaire();
             }
         }
 
@@ -384,11 +463,11 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            if (distanceJoueur({c, r}) > RAYON_VISION)
+            /*if (distanceJoueur({c, r}) > RAYON_VISION)
             {
                 flux << "  ";
             }
-            else if (joueur.position.X == c && joueur.position.Y == r)
+            else */if (joueur.position.X == c && joueur.position.Y == r)
             {
                 flux << "**";
             }
@@ -485,9 +564,9 @@ void FenetreJeu::AIMBOT_PART1()
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            std::cout << COPIE_DE_CARTE[r][c]<<" ";
+            //std::cout << COPIE_DE_CARTE[r][c]<<" ";
         }
-        std::cout << std::endl;
+        //std::cout << std::endl;
     }
 }
 
@@ -541,9 +620,9 @@ void FenetreJeu::RESETVERIFICATION(bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE])
     }
 }
 
-void FenetreJeu::DeplacementAdversaire()
+/*void FenetreJeu::DeplacementAdversaire()
 {
     int distance_entre_adv_jou = sqrt(((adversaire.position.X - joueur.position.X) ^ 2) + ((adversaire.position.Y - joueur.position.Y) ^ 2));
     AIMBOT_PART1();
     AIMBOT_PART2();
-}
+}*/

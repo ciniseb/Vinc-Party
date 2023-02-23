@@ -78,6 +78,12 @@ public:
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
 
+    bool verificationVide(Coordonnee);
+
+    bool verificationCoord(Coordonnee, Coordonnee);
+
+    void deplacementAdversaireRandom();
+
     bool deplacementAdversaire();
     bool deplacementJoueur(Direction);
     float distanceJoueur(Coordonnee);
@@ -90,7 +96,7 @@ public:
     void AIMBOT_PART1();
     void AIMBOT_PART2();
     void RESETVERIFICATION(bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE]);
-    void DeplacementAdversaire();
+    //void DeplacementAdversaire();
 };
 
 #endif

@@ -1,5 +1,3 @@
 ﻿  FenetreJeu.cpp
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(269,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
-  Tests.cpp
-  Génération de code en cours...
-  JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe
+C:\Users\antoi\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(348,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+  JeuP11.vcxproj -> C:\Users\antoi\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe
