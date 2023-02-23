@@ -39,7 +39,6 @@ private:
     Chronometre chrono;
     //Attribut
     Dieu chanson[200];
-    int index = 0;
     char noteA[22]; // notes: indiqent si une note est présente ou non sur une rangée
     char noteS[22];
     char noteD[22];
@@ -48,6 +47,8 @@ private:
     bool matrice[40][4]; // matrice de l'ecran
 
     int noteReussi = 0;
+    double bit;
+    double bitCount = 0;
     // Methodes
 
     bool chargerChanson(bool matrice[40][4]);

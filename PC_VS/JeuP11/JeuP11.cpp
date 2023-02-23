@@ -31,24 +31,24 @@ int main()
     //FenetreMenu menu;
 
     //menu.ouvrir();
-    /*SetConsoleTitle(TEXT("Le Chemin de Croix"));
+    SetConsoleTitle(TEXT("Le Chemin de Croix"));
     ShowConsoleCursor(false);
 
     ES threadArduino;
     threadArduino.demarrer();
     FenetreMenu menu(&threadArduino);
 
-    menu.ouvrir();*/
+    menu.ouvrir();
     //FenetreMiniJeu *fenetreJeuPiano = new FenetreJeuPiano();
     //fenetreJeuPiano->ouvrir();
 
 
     //Tests. � commenter au besoin
-    Tests tests;
+    //Tests tests;
     //tests.tests_chronometre();
     //tests.tests_fenetrejeu();
     //tests.tests_autre();
-    tests.tests_FenetreJeuPiano();
+    //tests.tests_FenetreJeuPiano();
     
     //tests.tests_fenetrePointages();
     // tests.tests_autre();

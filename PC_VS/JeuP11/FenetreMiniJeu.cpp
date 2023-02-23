@@ -15,7 +15,7 @@ Description:
 //Constructeurs & destructeurs
 FenetreMiniJeu::FenetreMiniJeu(ES *thread) : Fenetre(thread)
 {
-
+    reussite = false;
 }
 FenetreMiniJeu::~FenetreMiniJeu() {}
 
@@ -26,5 +26,5 @@ FenetreMiniJeu::~FenetreMiniJeu() {}
 //TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
 bool FenetreMiniJeu::reussi()
 {
-    return false;
+    return reussite;
 }

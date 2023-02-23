@@ -20,7 +20,7 @@ class FenetreMiniJeu : public Fenetre
 {
 protected:
     //Attributs
-    
+    bool reussite;
 
 public:
     //Constructeurs & destructeurs
