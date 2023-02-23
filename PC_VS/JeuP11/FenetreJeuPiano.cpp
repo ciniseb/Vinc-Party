@@ -15,6 +15,7 @@ Description:
 //Constructeurs & destructeurs
 FenetreJeuPiano::FenetreJeuPiano(ES *thread): FenetreMiniJeu(thread) // Main du jeu
 {
+    noteReussi = 0;
     chargerChanson(matrice);
 }
 FenetreJeuPiano::~FenetreJeuPiano() {}
@@ -45,6 +46,7 @@ bool FenetreJeuPiano::chargerChanson(bool matrice[40][4])
 
 void FenetreJeuPiano::ouvrir()
 {
+    bool demarrage = true;
     std::unique_ptr<Evenement> evenement;
 
     //std::cout << "main" << std::endl;
@@ -57,45 +59,55 @@ void FenetreJeuPiano::ouvrir()
     }
     system("cls");
     AffichageEcran(Menu);
-    if (threadArduino->evenementDisponible())
+    
+    while (true)
     {
-        evenement = threadArduino->prochainEvenement();
-
-        if (evenement->getCode() == JOYSTICK)
+        if (threadArduino->evenementDisponible())
         {
-            chrono.demarrer();
-            while (true)
+            evenement = threadArduino->prochainEvenement();
+            if (evenement->getCode() == BOUTON)
             {
-                Temps();
-                if (threadArduino->evenementDisponible())
+                if (demarrage)
                 {
-                    evenement = threadArduino->prochainEvenement();
-                    Bouton* eBouton = static_cast<Bouton*>(evenement.get());
-                    Dieu lettreAppuyee = eBouton->getNom();
-                    if (VersBoutonPressee(lettreAppuyee) == true)
-                    {
-                        noteReussi++;
-                    }
+                    chrono.demarrer();
+                    demarrage = false;
                 }
-
-                if (chrono.tempsEcoule_s() > 60)
+                SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 26 });
+                Bouton* eBouton = static_cast<Bouton*>(evenement.get());
+                Dieu lettreAppuyee = eBouton->getNom();
+                if (VersBoutonPressee(lettreAppuyee) == true)
                 {
-                    //reussite =
-                    return;
+                    noteReussi++;
+                    std::cout << "'WOW!!" << std::endl;
+                }
+                else
+                {
+                    std::cout << "'ARK.." << std::endl;
                 }
             }
         }
-    }
+        Temps();
 
+        if (chrono.tempsEcoule_s() > 41)
+        {
+            if (noteReussi <= 10)
+            {
+                reussite = true;
+            }
+            else
+            {
+                reussite = false;
+            }
+            return;
+        }
+    }
 }
 
 bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
 {
     //std::cout << "Temps" << std::endl;   
-    system("cls");
-    double bit;
-    double bitCount = 0;
-    
+    //system("cls");
+
         bit = bitCount - chrono.tempsEcoule_s();
         
         if (bit == 0 && bitCount < 40)
@@ -281,18 +293,15 @@ bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
     switch (toucheEnChar)
     {
     case 'Z': //std::cout << "z marche" << std::endl;
-        
         for (int i = 0; i < 4; i++)
         {
-            if (toucheEnChar == GetNote(i,21) || toucheEnChar == GetNote(i, 22))
+            if (toucheEnChar == GetNote(i,20) || toucheEnChar == GetNote(i, 21))
             {
                 //std::cout << "Pareille!" << std::endl;
-                index++;
                 toucheReussi = 1;
             }
         }
         //std::cout << "Mauvais!" << std::endl;
-        index=0;
         return toucheReussi;
         break;
     case 'X': 
@@ -300,15 +309,13 @@ bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
         toucheReussi = 0;
         for (int i = 0; i < 4; i++)
         {
-            if (toucheEnChar == GetNote(i, 21) || toucheEnChar == GetNote(i, 22))
+            if (toucheEnChar == GetNote(i, 20) || toucheEnChar == GetNote(i, 21))
             {
                 //std::cout << "Pareille!" << std::endl;
-                index++;
                 toucheReussi = 1;
             }
         }
         //std::cout << "Mauvais!" << std::endl;
-        index = 0;
         return toucheReussi;
         break;
     case 'C': 
@@ -316,15 +323,13 @@ bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
         toucheReussi = 0;
         for (int i = 0; i < 4; i++)
         {
-            if (toucheEnChar == GetNote(i, 21) || toucheEnChar == GetNote(i, 22))
+            if (toucheEnChar == GetNote(i, 20) || toucheEnChar == GetNote(i, 21))
             {
                 //std::cout << "Pareille!" << std::endl;
-                index++;
                 toucheReussi = 1;
             }
         }
         //std::cout << "Mauvais!" << std::endl;
-        index = 0;
         return toucheReussi;
         break;
     case 'V': 
@@ -332,15 +337,13 @@ bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
          toucheReussi = 0;
         for (int i = 0; i < 4; i++)
         {
-            if (toucheEnChar == GetNote(i, 21) || toucheEnChar == GetNote(i, 22))
+            if (toucheEnChar == GetNote(i, 20) || toucheEnChar == GetNote(i, 21))
             {
                 //std::cout << "Pareille!" << std::endl;
-                index++;
                 toucheReussi = 1;
             }
         }
         //std::cout << "Mauvais!" << std::endl;
-        index = 0;
         return toucheReussi;
         break;
     }
