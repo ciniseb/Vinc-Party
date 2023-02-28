@@ -14,6 +14,7 @@ Description: Le pointage d'un joueur x.
 #define POINTAGE_H
 
 #include <iostream>
+#include <fstream>
 
 class Pointage
 {
@@ -23,12 +24,12 @@ private:
     int n_atteint;
     double temps;
     float moy_t_n;
-    //int distance_parcourue; //TODO : À ajouter ?
+    int nb_tuiles_parcourues;
 
 public:
     //Constructeurs & destructeurs
     Pointage();
-    Pointage(std::string, int, double);
+    Pointage(std::string, int, double, int);
     ~Pointage();
 
     //Getteurs & setteurs
@@ -36,14 +37,16 @@ public:
     int getN_Atteint() const;
     double getTemps() const;
     float getMoy_t_n() const;
+    int getNb_tuiles_parcourues() const;
 
     void setNomJoueur(std::string);
     void setN_Atteint(int);
     void setTemps(double);
     void setMoy_t_n(float);
+    void setNb_tuiles_parcourues(int);
 
     //Méthodes
-    
+    bool enregistrerPointage();
 };
 
 #endif

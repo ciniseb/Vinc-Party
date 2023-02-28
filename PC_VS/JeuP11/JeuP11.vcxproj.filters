@@ -81,6 +81,12 @@
     <ClCompile Include="Boussole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FenetreCR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CR_Vehicule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FenetreMenu.h">
@@ -159,6 +165,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Boussole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreCR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CR_Vehicule.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -20,6 +20,9 @@ struct Acteur
 {
     std::string nom = "";
     Coordonnee position;
+    Coordonnee ancienneposition;
+    double t_dernier_deplacement = 0;
+    int nb_tuiles_parcourues = 0;
 };
 
 #endif

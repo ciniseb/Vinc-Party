@@ -71,6 +71,11 @@ void Niveau::setV_Adversaire(int v)
 }
 
 //Méthodes
+int Niveau::getNB_Mj_Restants()
+{
+    return (nb_mj_dispo - nb_mj_finis);
+}
+
 void Niveau::miniJeuReussi(int mj)
 {
     mjx_faits[mj] = true;

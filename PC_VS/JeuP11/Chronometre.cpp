@@ -81,3 +81,21 @@ bool Chronometre::tempsAtteint_ms(double ms)
         return false;
     }
 }
+
+//Opérateurs surchargés
+std::ostream& operator<<(std::ostream& flux, Chronometre& c)
+{
+    double ms = c.tempsEcoule_ms();
+
+    int h = ms / (1000 * 60 * 60);
+    ms -= h * (1000 * 60 * 60);
+
+    int m = ms / (1000 * 60);
+    ms -= m * (1000 * 60);
+
+    int s = ms / 1000;
+    ms -= s * 1000;
+
+    flux << std::setfill('0') << std::setw(2) << h << ':' << std::setw(2) << m << ':' << std::setw(2) << s;
+    return flux;
+}

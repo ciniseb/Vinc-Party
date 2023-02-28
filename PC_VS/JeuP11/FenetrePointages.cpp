@@ -13,14 +13,8 @@ Description:
 #include "FenetrePointages.h"
 
 //Constructeurs & destructeurs
-FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread)
-{
-    chargerPointages();
-}
-FenetrePointages::~FenetrePointages()
-{
-    enregistrerPointages();
-}
+FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) {}
+FenetrePointages::~FenetrePointages() {}
 
 //Getteurs & setteurs
 std::vector<Pointage> FenetrePointages::getPointages()
@@ -40,6 +34,8 @@ void FenetrePointages::ajoutPointage(Pointage p)
 //Méthodes
 bool FenetrePointages::chargerPointages()
 {
+    pointages.clear();
+
     std::ifstream fichier;
 
     fichier.open("pointages.txt");
@@ -48,7 +44,7 @@ bool FenetrePointages::chargerPointages()
     {
         std::string ligne;
 
-        std::string nom_joueur, n_atteint, temps;
+        std::string nom_joueur, n_atteint, temps, nb_tuiles_parcourues;
 
         while (getline(fichier, ligne))
         {
@@ -56,9 +52,10 @@ bool FenetrePointages::chargerPointages()
 
             getline(flux, nom_joueur, ';');
             getline(flux, n_atteint, ';');
-            getline(flux, temps);
+            getline(flux, temps, ';');
+            getline(flux, nb_tuiles_parcourues);
 
-            pointages.push_back(Pointage(nom_joueur, stoi(n_atteint), stod(temps)));
+            pointages.push_back(Pointage(nom_joueur, stoi(n_atteint), stod(temps), stoi(nb_tuiles_parcourues)));
         }
 
         fichier.close();
@@ -77,7 +74,7 @@ bool FenetrePointages::enregistrerPointages()
     {
         for (int r = 0; r < pointages.size(); r++)
         {
-            fichier << pointages.at(r).getNomJoueur() << ";" << pointages.at(r).getN_Atteint() << ";" << pointages.at(r).getTemps() << std::endl;
+            fichier << pointages.at(r).getNomJoueur() << ";" << pointages.at(r).getN_Atteint() << ";" << pointages.at(r).getTemps() << ";" << pointages.at(r).getNb_tuiles_parcourues() << std::endl;
         }
 
         fichier.close();
@@ -89,6 +86,8 @@ bool FenetrePointages::enregistrerPointages()
 
 void FenetrePointages::ouvrir()
 {
+    chargerPointages();
+
     std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
@@ -145,6 +144,17 @@ bool plusPetitTemps(const Pointage& p1, const Pointage& p2)
         return p1.getTemps() < p2.getTemps();
     }
 }
+bool plusPetiteDistance(const Pointage& p1, const Pointage& p2)
+{
+    if (p1.getN_Atteint() != p2.getN_Atteint())
+    {
+        return plusHautNiveau(p1, p2);
+    }
+    else
+    {
+        return p1.getNb_tuiles_parcourues() < p2.getNb_tuiles_parcourues();
+    }
+}
 void FenetrePointages::affichage_DEBUG(int selection)
 {
     system("cls");
@@ -158,9 +168,9 @@ void FenetrePointages::affichage_DEBUG(int selection)
         std::cout << "Niveau atteint  |  Temps  |  Temps/niveau  |  Nom du joueur" << std::endl;
         break;
     case 1:
-        std::cout << "  | Pointages : distance parcourue par minute (tuiles)" << std::endl;
+        std::cout << "  | Pointages : distance parcourue (tuiles)" << std::endl;
         std::cout << "-------------------------------------------------------------" << std::endl;
-        std::cout << "Niveau atteint  |  Distance/minute  |  Nom du joueur" << std::endl;
+        std::cout << "Niveau atteint  |  Distance  |  Nom du joueur" << std::endl;
         break;
     default:
         break;
@@ -203,6 +213,32 @@ void FenetrePointages::affichage_DEBUG(int selection)
         }
         break;
     case 1:
+        std::sort(trie_pointages.begin(), trie_pointages.end(), plusPetiteDistance);
+        for (int index = 0; index < trie_pointages.size(); index++)
+        {
+            if (index != 0 && trie_pointages.at(index - 1).getN_Atteint() > trie_pointages.at(index).getN_Atteint())
+            {
+                std::cout << std::endl;
+            }
+
+            std::cout << trie_pointages.at(index).getN_Atteint();
+            std::cout << "  |  ";
+            if (trie_pointages.at(index).getNb_tuiles_parcourues() <= 9)
+            {
+                std::cout << "000";
+            }
+            else if (trie_pointages.at(index).getNb_tuiles_parcourues() <= 99)
+            {
+                std::cout << "00";
+            }
+            else if (trie_pointages.at(index).getNb_tuiles_parcourues() <= 999)
+            {
+                std::cout << "0";
+            }
+            std::cout << trie_pointages.at(index).getNb_tuiles_parcourues();
+            std::cout << "  |  ";
+            std::cout << trie_pointages.at(index).getNomJoueur() << std::endl;
+        }
         break;
     default:
         break;
