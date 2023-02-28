@@ -139,14 +139,6 @@ void Tests::tests_autre()
     partie.genererCarte();
     partie.affichage_DEBUG(std::cout);
 
-    for (int i = 0 ; i < 3 ; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            std::cout << tab[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
 }
 
 void Tests::tests_FenetreJeuPiano()

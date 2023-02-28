@@ -23,6 +23,7 @@ Description:
 #include "FenetreTests.h"
 #include "Joystick.h"
 #include "Bouton.h"
+#include "FenetreCR.h"
 
 class FenetreMenu : public Fenetre
 {

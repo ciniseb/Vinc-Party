@@ -144,9 +144,11 @@
     <ClCompile Include="Boussole.cpp" />
     <ClCompile Include="Bouton.cpp" />
     <ClCompile Include="Chronometre.cpp" />
+    <ClCompile Include="CR_Vehicule.cpp" />
     <ClCompile Include="ES.cpp" />
     <ClCompile Include="Evenement.cpp" />
     <ClCompile Include="Fenetre.cpp" />
+    <ClCompile Include="FenetreCR.cpp" />
     <ClCompile Include="FenetreJeu.cpp" />
     <ClCompile Include="FenetreJeuPiano.cpp" />
     <ClCompile Include="FenetreMenu.cpp" />
@@ -171,9 +173,11 @@
     <ClInclude Include="Chronometre.h" />
     <ClInclude Include="CONSTANTES.h" />
     <ClInclude Include="Coordonnee.h" />
+    <ClInclude Include="CR_Vehicule.h" />
     <ClInclude Include="ES.h" />
     <ClInclude Include="Evenement.h" />
     <ClInclude Include="Fenetre.h" />
+    <ClInclude Include="FenetreCR.h" />
     <ClInclude Include="FenetreJeu.h" />
     <ClInclude Include="FenetreJeuPiano.h" />
     <ClInclude Include="FenetreMenu.h" />
