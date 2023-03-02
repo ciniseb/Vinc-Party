@@ -80,6 +80,12 @@ public:
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
 
+    bool verificationVide(Coordonnee);
+
+    bool verificationCoord(Coordonnee, Coordonnee);
+
+    void deplacementAdversaireRandom();
+
     bool deplacementAdversaire();
     bool deplacementJoueur(Direction);
     float distanceJoueur(Coordonnee);

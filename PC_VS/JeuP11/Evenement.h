@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <string>
 
 enum CodeEvenement
 {
@@ -22,5 +23,6 @@ public:
 	
 	static std::unique_ptr<Evenement> decoder(char data);
 	virtual char dataOut();
+	virtual std::string getDesciption();
 };
 

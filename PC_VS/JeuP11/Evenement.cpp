@@ -3,7 +3,7 @@
 #include "Joystick.h"
 #include "Accel.h"
 #include <memory>
-
+#include <string>
  
 std::unique_ptr<Evenement> Evenement::decoder(char data) {
 
@@ -34,4 +34,9 @@ CodeEvenement Evenement::getCode() {
 
 char Evenement::dataOut() {
 	return 0;
+}
+
+
+std::string Evenement::getDesciption(){
+	return std::string("Evenement generique");
 }

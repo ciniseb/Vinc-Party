@@ -17,5 +17,6 @@ public:
 	~Bouton();
 	Dieu getNom();
 	bool getPianoReussi();
+	std::string getDesciption();
 };
 
