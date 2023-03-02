@@ -90,7 +90,7 @@ void FenetreJeuPiano::ouvrir()
 
         if (chrono.tempsEcoule_s() > 41)
         {
-            if (noteReussi <= 10)
+            if (noteReussi >= 10)
             {
                 reussite = true;
             }

@@ -48,8 +48,6 @@ private:
     Chronometre temps;
 
     double nb_affichages = 0;
-    
-    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
 
     //M�thodes
 
@@ -95,8 +93,8 @@ public:
 
     void affichage_DEBUG(std::ostream &);
     bool modeChasse();
-    bool scanBFS();
-    void modeSuiveurAdversaire();
+    bool scanBFS(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
+    void modeSuiveurAdversaire(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
 };
 
 #endif
