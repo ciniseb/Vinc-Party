@@ -28,8 +28,18 @@ FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
 
     joueur = Acteur{nom_joueur, Coordonnee{(LARGEUR_CARTE/2)-1, HAUTEUR_CARTE-1}};
 
-    Coordonnee pos_adversaire{(LARGEUR_CARTE / 2), HAUTEUR_CARTE - 1};//TODO : générer une position aléatoire dans la map pour l'adversaire
+    Coordonnee pos_adversaire{30, 10};//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{"BOB", pos_adversaire};
+
+
+    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    {
+        for (int c = 0; c < LARGEUR_CARTE; c++)
+        {
+            COPIE_DE_CARTE[r][c] = 0;
+        }
+    }
+    
 }
 FenetreJeu::~FenetreJeu() {}
 
@@ -209,18 +219,18 @@ bool FenetreJeu::genererCarte()
 }
 
 bool FenetreJeu::deplacementAdversaire()
-{
-    if (true/*distanceJoueurAdversaire > rayon de vibration*/)
+{    
+    if (false/*distanceJoueurAdversaire > rayon de vibration*/)
     {
         //ANTOINE 2/3 et ENES 1/3
-    }
+        }
     else
     {
-        //ENES
+        modeChasse();
     }
-    
+
     double t_ecoule = temps.tempsEcoule_ms();
-    if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_JOUEUR)/niveau.getV_Adversaire() <= t_ecoule)
+    if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_ADVERSAIRE)/niveau.getV_Adversaire() <= t_ecoule)
     {
         //adversaire.position.X = NouveauX; TODO nouveauY
         //adversaire.position.Y = NouveauY; TODO nouveauY
@@ -402,10 +412,11 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
             else if (carte[r][c].getRemplissage() == PLEIN)
             {
                 flux << "##";
+
             }
             else if (carte[r][c].getRemplissage() == VIDE)
             {
-                flux << "  ";
+                    flux << "  ";
             }
             else if (carte[r][c].getRemplissage() == MINI_JEU)
             {
@@ -417,22 +428,15 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     flux << ++nb_affichages << std::endl;
 }
 
-bool FenetreJeu::Validation(bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE], int AXE_x, int AXE_y)
+bool FenetreJeu::modeChasse()
 {
-    if (AXE_x < 0 || AXE_y < 0 || AXE_x >= HAUTEUR_CARTE || AXE_y >= LARGEUR_CARTE || carte[AXE_x][AXE_y].getRemplissage()!=PLEIN)
-    {
-        return false; 
-    }
-    if (Visite[AXE_x][AXE_y])
-    {
-        return false;
-    }
-    else
+    scanBFS();
+    modeSuiveurAdversaire();
     return true;
 }
 
 
-bool FenetreJeu::AIMBOT_PART1()
+bool FenetreJeu::scanBFS()
 {
     std::queue<int> Xq;
     std::queue<int> Yq;
@@ -442,57 +446,70 @@ bool FenetreJeu::AIMBOT_PART1()
     int ProchainePossibilite = 0;
     int NS[] = { -1, 1, 0, 0 };
     int EO[] = { 0, 0, 1, -1 };
-    int fin = false;
     bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE];
+    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    {
+        for (int c = 0; c < LARGEUR_CARTE; c++)
+        {
+            Visite[r][c] = false;
+        }
+    }
 
     Xq.push(joueur.position.X);
     Yq.push(joueur.position.Y);
-    Visite[joueur.position.X][joueur.position.Y] = true;
-    std::cout << Xq.size() << std::endl;
-    while (!fin)
+    Visite[joueur.position.Y][joueur.position.X] = true;
+    while (true)
     {
-       // std::cout << Xq.size() << std::endl;
+       //std::cout << Xq.size() << std::endl;
 
         x = Xq.front();
         y = Yq.front();
         Xq.pop();
         Yq.pop();
         if (x == adversaire.position.X && y == adversaire.position.Y)
-        {
-            fin = true;
-            std::cout << "CEST SUPPOSER DETRE FINIS" <<std::endl <<std::endl;
+        {     
             return true;
         }
 
         for (int i = 0; i < 4; i++)
         {
-            int ADJx = x + NS[i];
-            int ADJy = y + EO[i];
-           // std::cout << ADJx << std::endl;
-           // std::cout << ADJy << std::endl;
+            ADJy = y + NS[i];
+            ADJx = x + EO[i];
 
-
-            if ( (ADJx>=0 || ADJy >= 0) && (ADJx <HAUTEUR_CARTE || ADJy < LARGEUR_CARTE) && (carte[ADJx][ADJy].getRemplissage() == VIDE) && (Visite[ADJx][ADJy] != true))
+            if (ADJy >= 0 && ADJx >= 0 && ADJy < HAUTEUR_CARTE && ADJx < LARGEUR_CARTE && carte[ADJy][ADJx].getRemplissage() != PLEIN && !Visite[ADJy][ADJx])
             {      
-               // std::cout << " ADJx " << ADJx << std::endl;
-
-                COPIE_DE_CARTE[ADJx][ADJy] = Longueur;
+                COPIE_DE_CARTE[ADJy][ADJx] = Longueur;
                 Xq.push(ADJx);
                 Yq.push(ADJy);
-                Visite[ADJx][ADJy] = true;
+                Visite[ADJy][ADJx] = true;
+
                 ProchainePossibilite++;
 
+                /*SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), {0, 0});
                 for (int r = 0; r < HAUTEUR_CARTE; r++)
                 {
                     for (int c = 0; c < LARGEUR_CARTE; c++)
                     {
-                        std::cout << COPIE_DE_CARTE[r][c] <<" ";
+                        if (COPIE_DE_CARTE[r][c] == 0)
+                        {
+                            std::cout << " ";
+                        }
+                        else if (COPIE_DE_CARTE[r][c] < 10)
+                        {
+                            std::cout << "0" << COPIE_DE_CARTE[r][c];
+                        }
+                        else
+                        {
+                            std::cout << COPIE_DE_CARTE[r][c];
+                        }
+                        std::cout << " ";
+                        
                     }
-                std::cout << std::endl;
+                    std::cout << std::endl;
                 }
+                std::cout << " NOUVEAU ADJ " << std::endl;*/
             }
         }
-        std::cout << Xq.size() << std::endl;
 
         PossibiliteRestant--;
         if (PossibiliteRestant == 0)
@@ -501,11 +518,10 @@ bool FenetreJeu::AIMBOT_PART1()
             ProchainePossibilite = 0; 
             Longueur++;
         }
-    }    
- 
+    }   
 }
 
-void FenetreJeu::AIMBOT_PART2()
+void FenetreJeu::modeSuiveurAdversaire()
 {
     int NS[] = { -1, 1, 0, 0 };
     int EO[] = { 0, 0, 1, -1 };
@@ -517,46 +533,29 @@ void FenetreJeu::AIMBOT_PART2()
     
     for (int i = 0; i < 4; i++)
     {
-        Nx = x + NS[i];
-        if (LowValue > COPIE_DE_CARTE[Nx][y] && (COPIE_DE_CARTE[Nx][y] != 0) && (carte[Nx][y].getRemplissage() != PLEIN))
+        Nx = x + EO[i];
+        if (LowValue > COPIE_DE_CARTE[y][Nx] && (COPIE_DE_CARTE[y][Nx] != 0) && (carte[y][Nx].getRemplissage() != PLEIN))
         {
-            LowValue = COPIE_DE_CARTE[Nx][y];
+            LowValue = COPIE_DE_CARTE[y][Nx];
         }
-        Ny = y + EO[i];
-        if (LowValue > COPIE_DE_CARTE[x][Ny] && (COPIE_DE_CARTE[x][Ny] != 0) && (carte[Nx][y].getRemplissage() != PLEIN))
+        Ny = y + NS[i];
+        if (LowValue > COPIE_DE_CARTE[Ny][x] && (COPIE_DE_CARTE[Ny][x] != 0) && (carte[Ny][x].getRemplissage() != PLEIN))
         {
-            LowValue = COPIE_DE_CARTE[x][Ny];
+            LowValue = COPIE_DE_CARTE[Ny][x];
         }
     }
     for (int i = 0; i < 4; i++)
     {
-        Nx = x + NS[i];
-        if (LowValue == COPIE_DE_CARTE[Nx][y])
+        Nx = x + EO[i];
+        if (LowValue == COPIE_DE_CARTE[y][Nx])
         {
             adversaire.position.X = Nx;
             adversaire.position.Y = y;
         }
-        Ny = y + EO[i];
-        if (LowValue == COPIE_DE_CARTE[x][Ny]) {
+        Ny = y + NS[i];
+        if (LowValue == COPIE_DE_CARTE[Ny][x]) {
             adversaire.position.X = x;
             adversaire.position.Y = Ny;
         }
     }
-}
-
-void FenetreJeu::RESETVERIFICATION(bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE])
-{
-    for (int r = 0; r < HAUTEUR_CARTE; r++)
-    {
-        for (int c = 0; c < LARGEUR_CARTE; c++)
-        {
-            Visite[r][c] = false;
-        }
-    }
-}
-
-void FenetreJeu::DeplacementAdversaire()
-{
-    int distance_entre_adv_jou = sqrt(((adversaire.position.X - joueur.position.X) ^ 2) + ((adversaire.position.Y - joueur.position.Y) ^ 2));
-    AIMBOT_PART1();
 }

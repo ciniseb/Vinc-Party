@@ -48,6 +48,8 @@ private:
     Chronometre temps;
 
     double nb_affichages = 0;
+    
+    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
 
     //M�thodes
 
@@ -56,7 +58,7 @@ public:
     FenetreJeu();
     FenetreJeu(std::string, ES *);
     ~FenetreJeu();
-    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
+    
 
 
     //Getteurs & setteurs
@@ -86,11 +88,9 @@ public:
     void jouer();
 
     void affichage_DEBUG(std::ostream &);
-    bool Validation(bool Visite[][LARGEUR_CARTE], int AXE_x, int AXE_y);
-    bool AIMBOT_PART1();
-    void AIMBOT_PART2();
-    void RESETVERIFICATION(bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE]);
-    void DeplacementAdversaire();
+    bool modeChasse();
+    bool scanBFS();
+    void modeSuiveurAdversaire();
 };
 
 #endif
