@@ -10,3 +10,8 @@ Vincent;6;69;666
 Roger Laperdrie;1;32;2000
 73PeuplierBlanc;1;10;67
 PeuplierBlanc;1;1;61
+PeuplierBlanc;1;0;4
+PeuplierBlanc;1;1;1
+PeuplierBlanc;1;1;0
+PeuplierBlanc;1;1;0
+PeuplierBlanc;1;0;30

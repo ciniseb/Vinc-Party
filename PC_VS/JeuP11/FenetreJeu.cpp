@@ -302,15 +302,13 @@ bool FenetreJeu::deplacementAdversaire()
     double t_ecoule = temps.tempsEcoule_ms();
     if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_ADVERSAIRE)/niveau.getV_Adversaire() <= t_ecoule)
     {
-        if (true)
+        if (distanceActeur(adversaire, joueur.position) > RAYON_VIBRATION && rand() % 3 + 1 <= 2)
         {
             deplacementAdversaireRandom();
-            //ANTOINE 2/3 et ENES 
         }
         else
         {
-
-            //ENES
+            modeChasse();
         }
 
         adversaire.t_dernier_deplacement = t_ecoule;
@@ -352,10 +350,10 @@ bool FenetreJeu::deplacementJoueur(Direction reponse)
     return false;
 }
 
-float FenetreJeu::distanceJoueur(Coordonnee coord)
+float FenetreJeu::distanceActeur(Acteur acteur, Coordonnee coord)
 {
-    double a = abs(coord.X - joueur.position.X);
-    double b = abs(coord.Y - joueur.position.Y);
+    double a = abs(coord.X - acteur.position.X);
+    double b = abs(coord.Y - acteur.position.Y);
     return sqrt((a*a) + (b*b));
 }
 
@@ -474,11 +472,11 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-           // if (distanceJoueur({c, r}) > RAYON_VISION)
-           // {
-            //    flux << "  ";
-           // }
-            if (joueur.position.X == c && joueur.position.Y == r)
+            /*if (distanceActeur(joueur, {c, r}) > RAYON_VISION)
+            {
+                flux << "  ";
+            }
+            else */if (joueur.position.X == c && joueur.position.Y == r)
             {
                 flux << "**";
             }
@@ -560,6 +558,7 @@ bool FenetreJeu::scanBFS()
             if (ADJy >= 0 && ADJx >= 0 && ADJy < HAUTEUR_CARTE && ADJx < LARGEUR_CARTE && carte[ADJy][ADJx].getRemplissage() != PLEIN && !Visite[ADJy][ADJx])
             {      
                 COPIE_DE_CARTE[ADJy][ADJx] = Longueur;
+                COPIE_DE_CARTE[joueur.position.Y][joueur.position.X] = 4;
                 Xq.push(ADJx);
                 Yq.push(ADJy);
                 Visite[ADJy][ADJx] = true;

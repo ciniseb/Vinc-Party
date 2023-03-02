@@ -88,7 +88,7 @@ public:
 
     bool deplacementAdversaire();
     bool deplacementJoueur(Direction);
-    float distanceJoueur(Coordonnee);
+    float distanceActeur(Acteur, Coordonnee);
 
     void ouvrir();
     void jouer();
