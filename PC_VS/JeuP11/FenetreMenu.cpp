@@ -20,10 +20,11 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
     fenetres[0] = new FenetreJeu();
     fenetres[1] = new FenetrePointages(thread);
     fenetres[2] = new FenetreCR(thread);
+    fenetres[3] = new FenetreJeuPeche(thread);
 }
 FenetreMenu::~FenetreMenu()
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         delete fenetres[i];
     }
@@ -50,7 +51,7 @@ void FenetreMenu::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D && selection < 3 && selection >= 0)
+                if (lettreAppuyee == Dieu::D && selection < 4 && selection >= 0)
                 {
                     if (selection == 0)
                     {
@@ -80,7 +81,7 @@ void FenetreMenu::ouvrir()
                         
                     }
                 }
-                else if (lettreAppuyee == Dieu::D && selection == 3)
+                else if (lettreAppuyee == Dieu::D && selection == 4)
                 {
                     exit(1);
                 }
@@ -95,7 +96,7 @@ void FenetreMenu::ouvrir()
                     selection--;
                     affichage_DEBUG(selection);
                 }
-                else if (direction == Direction::BAS && selection < 3)
+                else if (direction == Direction::BAS && selection < 4)
                 {
                     selection++;
                     affichage_DEBUG(selection);
@@ -118,6 +119,7 @@ void FenetreMenu::affichage_DEBUG(int selection)
         std::cout << " ---> | Jouer" << std::endl;
         std::cout << "      | Pointages"  << std::endl;
         std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Peche" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
@@ -125,6 +127,7 @@ void FenetreMenu::affichage_DEBUG(int selection)
         std::cout << "      | Jouer" << std::endl;
         std::cout << " ---> | Pointages" << std::endl;
         std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Peche" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
@@ -132,13 +135,23 @@ void FenetreMenu::affichage_DEBUG(int selection)
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
         std::cout << " ---> | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Peche" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 3)
     {
         std::cout << "      | Jouer" << std::endl;
+        std::cout << "      | Pointages" << std::endl;
+        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << " ---> | Peche" << std::endl << std::endl;
+        std::cout << "      | Quitter" << std::endl;
+    }
+    else if (selection == 4)
+    {
+        std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
         std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Peche" << std::endl << std::endl;
         std::cout << " ---> | Quitter" << std::endl;
     }
     else

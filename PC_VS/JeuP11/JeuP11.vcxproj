@@ -150,6 +150,7 @@
     <ClCompile Include="Fenetre.cpp" />
     <ClCompile Include="FenetreCR.cpp" />
     <ClCompile Include="FenetreJeu.cpp" />
+    <ClCompile Include="FenetreJeuPeche.cpp" />
     <ClCompile Include="FenetreJeuPiano.cpp" />
     <ClCompile Include="FenetreMenu.cpp" />
     <ClCompile Include="FenetrePointages.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
+    <ClInclude Include="FenetreJeuPeche.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\serial\SerialPort.hpp" />
     <ClInclude Include="Joystick.h" />

@@ -20,6 +20,7 @@ Description: Tests unitaires et d'int�gration
 #include "FenetreJeu.h"
 #include "FenetreJeuPiano.h"
 #include "FenetrePointages.h"
+#include "FenetreJeuPeche.h"
 
 class Tests
 {
@@ -38,6 +39,8 @@ public:
     void tests_autre();
 
     void tests_FenetreJeuPiano();
+
+    void tests_FenetreJeuPeche();
 
 };
 
