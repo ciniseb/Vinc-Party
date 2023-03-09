@@ -41,13 +41,16 @@ private:
     //Attribut
     int positionJoueur = 0;
     int positionPoisson = 0;
+    int foisReussi = 0;
     bool activation = true;
+    bool firstscan = true;
 
     double tempsInit = 0;
     double tempsReussi = 0;
     double totalReussi = 0;
     double bit;
     double bitCount = 0;
+    double bitPrecedent = 0;
     // Methodes
 
     bool Temps(); // Gère le temps et l'appel des methodes

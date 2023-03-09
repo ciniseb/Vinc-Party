@@ -52,6 +52,10 @@ void FenetreJeuPeche::ouvrir()
             }
         }
         Temps();
+        if (foisReussi >= 15)
+        {
+            return;
+        }
         //VerificationJoueurPoisson();
     }
 }
@@ -59,29 +63,38 @@ void FenetreJeuPeche::ouvrir()
 void FenetreJeuPeche::AffichageEcran(int mode)
 {
     //std::cout << "Affichage" << std::endl;
-    char screen[14][7];
+    char screen[14][20];
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
     switch (mode)
     {
     case Menu:
         std::cout << "Appuyez sur Z,X,C ou V pour commencer" << '\n';
+        std::cout << "Ligne de peche   Barre de progression" << std::endl;
         for (int i = 0; i < 14; i++)
         {
             //std::cout << i << '\n';
-            for (int j = 0; j < 7; j++)
+            for (int j = 0; j < 20; j++)
             {
 
-                if (i == 0 || i == 13 || j == 0 || j == 2 || j == 4 || j == 6)
+                if (i == 0 || i == 13)
                 {
-                    if (j == 3)
+                    screen[i][j] = '#';
+                }
+                else
+                {
+                    screen[i][j] = ' ';
+                }
+                if (i == 0 || i == 13 || j == 0 || j == 2 || j == 17 || j == 19)
+                {
+                    if (j >= 3 && j <= 17)
                     {
-                        screen[i][j] = ' ';
+                    for (int k = 3; k < 17; k++)
+                    {
+                        screen[i][k] = ' ';
                     }
-                    else
-                    {
+                    }
                    screen[i][j] = '#';
-                    }
                 }
                 else
                 {
@@ -92,10 +105,11 @@ void FenetreJeuPeche::AffichageEcran(int mode)
         break;
     case Jeu:
         std::cout << "Appuyez sur Z,C pour descendre X,V pour monter" << '\n';
+        std::cout << "Ligne de peche   Barre de progression" << std::endl;
         //std::cout << "Affichage Jeu" << std::endl;
         for (int i = 0; i < 14; i++)
         {
-            for (int j = 0; j < 7; j++)
+            for (int j = 0; j < 20; j++)
             {
                 if(j==1)
                 {
@@ -124,41 +138,16 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                     }
 
                 }
-                else if (j == 5)
+                else if (j == 18)
                 {
-                    if (tempsReussi >= 10 && tempsReussi <= 20)
+                    if (foisReussi > i)
                     {
-                        for (int k = 12; k > 5; k--)
+                        for (int k = 1; k < foisReussi; k++)
                         {
                             screen[k][j] = '=';
-                            if (i == 0 || i == 13)
-                            {
-                             screen[i][j] = '#';
-                            }
-                            else
-                            {
-                            screen[i][j] = ' ';
-                            }
                         }
-
                     }
-                    else if (tempsReussi >= 20)
-                    {
-                        for (int l = 12; l > 0 ; l--)
-                        {
-                            screen[l][j] = '=';
-                            if (i == 0 || i == 13)
-                            {
-                            screen[i][j] = '#';
-                            }
-                            else
-                            {
-                            screen[i][j] = ' ';
-                            }
-                        }
-
-                    }
-                    else if (i == 0 || i == 13)
+                    if (i == 0 || i == 13)
                     {
                         screen[i][j] = '#';
                     }
@@ -169,16 +158,16 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                 }
                 else
                 {
-                    if (i == 0 || i == 13 || j == 0 || j == 2 || j == 4 || j == 6)
+                    if (i == 0 || i == 13 || j == 0 || j == 2 || j == 17 || j == 19)
                     {
-                        if (j == 3)
+                        if (j >= 3 && j <= 17)
                         {
-                            screen[i][j] = ' ';
+                            for (int k = 3; k < 17; k++)
+                            {
+                                screen[i][k] = ' ';
+                            }
                         }
-                        else
-                        {
                             screen[i][j] = '#';
-                        }
                     }
                     else
                     {
@@ -191,20 +180,12 @@ void FenetreJeuPeche::AffichageEcran(int mode)
     }
     for (int i = 0; i < 14; i++)
     {
-        for (int j = 0; j < 7; j++)
+        for (int j = 0; j < 20; j++)
         {
             std::cout << screen[i][j];
         }
         std::cout << '\n';
     }
-    /*if (positionJoueur <= positionPoisson + 1 || positionJoueur >= positionPoisson - 1)
-    {
-        std::cout << positionPoisson << std::endl;
-        std::cout << positionJoueur << std::endl;
-        std::cout << tempsReussi << std::endl;
-        std::cout << chrono.tempsEcoule_s() << std::endl;
-        std::cout << "wow" << std::endl;
-    }*/
 }
 
 bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
@@ -226,10 +207,85 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
 
 void FenetreJeuPeche::setPoisson()
 {
-    if (bitCount == 0 || bitCount == 10 || bitCount == 20 || bitCount == 30 || bitCount == 40 || bitCount == 50)
+    int nombre = 0;
+    if (firstscan == true)
+    {
+        nombre = (rand() % 10) + 2;
+        positionPoisson = nombre;
+        firstscan = false;
+    }
+    else
+    {
+        if (bitCount >= bitPrecedent)
+        {
+            if (positionPoisson <= 9 && positionPoisson >= 5)
+            {
+                nombre = (rand() % 2) + 1;
+                switch (nombre)
+                {
+                case 1:
+                    positionPoisson--;
+                    break;
+                case 2:
+                    positionPoisson++;
+                    break;
+                }
+            }
+
+            else if (positionPoisson < 5 && positionPoisson > 2)
+            {
+                nombre = (rand() % 4) + 1;
+                switch (nombre)
+                {
+                case 1:
+                    positionPoisson--;
+                    break;
+                case 2:
+                    positionPoisson++;
+                    break;
+                case 3:
+                    positionPoisson++;
+                    break;
+                case 4:
+                    positionPoisson++;
+                    break;
+                }
+            }
+            else if (positionPoisson > 8 && positionPoisson < 11)
+            {
+                nombre = (rand() % 4) + 1;
+                switch (nombre)
+                {
+                case 1:
+                    positionPoisson--;
+                    break;
+                case 2:
+                    positionPoisson--;
+                    break;
+                case 3:
+                    positionPoisson--;
+                    break;
+                case 4:
+                    positionPoisson++;
+                    break;
+                }
+            }
+            else if (positionPoisson == 2)
+            {
+                positionPoisson++;
+            }
+            else if (positionPoisson == 11)
+            {
+                positionPoisson--;
+            }
+
+
+        }
+    }
+    /*if (bitCount == 0 || bitCount == 10 || bitCount == 20 || bitCount == 30 || bitCount == 40 || bitCount == 50)
     {
         positionPoisson = (rand() % 10) + 2;
-    }
+    }*/
 }
 
 void FenetreJeuPeche::getJoueur(Dieu touche)
@@ -251,25 +307,24 @@ void FenetreJeuPeche::getJoueur(Dieu touche)
         positionJoueur--;
         break;
     }      
+     if (positionJoueur < 1)
+     {
+         positionJoueur = 1;
+     }
+     if (positionJoueur > 12)
+     {
+         positionJoueur = 12;
+     }
 }
 
 void FenetreJeuPeche::VerificationJoueurPoisson()
 {
-
-    if (positionJoueur <= positionPoisson + 1 && positionJoueur > positionPoisson - 1)
+    if (bitCount >= bitPrecedent);
     {
-        if (activation == true)
+        if (positionJoueur <= positionPoisson + 1 && positionJoueur >= positionPoisson - 1)
         {
-        tempsInit = chrono.tempsEcoule_s();
-        activation = false;
+            foisReussi++;
         }
-    }
-    else
-    {
-        if (activation == false || chrono.tempsEcoule_s() == 59)
-        {
-            tempsReussi += chrono.tempsEcoule_s() - tempsInit;
-            activation = true;
-        }
+        bitPrecedent = bitCount;
     }
 }
