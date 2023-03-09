@@ -30,6 +30,13 @@ enum class Dieu
     E,
     U
 };
+
+enum class Etat
+{
+    Actif,
+    Inactif,
+    Pause
+};
 #define NB_MINI_JEUX 1
 
 #define DT_DEPLACEMENT_JOUEUR 333 //Milisecondes

@@ -18,20 +18,8 @@ Description:
 FenetreJeu::FenetreJeu() {}
 FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
 {
-    niveau.niveauSuivant();
-
-    genererCarte();
-    
-    //TODO : Charger les mini-jeux.
-    mini_jeux[0] = new FenetreJeuPiano(thread);
-    //mini_jeux[1] = ...
-    //mini_jeux[2] = ...
-
-    joueur = Acteur{nom_joueur, Coordonnee{(LARGEUR_CARTE/2)-1, HAUTEUR_CARTE-1}};
-
-    //Coordonnee pos_adversaire{(LARGEUR_CARTE / 2), HAUTEUR_CARTE - 1};//TODO : générer une position aléatoire dans la map pour l'adversaire
-    Coordonnee pos_adversaire{ 32, 8 };//TODO : générer une position aléatoire dans la map pour l'adversaire
-    adversaire = Acteur{"BOB", pos_adversaire};
+    joueur.nom = nom_joueur;
+    initialiser();
 }
 FenetreJeu::~FenetreJeu() {}
 
@@ -348,6 +336,24 @@ float FenetreJeu::distanceActeur(Acteur acteur, Coordonnee coord)
     return sqrt((a*a) + (b*b));
 }
 
+void FenetreJeu::initialiser()
+{
+    niveau = Niveau();
+    niveau.niveauSuivant();
+
+    genererCarte();
+
+    //TODO : Charger les mini-jeux.
+    mini_jeux[0] = new FenetreJeuPiano(threadArduino);
+    //mini_jeux[1] = ...
+    //mini_jeux[2] = ...
+
+    joueur = Acteur{ joueur.nom, Coordonnee{(LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1} };
+
+    Coordonnee pos_adversaire{ 32, 8 };//TODO : générer une position aléatoire dans la map pour l'adversaire
+    adversaire = Acteur{ "BOB", pos_adversaire };
+}
+
 void FenetreJeu::ouvrir()
 {
     jouer();
@@ -386,7 +392,6 @@ void FenetreJeu::jouer()
         if (deplacementAdversaire())
         {
             affichage_DEBUG(std::cout);
-            std::cout << adversaire.position.Y << ", " << adversaire.position.X;
         }
 
         //Mise à jour du déplacement du joueur
@@ -412,18 +417,17 @@ void FenetreJeu::jouer()
         if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)
         {
             mini_jeux[mj_actif]->ouvrir();
+
             if (mini_jeux[mj_actif]->reussi())
             {
-                mj_actif = 0; //TODO
                 niveau.miniJeuReussi(mj_actif); //TODO
-                carte[joueur.position.Y][joueur.position.X].setRemplissage(VIDE);
                 if (niveau.niveauFinit())
                 {
                     if (niveau.niveauSuivant())
                     {
                         genererCarte();
                         joueur.position = Coordonnee{ (LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1 };
-                        adversaire.position = Coordonnee{ (LARGEUR_CARTE / 2), HAUTEUR_CARTE - 1 };//TODO : générer une position aléatoire dans la map pour l'adversaire
+                        adversaire.position = Coordonnee{32, 8};//TODO : générer une position aléatoire dans la map pour l'adversaire
                     }
                     else
                     {
@@ -431,17 +435,17 @@ void FenetreJeu::jouer()
                         return;
                     }
                 }
-                else
-                {
-                    //TODO : retirer mini jeu
-                    affichage_DEBUG(std::cout);
-                }
             }
             else
             {
                 //TODO : bouger le mini jeu
-                affichage_DEBUG(std::cout);
             }
+
+            mini_jeux[mj_actif]->initialiser();
+            mj_actif = 0; //TODO
+            carte[joueur.position.Y][joueur.position.X].setRemplissage(VIDE);
+
+            affichage_DEBUG(std::cout);
         }
     }
 }
@@ -496,6 +500,7 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
         flux << std::endl;
     }
     flux << ++nb_affichages << std::endl;
+    std::cout << adversaire.position.Y << ", " << adversaire.position.X;
 }
 
 bool FenetreJeu::modeChasse()
@@ -531,7 +536,7 @@ bool FenetreJeu::scanBFS(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
     Xq.push(joueur.position.X);
     Yq.push(joueur.position.Y);
     Visite[joueur.position.Y][joueur.position.X] = true;
-    while (true)
+    while (true /* && !Xq.empty() && !Yq.empty()*/)
     {
         x = Xq.front();
         y = Yq.front();

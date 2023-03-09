@@ -25,17 +25,19 @@ Description:
 #include "CONSTANTES.h"
 
 //Constructeurs & destructeurs
-FenetreTests::FenetreTests(ES *thread) : Fenetre(thread)
-{
-    
-    remplirListe();
-}
+FenetreTests::FenetreTests(ES *thread) : Fenetre(thread) { initialiser(); }
 FenetreTests::~FenetreTests() {}
 
 //Getteurs & setteurs
 
 
 //Méthodes
+void FenetreTests::initialiser()
+{
+    //TODO
+    remplirListe();
+}
+
 void FenetreTests::ouvrir()
 {
     std::unique_ptr<Evenement> evenement;

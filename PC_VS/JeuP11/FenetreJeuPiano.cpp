@@ -13,11 +13,7 @@ Description:
 #include "FenetreJeuPiano.h"
 
 //Constructeurs & destructeurs
-FenetreJeuPiano::FenetreJeuPiano(ES *thread): FenetreMiniJeu(thread) // Main du jeu
-{
-    noteReussi = 0;
-    chargerChanson(matrice);
-}
+FenetreJeuPiano::FenetreJeuPiano(ES* thread) : FenetreMiniJeu(thread) { initialiser(); }
 FenetreJeuPiano::~FenetreJeuPiano() {}
 
 bool FenetreJeuPiano::chargerChanson(bool matrice[40][4])
@@ -42,6 +38,15 @@ bool FenetreJeuPiano::chargerChanson(bool matrice[40][4])
     }
     fichier.close();
     return true;
+}
+
+void FenetreJeuPiano::initialiser()
+{
+    //TODO
+    chrono = Chronometre();
+    noteReussi = 0;
+    bitCount = 0;
+    chargerChanson(matrice);
 }
 
 void FenetreJeuPiano::ouvrir()

@@ -1,3 +1,31 @@
-﻿  FenetreJeu.cpp
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(348,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+﻿  Bargraph.cpp
+  Bouton.cpp
+  Chronometre.cpp
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(120,11): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(123,11): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(126,11): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+  ES.cpp
+  Evenement.cpp
+  FenetreCR.cpp
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(86,88): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(94,53): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  FenetreJeu.cpp
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(336,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+  FenetreJeuPiano.cpp
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(120,21): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+  FenetreMenu.cpp
+  FenetrePointages.cpp
+  FenetreTests.cpp
+  JeuP11.cpp
+  Niveau.cpp
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(110,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(115,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(120,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(125,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(130,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  Tests.cpp
+  Tuile.cpp
+  Génération de code en cours...
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(355): warning C4715: 'FenetreJeuPiano::VersBoutonPressee' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Evenement.cpp(20): warning C4715: 'Evenement::decoder' : les chemins de contrôle ne retournent pas tous une valeur
   JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe

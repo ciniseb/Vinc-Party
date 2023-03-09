@@ -15,12 +15,7 @@ Description:
 #define DEMANDER_NOM false
 
 //Constructeurs & destructeurs
-FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
-{
-    fenetres[0] = new FenetreJeu();
-    fenetres[1] = new FenetrePointages(thread);
-    fenetres[2] = new FenetreCR(thread);
-}
+FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread) { initialiser(); }
 FenetreMenu::~FenetreMenu()
 {
     for (int i = 0; i < 3; i++)
@@ -33,6 +28,13 @@ FenetreMenu::~FenetreMenu()
 
 
 //Méthodes
+void FenetreMenu::initialiser()
+{
+    fenetres[0] = new FenetreJeu();
+    fenetres[1] = new FenetrePointages(threadArduino);
+    fenetres[2] = new FenetreCR(threadArduino);
+}
+
 void FenetreMenu::ouvrir()
 {
     std::unique_ptr<Evenement> evenement;

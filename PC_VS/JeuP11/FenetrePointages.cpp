@@ -13,7 +13,7 @@ Description:
 #include "FenetrePointages.h"
 
 //Constructeurs & destructeurs
-FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) {}
+FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) { initialiser(); }
 FenetrePointages::~FenetrePointages() {}
 
 //Getteurs & setteurs
@@ -82,6 +82,11 @@ bool FenetrePointages::enregistrerPointages()
     }
     std::cout << "Fichier introuvable..." << std::endl;
     return false;
+}
+
+void FenetrePointages::initialiser()
+{
+    //TODO
 }
 
 void FenetrePointages::ouvrir()

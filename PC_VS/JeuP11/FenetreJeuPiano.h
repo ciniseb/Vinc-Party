@@ -46,9 +46,9 @@ private:
 
     bool matrice[40][4]; // matrice de l'ecran
 
-    int noteReussi = 0;
+    int noteReussi;
     double bit;
-    double bitCount = 0;
+    double bitCount;
     // Methodes
 
     bool chargerChanson(bool matrice[40][4]);
@@ -67,6 +67,7 @@ public:
     bool VersBoutonPressee(Dieu touche);
 
     //Méthodes
+    void initialiser();
     void ouvrir();
 };
 
