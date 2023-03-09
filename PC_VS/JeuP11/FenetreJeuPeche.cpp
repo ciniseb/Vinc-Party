@@ -197,6 +197,11 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
 
     if (bit == 0 && bitCount < 60)
     {
+        if (bitCount >= bitPrecedent);
+        {
+
+            bitPrecedent = bitCount++;
+        }
         setPoisson();
         AffichageEcran(Jeu);
         VerificationJoueurPoisson();
@@ -325,6 +330,5 @@ void FenetreJeuPeche::VerificationJoueurPoisson()
         {
             foisReussi++;
         }
-        bitPrecedent = bitCount;
     }
 }
