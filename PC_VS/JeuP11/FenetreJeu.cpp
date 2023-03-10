@@ -463,11 +463,11 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            /*if (distanceActeur(joueur, {c, r}) > RAYON_VISION)
+            if (distanceActeur(joueur, {c, r}) > RAYON_VISION)
             {
                 flux << "  ";
             }
-            else */if (joueur.position.X == c && joueur.position.Y == r)
+            else if (joueur.position.X == c && joueur.position.Y == r)
             {
                 flux << "**";
             }

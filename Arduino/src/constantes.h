@@ -8,8 +8,8 @@ enum Dieu
 };
 
 #define BAUD 9600        // Frequence de transmission serielle
-#define	BTN_1_PIN	21
-#define	BTN_2_PIN	20
+#define	BTN_1_PIN	17
+#define	BTN_2_PIN	16
 #define	BTN_3_PIN	19
 #define	BTN_4_PIN	18
 #define	BAR_1_PIN	2
