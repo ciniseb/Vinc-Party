@@ -183,6 +183,9 @@ void loop() {
     case 2: gestionBoussole.commande(Boussole(data));
       /* code */
       break;
+    case 3: gestionBargraph.commande(QuadBargraph(data));
+      /* code */
+      break;
     
     default:
       break;

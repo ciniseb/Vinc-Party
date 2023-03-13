@@ -30,6 +30,13 @@
         unsigned long temps = millis() - tempsDebut;
         if(actif && temps <= DUREE_BARGRAPH){
             position = (int)(temps / (DUREE_BARGRAPH/10));
+        }else{
+            position = 11;
+            actif = false;
         }
         
+    }
+
+    void BargraphSeul::reset(){
+        actif = false;
     }

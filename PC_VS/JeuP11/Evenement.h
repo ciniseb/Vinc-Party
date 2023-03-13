@@ -9,7 +9,8 @@ enum CodeEvenement
 	ACCELEROMETRE,
 	BOUSSOLE,
 	BARGRAPH,
-	VIBRATION
+	VIBRATION,
+	QUAD_BARGRAPH
 };
 
 class Evenement

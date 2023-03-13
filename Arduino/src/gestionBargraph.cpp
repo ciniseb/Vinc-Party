@@ -19,9 +19,24 @@ void GestionBargraph::afficher(){
         digitalWrite(barPin[compteurMultiplex-1],LOW);
     }
 
+    if(modeQuad){
+        digitalWrite(LED_1_PIN, valeurQuad >= 10);
+        digitalWrite(LED_2_PIN, valeurQuad >= 9);
+        digitalWrite(LED_3_PIN, valeurQuad >= 8);
+        digitalWrite(LED_4_PIN, valeurQuad >= 7);
+        digitalWrite(LED_5_PIN, valeurQuad >= 6);
+        digitalWrite(LED_6_PIN, valeurQuad >= 5);
+        digitalWrite(LED_7_PIN, valeurQuad >= 4);
+        digitalWrite(LED_8_PIN, valeurQuad >= 3);
+        digitalWrite(LED_9_PIN, valeurQuad >= 2);
+        digitalWrite(LED_10_PIN, valeurQuad >= 1);
+
+    }else{
+        bargraphsListe[compteurMultiplex].afficher();
+    }
 
 
-    bargraphsListe[compteurMultiplex].afficher();
+    
 
     digitalWrite(barPin[compteurMultiplex],HIGH);
 
@@ -34,6 +49,7 @@ void GestionBargraph::afficher(){
 
 
 void GestionBargraph::commande(Bargraph bargraph){
+    modeQuad = false;
     bargraphsListe[bargraph.getNomBargraph()].demarrer();
     /*switch (bargraph.getNomBargraph())
     {
@@ -49,6 +65,18 @@ void GestionBargraph::commande(Bargraph bargraph){
 		break;
 	}*/
 }
+
+void GestionBargraph::commande(QuadBargraph quad_bargraph){
+    modeQuad = true;
+    valeurQuad = quad_bargraph.getValeur();
+    for (int i = 0; i < 4; i++)
+    {
+        bargraphsListe[i].reset();
+    }
+
+}
+
+
 
 void GestionBargraph::init(){
     pinMode(LED_1_PIN,OUTPUT);
@@ -70,9 +98,12 @@ void GestionBargraph::init(){
 }
 
 void GestionBargraph::calculer(){
-    for (int i = 0; i < 4; i++)
-    {
-        bargraphsListe[i].calculer();
+    if(!modeQuad){
+        for (int i = 0; i < 4; i++)
+        {
+            bargraphsListe[i].calculer();
+        }
     }
+    
 
 }

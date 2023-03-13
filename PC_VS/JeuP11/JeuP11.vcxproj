@@ -160,6 +160,7 @@
     <ClCompile Include="FenetreMiniJeu.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Pointage.cpp" />
+    <ClCompile Include="QuadBargraph.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="Tuile.cpp" />
     <ClCompile Include="Vibration.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="FenetreMiniJeu.h" />
     <ClInclude Include="Niveau.h" />
     <ClInclude Include="Pointage.h" />
+    <ClInclude Include="QuadBargraph.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Tuile.h" />
     <ClInclude Include="Vibration.h" />

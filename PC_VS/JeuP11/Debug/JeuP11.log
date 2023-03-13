@@ -1,3 +1,2 @@
-﻿  FenetreJeu.cpp
-C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(348,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+﻿  FenetreTests.cpp
   JeuP11.vcxproj -> C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe

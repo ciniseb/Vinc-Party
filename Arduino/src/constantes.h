@@ -35,5 +35,7 @@ enum Dieu
 #define	JOY_HB_PIN	A1
 #define	JOY_GD_PIN	A0
 
-#define DUREE_BARGRAPH 5000
+#define DUREE_BARGRAPH 1000
 #define DUREE_VIBRATION 1000
+
+#define NBR_BARRE_POUR_OK_PIANO 10

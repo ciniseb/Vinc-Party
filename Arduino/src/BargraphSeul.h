@@ -13,5 +13,6 @@ public:
     void demarrer();
     void afficher();
     void calculer();
+    void reset();
 };
 
