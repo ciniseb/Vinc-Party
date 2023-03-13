@@ -97,6 +97,7 @@
     <ClCompile Include="FenetreJeuPiano.cpp" />
     <ClCompile Include="FenetreMenu.cpp" />
     <ClCompile Include="FenetreMiniJeu.cpp" />
+    <ClCompile Include="PageJeu.cpp" />
     <ClCompile Include="PagePointages.cpp" />
     <ClCompile Include="Pointage.cpp" />
     <ClCompile Include="Tests.cpp" />
@@ -113,7 +114,6 @@
     <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Page.cpp" />
-    <ClCompile Include="PageJeu.cpp" />
     <ClCompile Include="PageMenu.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="PagePointages.ui" />
