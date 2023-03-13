@@ -25,7 +25,7 @@
 /*------------------------- Prototypes de fonctions -------------------------*/
 void ShowConsoleCursor(bool showFlag);
 /*----------------------------- Fonction "Main" -----------------------------*/
-int main()
+/*int main()
 {
     //ES threadArduino;
     //FenetreMenu menu;
@@ -56,7 +56,7 @@ int main()
     // tests.tests_autre();
     
     return 0;
-}
+}*/
 
 /*---------------------------Definition de fonctions ------------------------*/
 void ShowConsoleCursor(bool showFlag)
