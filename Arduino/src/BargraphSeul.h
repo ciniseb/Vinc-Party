@@ -7,6 +7,7 @@ private:
     unsigned long tempsDebut = 0;
     bool actif = false;    
     static const int ledPin[];
+    bool intersectionFaite = false;
 public:
     BargraphSeul();
     ~BargraphSeul();
@@ -14,5 +15,6 @@ public:
     void afficher();
     void calculer();
     void reset();
+    bool intersection();
 };
 

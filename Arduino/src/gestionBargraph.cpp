@@ -51,19 +51,6 @@ void GestionBargraph::afficher(){
 void GestionBargraph::commande(Bargraph bargraph){
     modeQuad = false;
     bargraphsListe[bargraph.getNomBargraph()].demarrer();
-    /*switch (bargraph.getNomBargraph())
-    {
-	case 0: bargraphsListe[0].demarrer();
-		break;
-	case 1: bargraphsListe[1].demarrer();
-		break;
-	case 2: bargraphsListe[2].demarrer();
-		break;
-	case 3: bargraphsListe[3].demarrer();
-		break;
-	default:
-		break;
-	}*/
 }
 
 void GestionBargraph::commande(QuadBargraph quad_bargraph){
@@ -104,6 +91,9 @@ void GestionBargraph::calculer(){
             bargraphsListe[i].calculer();
         }
     }
-    
+}
 
+
+bool GestionBargraph::intesection(Dieu lettre){
+    return bargraphsListe[lettre].intersection();
 }

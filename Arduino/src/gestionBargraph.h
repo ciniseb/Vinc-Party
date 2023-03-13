@@ -20,4 +20,5 @@ public:
     void commande(QuadBargraph quad_bargraph);
     void init();
     void calculer();
+    bool intesection(Dieu lettre);
 };

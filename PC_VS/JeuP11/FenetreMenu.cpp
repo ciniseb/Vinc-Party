@@ -117,28 +117,28 @@ void FenetreMenu::affichage_DEBUG(int selection)
     {
         std::cout << " ---> | Jouer" << std::endl;
         std::cout << "      | Pointages"  << std::endl;
-        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Test hardware" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << " ---> | Pointages" << std::endl;
-        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Test hardware" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
-        std::cout << " ---> | Crossy Road" << std::endl << std::endl;
+        std::cout << " ---> | Test hardware" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 3)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
-        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Test hardware" << std::endl << std::endl;
         std::cout << " ---> | Quitter" << std::endl;
     }
     else

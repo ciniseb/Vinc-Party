@@ -33,3 +33,6 @@ PeuplierBlanc;1;0;0
 PeuplierBlanc;1;0;0
 PeuplierBlanc;1;0;0
 PeuplierBlanc;1;1;0
+PeuplierBlanc;1;0;9
+PeuplierBlanc;1;1;63
+PeuplierBlanc;1;0;20
