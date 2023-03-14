@@ -97,28 +97,19 @@
     <ClCompile Include="FenetreJeuPiano.cpp" />
     <ClCompile Include="FenetreMenu.cpp" />
     <ClCompile Include="FenetreMiniJeu.cpp" />
-    <ClCompile Include="PageJeu.cpp" />
-    <ClCompile Include="PagePointages.cpp" />
-    <ClCompile Include="PageTest.cpp" />
+    <ClCompile Include="Fenetre_test.cpp" />
     <ClCompile Include="Pointage.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="Tuile.cpp" />
+    <ClCompile Include="UI_Menu.cpp" />
     <ClCompile Include="Vibration.cpp" />
-    <QtRcc Include="PageMenu.qrc" />
-    <QtUic Include="Page.ui" />
-    <QtUic Include="PageJeu.ui" />
-    <QtUic Include="PageMenu.ui" />
-    <ClInclude Include="PageMenu.h" />
+    <QtRcc Include="UI_editor.qrc" />
     <ClCompile Include="FenetrePointages.cpp" />
     <ClCompile Include="FenetreTests.cpp" />
     <ClCompile Include="JeuP11.cpp" />
     <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="Niveau.cpp" />
-    <ClCompile Include="Page.cpp" />
-    <ClCompile Include="PageMenu.cpp" />
     <ClCompile Include="main.cpp" />
-    <QtUic Include="PagePointages.ui" />
-    <QtUic Include="PageTest.ui" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="pointages.txt" />
@@ -144,21 +135,22 @@
     <ClInclude Include="FenetreCR.h" />
     <ClInclude Include="FenetreJeu.h" />
     <ClInclude Include="FenetreJeuPiano.h" />
-    <ClInclude Include="FenetreMenu.h" />
+    <QtMoc Include="FenetreMenu.h" />
     <ClInclude Include="FenetreMiniJeu.h" />
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
+    <ClInclude Include="Fenetre_test.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="Niveau.h" />
-    <ClInclude Include="PageTest.h" />
     <ClInclude Include="Pointage.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Tuile.h" />
+    <QtMoc Include="UI_Menu.h" />
     <ClInclude Include="Vibration.h" />
-    <QtMoc Include="PagePointages.h" />
-    <QtMoc Include="PageJeu.h" />
-    <QtMoc Include="Page.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="UI_Menu.ui" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

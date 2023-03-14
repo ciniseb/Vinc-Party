@@ -25,7 +25,7 @@ protected:
 public:
     //Constructeurs & destructeurs
     Fenetre();
-    Fenetre(ES *);
+    Fenetre(ES*);
     virtual ~Fenetre();
 
     //Getteurs & setteurs

@@ -15,7 +15,7 @@ Description:
 #define DEMANDER_NOM false
 
 //Constructeurs & destructeurs
-FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread) { initialiser(); }
+FenetreMenu::FenetreMenu(ES *thread, QObject* parent) : Fenetre_test(thread), QThread(parent) { initialiser(); }
 FenetreMenu::~FenetreMenu()
 {
     for (int i = 0; i < 3; i++)
@@ -49,6 +49,8 @@ void FenetreMenu::ouvrir()
 
             if (evenement->getCode() == BOUTON)
             {
+                emit test();
+
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
@@ -148,3 +150,11 @@ void FenetreMenu::affichage_DEBUG(int selection)
 
     }
 }
+
+//Overrides
+void FenetreMenu::run()
+{
+    ouvrir();
+}
+
+//Signals

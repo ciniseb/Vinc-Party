@@ -13,9 +13,11 @@ Description:
 #ifndef FENETREMENU_H
 #define FENETREMENU_H
 
+#include <QThread>
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
+#include "Fenetre_test.h"
 #include "Fenetre.h"
 #include "ES.h"
 #include "FenetreJeu.h"
@@ -25,15 +27,20 @@ Description:
 #include "Bouton.h"
 #include "FenetreCR.h"
 
-class FenetreMenu : public Fenetre
+class FenetreMenu : public QThread, public Fenetre_test
 {
+    Q_OBJECT
+
 private:
     //Attributs
     Fenetre *fenetres[3];
 
+    //Overrides
+    void run() override;
+
 public:
     //Constructeurs & destructeurs
-    FenetreMenu(ES *);
+    FenetreMenu(ES* threadArduino = nullptr, QObject *parent = nullptr);
     ~FenetreMenu();
 
     //Getteurs & setteurs
@@ -44,6 +51,13 @@ public:
     void ouvrir();
 
     void affichage_DEBUG(int);
+
+signals:
+    void test();
+
+private slots:
+
+
 };
 
 #endif
