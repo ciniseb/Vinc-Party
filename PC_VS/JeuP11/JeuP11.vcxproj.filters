@@ -29,9 +29,6 @@
     <QtUic Include="PageMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="PageMenu.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <ClCompile Include="PageMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -118,6 +115,9 @@
     <ClCompile Include="PageJeu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PageTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Page.ui">
@@ -127,6 +127,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="PagePointages.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="PageTest.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -215,6 +218,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vibration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PageTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

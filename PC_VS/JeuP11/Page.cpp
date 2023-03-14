@@ -1,10 +1,30 @@
+/*====================================================================================================
+Fichier: Page.cpp
+Auteurs: Antoine Allard
+         Charles Beaulieu
+         Émile Bois
+         Enes Caku
+         Zachari Gervais
+         Anne-Sophie Nguyen
+         Sébastien St-Denis
+         Date: 02 février 2023
+Description:
+====================================================================================================*/
 #include "Page.h"
 
-Page::Page(QWidget *parent)
-	: QWidget(parent)
+//Constructeurs & destructeurs
+Page::Page(QWidget* parent) : QWidget(parent)
 {
-	ui.setupUi(this);
+    threadArduino = nullptr;
+    ui.setupUi(this);
 }
+Page::Page(ES* thread, QWidget* parent) : QWidget(parent)
+{
+    threadArduino = thread;
+}
+Page::~Page() {}
 
-Page::~Page()
-{}
+//Getteurs & setteurs
+
+
+//Méthodes

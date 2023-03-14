@@ -99,6 +99,7 @@
     <ClCompile Include="FenetreMiniJeu.cpp" />
     <ClCompile Include="PageJeu.cpp" />
     <ClCompile Include="PagePointages.cpp" />
+    <ClCompile Include="PageTest.cpp" />
     <ClCompile Include="Pointage.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="Tuile.cpp" />
@@ -107,7 +108,7 @@
     <QtUic Include="Page.ui" />
     <QtUic Include="PageJeu.ui" />
     <QtUic Include="PageMenu.ui" />
-    <QtMoc Include="PageMenu.h" />
+    <ClInclude Include="PageMenu.h" />
     <ClCompile Include="FenetrePointages.cpp" />
     <ClCompile Include="FenetreTests.cpp" />
     <ClCompile Include="JeuP11.cpp" />
@@ -117,6 +118,7 @@
     <ClCompile Include="PageMenu.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="PagePointages.ui" />
+    <QtUic Include="PageTest.ui" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="pointages.txt" />
@@ -149,6 +151,7 @@
     <ClInclude Include="GABARIT_CLASS.h" />
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="Niveau.h" />
+    <ClInclude Include="PageTest.h" />
     <ClInclude Include="Pointage.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Tuile.h" />
