@@ -4,7 +4,8 @@ enum Dieu
 	D,
 	I,
 	E,
-	U
+	U,
+	JOYSTICK
 };
 
 #define BAUD 9600        // Frequence de transmission serielle

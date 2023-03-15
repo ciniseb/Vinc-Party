@@ -38,7 +38,7 @@ GestionBoussole gestionBoussole;
 GestionVibration gestionVibration;
 GestionBargraph gestionBargraph;
 GestionJoystick gestionJoystick;
-GestionBouton gestionBouton[] = {GestionBouton(D,BTN_1_PIN),GestionBouton(I,BTN_2_PIN),GestionBouton(E,BTN_3_PIN),GestionBouton(U,BTN_4_PIN)};
+GestionBouton gestionBouton[] = {GestionBouton(D,BTN_1_PIN),GestionBouton(I,BTN_2_PIN),GestionBouton(E,BTN_3_PIN),GestionBouton(U,BTN_4_PIN),GestionBouton(JOYSTICK,BTN_JOY_PIN)};
 
 int ledPin[] = {LED_1_PIN,LED_2_PIN,LED_3_PIN,LED_4_PIN,LED_5_PIN,LED_6_PIN,LED_7_PIN,LED_8_PIN,LED_9_PIN,LED_10_PIN};
 
@@ -77,7 +77,7 @@ void loop() {
   lireEntrees();
   
   gestionJoystick.rafraichir();
-  for (int i = 0; i < 4; i++)
+  for (int i = 0; i < 5 ;i++)
   {
     gestionBouton[i].rafraichir();
   }
@@ -98,7 +98,7 @@ void loop() {
     Serial.write(joy.dataOut());
   }
 
-  for (int i = 0; i < 4; i++)
+  for (int i = 0; i < 5; i++)
   {
     if(gestionBouton[i].getBoutonDetecte()){
       Dieu nom_bouton = gestionBouton[i].getBouton();

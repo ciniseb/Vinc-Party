@@ -28,7 +28,8 @@ enum class Dieu
     D,
     I,
     E,
-    U
+    U,
+    JOYSTICK
 };
 #define NB_MINI_JEUX 1
 
