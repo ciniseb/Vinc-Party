@@ -27,15 +27,15 @@ enum Dieu
 #define	LED_9_PIN	39
 #define	LED_10_PIN	40
 #define	LED_N_PIN	11
-#define	LED_E_PIN	10
+#define	LED_E_PIN	8
 #define	LED_W_PIN	9
-#define	LED_S_PIN	8
+#define	LED_S_PIN	10
 #define	MOT_PIN	7
 #define	BTN_JOY_PIN	6
 #define	JOY_HB_PIN	A1
 #define	JOY_GD_PIN	A0
 
 #define DUREE_BARGRAPH 1000
-#define DUREE_VIBRATION 750
+#define DUREE_VIBRATION 250
 
 #define NBR_BARRE_POUR_OK_PIANO 10

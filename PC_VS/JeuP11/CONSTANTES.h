@@ -38,5 +38,13 @@ enum class Dieu
 #define RAYON_VISION 8
 #define RAYON_VIBRATION 12
 
+
+
+
+//Cheat codes
+#define ENNEMI_INNOFFENSIF true
+#define VISION_NOCTURNE false
+
+
 //ERREURS
 //...

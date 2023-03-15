@@ -13,6 +13,9 @@ Description:
 #include "FenetreJeu.h"
 #include "Joystick.h"
 #include <cstdlib>
+#include <cmath>
+#include "Boussole.h"
+#include "Vibration.h"
 
 //Constructeurs & destructeurs
 FenetreJeu::FenetreJeu() {}
@@ -360,6 +363,9 @@ void FenetreJeu::jouer()
     std::unique_ptr<Evenement> evenement;
     int mj_actif = 0; //TODO : selection mini-jeu actif random sur nb mini jeux
     Direction directionActuelle = AUCUNE;
+    PointCardinal pointCardinalAncien = OFF;
+    PointCardinal pointCardinalActuel = OFF;
+    double tempsDerniereVibration = 0;
 
     genererCarte();
     temps.demarrer();
@@ -376,7 +382,7 @@ void FenetreJeu::jouer()
         }
 
         //Tague du joueur par l'adversaire = fin de jeu
-        if (adversaire.position.X == joueur.position.X && adversaire.position.Y == joueur.position.Y)
+        if (adversaire.position.X == joueur.position.X && adversaire.position.Y == joueur.position.Y && !ENNEMI_INNOFFENSIF)
         {
             Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m(), joueur.nb_tuiles_parcourues).enregistrerPointage();
             return;
@@ -408,9 +414,29 @@ void FenetreJeu::jouer()
             }
         }
 
+
+
+        //Determiner direction boussole;
+        pointCardinalActuel = directionMiniJeuPlusProche(niveau.getNB_Mj_Restants());
+        if (pointCardinalActuel != pointCardinalAncien) {
+            threadArduino->envoyerEvenement(std::make_unique<Boussole>(pointCardinalActuel));
+        }
+        pointCardinalAncien = pointCardinalActuel;
+
+
+
+        //Vibration
+        if (temps.tempsAtteint_ms(tempsDerniereVibration + 2000) && distanceEntreTuiles(joueur.position.X, joueur.position.Y, adversaire.position.X, adversaire.position.Y) <= RAYON_VIBRATION) {
+            tempsDerniereVibration = temps.tempsEcoule_ms();
+            threadArduino->envoyerEvenement(std::make_unique<Vibration>());
+
+        }
+
+
         //Joueur sur une tuile de MINI_JEU
         if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)
         {
+            threadArduino->envoyerEvenement(std::make_unique<Boussole>(OFF));
             mini_jeux[mj_actif]->ouvrir();
             if (mini_jeux[mj_actif]->reussi())
             {
@@ -463,7 +489,7 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            if (distanceActeur(joueur, {c, r}) > RAYON_VISION)
+            if (distanceActeur(joueur, {c, r}) > RAYON_VISION && !VISION_NOCTURNE)
             {
                 flux << "  ";
             }
@@ -611,6 +637,63 @@ void FenetreJeu::modeSuiveurAdversaire(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR
 
             adversaire.position.X = x;
             adversaire.position.Y = Ny;
+        }
+    }
+}
+
+
+
+double FenetreJeu::distanceEntreTuiles(int x1, int y1, int x2, int y2) {
+    return sqrt((float)pow(x1-x2,2) + (float)pow(y1-y2,2));
+}
+
+PointCardinal FenetreJeu::directionMiniJeuPlusProche(int nbrJeux) {
+    std::vector<Coordonnee> listePositionsJeux;
+    float distanceMin = 10000.0;
+    int index = 0;
+    //Trouver les deux restants
+    for (int i = 0; i < HAUTEUR_CARTE; i++)
+    {
+        for (int j = 0; j < LARGEUR_CARTE; j++)
+        {
+            if (carte[i][j].getRemplissage() == MINI_JEU) {
+                listePositionsJeux.push_back({j,i});
+            }
+        }
+    }
+
+
+
+
+    for (int i = 0; i < nbrJeux; i++)
+    {
+        double distance = distanceEntreTuiles(joueur.position.X, joueur.position.Y, listePositionsJeux[i].X, listePositionsJeux[i].Y);
+        if (distance < distanceMin) {
+            distanceMin = distance;
+            index = i;
+        }
+    }
+
+
+    int distanceX = joueur.position.X - listePositionsJeux[index].X;
+    int distanceY = joueur.position.Y - listePositionsJeux[index].Y;
+
+
+
+    if (abs(distanceX) > abs(distanceY)) {
+        if (distanceX >= 0) {
+            return OUEST;
+        }
+        else {
+            return EST;
+        }
+    }
+    else {
+        if (distanceY >= 0) {
+            return NORD;
+        }
+        else {
+            return SUD;
         }
     }
 }

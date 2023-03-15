@@ -145,4 +145,17 @@ void FenetreMenu::affichage_DEBUG(int selection)
     {
 
     }
+
+
+
+    //Triches en cours
+    std::cout << std::endl << std::endl;
+    if (ENNEMI_INNOFFENSIF) std::cout << "ENNEMI_INNOFENSIF" << std::endl;
+    if (MODE_CLAVIER) std::cout << "MODE_CLAVIER" << std::endl;
+    if (VISION_NOCTURNE) std::cout << "VISION_NOCTURNE" << std::endl;
+
+
+
+
+
 }
