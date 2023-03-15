@@ -35,6 +35,7 @@ enum Dieu
 #define	BTN_JOY_PIN	6
 #define	JOY_HB_PIN	A1
 #define	JOY_GD_PIN	A0
+#define MUONS_PIN A5
 
 #define DUREE_BARGRAPH 1000
 #define DUREE_VIBRATION 250

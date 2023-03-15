@@ -43,6 +43,9 @@ private:
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
     FenetreMiniJeu *mini_jeux[NB_MINI_JEUX];
 
+
+
+
     Acteur joueur;
     Acteur adversaire;
 

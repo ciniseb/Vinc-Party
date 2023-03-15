@@ -171,6 +171,13 @@ bool FenetreJeu::genererCarte()
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
+            if (MODE_TERRAIN_VAGUE) {
+                if (c_gabarit[r][c] == -1 || c_gabarit[r][c] == -2) {
+                    c_gabarit[r][c] = 0;
+                }
+            }
+
+
             switch (t_tuile = c_gabarit[r][c])
             {
             case -1:
@@ -559,6 +566,14 @@ bool FenetreJeu::scanBFS(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
     Visite[joueur.position.Y][joueur.position.X] = true;
     while (true)
     {
+
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //AUCUNE IDEE FIX TEMPORAIRE
+        if (Xq.size() == 0) {
+            return false;
+        }
+
         x = Xq.front();
         y = Yq.front();
         Xq.pop();

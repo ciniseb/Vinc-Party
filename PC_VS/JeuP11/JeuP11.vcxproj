@@ -158,6 +158,7 @@
     <ClCompile Include="JeuP11.cpp" />
     <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="FenetreMiniJeu.cpp" />
+    <ClCompile Include="Muons.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Pointage.cpp" />
     <ClCompile Include="QuadBargraph.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="include\serial\SerialPort.hpp" />
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="FenetreMiniJeu.h" />
+    <ClInclude Include="Muons.h" />
     <ClInclude Include="Niveau.h" />
     <ClInclude Include="Pointage.h" />
     <ClInclude Include="QuadBargraph.h" />

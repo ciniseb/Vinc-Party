@@ -20,6 +20,7 @@
 #include "gestionJoystick.h"
 #include "gestionVibration.h"
 #include "gestionBouton.h"
+#include "gestionMuons.h"
 
 
 #include "test.h"
@@ -39,6 +40,7 @@ GestionVibration gestionVibration;
 GestionBargraph gestionBargraph;
 GestionJoystick gestionJoystick;
 GestionBouton gestionBouton[] = {GestionBouton(D,BTN_1_PIN),GestionBouton(I,BTN_2_PIN),GestionBouton(E,BTN_3_PIN),GestionBouton(U,BTN_4_PIN),GestionBouton(JOYSTICK,BTN_JOY_PIN)};
+GestionMuons gestionMuons;
 
 int ledPin[] = {LED_1_PIN,LED_2_PIN,LED_3_PIN,LED_4_PIN,LED_5_PIN,LED_6_PIN,LED_7_PIN,LED_8_PIN,LED_9_PIN,LED_10_PIN};
 
@@ -82,6 +84,8 @@ void loop() {
     gestionBouton[i].rafraichir();
   }
 
+  gestionMuons.rafraichir();
+
 
   gestionBargraph.calculer();
 
@@ -105,6 +109,11 @@ void loop() {
       Bouton bouton = Bouton(nom_bouton,gestionBargraph.intesection(nom_bouton));
       Serial.write(bouton.dataOut());
     }
+  }
+
+  if(gestionMuons.getPret()){
+    Muons muons = Muons(gestionMuons.getValeur());
+    Serial.write(muons.dataOut());
   }
   
   

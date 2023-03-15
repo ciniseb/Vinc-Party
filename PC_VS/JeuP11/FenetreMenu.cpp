@@ -152,8 +152,10 @@ void FenetreMenu::affichage_DEBUG(int selection)
     std::cout << std::endl << std::endl;
     if (ENNEMI_INNOFFENSIF) std::cout << "ENNEMI_INNOFENSIF" << std::endl;
     if (MODE_CLAVIER) std::cout << "MODE_CLAVIER" << std::endl;
-    if (VISION_NOCTURNE) std::cout << "VISION_NOCTURNE" << std::endl;
-
+    if (VISION_NOCTURNE) std::cout << "VISION_NOCTURNE" << std::endl; 
+    if (MODE_MOZART) std::cout << "MODE_MOZART" << std::endl;
+    if (MODE_FLASH_MC_QUEEN) std::cout << "MODE_FLASH_MC_QUEEN" << std::endl; 
+    if (MODE_TERRAIN_VAGUE) std::cout << "MODE_TERRAIN_VAGUE" << std::endl;
 
 
 

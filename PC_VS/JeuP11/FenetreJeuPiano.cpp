@@ -46,6 +46,12 @@ bool FenetreJeuPiano::chargerChanson(bool matrice[40][4])
 
 void FenetreJeuPiano::ouvrir()
 {
+
+    if (MODE_MOZART) {
+        reussite = true;
+        return;
+    }
+
     bool demarrage = true;
     std::unique_ptr<Evenement> evenement;
 

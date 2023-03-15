@@ -10,7 +10,8 @@ enum CodeEvenement
 	BOUSSOLE,
 	BARGRAPH,
 	VIBRATION,
-	QUAD_BARGRAPH
+	QUAD_BARGRAPH,
+	MUONS
 };
 
 class Evenement
