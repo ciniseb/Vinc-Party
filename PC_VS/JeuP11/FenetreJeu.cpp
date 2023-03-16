@@ -444,6 +444,7 @@ void FenetreJeu::jouer()
         if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)
         {
             threadArduino->envoyerEvenement(std::make_unique<Boussole>(OFF));
+            pointCardinalAncien = OFF;
             mini_jeux[mj_actif]->ouvrir();
             if (mini_jeux[mj_actif]->reussi())
             {
