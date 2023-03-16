@@ -10,8 +10,16 @@ Auteurs: Antoine Allard
          Date: 02 février 2023
 Description: Constantes utiles à la compréhension du programme
 ====================================================================================================*/
-//CARTE et TUILE
 #pragma once
+
+
+//Cheat codes
+#define ENNEMI_INNOFFENSIF true
+#define VISION_NOCTURNE true
+#define MODE_MOZART false
+#define MODE_FLASH_MC_QUEEN true
+#define MODE_TERRAIN_VAGUE true
+
 
 #define LARGEUR_CARTE 60
 #define HAUTEUR_CARTE 30
@@ -28,15 +36,32 @@ enum class Dieu
     D,
     I,
     E,
-    U
+    U,
+    JOYSTICK
 };
 #define NB_MINI_JEUX 2
 
-#define DT_DEPLACEMENT_JOUEUR 333 //Milisecondes
-#define DT_DEPLACEMENT_ADVERSAIRE 250 //Milisecondes
+
+
+#if MODE_FLASH_MC_QUEEN
+    #define DT_DEPLACEMENT_JOUEUR 100 //Milisecondes
+#else
+    #define DT_DEPLACEMENT_JOUEUR 333 //Milisecondes
+#endif // MODE_FLASH_MC_QUEEN
+
+
+
+
+#define DT_DEPLACEMENT_ADVERSAIRE 500 //Milisecondes
 
 #define RAYON_VISION 8
 #define RAYON_VIBRATION 12
+
+
+
+
+
+
 
 //ERREURS
 //...

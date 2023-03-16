@@ -33,6 +33,7 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "FenetreJeuPiano.h"
 #include "FenetreJeuMineur.h"
 #include "Joystick.h"
+#include "Boussole.h"
 
 class FenetreJeu : public Fenetre
 {
@@ -43,12 +44,18 @@ private:
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
     FenetreMiniJeu *mini_jeux[NB_MINI_JEUX];
 
+
+
+
     Acteur joueur;
     Acteur adversaire;
 
     Chronometre temps;
 
     double nb_affichages = 0;
+
+    double distanceEntreTuiles(int x1, int y1, int x2, int y2);
+    PointCardinal directionMiniJeuPlusProche(int nbrJeux);
 
     //M�thodes
 
@@ -57,7 +64,7 @@ public:
     FenetreJeu();
     FenetreJeu(std::string, ES *);
     ~FenetreJeu();
-    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
+    
 
 
     //Getteurs & setteurs
@@ -87,17 +94,15 @@ public:
 
     bool deplacementAdversaire();
     bool deplacementJoueur(Direction);
-    float distanceJoueur(Coordonnee);
+    float distanceActeur(Acteur, Coordonnee);
 
     void ouvrir();
     void jouer();
 
     void affichage_DEBUG(std::ostream &);
-    bool Validation(bool Visite[][LARGEUR_CARTE], int AXE_x, int AXE_y);
-    void AIMBOT_PART1();
-    void AIMBOT_PART2();
-    void RESETVERIFICATION(bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE]);
-    //void DeplacementAdversaire();
+    bool modeChasse();
+    bool scanBFS(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
+    void modeSuiveurAdversaire(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
 };
 
 #endif

@@ -45,17 +45,17 @@ void GestionJoystick::rafraichir(){
         if(abs_axeGaucheDroite > abs_axeHautBas){
             //GD dominant
             if(axeGaucheDroite > 0){
-                temporaire = DROITE;
-            }else{
                 temporaire = GAUCHE;
+            }else{
+                temporaire = DROITE;
             }
 
         }else{
             //HB dominant
             if(axeHautBas > 0){
-                temporaire = HAUT;
-            }else{
                 temporaire = BAS;
+            }else{
+                temporaire = HAUT;
             }
         }
     }

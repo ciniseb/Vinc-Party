@@ -1,3 +1,4 @@
+#pragma once
 #include "constantes.h"
 class Bouton
 {

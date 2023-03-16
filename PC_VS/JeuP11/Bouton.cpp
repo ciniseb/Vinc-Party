@@ -11,7 +11,7 @@ Bouton::Bouton(Dieu nom, bool pianoReussi) :Evenement(BOUTON) {
 
 Bouton::Bouton(char data):Evenement(BOUTON) {
 	
-	char code = (data & 0b00000011);
+	char code = (data & 0b00001011);
 	pianoReussi = (data & 0b00000100) >> 2;
 	switch (code) {
 	case 0: nom = Dieu::D;
@@ -21,6 +21,8 @@ Bouton::Bouton(char data):Evenement(BOUTON) {
 	case 2: nom = Dieu::E;
 		break;
 	case 3: nom = Dieu::U;
+		break;
+	case 8: nom = Dieu::JOYSTICK;
 		break;
 	default:
 		nom = Dieu::D;
@@ -55,6 +57,8 @@ std::string Bouton::getDesciption() {
 	case Dieu::E: lettre = 'E';
 		break;
 	case Dieu::U: lettre = 'U';
+		break;
+	case Dieu::JOYSTICK: lettre = 'J';
 		break;
 	default:
 		break;

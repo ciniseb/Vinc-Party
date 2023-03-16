@@ -109,7 +109,7 @@ void ES::exec() {
         /// 
         bool tempENTER = (GetKeyState(VK_RETURN) & 0x8000);
         if (Enter != tempENTER && tempENTER == true) {
-            ajouterAuQueue(std::make_unique<Bouton>(Dieu::D));
+            ajouterAuQueue(std::make_unique<Bouton>(Dieu::JOYSTICK));
         }
         Enter = tempENTER;
 

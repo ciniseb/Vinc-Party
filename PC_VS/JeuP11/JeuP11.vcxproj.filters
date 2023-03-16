@@ -81,7 +81,16 @@
     <ClCompile Include="Boussole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetreJeuMineur.cpp">
+    <ClCompile Include="FenetreCR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CR_Vehicule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadBargraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Muons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,7 +173,16 @@
     <ClInclude Include="Boussole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreJeuMineur.h">
+    <ClInclude Include="FenetreCR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CR_Vehicule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadBargraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Muons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -183,5 +201,10 @@
     <Text Include="pointages.txt">
       <Filter>Resource Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="StillDre.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>
