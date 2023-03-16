@@ -44,19 +44,21 @@ private:
     char noteD[22];
     char noteF[22];
 
-    bool matrice[40][4]; // matrice de l'ecran
+    bool matrice[50001][4]; // matrice de l'ecran
+    int rangee_matrice = 0;
 
     int noteReussi = 0;
-    double bit;
+    double bit = 0;
     double bitCount = 0;
+
     // Methodes
 
-    bool chargerChanson(bool matrice[40][4]);
+    bool chargerChanson(bool matrice[50001][4]);
     bool Temps(); // Gère le temps et l'appel des methodes
     void AffichageEcran(int mode); // affiche l'ecran et ses valeurs
     char GetNote(int btn, int ligne); // Renvoie les 4 tableaux de note
     void SetNote(int t); // prend la matrice et change les 4 tableaux de note
-    
+    char Dieu_en_char(Dieu dieu); // Convertie Dieu en char
 
 public:
     //Constructeurs & destructeurs

@@ -38,17 +38,17 @@ int main()
     threadArduino.demarrer();
     FenetreMenu menu(&threadArduino);
 
-    menu.ouvrir();
+    //menu.ouvrir();
     //FenetreMiniJeu *fenetreJeuPiano = new FenetreJeuPiano();
     //fenetreJeuPiano->ouvrir();
 
 
     //Tests. � commenter au besoin
-    //Tests tests;
+    Tests tests;
     //tests.tests_chronometre();
     //tests.tests_fenetrejeu();
     //tests.tests_autre();
-    //tests.tests_FenetreJeuPiano();
+    tests.tests_FenetreJeuPiano();
     
     //tests.tests_fenetrePointages();
     // tests.tests_autre();
