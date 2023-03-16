@@ -88,6 +88,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FenetreJeuPeche.cpp">
+    <ClCompile Include="QuadBargraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Muons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -177,6 +181,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FenetreJeuPeche.h">
+    <ClInclude Include="QuadBargraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Muons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

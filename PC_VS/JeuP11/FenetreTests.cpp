@@ -22,6 +22,7 @@ Description:
 #include "Bargraph.h"
 #include "Vibration.h"
 #include "Boussole.h"
+#include "QuadBargraph.h"
 #include "CONSTANTES.h"
 
 //Constructeurs & destructeurs
@@ -60,7 +61,7 @@ void FenetreTests::ouvrir()
             threadArduino->envoyerEvenement(std::move(listeEvenements[compteur]));
 
             compteur++;
-            if (compteur >= 10) {
+            if (compteur >= 15) {
                 compteur = 0;
                 remplirListe();
             } 
@@ -90,4 +91,10 @@ void FenetreTests::remplirListe(){
     listeEvenements[8] = std::make_unique<Bargraph>(Dieu::U);
 
     listeEvenements[9] = std::make_unique<Vibration>();
+
+    listeEvenements[10] = std::make_unique<QuadBargraph>(0);
+    listeEvenements[11] = std::make_unique<QuadBargraph>(2);
+    listeEvenements[12] = std::make_unique<QuadBargraph>(8);
+    listeEvenements[13] = std::make_unique<QuadBargraph>(5);
+    listeEvenements[14] = std::make_unique<QuadBargraph>(10);
 }

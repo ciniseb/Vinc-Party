@@ -2,3 +2,6 @@
 C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(204,38): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
 C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(331,34): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
   JeuP11.vcxproj -> C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe
+﻿  Muons.cpp
+C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Muons.cpp(17,14): warning C4309: 'initializing': truncation of constant value
+  JeuP11.vcxproj -> C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe

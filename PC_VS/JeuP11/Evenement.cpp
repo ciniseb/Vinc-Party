@@ -2,6 +2,7 @@
 #include "Bouton.h"
 #include "Joystick.h"
 #include "Accel.h"
+#include "Muons.h"
 #include <memory>
 #include <string>
  
@@ -16,6 +17,9 @@ std::unique_ptr<Evenement> Evenement::decoder(char data) {
 	}
 	if (type == 2) {
 		return std::make_unique<Accel>(data);
+	}
+	if (type == 3) {
+		return std::make_unique<Muons>(data);
 	}
 }
 

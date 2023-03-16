@@ -34,7 +34,7 @@ private:
     Chronometre temps;
     double dernierTemps = 0;
     int compteur = 0;
-    std::unique_ptr<Evenement> listeEvenements[10];
+    std::unique_ptr<Evenement> listeEvenements[15];
 
 public:
     //Constructeurs & destructeurs
