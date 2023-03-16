@@ -32,6 +32,7 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Pointage.h"
 #include "FenetreJeuPiano.h"
 #include "Joystick.h"
+#include "Boussole.h"
 
 class FenetreJeu : public Fenetre
 {
@@ -42,12 +43,18 @@ private:
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
     FenetreMiniJeu *mini_jeux[NB_MINI_JEUX];
 
+
+
+
     Acteur joueur;
     Acteur adversaire;
 
     Chronometre temps;
 
     double nb_affichages = 0;
+
+    double distanceEntreTuiles(int x1, int y1, int x2, int y2);
+    PointCardinal directionMiniJeuPlusProche(int nbrJeux);
 
     //M�thodes
 

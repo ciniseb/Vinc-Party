@@ -1,2 +1,13 @@
-﻿  CR_Vehicule.cpp
+﻿  FenetreJeu.cpp
+C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(358,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(688,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  FenetreJeuPiano.cpp
+C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(168,29): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  FenetreMenu.cpp
+  JeuP11.cpp
+  Tests.cpp
+  Generating Code...
+C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(425): warning C4715: 'FenetreJeuPiano::VersBoutonPressee': not all control paths return a value
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
+Accel.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
   JeuP11.vcxproj -> C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe

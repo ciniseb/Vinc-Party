@@ -25,6 +25,7 @@ bool Bouton::getPianoReussi() {
 char Bouton::dataOut(){
     char data =0;
     data |= 0b00000000;
+
     switch (nom)
     {
     case D:
@@ -38,6 +39,9 @@ char Bouton::dataOut(){
         break;
     case U:
         data |= 0b00000011;
+        break;
+    case JOYSTICK:
+        data |= 0b00001000;
         break;
     default: data |= 0b00000000;
         break;

@@ -19,6 +19,8 @@
 #include "gestionBouton.h"
 #include "gestionJoystick.h"
 #include "gestionVibration.h"
+#include "gestionBouton.h"
+#include "gestionMuons.h"
 
 
 #include "test.h"
@@ -37,73 +39,36 @@ GestionBoussole gestionBoussole;
 GestionVibration gestionVibration;
 GestionBargraph gestionBargraph;
 GestionJoystick gestionJoystick;
+GestionBouton gestionBouton[] = {GestionBouton(D,BTN_1_PIN),GestionBouton(I,BTN_2_PIN),GestionBouton(E,BTN_3_PIN),GestionBouton(U,BTN_4_PIN),GestionBouton(JOYSTICK,BTN_JOY_PIN)};
+GestionMuons gestionMuons;
 
 int ledPin[] = {LED_1_PIN,LED_2_PIN,LED_3_PIN,LED_4_PIN,LED_5_PIN,LED_6_PIN,LED_7_PIN,LED_8_PIN,LED_9_PIN,LED_10_PIN};
 
-
-bool bargraph[4][10];
-
-bool btn_1 = false;
-bool btn_2 = false;
-bool btn_3 = false;
-bool btn_4 = false;
-
-bool btn_1_vieux = false;
-bool btn_2_vieux = false;
-bool btn_3_vieux = false;
-bool btn_4_vieux = false;
-
-
-
-bool mot = false;
-
 bool btn_joy = false;
-int joy_hb = 0;
-int joy_gd = 0;
-
-volatile int compteurMultiplex = 0;
 
 
 
 /*------------------------- Prototypes de fonctions -------------------------*/
-void sendMsg(); 
-int readMsg();
 void lireEntrees();
-void ecrireSorties();
-void routineTest();
 void multiplexLED();
 /*---------------------------- Fonctions "Main" -----------------------------*/
 
 void setup() {
   Serial.begin(BAUD);               // Initialisation de la communication serielle
+
+  gestionBoussole.init();
+  gestionVibration.init();
+  gestionBargraph.init();
+  gestionJoystick.init();
   for (int i = 0; i < 4; i++)
   {
-    for (int j = 0; j < 10; j++)
-    {
-      bargraph[i][j] = false;
-    }
+    gestionBouton[i].init();
   }
 
-pinMode(BTN_1_PIN,INPUT);
-pinMode(BTN_2_PIN,INPUT);
-pinMode(BTN_3_PIN,INPUT);
-pinMode(BTN_4_PIN,INPUT);
+  pinMode(BTN_JOY_PIN,INPUT);
 
-
-gestionBoussole.init();
-gestionVibration.init();
-gestionBargraph.init();
-
-gestionJoystick.init();
-
-
-pinMode(BTN_JOY_PIN,INPUT);
-
-  
-
-
-ITimer3.init();
-ITimer3.attachInterruptInterval(3, multiplexLED);
+  ITimer3.init();
+  ITimer3.attachInterruptInterval(3, multiplexLED);
 
 }
 
@@ -114,6 +79,12 @@ void loop() {
   lireEntrees();
   
   gestionJoystick.rafraichir();
+  for (int i = 0; i < 5 ;i++)
+  {
+    gestionBouton[i].rafraichir();
+  }
+
+  gestionMuons.rafraichir();
 
 
   gestionBargraph.calculer();
@@ -125,46 +96,27 @@ void loop() {
 
 
 
-
-  if((btn_1 != btn_1_vieux) && btn_1){
-    Bouton btn = Bouton(D);
-    char test = btn.dataOut();
-    Serial.write(test);
-    delay(10);
-  }
-
-  if((btn_2 != btn_2_vieux) && btn_2){
-    Bouton btn = Bouton(I);
-    char test = btn.dataOut();
-    Serial.write(test);
-    delay(10);
-  }
-
-  if((btn_3 != btn_3_vieux) && btn_3){
-    Bouton btn = Bouton(E);
-    char test = btn.dataOut();
-    Serial.write(test);
-    delay(10);
-  }
-
-  if((btn_4 != btn_4_vieux) && btn_4){
-    Bouton btn = Bouton(U);
-    char test = btn.dataOut();
-    Serial.write(test);
-    delay(10);
-  }
-
-  btn_1_vieux = btn_1;
-  btn_2_vieux = btn_2;
-  btn_3_vieux = btn_3;
-  btn_4_vieux = btn_4;
-
-
   if(gestionJoystick.getMouvementDetecte()){
     Direction mouvememt = gestionJoystick.getMouvement();
     Joystick joy = Joystick(mouvememt);
     Serial.write(joy.dataOut());
   }
+
+  for (int i = 0; i < 5; i++)
+  {
+    if(gestionBouton[i].getBoutonDetecte()){
+      Dieu nom_bouton = gestionBouton[i].getBouton();
+      Bouton bouton = Bouton(nom_bouton,gestionBargraph.intesection(nom_bouton));
+      Serial.write(bouton.dataOut());
+    }
+  }
+
+  if(gestionMuons.getPret()){
+    Muons muons = Muons(gestionMuons.getValeur());
+    Serial.write(muons.dataOut());
+  }
+  
+  
 
   while (Serial.available())
   {
@@ -181,6 +133,9 @@ void loop() {
       /* code */
       break;
     case 2: gestionBoussole.commande(Boussole(data));
+      /* code */
+      break;
+    case 3: gestionBargraph.commande(QuadBargraph(data));
       /* code */
       break;
     
@@ -203,40 +158,9 @@ void loop() {
 
 
 void lireEntrees(){
-   btn_1 = !digitalRead(BTN_1_PIN);
-   btn_2 = !digitalRead(BTN_2_PIN);
-   btn_3 = !digitalRead(BTN_3_PIN);
-   btn_4 = !digitalRead(BTN_4_PIN);
-
-
    btn_joy = !digitalRead(BTN_JOY_PIN);
 
 }
-
-
-/*void multiplexLED(){
-if(compteurMultiplex == 0){
-        digitalWrite(barPin[3],LOW);
-    }else{
-        digitalWrite(barPin[compteurMultiplex-1],LOW);
-    }
-
-
-
-    for (int i = 0; i < 10; i++)
-    {
-        digitalWrite(ledPin[i],bargraph[compteurMultiplex][i]);
-    }
-
-    digitalWrite(barPin[compteurMultiplex],HIGH);
-
-    compteurMultiplex++;
-
-    if(compteurMultiplex >= 4){
-        compteurMultiplex =0;
-    }
-
-}*/
 
 
 void multiplexLED(){

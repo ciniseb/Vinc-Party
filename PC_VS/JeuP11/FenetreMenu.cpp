@@ -32,7 +32,7 @@ void FenetreMenu::initialiser()
 {
     fenetres[0] = new FenetreJeu();
     fenetres[1] = new FenetrePointages(threadArduino);
-    fenetres[2] = new FenetreCR(threadArduino);
+    fenetres[2] = new FenetreTests(threadArduino);
 }
 
 void FenetreMenu::ouvrir()
@@ -52,7 +52,7 @@ void FenetreMenu::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D && selection < 3 && selection >= 0)
+                if (lettreAppuyee == Dieu::JOYSTICK && selection < 3 && selection >= 0)
                 {
                     if (selection == 0)
                     {
@@ -82,7 +82,7 @@ void FenetreMenu::ouvrir()
                         
                     }
                 }
-                else if (lettreAppuyee == Dieu::D && selection == 3)
+                else if (lettreAppuyee == Dieu::JOYSTICK && selection == 3)
                 {
                     exit(1);
                 }
@@ -119,32 +119,47 @@ void FenetreMenu::affichage_DEBUG(int selection)
     {
         std::cout << " ---> | Jouer" << std::endl;
         std::cout << "      | Pointages"  << std::endl;
-        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Test hardware" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << " ---> | Pointages" << std::endl;
-        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Test hardware" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
-        std::cout << " ---> | Crossy Road" << std::endl << std::endl;
+        std::cout << " ---> | Test hardware" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 3)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
-        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Test hardware" << std::endl << std::endl;
         std::cout << " ---> | Quitter" << std::endl;
     }
     else
     {
 
     }
+
+
+
+    //Triches en cours
+    std::cout << std::endl << std::endl;
+    if (ENNEMI_INNOFFENSIF) std::cout << "ENNEMI_INNOFENSIF" << std::endl;
+    if (MODE_CLAVIER) std::cout << "MODE_CLAVIER" << std::endl;
+    if (VISION_NOCTURNE) std::cout << "VISION_NOCTURNE" << std::endl; 
+    if (MODE_MOZART) std::cout << "MODE_MOZART" << std::endl;
+    if (MODE_FLASH_MC_QUEEN) std::cout << "MODE_FLASH_MC_QUEEN" << std::endl; 
+    if (MODE_TERRAIN_VAGUE) std::cout << "MODE_TERRAIN_VAGUE" << std::endl;
+
+
+
+
 }
