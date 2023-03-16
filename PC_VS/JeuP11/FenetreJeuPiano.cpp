@@ -20,7 +20,7 @@ FenetreJeuPiano::FenetreJeuPiano(ES *thread): FenetreMiniJeu(thread) // Main du 
 }
 FenetreJeuPiano::~FenetreJeuPiano() {}
 
-bool FenetreJeuPiano::chargerChanson(bool matrice[40][4])
+bool FenetreJeuPiano::chargerChanson(bool matrice[50001][4])
 {
     std::ifstream fichier;
 
@@ -30,7 +30,7 @@ bool FenetreJeuPiano::chargerChanson(bool matrice[40][4])
     {
         std::string ligne;
 
-        for (int r = 0; getline(fichier, ligne) && r < 40; r++)
+        for (int r = 0; getline(fichier, ligne) && r < 50001; r++)
         {
             std::istringstream flux(ligne);
             std::string nombre;
@@ -53,6 +53,7 @@ void FenetreJeuPiano::ouvrir()
     }
 
     bool demarrage = true;
+    bool start_music = false;
     std::unique_ptr<Evenement> evenement;
 
     //std::cout << "main" << std::endl;
@@ -68,33 +69,78 @@ void FenetreJeuPiano::ouvrir()
     
     while (true)
     {
+        //SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 27 });
+        //std::cout << bitCount << std::endl;
+        if(bitCount == 3750 && start_music == false)
+        {
+            //SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 28 });
+            //std::cout << "Start" << std::endl;
+            const wchar_t* chanson = L"StillDre.wav";
+            bool played = PlaySound(chanson, NULL, SND_ASYNC);
+            start_music = true;
+        }
+        //SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 28 });
+        //std::cout << "     ";
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
             if (evenement->getCode() == BOUTON)
             {
                 if (demarrage)
-                {
+                {          
+                    system("cls");
                     chrono.demarrer();
                     demarrage = false;
-                }
-                SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 26 });
-                Bouton* eBouton = static_cast<Bouton*>(evenement.get());
-                Dieu lettreAppuyee = eBouton->getNom();
-                if (VersBoutonPressee(lettreAppuyee) == true)
-                {
-                    noteReussi++;
-                    std::cout << "'WOW!!" << std::endl;
-                }
+                }              
                 else
                 {
-                    std::cout << "'ARK.." << std::endl;
-                }
+                    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 26 });
+                    Bouton* eBouton = static_cast<Bouton*>(evenement.get());
+                    Dieu lettreAppuyee = eBouton->getNom();
+                    if (VersBoutonPressee(lettreAppuyee) == true)
+                    {
+                        noteReussi++;
+                        char note = Dieu_en_char(lettreAppuyee);
+                        switch (note)
+                        {
+                        case 'Z':
+                            noteA[18] = ' ';
+                            noteA[19] = ' ';
+                            noteA[20] = ' ';
+                            noteA[21] = ' ';
+                            break;
+                        case 'X':
+                            noteS[18] = ' ';
+                            noteS[19] = ' ';
+                            noteS[20] = ' ';
+                            noteS[21] = ' ';
+                            break;
+                        case 'C':
+                            noteD[18] = ' ';
+                            noteD[19] = ' ';
+                            noteD[20] = ' ';
+                            noteD[21] = ' ';
+                            break;
+                        case 'V':
+                            noteF[18] = ' ';
+                            noteF[19] = ' ';
+                            noteF[20] = ' ';
+                            noteF[21] = ' ';
+                            break;
+                        }
+                        //std::cout << "'GG!!" << std::endl;
+                    }
+                    else if(noteReussi > 0)
+                    {
+                        noteReussi--;
+                        //std::cout << "'ARK.." << std::endl;
+                    }
+                }  
             }
         }
         Temps();
 
-        if (chrono.tempsEcoule_s() > 41)
+        if (chrono.tempsEcoule_ms() > 41000)
         {
             if (noteReussi >= 10)
             {
@@ -114,20 +160,24 @@ bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
     //std::cout << "Temps" << std::endl;   
     //system("cls");
 
-        bit = bitCount - chrono.tempsEcoule_s();
+        bit = bitCount - chrono.tempsEcoule_ms();
         
-        if (bit == 0 && bitCount < 40)
+
+        if (bit <= 0)
         {
-            SetNote(bitCount);
-            //std::cout << "Oue oue oue" << std::endl;
+            SetNote(bitCount/250);
             AffichageEcran(Jeu);
-            bitCount++;
+            bitCount = bitCount + 250;
+            //SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 31 });
+            //std::cout << bitCount << std::endl;
         }
     return true;
 }
 
 void FenetreJeuPiano::SetNote(int t)
 {
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 30});
+    std::cout << t << std::endl;
     for (int j = 21; j > 0; j--)
     {
         noteA[j] = noteA[j - 1];
@@ -205,7 +255,8 @@ void FenetreJeuPiano::AffichageEcran(int mode)
         }
         break;
     case Jeu:
-        std::cout << "Appuyez sur Z,X,C ou V au bon moment pour gagner" << '\n';
+        std::cout << "Appuyez sur Z,X,C ou V au bon moment pour gagner" << std::endl
+                  << "             Notes reussites : " << noteReussi << std::endl;
         //std::cout << "Affichage Jeu" << std::endl;
         for (int i = 0; i < 24; i++)
         {
@@ -215,30 +266,53 @@ void FenetreJeuPiano::AffichageEcran(int mode)
                 {
                     screen[i][j] = '#';
                 }
-                else if (i == 20 && j != 0 && j != 49)
-                {
-                    screen[i][j] = '=';
-                }
                 else
                 {
                     screen[i][j] = ' ';
-                    if (j == 10)
+                    for (int e = 0; e < 4; e++)
                     {
-                        screen[i][j] = GetNote(0, i-1);
-                    }
-                    if (j == 20)
-                    {
-                        screen[i][j] = GetNote(1, i-1);
-                    }
-                    if (j == 30)
-                    {
-                        screen[i][j] = GetNote(2, i-1);
-                    }
-                    if (j == 40)
-                    {
-                        screen[i][j] = GetNote(3, i-1);
-                    }
-                }
+                        if (i == 18 && j != 0 && j != 49)
+                        {
+                             screen[i][j] = '=';
+                             if (GetNote(0, 17) != ' ')
+                             {
+                                 screen[i][10] = GetNote(0, 17);
+                             }
+                             if (GetNote(1, 17) != ' ')
+                             {
+                                 screen[i][20] = GetNote(1, 17);
+                             }
+                             if (GetNote(2, 17) != ' ')
+                             {
+                                 screen[i][30] = GetNote(2, 17);
+                             }
+                             if (GetNote(3, 17) != ' ')
+                             {
+                                 screen[i][40] = GetNote(3, 17);
+                             }
+                        }
+                        else
+                        {
+                            
+                            if (j == 10)
+                            {
+                                screen[i][j] = GetNote(0, i - 1);
+                            }
+                            if (j == 20)
+                            {
+                                screen[i][j] = GetNote(1, i - 1);
+                            }
+                            if (j == 30)
+                            {
+                                screen[i][j] = GetNote(2, i - 1);
+                            }
+                            if (j == 40)
+                            {
+                                screen[i][j] = GetNote(3, i - 1);
+                            }
+                        }
+                    }  
+                }   
             }
         }
         break;
@@ -275,17 +349,15 @@ char FenetreJeuPiano::GetNote(int note, int ligne)
     return ' ';
 }
 
-//Getteurs & setteurs
-bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
+char FenetreJeuPiano::Dieu_en_char(Dieu dieu)
 {
     char toucheEnChar = ' ';
-    bool toucheReussi = 0;
 
-    switch (touche)
+    switch (dieu)
     {
     case Dieu::D:
         toucheEnChar = 'Z';
-            break;
+        break;
     case Dieu::I:
         toucheEnChar = 'X';
         break;
@@ -296,16 +368,22 @@ bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
         toucheEnChar = 'V';
         break;
     }
+    return toucheEnChar;
+}
+
+//Getteurs & setteurs
+bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
+{
+    char toucheEnChar = Dieu_en_char(touche);
+    bool toucheReussi = 0;
+
     switch (toucheEnChar)
     {
     case 'Z': //std::cout << "z marche" << std::endl;
-        for (int i = 0; i < 4; i++)
+        if (toucheEnChar == GetNote(0,19) || toucheEnChar == GetNote(0, 20) || toucheEnChar == GetNote(0, 21) || toucheEnChar == GetNote(0, 22))
         {
-            if (toucheEnChar == GetNote(i,20) || toucheEnChar == GetNote(i, 21))
-            {
-                //std::cout << "Pareille!" << std::endl;
-                toucheReussi = 1;
-            }
+            //std::cout << "Pareille!" << std::endl;
+            toucheReussi = 1;
         }
         //std::cout << "Mauvais!" << std::endl;
         return toucheReussi;
@@ -313,13 +391,10 @@ bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
     case 'X': 
         //std::cout << "x marche" << std::endl;
         toucheReussi = 0;
-        for (int i = 0; i < 4; i++)
+        if (toucheEnChar == GetNote(1, 19) || toucheEnChar == GetNote(1, 20) || toucheEnChar == GetNote(1, 21) || toucheEnChar == GetNote(1, 22))
         {
-            if (toucheEnChar == GetNote(i, 20) || toucheEnChar == GetNote(i, 21))
-            {
-                //std::cout << "Pareille!" << std::endl;
-                toucheReussi = 1;
-            }
+            //std::cout << "Pareille!" << std::endl;
+            toucheReussi = 1;
         }
         //std::cout << "Mauvais!" << std::endl;
         return toucheReussi;
@@ -327,13 +402,10 @@ bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
     case 'C': 
         //std::cout << "c marche" << std::endl;
         toucheReussi = 0;
-        for (int i = 0; i < 4; i++)
+        if (toucheEnChar == GetNote(2, 19) || toucheEnChar == GetNote(2, 20) || toucheEnChar == GetNote(2, 21) || toucheEnChar == GetNote(2, 22))
         {
-            if (toucheEnChar == GetNote(i, 20) || toucheEnChar == GetNote(i, 21))
-            {
-                //std::cout << "Pareille!" << std::endl;
-                toucheReussi = 1;
-            }
+            //std::cout << "Pareille!" << std::endl;
+            toucheReussi = 1;
         }
         //std::cout << "Mauvais!" << std::endl;
         return toucheReussi;
@@ -341,14 +413,11 @@ bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
     case 'V': 
         //std::cout << "v marche" << std::endl;
          toucheReussi = 0;
-        for (int i = 0; i < 4; i++)
-        {
-            if (toucheEnChar == GetNote(i, 20) || toucheEnChar == GetNote(i, 21))
-            {
-                //std::cout << "Pareille!" << std::endl;
-                toucheReussi = 1;
-            }
-        }
+         if (toucheEnChar == GetNote(3, 19) || toucheEnChar == GetNote(3, 20) || toucheEnChar == GetNote(3, 21) || toucheEnChar == GetNote(3, 22))
+         {
+             //std::cout << "Pareille!" << std::endl;
+             toucheReussi = 1;
+         }
         //std::cout << "Mauvais!" << std::endl;
         return toucheReussi;
         break;
