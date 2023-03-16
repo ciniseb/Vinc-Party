@@ -46,11 +46,11 @@ int main()
 
 
     //Tests. � commenter au besoin
-    Tests tests;
+    //Tests tests;
     //tests.tests_chronometre();
     //tests.tests_fenetrejeu();
     //tests.tests_autre();
-    tests.tests_FenetreJeuPiano();
+    //tests.tests_FenetreJeuPiano();
     
     //tests.tests_fenetrePointages();
     // tests.tests_autre();

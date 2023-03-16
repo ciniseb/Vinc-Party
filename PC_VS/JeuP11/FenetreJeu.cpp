@@ -11,11 +11,6 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "FenetreJeu.h"
-#include "Joystick.h"
-#include <cstdlib>
-#include <cmath>
-#include "Boussole.h"
-#include "Vibration.h"
 
 //Constructeurs & destructeurs
 FenetreJeu::FenetreJeu() {}
@@ -35,10 +30,6 @@ Tuile FenetreJeu::getTuile(Coordonnee coord)
 {
     return carte[coord.Y][coord.X];
 }
-/*std::vector<Fenetre> FenetreJeu::getMiniJeux()
-{
-    return mini_jeux;
-}*/
 Acteur FenetreJeu::getJoueur()
 {
     return joueur;
@@ -60,10 +51,6 @@ void FenetreJeu::setTuile(Coordonnee coord, Tuile tuile)
 {
     carte[coord.Y][coord.X] = tuile;
 }
-/*void FenetreJeu::setMiniJeux(std::vector<Fenetre> mjx)
-{
-    mini_jeux = mjx;
-}*/
 void FenetreJeu::setJoueur(Acteur j)
 {
     joueur = j;
@@ -145,11 +132,6 @@ std::vector<bool> variablesAleatoires(int nb_total, int nb_variables)
 }
 bool FenetreJeu::genererCarte()
 {
-    int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
-    int nb_p_variables = 0;
-    int nb_mj_variables = 0;
-    chargerGabaritCarte(c_gabarit, &nb_p_variables, &nb_mj_variables);
-
     std::vector<bool> p_variables = variablesAleatoires(nb_p_variables, niveau.getNb_PleinsVariables());
     std::vector<bool> mj_variables = variablesAleatoires(nb_mj_variables, niveau.getNb_Mj_Dispo());
 
@@ -159,32 +141,39 @@ bool FenetreJeu::genererCarte()
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            if (MODE_TERRAIN_VAGUE) {
-                if (c_gabarit[r][c] == -1 || c_gabarit[r][c] == -2) {
-                    c_gabarit[r][c] = 0;
-                }
-            }
-
-
-            switch (t_tuile = c_gabarit[r][c])
+            switch (t_tuile = carte_gabarit[r][c])
             {
             case -1:
-                carte[r][c] = Tuile(PLEIN, "");//TODO chemin image
+                if (MODE_TERRAIN_VAGUE)
+                {
+                    carte[r][c] = Tuile(VIDE, "");//TODO chemin image
+                }
+                else
+                {
+                    carte[r][c] = Tuile(PLEIN, "");//TODO chemin image
+                }
                 break;
             case 0:
                 carte[r][c] = Tuile(VIDE, "");//TODO chemin image
                 break;
             case -2:
-                resultat = p_variables.back();
-                if (resultat == true)
-                {
-                    carte[r][c] = Tuile(PLEIN, "");//TODO chemin image
-                }
-                else
+                if (MODE_TERRAIN_VAGUE)
                 {
                     carte[r][c] = Tuile(VIDE, "");//TODO chemin image
                 }
-                p_variables.pop_back();
+                else
+                {
+                    resultat = p_variables.back();
+                    if (resultat == true)
+                    {
+                        carte[r][c] = Tuile(PLEIN, "");//TODO chemin image
+                    }
+                    else
+                    {
+                        carte[r][c] = Tuile(VIDE, "");//TODO chemin image
+                    }
+                    p_variables.pop_back();
+                }
                 break;
             case 2:
                 resultat = mj_variables.back();
@@ -207,10 +196,68 @@ bool FenetreJeu::genererCarte()
 
     return true;
 }
+Coordonnee FenetreJeu::genererPosAdversaire()
+{
+    int nb_pos_variables = 0;
+    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    {
+        for (int c = 0; c < LARGEUR_CARTE; c++)
+        {
+            if (carte[r][c].getRemplissage() == VIDE && distance(joueur.position, Coordonnee({ c, r })) > RAYON_VIBRATION && distance(joueur.position, Coordonnee({ c, r })) < HAUTEUR_CARTE && distance(joueur.position, Coordonnee({ c, r })) < LARGEUR_CARTE)
+            {
+                nb_pos_variables++;
+            }
+        }
+    }
+
+    std::vector<bool> pos_variables = variablesAleatoires(nb_pos_variables, 1);
+
+    bool resultat;
+    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    {
+        for (int c = 0; c < LARGEUR_CARTE; c++)
+        {
+            if (carte[r][c].getRemplissage() == VIDE && distance(joueur.position, Coordonnee({ c, r })) > RAYON_VIBRATION && distance(joueur.position, Coordonnee({ c, r })) < HAUTEUR_CARTE && distance(joueur.position, Coordonnee({ c, r })) < LARGEUR_CARTE)
+            {
+                resultat = pos_variables.back();
+                if (resultat == true)
+                {
+                    return Coordonnee({ c, r });
+                }
+                pos_variables.pop_back();
+            }
+        }
+    }
+
+    return Coordonnee();
+}
+
+void FenetreJeu::deplacementMiniJeu()
+{
+    std::vector<bool> mj_variables = variablesAleatoires(nb_mj_variables - niveau.getNB_Mj_Restants() + 1, 1);
+
+    bool resultat;
+    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    {
+        for (int c = 0; c < LARGEUR_CARTE; c++)
+        {
+            if (carte_gabarit[r][c] == 2 && carte[r][c].getRemplissage() == VIDE)
+            {
+                resultat = mj_variables.back();
+                if (resultat == true)
+                {
+                    carte[r][c] = Tuile(MINI_JEU, "");//TODO chemin image
+                    return;
+                }
+                mj_variables.pop_back();
+            }
+        }
+    }
+}
 
 bool FenetreJeu::verificationVide(Coordonnee coord)
 {
-    if (carte[coord.Y][coord.X].getRemplissage() != PLEIN && coord.X < LARGEUR_CARTE && coord.Y < HAUTEUR_CARTE && coord.X>0 && coord.Y>0)
+    if (carte[coord.Y][coord.X].getRemplissage() != PLEIN && coord.X < LARGEUR_CARTE && coord.Y < HAUTEUR_CARTE && coord.X > 0 && coord.Y > 0)
         return true;
     else
         return false;
@@ -227,7 +274,6 @@ bool FenetreJeu::verificationCoord(Coordonnee actuelle, Coordonnee ancienne)
         return true;
     else
         return false;
-
 }
 
 void FenetreJeu::deplacementAdversaireRandom()
@@ -291,7 +337,7 @@ bool FenetreJeu::deplacementAdversaire()
     double t_ecoule = temps.tempsEcoule_ms();
     if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_ADVERSAIRE)/niveau.getV_Adversaire() <= t_ecoule)
     {
-        if (distanceActeur(adversaire, joueur.position) > RAYON_VIBRATION)
+        if (distance(adversaire.position, joueur.position) > RAYON_VIBRATION)
         {
             deplacementAdversaireRandom();
         }
@@ -339,10 +385,10 @@ bool FenetreJeu::deplacementJoueur(Direction reponse)
     return false;
 }
 
-float FenetreJeu::distanceActeur(Acteur acteur, Coordonnee coord)
+float FenetreJeu::distance(Coordonnee c1, Coordonnee c2)
 {
-    double a = abs(coord.X - acteur.position.X);
-    double b = abs(coord.Y - acteur.position.Y);
+    double a = abs(c2.X - c1.X);
+    double b = abs(c2.Y - c1.Y);
     return sqrt((a*a) + (b*b));
 }
 
@@ -351,17 +397,21 @@ void FenetreJeu::initialiser()
     niveau = Niveau();
     niveau.niveauSuivant();
 
+    chargerGabaritCarte(carte_gabarit, &nb_p_variables, &nb_mj_variables);
     genererCarte();
 
     //TODO : Charger les mini-jeux.
     mini_jeux[0] = new FenetreJeuPiano(threadArduino);
+    mini_jeux[1] = new FenetreJeuPiano(threadArduino);
+    mini_jeux[2] = new FenetreJeuPiano(threadArduino);
+    mini_jeux[3] = new FenetreJeuPiano(threadArduino);
     //mini_jeux[1] = ...
     //mini_jeux[2] = ...
 
     joueur = Acteur{ joueur.nom, Coordonnee{(LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1} };
 
-    Coordonnee pos_adversaire{ 32, 8 };//TODO : générer une position aléatoire dans la map pour l'adversaire
-    adversaire = Acteur{ "BOB", pos_adversaire };
+    //Coordonnee pos_adversaire{ 32, 8 };//TODO : générer une position aléatoire dans la map pour l'adversaire
+    adversaire = Acteur{ "BOB", genererPosAdversaire()};
 }
 
 void FenetreJeu::ouvrir()
@@ -370,21 +420,21 @@ void FenetreJeu::ouvrir()
 }
 void FenetreJeu::jouer()
 {
+    temps.demarrer();
+    system("cls");
+    affichage_DEBUG(std::cout);
+
+    int mj_actif = niveau.choixMiniJeu();
     double dernier_t = 0;
     joueur.t_dernier_deplacement = temps.tempsEcoule_ms();
     adversaire.t_dernier_deplacement = temps.tempsEcoule_ms();
+
     std::unique_ptr<Evenement> evenement;
-    int mj_actif = 0; //TODO : selection mini-jeu actif random sur nb mini jeux
     Direction directionActuelle = AUCUNE;
     PointCardinal pointCardinalAncien = OFF;
     PointCardinal pointCardinalActuel = OFF;
     double tempsDerniereVibration = 0;
 
-    genererCarte();
-    temps.demarrer();
-
-    system("cls");
-    affichage_DEBUG(std::cout);
     while (true)
     {
         //Mise à jour du temps de jeu à l'écran
@@ -412,6 +462,14 @@ void FenetreJeu::jouer()
         {
             joueur.nb_tuiles_parcourues++;
             affichage_DEBUG(std::cout);
+
+            //Determiner direction boussole;
+            pointCardinalActuel = directionMiniJeuPlusProche(niveau.getNB_Mj_Restants());
+            if (pointCardinalActuel != pointCardinalAncien)
+            {
+                threadArduino->envoyerEvenement(std::make_unique<Boussole>(pointCardinalActuel));
+            }
+            pointCardinalAncien = pointCardinalActuel;
         }
 
         //Lecture des entrées
@@ -426,42 +484,32 @@ void FenetreJeu::jouer()
             }
         }
 
-
-
-        //Determiner direction boussole;
-        pointCardinalActuel = directionMiniJeuPlusProche(niveau.getNB_Mj_Restants());
-        if (pointCardinalActuel != pointCardinalAncien) {
-            threadArduino->envoyerEvenement(std::make_unique<Boussole>(pointCardinalActuel));
-        }
-        pointCardinalAncien = pointCardinalActuel;
-
-
-
         //Vibration
-        if (temps.tempsAtteint_ms(tempsDerniereVibration + 2000) && distanceEntreTuiles(joueur.position.X, joueur.position.Y, adversaire.position.X, adversaire.position.Y) <= RAYON_VIBRATION) {
+        if (temps.tempsAtteint_ms(tempsDerniereVibration + 2000) && distanceEntreTuiles(joueur.position.X, joueur.position.Y, adversaire.position.X, adversaire.position.Y) <= RAYON_VIBRATION)
+        {
             tempsDerniereVibration = temps.tempsEcoule_ms();
             threadArduino->envoyerEvenement(std::make_unique<Vibration>());
-
         }
-
 
         //Joueur sur une tuile de MINI_JEU
         if (carte[joueur.position.Y][joueur.position.X].getRemplissage() == MINI_JEU)
         {
             threadArduino->envoyerEvenement(std::make_unique<Boussole>(OFF));
             pointCardinalAncien = OFF;
+            directionActuelle = AUCUNE;
+
             mini_jeux[mj_actif]->ouvrir();
 
             if (mini_jeux[mj_actif]->reussi())
             {
-                niveau.miniJeuReussi(mj_actif); //TODO
+                niveau.miniJeuReussi(mj_actif);
                 if (niveau.niveauFinit())
                 {
                     if (niveau.niveauSuivant())
                     {
                         genererCarte();
                         joueur.position = Coordonnee{ (LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1 };
-                        adversaire.position = Coordonnee{32, 8};//TODO : générer une position aléatoire dans la map pour l'adversaire
+                        adversaire.position = genererPosAdversaire();
                     }
                     else
                     {
@@ -472,11 +520,11 @@ void FenetreJeu::jouer()
             }
             else
             {
-                //TODO : bouger le mini jeu
+                deplacementMiniJeu();
             }
 
             mini_jeux[mj_actif]->initialiser();
-            mj_actif = 0; //TODO aléatoire
+            mj_actif = niveau.choixMiniJeu();
             carte[joueur.position.Y][joueur.position.X].setRemplissage(VIDE);
 
             affichage_DEBUG(std::cout);
@@ -501,7 +549,7 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
     {
         for (int c = 0; c < LARGEUR_CARTE; c++)
         {
-            if (distanceActeur(joueur, {c, r}) > RAYON_VISION && !VISION_NOCTURNE)
+            if (distance(joueur.position, {c, r}) > RAYON_VISION && !VISION_NOCTURNE)
             {
                 flux << "  ";
             }
@@ -519,7 +567,7 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
             }*/
             else if (carte[r][c].getRemplissage() == PLEIN)
             {
-                flux << "##";
+                flux << char(219) << char(219);
 
             }
             else if (carte[r][c].getRemplissage() == VIDE)

@@ -11,6 +11,9 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "niveau.h"
+#include <vector>
+#include <map>
+#include <random>
 
 //Constructeurs & destructeurs
 Niveau::Niveau()
@@ -75,12 +78,41 @@ int Niveau::getNB_Mj_Restants()
 {
     return (nb_mj_dispo - nb_mj_finis);
 }
-
 void Niveau::miniJeuReussi(int mj)
 {
     mjx_faits[mj] = true;
     nb_mj_finis++;
 }
+int Niveau::choixMiniJeu()
+{
+    std::vector<int> index_mjx;
+
+    for (int i = 0; i < NB_MINI_JEUX; i++)
+    {
+        if (!mjx_faits[i])
+        {
+            index_mjx.push_back(i);
+        }
+    }
+    std::cout << std::endl << "nb mjx : " << index_mjx.size() << std::endl;
+
+    if (index_mjx.empty())
+    {
+        srand(time(NULL));
+        int nb = (rand() % (NB_MINI_JEUX - 1));
+        std::cout << std::endl << "mj choisi : " << nb << std::endl;
+        return nb;
+    }
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(index_mjx.begin(), index_mjx.end(), g);
+
+    std::cout << std::endl << "mj choisi : " << index_mjx[0] << std::endl;
+
+    return index_mjx[0];
+}
+
 bool Niveau::niveauFinit()
 {
     if (nb_mj_finis == nb_mj_dispo)
@@ -101,7 +133,7 @@ bool Niveau::niveauSuivant()
     {
     case 1:
         nb_pleins_variables = 45;
-        nb_mj_dispo = 2;
+        nb_mj_dispo = 10;
         v_adversaire = 1;
         break;
     case 2:

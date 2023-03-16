@@ -52,7 +52,6 @@ void FenetreJeuPiano::initialiser()
 
 void FenetreJeuPiano::ouvrir()
 {
-
     if (MODE_MOZART) {
         reussite = true;
         return;
