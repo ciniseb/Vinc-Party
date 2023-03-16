@@ -476,7 +476,7 @@ void FenetreJeu::jouer()
             }
 
             mini_jeux[mj_actif]->initialiser();
-            mj_actif = 0; //TODO
+            mj_actif = 0; //TODO aléatoire
             carte[joueur.position.Y][joueur.position.X].setRemplissage(VIDE);
 
             affichage_DEBUG(std::cout);

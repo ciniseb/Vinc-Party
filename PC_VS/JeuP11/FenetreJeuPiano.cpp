@@ -44,6 +44,7 @@ void FenetreJeuPiano::initialiser()
 {
     //TODO
     chrono = Chronometre();
+    rangee_matrice = 0;
     noteReussi = 0;
     bitCount = 0;
     chargerChanson(matrice);
