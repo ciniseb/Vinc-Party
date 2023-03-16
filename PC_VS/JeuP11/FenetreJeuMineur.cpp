@@ -47,7 +47,7 @@ void FenetreJeuMineur::ouvrir()
                 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 26 });
                 Accel* aaccel = static_cast<Accel*>(evenement.get());
                 TypeMotion mouvement = aaccel->getType();
-                if(pret)
+                
                 //Temps();
             }
             //Temps();
