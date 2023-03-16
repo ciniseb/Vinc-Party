@@ -86,7 +86,7 @@ void FenetreJeuPiano::ouvrir()
                 }
             }
         }
-        Temps();
+        Temps(); // fait tout
 
         if (chrono.tempsEcoule_s() > 41)
         {
@@ -108,13 +108,13 @@ bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
     //std::cout << "Temps" << std::endl;   
     //system("cls");
 
-        bit = bitCount - chrono.tempsEcoule_s();
+        bit = bitCount - chrono.tempsEcoule_s(); // bitcount commence a zero et ajout temps écoulé, fait augmenter bit
         
-        if (bit == 0 && bitCount < 40)
+        if (bit == 0 && bitCount < 40) // pour partir affichageEcran(Jeu)
         {
+            AffichageEcran(Jeu);
             SetNote(bitCount);
             //std::cout << "Oue oue oue" << std::endl;
-            AffichageEcran(Jeu);
             bitCount++;
         }
     return true;

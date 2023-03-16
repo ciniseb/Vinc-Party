@@ -98,7 +98,7 @@ int main()
         }
 
         es.envoyerEvenement(std::make_unique<Boussole>(NORD));
-        Sleep(1000);
+Sleep(1000);
         es.envoyerEvenement(std::make_unique<Boussole>(SUD));
         Sleep(1000);
         es.envoyerEvenement(std::make_unique<Boussole>(EST));

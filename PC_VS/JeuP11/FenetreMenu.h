@@ -28,7 +28,7 @@ class FenetreMenu : public Fenetre
 {
 private:
     //Attributs
-    Fenetre *fenetres[3];
+    Fenetre *fenetres[4];
 
 public:
     //Constructeurs & destructeurs

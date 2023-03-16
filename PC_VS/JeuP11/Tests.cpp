@@ -143,7 +143,7 @@ void Tests::tests_autre()
     {
         for (int j = 0; j < 3; j++)
         {
-            std::cout << tab[i][j] << " ";
+            //std::cout << tab[i][j] << " "; 
         }
         std::cout << std::endl;
     }
@@ -155,4 +155,12 @@ void Tests::tests_FenetreJeuPiano()
     thread.demarrer();
     FenetreJeuPiano piano(&thread);
     piano.ouvrir();
+}
+
+void tests_FenetreJeuMineur()
+{
+    ES thread;
+    thread.demarrer();
+    FenetreJeuMineur mine(&thread);
+    mine.ouvrir();
 }

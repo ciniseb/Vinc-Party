@@ -24,7 +24,7 @@ FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
     
     //TODO : Charger les mini-jeux.
     mini_jeux[0] = new FenetreJeuPiano(thread);
-    //mini_jeux[1] = ...
+    mini_jeux[1] = new FenetreJeuMineur(thread);
     //mini_jeux[2] = ...
 
     joueur = Acteur{nom_joueur, Coordonnee{(LARGEUR_CARTE/2)-1, HAUTEUR_CARTE-1}};
