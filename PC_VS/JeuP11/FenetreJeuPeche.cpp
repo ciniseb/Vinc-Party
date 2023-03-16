@@ -56,6 +56,10 @@ void FenetreJeuPeche::ouvrir()
         {
             return;
         }
+        else if (bitCount >= 60)
+        {
+            return;
+        }
         //VerificationJoueurPoisson();
     }
 }
