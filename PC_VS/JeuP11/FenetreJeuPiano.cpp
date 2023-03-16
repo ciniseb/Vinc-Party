@@ -261,7 +261,7 @@ void FenetreJeuPiano::AffichageEcran(int mode)
         {
             for (int j = 0; j < 50; j++)
             {
-                if (i <=18 && (i == 0 || i == 18  || j == 0 || j == 49))
+                if (i <18 && (i == 0 || i == 18  || j == 0 || j == 49))
                 {
                     screen[i][j] = '#';
                 }
