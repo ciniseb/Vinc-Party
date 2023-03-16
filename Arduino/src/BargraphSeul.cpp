@@ -44,6 +44,9 @@ void BargraphSeul::reset(){
 
 bool BargraphSeul::intersection(){
     bool retour = (position <= NBR_BARRE_POUR_OK_PIANO) && actif && !intersectionFaite;
-    if(retour) intersectionFaite = true;
+    if(retour) {
+        intersectionFaite = true;
+        reset();
+    }
     return retour;
 }

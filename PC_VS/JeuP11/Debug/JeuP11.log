@@ -1,4 +1,4 @@
-﻿  ES.cpp
+  ES.cpp
   Fenetre.cpp
   FenetreCR.cpp
 C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(85,88): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
@@ -23,3 +23,9 @@ C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointage
   Génération de code en cours...
 C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(356): warning C4715: 'FenetreJeuPiano::VersBoutonPressee' : les chemins de contrôle ne retournent pas tous une valeur
   JeuP11.vcxproj -> C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe
+﻿  FenetreJeuPiano.cpp
+C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(167,29): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(428): warning C4715: 'FenetreJeuPiano::VersBoutonPressee': not all control paths return a value
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
+Accel.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
+  JeuP11.vcxproj -> C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe
