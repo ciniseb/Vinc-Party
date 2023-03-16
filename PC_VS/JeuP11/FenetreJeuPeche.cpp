@@ -168,13 +168,13 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                 {
                     if (foisReussi >= i)
                     {
-                        for (int k = 0; k < foisReussi; k++)
+                        for(int k=0; k <= foisReussi; k++)
                         {
                             if (pretPecher == true)
                             {
-                                for (int k = 0; k < 10; k++)
+                                for (int k = 0; k <= foisReussi; k++)
                                 {
-                                screen[k][j] = '=';
+                                screen[k+1][j] = '=';
                                 }
                             }
                             else

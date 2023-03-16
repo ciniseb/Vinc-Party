@@ -1,31 +1,6 @@
-  ES.cpp
-  Fenetre.cpp
-  FenetreCR.cpp
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(85,88): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(93,53): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-  FenetreJeu.cpp
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(358,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(687,27): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
-  FenetreJeuPeche.cpp
+﻿  FenetreJeuPeche.cpp
 C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(236,38): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
 C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(368,34): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
-  FenetreJeuPiano.cpp
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(121,21): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
-  FenetreMenu.cpp
-  FenetreMiniJeu.cpp
-  FenetrePointages.cpp
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(75,27): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(186,35): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(217,35): warning C4018: '<' : incompatibilité signed/unsigned
-  FenetreTests.cpp
-  JeuP11.cpp
-  Tests.cpp
-  Génération de code en cours...
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(356): warning C4715: 'FenetreJeuPiano::VersBoutonPressee' : les chemins de contrôle ne retournent pas tous une valeur
+LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
+Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
   JeuP11.vcxproj -> C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe
-﻿  FenetreJeuPiano.cpp
-C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(167,29): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(428): warning C4715: 'FenetreJeuPiano::VersBoutonPressee': not all control paths return a value
-LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
-Accel.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
-  JeuP11.vcxproj -> C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe
