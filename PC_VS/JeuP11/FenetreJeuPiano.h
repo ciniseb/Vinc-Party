@@ -28,6 +28,7 @@ Description: Mini-jeu de piano style Piano tiles
 #include "ES.h"
 #include "FenetreMiniJeu.h"
 #include "CONSTANTES.h"
+#include "bargraph.h"
 
 class FenetreJeuPiano : public FenetreMiniJeu
 {
@@ -36,13 +37,14 @@ private:
 #define Menu 0
 #define Jeu 1
 #define Score 2
+
     Chronometre chrono;
     //Attribut
     Dieu chanson[200];
-    char noteA[22]; // notes: indiqent si une note est présente ou non sur une rangée
-    char noteS[22];
-    char noteD[22];
-    char noteF[22];
+    char noteD[22]; // notes: indiqent si une note est présente ou non sur une rangée
+    char noteI[22];
+    char noteE[22];
+    char noteU[22];
 
     bool matrice[50001][4]; // matrice de l'ecran
     int rangee_matrice = 0;
