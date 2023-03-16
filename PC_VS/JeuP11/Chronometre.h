@@ -13,6 +13,7 @@ Description: Chronomètre qui gère le temps d'une partie
 #ifndef CHRONOMETRE_H
 #define CHRONOMETRE_H
 
+#include "CONSTANTES.h"
 #include <iostream>
 #include <iomanip>
 #include <chrono>
@@ -24,7 +25,7 @@ private:
     //Attributs
     std::chrono::time_point<std::chrono::steady_clock> t_depart;
     std::chrono::time_point<std::chrono::steady_clock> t_actuel;
-    bool actif;
+    Etat etat;
 
 public:
     //Constructeurs & destructeurs
@@ -38,6 +39,9 @@ public:
 
     //Méthodes
     void demarrer();
+    void pause();
+    void continuer();
+    void arreter();
 
     bool tempsAtteint_ms(double);
 
