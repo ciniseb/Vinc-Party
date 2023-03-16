@@ -29,6 +29,8 @@ Description: Mini-jeu de piano style Piano tiles
 #include "ES.h"
 #include "FenetreMiniJeu.h"
 #include "CONSTANTES.h"
+#include "QuadBargraph.h"
+#include "Accel.h"
 
 class FenetreJeuPeche : public FenetreMiniJeu
 {
@@ -44,6 +46,8 @@ private:
     int foisReussi = 0;
     bool activation = true;
     bool firstscan = true;
+    bool pretPecher = false;
+    int comptePretPecher = 0;
 
     double tempsInit = 0;
     double tempsReussi = 0;
@@ -63,7 +67,7 @@ public:
 
     //Getteurs & setteurs
     void setPoisson();
-    void getJoueur(Dieu touche);
+    void getJoueur(Direction touche);
     void VerificationJoueurPoisson();
     //Méthodes
     void ouvrir();

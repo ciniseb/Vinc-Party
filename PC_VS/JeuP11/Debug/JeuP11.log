@@ -1,7 +1,25 @@
-﻿  FenetreJeuPeche.cpp
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(204,38): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(331,34): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
+﻿  ES.cpp
+  Fenetre.cpp
+  FenetreCR.cpp
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(85,88): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(93,53): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  FenetreJeu.cpp
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(358,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(687,27): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+  FenetreJeuPeche.cpp
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(236,38): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(368,34): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
+  FenetreJeuPiano.cpp
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(121,21): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+  FenetreMenu.cpp
+  FenetreMiniJeu.cpp
+  FenetrePointages.cpp
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(75,27): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(186,35): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(217,35): warning C4018: '<' : incompatibilité signed/unsigned
+  FenetreTests.cpp
+  JeuP11.cpp
+  Tests.cpp
+  Génération de code en cours...
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(356): warning C4715: 'FenetreJeuPiano::VersBoutonPressee' : les chemins de contrôle ne retournent pas tous une valeur
   JeuP11.vcxproj -> C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe
-﻿  Muons.cpp
-C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Muons.cpp(17,14): warning C4309: 'initializing': truncation of constant value
-  JeuP11.vcxproj -> C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe

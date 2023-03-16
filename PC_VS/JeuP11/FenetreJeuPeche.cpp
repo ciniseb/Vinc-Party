@@ -38,7 +38,7 @@ void FenetreJeuPeche::ouvrir()
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
-            if (evenement->getCode() == BOUTON)
+            if (evenement->getCode() == JOYSTICK)
             {
                 if (demarrage)
                 {
@@ -46,18 +46,32 @@ void FenetreJeuPeche::ouvrir()
                     demarrage = false;
                 }
                 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 26 });
-                Bouton* eBouton = static_cast<Bouton*>(evenement.get());
-                Dieu lettreAppuyee = eBouton->getNom();
+                Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
+                Direction lettreAppuyee = eJoystick->getDirection();
                 getJoueur(lettreAppuyee);
+            }
+            if (evenement->getCode() == ACCELEROMETRE)
+            {
+                Accel* eAccel = static_cast<Accel*>(evenement.get());
+                TypeMotion mouvement = eAccel->getType();
+                if (pretPecher == true)
+                {
+                    if (mouvement == PECHE && comptePretPecher <= 10)
+                    {
+                        threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
+                        return;
+                    }
+                }
             }
         }
         Temps();
-        if (foisReussi >= 15)
+        if (foisReussi >= 10)
         {
-            return;
+            pretPecher = true;
         }
         else if (bitCount >= 60)
         {
+            threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
             return;
         }
         //VerificationJoueurPoisson();
@@ -108,9 +122,17 @@ void FenetreJeuPeche::AffichageEcran(int mode)
         }
         break;
     case Jeu:
+        if (pretPecher == false)
+        {
         std::cout << "Appuyez sur Z,C pour descendre X,V pour monter" << '\n';
+        }
+        else
+        {
+        std::cout << "Appuyez sur B pour attraper le poisson        " << '\n';
+        }
+
         std::cout << "Ligne de peche   Barre de progression" << std::endl;
-        //std::cout << "Affichage Jeu" << std::endl;
+        threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(foisReussi));
         for (int i = 0; i < 14; i++)
         {
             for (int j = 0; j < 20; j++)
@@ -144,11 +166,21 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                 }
                 else if (j == 18)
                 {
-                    if (foisReussi > i)
+                    if (foisReussi >= i)
                     {
-                        for (int k = 1; k < foisReussi; k++)
+                        for (int k = 0; k < foisReussi; k++)
                         {
-                            screen[k][j] = '=';
+                            if (pretPecher == true)
+                            {
+                                for (int k = 0; k < 10; k++)
+                                {
+                                screen[k][j] = '=';
+                                }
+                            }
+                            else
+                            {
+                            screen[k+1][j] = '=';
+                            }
                         }
                     }
                     if (i == 0 || i == 13)
@@ -199,7 +231,7 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
 
     bit = bitCount - chrono.tempsEcoule_s();
 
-    if (bit == 0 && bitCount < 60)
+    if (bit == 0 && bitCount < 30)
     {
         if (bitCount >= bitPrecedent);
         {
@@ -210,6 +242,10 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
         AffichageEcran(Jeu);
         VerificationJoueurPoisson();
         bitCount++;
+        if (pretPecher == true)
+        {
+            comptePretPecher++;
+        }
     }
     return true;
 }
@@ -217,6 +253,12 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
 void FenetreJeuPeche::setPoisson()
 {
     int nombre = 0;
+    if (pretPecher == true)
+    {
+        positionPoisson = 5;
+    }
+    else
+    {
     if (firstscan == true)
     {
         nombre = (rand() % 10) + 2;
@@ -291,30 +333,25 @@ void FenetreJeuPeche::setPoisson()
 
         }
     }
+    }
+
     /*if (bitCount == 0 || bitCount == 10 || bitCount == 20 || bitCount == 30 || bitCount == 40 || bitCount == 50)
     {
         positionPoisson = (rand() % 10) + 2;
     }*/
 }
 
-void FenetreJeuPeche::getJoueur(Dieu touche)
+void FenetreJeuPeche::getJoueur(Direction touche)
 {
      switch(touche)
     { 
-    case Dieu::D:
+    case Direction::BAS:
         positionJoueur++;
     break;
 
-    case Dieu::I:
+    case Direction::HAUT:
         positionJoueur--;
     break;
-    case Dieu::E:
-        positionJoueur++;
-        break;
-
-    case Dieu::U:
-        positionJoueur--;
-        break;
     }      
      if (positionJoueur < 1)
      {
