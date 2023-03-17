@@ -45,6 +45,7 @@ public:
     bool chargerPointages();
     bool enregistrerPointages();
 
+    void initialiser();
     void ouvrir();
 
     void affichage_DEBUG(int);

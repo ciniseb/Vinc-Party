@@ -21,6 +21,9 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include <algorithm>
 #include <random>
 #include <cstdlib>
+#include <cmath>
+#include <map>
+#include "Vibration.h"
 #include "ES.h"
 #include "CONSTANTES.h"
 #include "Fenetre.h"
@@ -44,8 +47,9 @@ private:
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
     FenetreMiniJeu *mini_jeux[NB_MINI_JEUX];
 
-
-
+    int carte_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
+    int nb_p_variables;
+    int nb_mj_variables;
 
     Acteur joueur;
     Acteur adversaire;
@@ -65,19 +69,15 @@ public:
     FenetreJeu(std::string, ES *);
     ~FenetreJeu();
     
-
-
     //Getteurs & setteurs
     Niveau getNiveau();
     Tuile getTuile(Coordonnee);
-    //std::vector<Fenetre> getMiniJeux();
     Acteur getJoueur();
     Acteur getAdversaire();
     Chronometre getTemps();
 
     void setNiveau(Niveau);
     void setTuile(Coordonnee, Tuile);
-    //void setMiniJeux(std::vector<Fenetre>);
     void setJoueur(Acteur);
     void setAdversaire(Acteur);
     void setTemps(Chronometre);
@@ -85,17 +85,20 @@ public:
     //M�thodes
     bool chargerGabaritCarte(int[HAUTEUR_CARTE][LARGEUR_CARTE], int*, int*);
     bool genererCarte();
+    Coordonnee genererPosAdversaire();
+
+    void deplacementMiniJeu();
 
     bool verificationVide(Coordonnee);
-
     bool verificationCoord(Coordonnee, Coordonnee);
 
     void deplacementAdversaireRandom();
-
     bool deplacementAdversaire();
     bool deplacementJoueur(Direction);
-    float distanceActeur(Acteur, Coordonnee);
 
+    float distance(Coordonnee, Coordonnee);
+
+    void initialiser();
     void ouvrir();
     void jouer();
 

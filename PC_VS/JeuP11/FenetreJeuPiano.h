@@ -39,6 +39,8 @@ private:
 #define Score 2
 
     Chronometre chrono;
+    //Bouton* btn = Bouton();
+
     //Attribut
     Dieu chanson[200];
     char noteD[22]; // notes: indiqent si une note est présente ou non sur une rangée
@@ -47,12 +49,11 @@ private:
     char noteU[22];
 
     bool matrice[50001][4]; // matrice de l'ecran
-    int rangee_matrice = 0;
+    int rangee_matrice;
 
-    int noteReussi = 0;
-    double bit = 0;
-    double bitCount = 0;
-
+    int noteReussi;
+    double bit;
+    double bitCount;
     // Methodes
 
     bool chargerChanson(bool matrice[50001][4]);
@@ -71,6 +72,7 @@ public:
     bool VersBoutonPressee(Dieu touche);
 
     //Méthodes
+    void initialiser();
     void ouvrir();
 };
 

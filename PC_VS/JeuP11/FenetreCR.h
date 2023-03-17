@@ -42,6 +42,7 @@ public:
 
 
     //Méthodes
+    void initialiser();
     void ouvrir();
 };
 

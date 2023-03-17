@@ -110,21 +110,6 @@
     <ClInclude Include="FenetreMiniJeu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Niveau.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tuile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Acteur.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CONSTANTES.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Coordonnee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Fenetre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -134,31 +119,13 @@
     <ClInclude Include="FenetreJeuPiano.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ES.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pointage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\serial\SerialPort.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\json.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chronometre.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Tests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Evenement.h">
+    <ClInclude Include="FenetreCR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bouton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Joystick.h">
+    <ClInclude Include="CR_Vehicule.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Accel.h">
@@ -167,16 +134,49 @@
     <ClInclude Include="Bargraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vibration.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Boussole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreCR.h">
+    <ClInclude Include="Bouton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CR_Vehicule.h">
+    <ClInclude Include="Acteur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chronometre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CONSTANTES.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordonnee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ES.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Evenement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Joystick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Niveau.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pointage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\serial\SerialPort.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tuile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vibration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QuadBargraph.h">

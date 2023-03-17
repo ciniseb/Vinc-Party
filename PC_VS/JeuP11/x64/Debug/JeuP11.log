@@ -1,24 +1,8 @@
-﻿  ES.cpp
-  Fenetre.cpp
-  FenetreCR.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(85,88): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(93,53): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  FenetreJeu.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(358,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(688,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  FenetreJeuMineur.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(57,17): warning C4804: '<': unsafe use of type 'bool' in operation
-  FenetreJeuPiano.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(167,29): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  FenetreMenu.cpp
-  FenetreMiniJeu.cpp
-  FenetrePointages.cpp
-  FenetreTests.cpp
-  JeuP11.cpp
-  Tests.cpp
-  Generating Code...
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(428): warning C4715: 'FenetreJeuPiano::VersBoutonPressee': not all control paths return a value
-LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
-Accel.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
-FenetreJeuPiano.obj : error LNK2019: unresolved external symbol __imp_PlaySoundW referenced in function "public: virtual void __cdecl FenetreJeuPiano::ouvrir(void)" (?ouvrir@FenetreJeuPiano@@UEAAXXZ)
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Niveau.cpp
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(101,19): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(142,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(147,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(152,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
+Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
+  JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe

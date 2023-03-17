@@ -45,7 +45,9 @@ public:
 
 
     //Méthodes
+    void initialiser();
     void ouvrir();
+
     void afficher();
     void remplirListe();
 

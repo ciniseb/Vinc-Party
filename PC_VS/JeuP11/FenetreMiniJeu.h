@@ -32,6 +32,7 @@ public:
 
     //Méthodes
     //TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
+    virtual void initialiser() = 0;
     virtual void ouvrir() = 0;
     bool reussi();
 };

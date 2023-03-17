@@ -13,11 +13,7 @@ Description:
 #include "FenetreJeuPiano.h"
 
 //Constructeurs & destructeurs
-FenetreJeuPiano::FenetreJeuPiano(ES *thread): FenetreMiniJeu(thread) // Main du jeu
-{
-    noteReussi = 0;
-    chargerChanson(matrice);
-}
+FenetreJeuPiano::FenetreJeuPiano(ES* thread) : FenetreMiniJeu(thread) { initialiser(); }
 FenetreJeuPiano::~FenetreJeuPiano() {}
 
 bool FenetreJeuPiano::chargerChanson(bool matrice[50001][4])
@@ -44,9 +40,18 @@ bool FenetreJeuPiano::chargerChanson(bool matrice[50001][4])
     return true;
 }
 
+void FenetreJeuPiano::initialiser()
+{
+    //TODO
+    chrono = Chronometre();
+    rangee_matrice = 0;
+    noteReussi = 0;
+    bitCount = 0;
+    chargerChanson(matrice);
+}
+
 void FenetreJeuPiano::ouvrir()
 {
-
     if (MODE_MOZART) {
         reussite = true;
         return;
@@ -161,7 +166,6 @@ bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
 
         bit = bitCount - chrono.tempsEcoule_ms();
         
-
         if (bit <= 0)
         {
             SetNote(bitCount/250);
@@ -241,7 +245,7 @@ void FenetreJeuPiano::AffichageEcran(int mode)
             for (int j = 0; j < 50; j++)
             {
                
-                if (i == 0 || i == 18 || j == 0 || j == 49)
+                if (i == 0 || i == 17 || j == 0 || j == 49)
                 {
                     
                     screen[i][j] = '#';
@@ -254,73 +258,70 @@ void FenetreJeuPiano::AffichageEcran(int mode)
         }
         break;
     case Jeu:
-        std::cout << "Appuyez sur D,I,E ou U quand la note s'affiche sur la manette" << std::endl
+        std::cout << "Appuyez sur D,I,E,U quand la note est jaune ou verte sur la manette" << std::endl
                   << "             Notes reussites : " << noteReussi << std::endl;
         //std::cout << "Affichage Jeu" << std::endl;
         for (int i = 0; i < 24; i++)
         {
             for (int j = 0; j < 50; j++)
             {
-                if (i <18 && (i == 0 || i == 18  || j == 0 || j == 49))
+                if (i < 18 && (i == 0 || i == 17  || j == 0 || j == 49))
                 {
                     screen[i][j] = '#';
                 }
                 else
                 {
                     screen[i][j] = ' ';
-                    for (int e = 0; e < 4; e++)
+
+                    if (i == 19 && j != 0 && j != 49)
                     {
-                        if (i == 18 && j != 0 && j != 49)
-                        {
-                             screen[i][j] = '=';
-                             if (GetNote(0, 17) != ' ')
-                             {
-                                 threadArduino->envoyerEvenement(std::make_unique<Bargraph>(Dieu::D));
-                                 screen[i][10] = GetNote(0, 17);
-                             }
-                             if (GetNote(1, 17) != ' ')
-                             {
-                                 threadArduino->envoyerEvenement(std::make_unique<Bargraph>(Dieu::I));
-                                 screen[i][20] = GetNote(1, 17);
-                             }
-                             if (GetNote(2, 17) != ' ')
-                             {
-                                 threadArduino->envoyerEvenement(std::make_unique<Bargraph>(Dieu::E));
-                                 screen[i][30] = GetNote(2, 17);
-                             }
-                             if (GetNote(3, 17) != ' ')
-                             {
-                                 threadArduino->envoyerEvenement(std::make_unique<Bargraph>(Dieu::U));
-                                 screen[i][40] = GetNote(3, 17);
-                             }
-                        }
-                        else
-                        {
+                            if (GetNote(0, 17) != ' ' && j == 10)
+                            {
+                                threadArduino->envoyerEvenement(std::make_unique<Bargraph>(Dieu::D));
+                                screen[i][10] = GetNote(0, 17);
+                            }
+                            if (GetNote(1, 17) != ' ' && j == 20)
+                            {
+                                threadArduino->envoyerEvenement(std::make_unique<Bargraph>(Dieu::I));
+                                screen[i][20] = GetNote(1, 17);
+                            }
+                            if (GetNote(2, 17) != ' ' && j == 30)
+                            {
+                                threadArduino->envoyerEvenement(std::make_unique<Bargraph>(Dieu::E));
+                                screen[i][30] = GetNote(2, 17);
+                            }
+                            if (GetNote(3, 17) != ' ' && j == 40)
+                            {
+                                threadArduino->envoyerEvenement(std::make_unique<Bargraph>(Dieu::U));
+                                screen[i][40] = GetNote(3, 17);
+                            }
+                    }
+                    else
+                    {
                             
-                            if (j == 10)
-                            {
-                                screen[i][j] = GetNote(0, i - 1);
-                            }
-                            if (j == 20)
-                            {
-                                screen[i][j] = GetNote(1, i - 1);
-                            }
-                            if (j == 30)
-                            {
-                                screen[i][j] = GetNote(2, i - 1);
-                            }
-                            if (j == 40)
-                            {
-                                screen[i][j] = GetNote(3, i - 1);
-                            }
+                        if (j == 10)
+                        {
+                            screen[i][j] = GetNote(0, i - 1);
                         }
-                    }  
+                        if (j == 20)
+                        {
+                            screen[i][j] = GetNote(1, i - 1);
+                        }
+                        if (j == 30)
+                        {
+                            screen[i][j] = GetNote(2, i - 1);
+                        }
+                        if (j == 40)
+                        {
+                            screen[i][j] = GetNote(3, i - 1);
+                        }
+                    } 
                 }   
             }
         }
         break;
     }
-    for (int i = 0; i < 19; i++)
+    for (int i = 0; i < 18; i++)
     {
         for (int j = 0; j < 50; j++)
         {
