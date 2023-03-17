@@ -1,49 +1,24 @@
-﻿  Accel.cpp
-  Bargraph.cpp
-  Boussole.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Boussole.cpp(18,14): warning C4309: 'initializing': truncation of constant value
-  Bouton.cpp
-  Chronometre.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(90,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(93,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(96,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  ES.cpp
-  Evenement.cpp
+﻿  ES.cpp
   Fenetre.cpp
+  FenetreCR.cpp
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(85,88): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(93,53): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   FenetreJeu.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(348,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(358,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(688,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   FenetreJeuMineur.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(50,20): error C2065: 'pret': undeclared identifier
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(52,13): error C2059: syntax error: '}'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(56,17): warning C4804: '<': unsafe use of type 'bool' in operation
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(244,24): error C2511: 'bool FenetreJeuMineur::variationAxe(TypeMotion)': overloaded member function not found in 'FenetreJeuMineur'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.h(38,7): message : see declaration of 'FenetreJeuMineur'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(271,31): error C2601: 'FenetreJeuMineur::getTemps': local function definitions are illegal
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(255): message : this line contains a '{' which has not yet been matched
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(276,24): error C2601: 'FenetreJeuMineur::setTemps': local function definitions are illegal
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(255): message : this line contains a '{' which has not yet been matched
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(255): fatal  error C1075: '{': no matching token found
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.cpp(57,17): warning C4804: '<': unsafe use of type 'bool' in operation
   FenetreJeuPiano.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(116,21): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(167,29): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   FenetreMenu.cpp
+  FenetreMiniJeu.cpp
   FenetrePointages.cpp
   FenetreTests.cpp
-  SerialPort.cpp
   JeuP11.cpp
-  Joystick.cpp
-  FenetreMiniJeu.cpp
-  Niveau.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(110,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(115,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(120,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(125,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Pointage.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Pointage.cpp(28,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(350): warning C4715: 'FenetreJeuPiano::VersBoutonPressee': not all control paths return a value
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Evenement.cpp(20): warning C4715: 'Evenement::decoder': not all control paths return a value
-  Compiling...
   Tests.cpp
-  Tuile.cpp
-  Vibration.cpp
   Generating Code...
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(428): warning C4715: 'FenetreJeuPiano::VersBoutonPressee': not all control paths return a value
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
+Accel.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
+FenetreJeuPiano.obj : error LNK2019: unresolved external symbol __imp_PlaySoundW referenced in function "public: virtual void __cdecl FenetreJeuPiano::ouvrir(void)" (?ouvrir@FenetreJeuPiano@@UEAAXXZ)
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe : fatal error LNK1120: 1 unresolved externals

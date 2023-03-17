@@ -42,15 +42,17 @@ private:
 #define Menu 0
 #define Jeu 1
 	Chronometre chrono;
-	Chronometre getTemps();
-	void setTemps(Chronometre);
+	//Chronometre getTemps();
+	//void setTemps(Chronometre);
 
 	int nbCoups = 0; // compteur
 	double bit=0;
 	double bitCount = 0;
+	bool positionHaut = false;
+	bool positionBas = false;
 
 	void affichageEcran(int nbCoups, int mode);
-	bool variationAxe();
+	void variationAxe(TypeMotion variation);
 	int getCoup(); // accelerometre
 	void setCoup(int x); // accelerometre
 	bool Temps();

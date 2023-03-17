@@ -47,7 +47,8 @@ void FenetreJeuMineur::ouvrir()
                 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 26 });
                 Accel* aaccel = static_cast<Accel*>(evenement.get());
                 TypeMotion mouvement = aaccel->getType();
-                
+                variationAxe(mouvement);
+
                 //Temps();
             }
             //Temps();
@@ -241,14 +242,15 @@ void FenetreJeuMineur::setCoup(int x) {
     nbCoups = x;
 }
 
-bool FenetreJeuMineur::variationAxe(TypeMotion variation) {
-    if (PECHE) {
-
-        Sleep(50);
-        return true;
+void FenetreJeuMineur::variationAxe(TypeMotion variation) {
+    if (PECHE==true) {
+        positionHaut = true;
+        
     }
-    return false;
-
+    if (MINER==true&&positionHaut==true){
+        positionBas = true;
+        nbCoups++;
+    }
 }
 
 bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
@@ -263,20 +265,21 @@ bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
     if (bitCount == 0 && bitCount < 10) {
         affichageEcran(nbCoups, Jeu);
         bitCount++;
-
+    }
 
     return true;
 }
 
-Chronometre FenetreJeuMineur::getTemps()
+/*Chronometre FenetreJeuMineur::getTemps()
 {
     return chrono;
 }
+*/
 
-void FenetreJeuMineur::setTemps(Chronometre t)
+/*void FenetreJeuMineur::setTemps(Chronometre t)
 {
     chrono = t;
-}
+}*/
 
 // quoi faire:
 // ajout chrono dans la barre de jeu
