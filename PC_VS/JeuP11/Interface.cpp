@@ -1,3 +1,17 @@
+/*====================================================================================================
+Fichier: FenetrePointages.h
+Auteurs: Antoine Allard
+		 Charles Beaulieu
+		 Émile Bois
+		 Enes Caku
+		 Zachari Gervais
+		 Anne-Sophie Nguyen
+		 Sébastien St-Denis
+		 Date: 18 mars 2023
+Description:
+====================================================================================================*/
+
+
 #include "Interface.h"
 
 Interface::Interface(ThreadMoteur *thread, QWidget *parent)
@@ -19,6 +33,7 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent)
 	addWidget(widgetPointage);
 	addWidget(widgetPiano);
 
+	connect(threadMoteur, SIGNAL(selecPointage()), this, SLOT(uiPointage()));
 }	
 
 
@@ -27,4 +42,19 @@ Interface::~Interface()
 	delete threadMoteur;
 	delete widgetMenu;
 
+}
+
+void Interface::uiPointage()
+{
+	setCurrentWidget(widgetPointage);
+}
+
+void Interface::uiJeu()
+{
+	setCurrentWidget(widgetJeu);
+}
+
+void Interface::uiPiano()
+{
+	setCurrentWidget(widgetPiano);
 }

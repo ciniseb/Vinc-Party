@@ -45,6 +45,7 @@ void WidgetMenu::selection(int selection)
         ui.bouton_jouer->setChecked(false);
         ui.bouton_pointages->setChecked(true);
         ui.bouton_quitter->setChecked(false);
+
         break;
     case 2:
         ui.bouton_jouer->setChecked(false);

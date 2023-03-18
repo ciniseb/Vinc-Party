@@ -29,4 +29,6 @@ public:
 
 private:
 	Ui::WidgetPointageClass ui;
+signals:
+    void selecPointage();
 };

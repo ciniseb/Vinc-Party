@@ -18,6 +18,7 @@ Description:
 #include "WidgetMenu.h"
 #include "WidgetJeu.h"
 #include "WidgetPiano.h"
+#include "WidgetPointage.h"
 
 
 class Interface : public QStackedWidget
@@ -28,6 +29,12 @@ public:
 	Interface(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
 	~Interface();
 
+
+private slots:
+	void uiPointage();
+	void uiJeu();
+	void uiPiano();
+
 private:
 	Ui::InterfaceClass ui;
 
@@ -37,4 +44,6 @@ private:
 	WidgetJeu* widgetJeu;
 	WidgetPointage* widgetPointage;
 	WidgetPiano* widgetPiano;
+
+ 
 };

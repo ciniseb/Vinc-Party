@@ -15,7 +15,6 @@ Description: UI du menu
 #include <QtWidgets/QWidget>
 #include "ui_WidgetMenu.h"
 #include "ThreadMoteur.h"
-#include "WidgetPointage.h"
 
 class WidgetMenu : public QWidget
 {
@@ -36,5 +35,10 @@ public slots:
 
     //Tests
     void numeroBouton(int);
+
+
+signals:
+
+
 };
 
