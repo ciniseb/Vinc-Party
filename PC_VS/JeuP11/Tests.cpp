@@ -64,7 +64,7 @@ void Tests::tests_chronometre()
 void Tests::tests_fenetrejeu()
 {
     ES thread;
-    FenetreJeu partie("Ciniseb", &thread);
+    MoteurJeu partie("Ciniseb", &thread);
 
     /*int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
     int nb_p_variables = 0;
@@ -105,7 +105,7 @@ void Tests::tests_fenetrePointages()
 {
     ES threadArduino;
 
-    FenetrePointages f_pointages(&threadArduino);
+    MoteurPointages m_pointages(&threadArduino);
     /*f_pointages.ajoutPointage(Pointage("Ciniseb", 5, 18));
     f_pointages.ajoutPointage(Pointage("LordAllard", 6, 38));
     f_pointages.ajoutPointage(Pointage("Chef QuartUS", 6, 20));
@@ -115,7 +115,7 @@ void Tests::tests_fenetrePointages()
     f_pointages.ajoutPointage(Pointage("ANNE-SOPHIE", 6, 28));
     f_pointages.ajoutPointage(Pointage("Bob", 1, 5));*/
 
-    f_pointages.affichage_DEBUG(0);
+    m_pointages.affichage_DEBUG(0);
 }
 
 void assignerTableau(int t[3][3])
@@ -134,7 +134,7 @@ void Tests::tests_autre()
 {
     Niveau niveau;
     ES thread;
-    FenetreJeu partie("Ciniseb", &thread);
+    MoteurJeu partie("Ciniseb", &thread);
 
     partie.genererCarte();
 
@@ -144,6 +144,6 @@ void Tests::tests_FenetreJeuPiano()
 {
     ES thread;
     thread.demarrer();
-    FenetreJeuPiano piano(&thread);
-    piano.ouvrir();
+    MoteurJeuPiano piano(&thread);
+    piano.demarrer();
 }

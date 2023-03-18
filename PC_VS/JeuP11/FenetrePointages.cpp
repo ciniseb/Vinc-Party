@@ -13,26 +13,26 @@ Description:
 #include "FenetrePointages.h"
 
 //Constructeurs & destructeurs
-FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) { initialiser(); }
-FenetrePointages::~FenetrePointages() {}
+MoteurPointages::MoteurPointages(ES *thread) : Moteur(thread) { initialiser(); }
+MoteurPointages::~MoteurPointages() {}
 
 //Getteurs & setteurs
-std::vector<Pointage> FenetrePointages::getPointages()
+std::vector<Pointage> MoteurPointages::getPointages()
 {
     return pointages;
 }
 
-void FenetrePointages::setPointages(std::vector<Pointage> p)
+void MoteurPointages::setPointages(std::vector<Pointage> p)
 {
     pointages = p;
 }
-void FenetrePointages::ajoutPointage(Pointage p)
+void MoteurPointages::ajoutPointage(Pointage p)
 {
     pointages.push_back(p);
 }
 
 //Méthodes
-bool FenetrePointages::chargerPointages()
+bool MoteurPointages::chargerPointages()
 {
     pointages.clear();
 
@@ -64,7 +64,7 @@ bool FenetrePointages::chargerPointages()
     std::cout << "Fichier introuvable..." << std::endl;
     return false;
 }
-bool FenetrePointages::enregistrerPointages()
+bool MoteurPointages::enregistrerPointages()
 {
     std::ofstream fichier;
 
@@ -84,12 +84,12 @@ bool FenetrePointages::enregistrerPointages()
     return false;
 }
 
-void FenetrePointages::initialiser()
+void MoteurPointages::initialiser()
 {
     //TODO
 }
 
-void FenetrePointages::ouvrir()
+void MoteurPointages::demarrer()
 {
     chargerPointages();
 
@@ -160,7 +160,7 @@ bool plusPetiteDistance(const Pointage& p1, const Pointage& p2)
         return p1.getNb_tuiles_parcourues() < p2.getNb_tuiles_parcourues();
     }
 }
-void FenetrePointages::affichage_DEBUG(int selection)
+void MoteurPointages::affichage_DEBUG(int selection)
 {
     system("cls");
 

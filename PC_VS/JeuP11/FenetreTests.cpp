@@ -26,20 +26,20 @@ Description:
 #include "CONSTANTES.h"
 
 //Constructeurs & destructeurs
-FenetreTests::FenetreTests(ES *thread) : Fenetre(thread) { initialiser(); }
-FenetreTests::~FenetreTests() {}
+MoteurTests::MoteurTests(ES *thread) : Moteur(thread) { initialiser(); }
+MoteurTests::~MoteurTests() {}
 
 //Getteurs & setteurs
 
 
 //Méthodes
-void FenetreTests::initialiser()
+void MoteurTests::initialiser()
 {
     //TODO
     remplirListe();
 }
 
-void FenetreTests::ouvrir()
+void MoteurTests::demarrer()
 {
     std::unique_ptr<Evenement> evenement;
     temps.demarrer();
@@ -49,8 +49,6 @@ void FenetreTests::ouvrir()
     std::cout << "DEMO OK" << std::endl;
     while (active)
     {
-
-
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
@@ -68,19 +66,16 @@ void FenetreTests::ouvrir()
                 remplirListe();
             } 
         }
-
-        
-
-        
     }
+}
+
+void MoteurTests::afficher()
+{
 
 }
 
-void FenetreTests::afficher(){
-
-}
-
-void FenetreTests::remplirListe(){
+void MoteurTests::remplirListe()
+{
     listeEvenements[0] = std::make_unique<Boussole>(NORD);
     listeEvenements[1] = std::make_unique<Boussole>(SUD);
     listeEvenements[2] = std::make_unique<Boussole>(EST);

@@ -3,34 +3,77 @@
   <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JeuP11.cpp">
+    <QtRcc Include="JeuP11.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\serial\SerialPort.cpp">
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bargraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ES.cpp">
+    <ClCompile Include="Boussole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vibration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Accel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Joystick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Pointage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tuile.cpp">
+    <ClCompile Include="CR_Vehicule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chronometre.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetreCR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetreMiniJeu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Fenetre.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bouton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ES.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Evenement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FenetreJeu.cpp">
@@ -48,66 +91,78 @@
     <ClCompile Include="FenetreTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetreMiniJeu.cpp">
+    <ClCompile Include="Muons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Niveau.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Chronometre.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Evenement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bouton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Joystick.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Accel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bargraph.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vibration.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Boussole.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreCR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CR_Vehicule.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="QuadBargraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Muons.cpp">
+    <ClCompile Include="Tuile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadMoteur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FenetreMenu.h">
+    <ClInclude Include="Bargraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boussole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vibration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Accel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bouton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Joystick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Acteur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pointage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CR_Vehicule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chronometre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreCR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreMiniJeu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FenetrePointages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreTests.h">
+    <ClInclude Include="CONSTANTES.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GABARIT_CLASS.h">
+    <ClInclude Include="ES.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreMiniJeu.h">
+    <ClInclude Include="Evenement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Fenetre.h">
@@ -119,83 +174,46 @@
     <ClInclude Include="FenetreJeuPiano.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tests.h">
+    <ClInclude Include="FenetreMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreCR.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CR_Vehicule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Accel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bargraph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Boussole.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bouton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Acteur.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chronometre.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CONSTANTES.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Coordonnee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ES.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Evenement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Joystick.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\json.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Niveau.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pointage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\serial\SerialPort.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tuile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vibration.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="QuadBargraph.h">
+    <ClInclude Include="FenetreTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Muons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Niveau.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadBargraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordonnee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GABARIT_CLASS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tuile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="c_gabarit_20_40.csv">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="chanson_1.csv">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="c_gabarit_30_60.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="c_gabarit_20_40.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="StillDre.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
   <ItemGroup>
     <Text Include="pointages.txt">
@@ -203,8 +221,22 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="StillDre.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
+    <QtMoc Include="ThreadMoteur.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Interface.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetMenu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="Interface.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
 </Project>

@@ -25,15 +25,15 @@ Description:
 #include "Joystick.h"
 #include "Bouton.h"
 
-class FenetrePointages : public Fenetre
+class MoteurPointages : public Moteur
 {
 private:
     //Attributs
     std::vector<Pointage> pointages;
 public:
     //Constructeurs & destructeurs
-    FenetrePointages(ES *);
-    ~FenetrePointages();
+    MoteurPointages(ES *);
+    ~MoteurPointages();
 
     //Getteurs & setteurs
     std::vector<Pointage> getPointages();
@@ -46,7 +46,7 @@ public:
     bool enregistrerPointages();
 
     void initialiser();
-    void ouvrir();
+    void demarrer();
 
     void affichage_DEBUG(int);
 };

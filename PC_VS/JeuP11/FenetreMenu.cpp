@@ -15,12 +15,12 @@ Description:
 #define DEMANDER_NOM false
 
 //Constructeurs & destructeurs
-FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread) { initialiser(); }
-FenetreMenu::~FenetreMenu()
+MoteurMenu::MoteurMenu(ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur) { initialiser(); }
+MoteurMenu::~MoteurMenu()
 {
     for (int i = 0; i < 3; i++)
     {
-        delete fenetres[i];
+        delete moteurs[i];
     }
 }
 
@@ -28,16 +28,57 @@ FenetreMenu::~FenetreMenu()
 
 
 //Méthodes
-void FenetreMenu::initialiser()
+void MoteurMenu::initialiser()
 {
-    fenetres[0] = new FenetreJeu();
-    fenetres[1] = new FenetrePointages(threadArduino);
-    fenetres[2] = new FenetreTests(threadArduino);
+    moteurs[0] = new MoteurJeu();
+    moteurs[1] = new MoteurPointages(threadArduino);
+    moteurs[2] = new MoteurTests(threadArduino);
 }
 
-void FenetreMenu::ouvrir()
+void MoteurMenu::demarrer()
 {
     std::unique_ptr<Evenement> evenement;
+    bool actif = true;
+
+    int i = 0;
+    while (true)
+    {
+        /*QMutex mutex;
+        mutex.lock();
+        if (stop)
+        {
+            break;
+        }
+        mutex.unlock();*/
+
+        if (threadArduino->evenementDisponible())
+        {
+            evenement = threadArduino->prochainEvenement();
+
+            if (evenement->getCode() == BOUTON)
+            {
+                Bouton* eBouton = static_cast<Bouton*>(evenement.get());
+                Dieu lettreAppuyee = eBouton->getNom();
+
+                if (lettreAppuyee == Dieu::JOYSTICK && !threadMoteur->stop)
+                {
+                    threadMoteur->stop = true;
+                }
+                else if (lettreAppuyee == Dieu::JOYSTICK && threadMoteur->stop)
+                {
+                    threadMoteur->stop = false;
+                }
+            }
+        }
+
+        if (!threadMoteur->stop)
+        {
+            threadMoteur->msleep(100);
+            emit threadMoteur->updateNumero(i++);
+        }
+    }
+
+    /*std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
     affichage_DEBUG(selection);
@@ -69,12 +110,11 @@ void FenetreMenu::ouvrir()
                         std::cout << std::endl;
 #else
                         std::string nom_joueur = "PeuplierBlanc";
-
 #endif // DEMANDER_NOM
                         
-                        fenetres[selection] = new FenetreJeu(nom_joueur, threadArduino);
+                        moteurs[selection] = new MoteurJeu(nom_joueur, threadArduino);
                     }
-                    fenetres[selection]->ouvrir();
+                    moteurs[selection]->demarrer();
                     system("cls");
                     affichage_DEBUG(selection);
                     if (selection == 0)
@@ -104,10 +144,10 @@ void FenetreMenu::ouvrir()
                 }
             }
         }
-    }
+    }*/
 }
 
-void FenetreMenu::affichage_DEBUG(int selection)
+void MoteurMenu::affichage_DEBUG(int selection)
 {
     //system("cls");
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
@@ -148,8 +188,6 @@ void FenetreMenu::affichage_DEBUG(int selection)
 
     }
 
-
-
     //Triches en cours
     std::cout << std::endl << std::endl;
     if (ENNEMI_INNOFFENSIF) std::cout << "ENNEMI_INNOFENSIF" << std::endl;
@@ -158,8 +196,4 @@ void FenetreMenu::affichage_DEBUG(int selection)
     if (MODE_MOZART) std::cout << "MODE_MOZART" << std::endl;
     if (MODE_FLASH_MC_QUEEN) std::cout << "MODE_FLASH_MC_QUEEN" << std::endl; 
     if (MODE_TERRAIN_VAGUE) std::cout << "MODE_TERRAIN_VAGUE" << std::endl;
-
-
-
-
 }

@@ -37,14 +37,14 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Joystick.h"
 #include "Boussole.h"
 
-class FenetreJeu : public Fenetre
+class MoteurJeu : public Moteur
 {
 private:
     //Attributs
     Niveau niveau;
 
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
-    FenetreMiniJeu *mini_jeux[NB_MINI_JEUX];
+    MoteurMiniJeu *mini_jeux[NB_MINI_JEUX];
 
     int carte_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
     int nb_p_variables;
@@ -64,9 +64,9 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    FenetreJeu();
-    FenetreJeu(std::string, ES *);
-    ~FenetreJeu();
+    MoteurJeu();
+    MoteurJeu(std::string, ES *);
+    ~MoteurJeu();
     
     //Getteurs & setteurs
     Niveau getNiveau();
@@ -98,7 +98,7 @@ public:
     float distance(Coordonnee, Coordonnee);
 
     void initialiser();
-    void ouvrir();
+    void demarrer();
     void jouer();
 
     void affichage_DEBUG(std::ostream &);

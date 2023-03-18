@@ -24,24 +24,25 @@ Description:
 #include "Joystick.h"
 #include "Bouton.h"
 #include "FenetreCR.h"
+#include "ThreadMoteur.h"
 
-class FenetreMenu : public Fenetre
+class MoteurMenu : public Moteur
 {
 private:
     //Attributs
-    Fenetre *fenetres[3];
+    Moteur *moteurs[3];
 
 public:
     //Constructeurs & destructeurs
-    FenetreMenu(ES *);
-    ~FenetreMenu();
+    MoteurMenu(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
+    ~MoteurMenu();
 
     //Getteurs & setteurs
 
 
     //Méthodes
     void initialiser();
-    void ouvrir();
+    void demarrer();
 
     void affichage_DEBUG(int);
 };
