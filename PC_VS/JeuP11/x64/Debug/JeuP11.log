@@ -1,8 +1,12 @@
-﻿  Niveau.cpp
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(101,19): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(142,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(147,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(152,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
-Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
-  JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe
+﻿  FenetreJeu.cpp
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(392,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(741,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  FenetreJeuMineur.cpp
+  FenetreMenu.cpp
+  JeuP11.cpp
+  Tests.cpp
+  Generating Code...
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
+Accel.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
+FenetreMenu.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl FenetreMenu::initialiser(void)" (?initialiser@FenetreMenu@@UEAAXXZ)
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe : fatal error LNK1120: 1 unresolved externals

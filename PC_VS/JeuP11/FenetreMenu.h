@@ -24,6 +24,7 @@ Description:
 #include "Joystick.h"
 #include "Bouton.h"
 #include "FenetreCR.h"
+#include "FenetreJeuMineur.h"
 
 class FenetreMenu : public Fenetre
 {

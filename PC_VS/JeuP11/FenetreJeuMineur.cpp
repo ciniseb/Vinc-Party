@@ -14,7 +14,7 @@ Description: Fenetre du jeu mineur
 
 FenetreJeuMineur::FenetreJeuMineur(ES* thread): FenetreMiniJeu(thread)
 {
-    int nbCoups = 0;
+    initialiser();
 }
 
 FenetreJeuMineur::~FenetreJeuMineur() {}
@@ -49,21 +49,18 @@ void FenetreJeuMineur::ouvrir()
                 TypeMotion mouvement = aaccel->getType();
                 variationAxe(mouvement);
 
-                //Temps();
             }
-            //Temps();
         }
        
-        if(Temps() < 11) 
-        {
+        Temps();
             //std::cout << "the final "<<nbCoups;
             //if (chrono.tempsEcoule_s() < 10)
             
-                system("cls");
+                //system("cls");
                 //std::cout << "nbCOups final" << nbCoups;
                 if (nbCoups == 5)
                 {
-                    reussite = true;
+                    //reussite = true;
                     std::cout << "yeah gg" << std::endl;
                     //Sleep(1000);
                     demarrage = false;
@@ -71,31 +68,14 @@ void FenetreJeuMineur::ouvrir()
 
                 }
                 
-            
-        else {
-            system("cls");
-            reussite = false;
-            std::cout << "booooooo";
-            //Sleep(1000);
-
-        }
-        }
-        else
+        else if (bitCount > 11  && nbCoups != 5)
         {
             system("cls");
-            reussite = false;
+            //reussite = false;
             std::cout << "booooooo 2";
             return;
         }
-            
-        
-        
-        return;
-        break;
-        return;
-        
     }
-    return;
 }
 
 void FenetreJeuMineur::affichageEcran(int nbCoups, int mode) {
@@ -269,6 +249,15 @@ bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
 
     return true;
 }
+
+
+void FenetreJeuMineur::initialiser()
+{
+    //TODO
+    chrono = Chronometre();
+    nbCoups = 0;
+}
+
 
 /*Chronometre FenetreJeuMineur::getTemps()
 {
