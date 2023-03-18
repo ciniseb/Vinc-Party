@@ -107,6 +107,7 @@ void ES::exec() {
         if (B != tempB && tempB == true) {
             ajouterAuQueue(std::make_unique<Accel>(TypeMotion::PECHE));
         }
+        B = tempB;
         ///
         /// !!!!ENTER == BOUTON D!!!! ////
         /// 
