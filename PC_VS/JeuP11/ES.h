@@ -1,5 +1,6 @@
 #ifndef ES_H
 #define ES_H
+#include "CONSTANTES.h"
 #include <thread>
 #include "./include/serial/SerialPort.hpp"
 #include<string>
@@ -13,12 +14,6 @@
 
 
 #define BAUD 9600           // Frequence de transmission serielle
-
-
-
-#define MODE_CLAVIER true
-
-
 
 class ES
 {

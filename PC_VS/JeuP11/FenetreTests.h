@@ -26,7 +26,7 @@ Description:
 #include "Boussole.h"
 #include "CONSTANTES.h"
 
-class FenetreTests : public Fenetre
+class MoteurTests : public Moteur
 {
 private:
     //Attributs
@@ -34,19 +34,19 @@ private:
     Chronometre temps;
     double dernierTemps = 0;
     int compteur = 0;
-    std::unique_ptr<Evenement> listeEvenements[10];
+    std::unique_ptr<Evenement> listeEvenements[15];
 
 public:
     //Constructeurs & destructeurs
-    FenetreTests(ES *);
-    ~FenetreTests();
+    MoteurTests(ES *);
+    ~MoteurTests();
 
     //Getteurs & setteurs
 
 
     //Méthodes
     void initialiser();
-    void ouvrir();
+    void demarrer();
 
     void afficher();
     void remplirListe();

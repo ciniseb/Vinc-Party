@@ -22,23 +22,24 @@ Description:
 #include "Bargraph.h"
 #include "Vibration.h"
 #include "Boussole.h"
+#include "QuadBargraph.h"
 #include "CONSTANTES.h"
 
 //Constructeurs & destructeurs
-FenetreTests::FenetreTests(ES *thread) : Fenetre(thread) { initialiser(); }
-FenetreTests::~FenetreTests() {}
+MoteurTests::MoteurTests(ES *thread) : Moteur(thread) { initialiser(); }
+MoteurTests::~MoteurTests() {}
 
 //Getteurs & setteurs
 
 
 //Méthodes
-void FenetreTests::initialiser()
+void MoteurTests::initialiser()
 {
     //TODO
     remplirListe();
 }
 
-void FenetreTests::ouvrir()
+void MoteurTests::demarrer()
 {
     std::unique_ptr<Evenement> evenement;
     temps.demarrer();
@@ -48,8 +49,6 @@ void FenetreTests::ouvrir()
     std::cout << "DEMO OK" << std::endl;
     while (active)
     {
-
-
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
@@ -62,24 +61,21 @@ void FenetreTests::ouvrir()
             threadArduino->envoyerEvenement(std::move(listeEvenements[compteur]));
 
             compteur++;
-            if (compteur >= 10) {
+            if (compteur >= 15) {
                 compteur = 0;
                 remplirListe();
             } 
         }
-
-        
-
-        
     }
+}
+
+void MoteurTests::afficher()
+{
 
 }
 
-void FenetreTests::afficher(){
-
-}
-
-void FenetreTests::remplirListe(){
+void MoteurTests::remplirListe()
+{
     listeEvenements[0] = std::make_unique<Boussole>(NORD);
     listeEvenements[1] = std::make_unique<Boussole>(SUD);
     listeEvenements[2] = std::make_unique<Boussole>(EST);
@@ -92,4 +88,10 @@ void FenetreTests::remplirListe(){
     listeEvenements[8] = std::make_unique<Bargraph>(Dieu::U);
 
     listeEvenements[9] = std::make_unique<Vibration>();
+
+    listeEvenements[10] = std::make_unique<QuadBargraph>(0);
+    listeEvenements[11] = std::make_unique<QuadBargraph>(2);
+    listeEvenements[12] = std::make_unique<QuadBargraph>(8);
+    listeEvenements[13] = std::make_unique<QuadBargraph>(5);
+    listeEvenements[14] = std::make_unique<QuadBargraph>(10);
 }
