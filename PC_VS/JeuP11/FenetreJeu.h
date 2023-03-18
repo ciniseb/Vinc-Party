@@ -50,6 +50,7 @@ private:
     int carte_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
     int nb_p_variables;
     int nb_mj_variables;
+    int jtanner = 0;
 
     Acteur joueur;
     Acteur adversaire;
