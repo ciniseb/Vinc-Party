@@ -63,7 +63,7 @@ public:
 	~FenetreJeuMineur();
 
 	void ouvrir();
-	void initialiser();
+	//void initialiser();
 };
 
 

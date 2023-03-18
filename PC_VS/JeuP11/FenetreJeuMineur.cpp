@@ -14,7 +14,7 @@ Description: Fenetre du jeu mineur
 
 FenetreJeuMineur::FenetreJeuMineur(ES* thread): FenetreMiniJeu(thread)
 {
-    initialiser();
+    //initialiser();
 }
 
 FenetreJeuMineur::~FenetreJeuMineur() {}
@@ -251,12 +251,12 @@ bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
 }
 
 
-void FenetreJeuMineur::initialiser()
+/*void FenetreJeuMineur::initialiser()
 {
     //TODO
     chrono = Chronometre();
     nbCoups = 0;
-}
+}*/
 
 
 /*Chronometre FenetreJeuMineur::getTemps()

@@ -72,7 +72,7 @@ public:
     bool VersBoutonPressee(Dieu touche);
 
     //Méthodes
-    void initialiser();
+    //void initialiser();
     void ouvrir();
 };
 

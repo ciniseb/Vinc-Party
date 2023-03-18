@@ -41,7 +41,7 @@ public:
 
 
     //Méthodes
-    void initialiser();
+    //void initialiser() ;
     void ouvrir();
 
     void affichage_DEBUG(int);
