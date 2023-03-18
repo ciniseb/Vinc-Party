@@ -156,3 +156,7 @@ void FenetreMenu::affichage_DEBUG(int selection)
 
     }
 }
+
+void FenetreMenu::initialiser(){
+
+}

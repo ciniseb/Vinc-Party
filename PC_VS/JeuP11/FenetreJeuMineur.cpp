@@ -28,7 +28,7 @@ void FenetreJeuMineur::ouvrir()
     int nbVoulu = 5;
     
     system("cls");
-    affichageEcran(nbCoups, Menu);
+    affichageEcran(Menu);
 
     while (true)
     {
@@ -48,11 +48,12 @@ void FenetreJeuMineur::ouvrir()
                 Accel* aaccel = static_cast<Accel*>(evenement.get());
                 TypeMotion mouvement = aaccel->getType();
                 variationAxe(mouvement);
-
+                std::cout << mouvement << std::endl;
+                affichageEcran(Jeu);
             }
         }
-       
         Temps();
+
             //std::cout << "the final "<<nbCoups;
             //if (chrono.tempsEcoule_s() < 10)
             
@@ -68,17 +69,22 @@ void FenetreJeuMineur::ouvrir()
 
                 }
                 
-        else if (bitCount > 11  && nbCoups != 5)
+        else if (chrono.tempsEcoule_s() > 11  && nbCoups != 5)
         {
-            system("cls");
             //reussite = false;
-            std::cout << "booooooo 2";
+            SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
+            echouer = true;
+            std::cout << "booooooo 2                                                                ";
+            if (evenement->getCode() == BOUTON)
+            {
             return;
+            }
+
         }
     }
 }
 
-void FenetreJeuMineur::affichageEcran(int nbCoups, int mode) {
+void FenetreJeuMineur::affichageEcran(int mode) {
     int height = 11, width = 11;
     char matrice[11][11];
 
@@ -102,6 +108,7 @@ void FenetreJeuMineur::affichageEcran(int nbCoups, int mode) {
         }
         break;
     case Jeu:
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
         std::cout << "Appuyez simultanement sur X, Y et Z pour creuser" << std::endl << std::endl;
         if (nbCoups == 0)
         {
@@ -212,6 +219,7 @@ void FenetreJeuMineur::affichageEcran(int nbCoups, int mode) {
     }
 
     std::cout << std::endl << "nbCoups: " << nbCoups << "/5" << std::endl;
+    std::cout << std::endl << positionHaut << std::endl;
 }
 
 int FenetreJeuMineur::getCoup() {
@@ -223,12 +231,13 @@ void FenetreJeuMineur::setCoup(int x) {
 }
 
 void FenetreJeuMineur::variationAxe(TypeMotion variation) {
-    if (PECHE==true) {
+    if (variation == PECHE) {
         positionHaut = true;
-        
+        positionBas = false;
     }
-    if (MINER==true&&positionHaut==true){
+    if (variation == MINER && positionHaut==true){
         positionBas = true;
+        positionHaut = false;
         nbCoups++;
     }
 }
@@ -238,14 +247,10 @@ bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
     //std::cout << "Temps" << std::endl;   
     //system("cls");
     bit = bitCount - chrono.tempsEcoule_s();
-    
-    //std::cout << chrono << std::endl;
-
-    int nbVoulu = 5;
-    if (bitCount == 0 && bitCount < 10) {
-        affichageEcran(nbCoups, Jeu);
+    if (bit == 0 && bitCount < 10) {
         bitCount++;
     }
+
 
     return true;
 }

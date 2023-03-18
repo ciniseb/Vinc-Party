@@ -46,12 +46,14 @@ private:
 	//void setTemps(Chronometre);
 
 	int nbCoups = 0; // compteur
-	double bit=0;
+	double bit;
 	double bitCount = 0;
 	bool positionHaut = false;
 	bool positionBas = false;
+	bool enso = true;
+	bool echouer = false;
 
-	void affichageEcran(int nbCoups, int mode);
+	void affichageEcran(int mode);
 	void variationAxe(TypeMotion variation);
 	int getCoup(); // accelerometre
 	void setCoup(int x); // accelerometre
