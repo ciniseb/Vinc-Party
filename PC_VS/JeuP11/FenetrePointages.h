@@ -32,7 +32,7 @@ private:
     std::vector<Pointage> pointages;
 public:
     //Constructeurs & destructeurs
-    MoteurPointages(ES *);
+    MoteurPointages(ES* threadArduino = nullptr);
     ~MoteurPointages();
 
     //Getteurs & setteurs

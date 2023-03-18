@@ -31,7 +31,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>QT6.4.1</QtInstall>
+    <QtInstall>C:\Qt\6.4.3\msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -114,6 +114,8 @@
     <ClCompile Include="Vibration.cpp" />
     <ClCompile Include="WidgetJeu.cpp" />
     <ClCompile Include="WidgetMenu.cpp" />
+    <ClCompile Include="WidgetPiano.cpp" />
+    <ClCompile Include="WidgetPointage.cpp" />
     <QtRcc Include="JeuP11.qrc" />
     <ClCompile Include="Bargraph.cpp" />
     <ClCompile Include="Boussole.cpp" />
@@ -140,6 +142,8 @@
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
+    <QtMoc Include="WidgetPiano.h" />
+    <QtMoc Include="WidgetPointage.h" />
     <QtMoc Include="WidgetJeu.h" />
     <QtMoc Include="WidgetMenu.h" />
     <QtMoc Include="Interface.h" />
@@ -168,6 +172,8 @@
     <QtUic Include="Interface.ui" />
     <QtUic Include="WidgetJeu.ui" />
     <QtUic Include="WidgetMenu.ui" />
+    <QtUic Include="WidgetPiano.ui" />
+    <QtUic Include="WidgetPointage.ui" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

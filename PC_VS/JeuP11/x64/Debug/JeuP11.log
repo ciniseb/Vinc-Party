@@ -1,12 +1,13 @@
-﻿  moc WidgetJeu.h
-  Interface.cpp
-  WidgetJeu.cpp
-  main.cpp
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\ThreadMoteur.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x1b5 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001). (compilation du fichier source Interface.cpp)
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\ThreadMoteur.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x1b5 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001). (compilation du fichier source WidgetJeu.cpp)
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\ThreadMoteur.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x1b5 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001). (compilation du fichier source main.cpp)
-  moc_Interface.cpp
-  moc_WidgetJeu.cpp
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\ThreadMoteur.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x1b5 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001). (compilation du fichier source x64\Debug\moc\moc_Interface.cpp)
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\ThreadMoteur.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x1b5 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001). (compilation du fichier source x64\Debug\moc\moc_WidgetJeu.cpp)
-  JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe
+﻿  Interface.cpp
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Interface.h(1,1): warning C4828: The file contains a character starting at offset 0xb1 that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Interface.h(1,1): warning C4828: The file contains a character starting at offset 0xfa that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\ThreadMoteur.h(1,1): warning C4828: The file contains a character starting at offset 0x1b5 that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetMenu.h(1,1): warning C4828: The file contains a character starting at offset 0xbd that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetMenu.h(1,1): warning C4828: The file contains a character starting at offset 0x11e that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetPointage.h(1,1): warning C4828: The file contains a character starting at offset 0xbd that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetPointage.h(1,1): warning C4828: The file contains a character starting at offset 0x11e that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetJeu.h(1,1): warning C4828: The file contains a character starting at offset 0xbd that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetJeu.h(1,1): warning C4828: The file contains a character starting at offset 0x11e that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetPiano.h(1,1): warning C4828: The file contains a character starting at offset 0xbd that is illegal in the current source character set (codepage 65001).
+C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetPiano.h(1,1): warning C4828: The file contains a character starting at offset 0x11e that is illegal in the current source character set (codepage 65001).
+  JeuP11.vcxproj -> C:\Users\Enes\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe

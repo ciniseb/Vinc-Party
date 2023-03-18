@@ -1,3 +1,15 @@
+/*====================================================================================================
+Fichier: Chronometre.h
+Auteurs: Antoine Allard
+		 Charles Beaulieu
+		 Émile Bois
+		 Enes Caku
+		 Zachari Gervais
+		 Anne-Sophie Nguyen
+		 Sébastien St-Denis
+		 Date: 18 mars 2023
+Description: 
+====================================================================================================*/
 #pragma once
 
 #include <QStackedWidget>
@@ -5,6 +17,8 @@
 #include "ThreadMoteur.h"
 #include "WidgetMenu.h"
 #include "WidgetJeu.h"
+#include "WidgetPiano.h"
+
 
 class Interface : public QStackedWidget
 {
@@ -21,4 +35,6 @@ private:
 
 	WidgetMenu* widgetMenu;
 	WidgetJeu* widgetJeu;
+	WidgetPointage* widgetPointage;
+	WidgetPiano* widgetPiano;
 };

@@ -1,3 +1,15 @@
+/*====================================================================================================
+Fichier: Chronometre.h
+Auteurs: Antoine Allard
+         Charles Beaulieu
+         Émile Bois
+         Enes Caku
+         Zachari Gervais
+         Anne-Sophie Nguyen
+         Sébastien St-Denis
+         Date: 18 mars 2023
+Description: UI du menu
+====================================================================================================*/
 #include "WidgetMenu.h"
 
 WidgetMenu::WidgetMenu(ThreadMoteur* thread, QWidget* parent)
@@ -6,6 +18,7 @@ WidgetMenu::WidgetMenu(ThreadMoteur* thread, QWidget* parent)
     ui.setupUi(this);
 
     threadMoteur = thread;
+
 
     //Connexions
     connect(threadMoteur, SIGNAL(menu_selection(int)), this, SLOT(selection(int)));
