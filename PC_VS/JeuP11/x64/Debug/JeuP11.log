@@ -1,34 +1,23 @@
 ﻿  FenetreJeu.cpp
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(392,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(404,39): error C2259: 'FenetreJeuPiano': cannot instantiate abstract class
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.h(33,7): message : see declaration of 'FenetreJeuPiano'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(404,39): message : due to following members:
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(404,39): message : 'void FenetreMiniJeu::initialiser(void)': is abstract
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMiniJeu.h(35,18): message : see declaration of 'FenetreMiniJeu::initialiser'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(405,39): error C2259: 'FenetreJeuPiano': cannot instantiate abstract class
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.h(33,7): message : see declaration of 'FenetreJeuPiano'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(405,39): message : due to following members:
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(405,39): message : 'void FenetreMiniJeu::initialiser(void)': is abstract
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMiniJeu.h(35,18): message : see declaration of 'FenetreMiniJeu::initialiser'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(406,39): error C2259: 'FenetreJeuPiano': cannot instantiate abstract class
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.h(33,7): message : see declaration of 'FenetreJeuPiano'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(406,39): message : due to following members:
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(406,39): message : 'void FenetreMiniJeu::initialiser(void)': is abstract
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMiniJeu.h(35,18): message : see declaration of 'FenetreMiniJeu::initialiser'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(407,39): error C2259: 'FenetreJeuPiano': cannot instantiate abstract class
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.h(33,7): message : see declaration of 'FenetreJeuPiano'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(407,39): message : due to following members:
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(407,39): message : 'void FenetreMiniJeu::initialiser(void)': is abstract
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMiniJeu.h(35,18): message : see declaration of 'FenetreMiniJeu::initialiser'
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(741,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  FenetreJeuPiano.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(178,29): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   FenetreMenu.cpp
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(23,39): error C2259: 'FenetreJeuMineur': cannot instantiate abstract class
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuMineur.h(38,7): message : see declaration of 'FenetreJeuMineur'
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(23,39): message : due to following members:
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(23,39): message : 'void FenetreMiniJeu::initialiser(void)': is abstract
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(20,33): error C2259: 'FenetreJeu': cannot instantiate abstract class
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.h(41,7): message : see declaration of 'FenetreJeu'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(20,33): message : due to following members:
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(20,33): message : 'void Fenetre::initialiser(void)': is abstract
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Fenetre.h(36,18): message : see declaration of 'Fenetre::initialiser'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(23,38): error C2259: 'FenetreJeuPeche': cannot instantiate abstract class
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.h(35,7): message : see declaration of 'FenetreJeuPeche'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(23,38): message : due to following members:
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(23,38): message : 'void FenetreMiniJeu::initialiser(void)': is abstract
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMiniJeu.h(35,18): message : see declaration of 'FenetreMiniJeu::initialiser'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(74,61): error C2259: 'FenetreJeu': cannot instantiate abstract class
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.h(41,7): message : see declaration of 'FenetreJeu'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(74,61): message : due to following members:
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.cpp(74,61): message : 'void Fenetre::initialiser(void)': is abstract
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Fenetre.h(36,18): message : see declaration of 'Fenetre::initialiser'
+  FenetrePointages.cpp
   JeuP11.cpp
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\JeuP11.cpp(39,17): error C2259: 'FenetreMenu': cannot instantiate abstract class
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.h(29,7): message : see declaration of 'FenetreMenu'
@@ -40,7 +29,24 @@ C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMenu.h(29,7
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\JeuP11.cpp(39,21): message : due to following members:
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\JeuP11.cpp(39,21): message : 'void Fenetre::initialiser(void)': is abstract
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Fenetre.h(36,18): message : see declaration of 'Fenetre::initialiser'
+  FenetreMiniJeu.cpp
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMiniJeu.cpp(32,9): warning C4552: '!': result of expression not used
   Tests.cpp
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(67,16): error C2259: 'FenetreJeu': cannot instantiate abstract class
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.h(41,7): message : see declaration of 'FenetreJeu'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(67,16): message : due to following members:
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(67,16): message : 'void Fenetre::initialiser(void)': is abstract
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Fenetre.h(36,18): message : see declaration of 'Fenetre::initialiser'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(67,22): error C2259: 'FenetreJeu': cannot instantiate abstract class
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.h(41,7): message : see declaration of 'FenetreJeu'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(67,22): message : due to following members:
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(67,22): message : 'void Fenetre::initialiser(void)': is abstract
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Fenetre.h(36,18): message : see declaration of 'Fenetre::initialiser'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(137,16): error C2259: 'FenetreJeu': cannot instantiate abstract class
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.h(41,7): message : see declaration of 'FenetreJeu'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(137,16): message : due to following members:
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(137,16): message : 'void Fenetre::initialiser(void)': is abstract
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Fenetre.h(36,18): message : see declaration of 'Fenetre::initialiser'
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(147,21): error C2259: 'FenetreJeuPiano': cannot instantiate abstract class
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.h(33,7): message : see declaration of 'FenetreJeuPiano'
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(147,21): message : due to following members:
@@ -51,5 +57,10 @@ C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.h(
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(147,26): message : due to following members:
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(147,26): message : 'void FenetreMiniJeu::initialiser(void)': is abstract
 C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMiniJeu.h(35,18): message : see declaration of 'FenetreMiniJeu::initialiser'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(151,13): error C2039: 'tests_FenetreJeuPeche': is not a member of 'Tests'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.h(25,7): message : see declaration of 'Tests'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(155,5): error C2065: 'FenetreJeuPeche': undeclared identifier
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(155,21): error C2146: syntax error: missing ';' before identifier 'peche'
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(155,21): error C3861: 'peche': identifier not found
+C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Tests.cpp(156,5): error C2065: 'peche': undeclared identifier
   Generating Code...
-C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(436): warning C4715: 'FenetreJeuPiano::VersBoutonPressee': not all control paths return a value

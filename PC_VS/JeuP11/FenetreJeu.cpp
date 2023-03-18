@@ -392,7 +392,7 @@ float FenetreJeu::distance(Coordonnee c1, Coordonnee c2)
     return sqrt((a*a) + (b*b));
 }
 
-void FenetreJeu::initialiser()
+/*void FenetreJeu::initialiser()
 {
     niveau = Niveau();
     niveau.niveauSuivant();
@@ -412,7 +412,7 @@ void FenetreJeu::initialiser()
 
     //Coordonnee pos_adversaire{ 32, 8 };//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{ "BOB", genererPosAdversaire()};
-}
+}*/
 
 void FenetreJeu::ouvrir()
 {

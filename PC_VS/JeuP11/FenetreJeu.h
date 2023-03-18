@@ -99,7 +99,7 @@ public:
 
     float distance(Coordonnee, Coordonnee);
 
-    void initialiser();
+    //void initialiser();
     void ouvrir();
     void jouer();
 
