@@ -161,7 +161,6 @@ bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
 
         bit = bitCount - chrono.tempsEcoule_ms();
         
-
         if (bit <= 0)
         {
             SetNote(bitCount/250);

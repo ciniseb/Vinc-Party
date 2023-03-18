@@ -59,6 +59,7 @@ void FenetreJeuPeche::ouvrir()
                     if (mouvement == PECHE && comptePretPecher <= 10)
                     {
                         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
+                        reussite = true;
                         return;
                     }
                 }
@@ -72,6 +73,7 @@ void FenetreJeuPeche::ouvrir()
         else if (bitCount >= 60)
         {
             threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
+            reussite = false;
             return;
         }
         //VerificationJoueurPoisson();
@@ -172,7 +174,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                         {
                             if (pretPecher == true)
                             {
-                                for (int k = 0; k <= foisReussi; k++)
+                                for (int k = 0; k <= 7; k++)
                                 {
                                 screen[k+1][j] = '=';
                                 }
@@ -236,7 +238,7 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
         if (bitCount >= bitPrecedent);
         {
 
-            bitPrecedent = bitCount++;
+            bitPrecedent = bitCount;
         }
         setPoisson();
         AffichageEcran(Jeu);

@@ -52,7 +52,7 @@ private:
     double tempsInit = 0;
     double tempsReussi = 0;
     double totalReussi = 0;
-    double bit;
+    double bit=0;
     double bitCount = 0;
     double bitPrecedent = 0;
     // Methodes
