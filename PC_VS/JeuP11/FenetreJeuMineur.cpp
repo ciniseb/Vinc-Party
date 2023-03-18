@@ -61,7 +61,7 @@ void FenetreJeuMineur::ouvrir()
                 //std::cout << "nbCOups final" << nbCoups;
                 if (nbCoups == 5)
                 {
-                    //reussite = true;
+                    reussite = true;
                     std::cout << "yeah gg" << std::endl;
                     //Sleep(1000);
                     demarrage = false;
@@ -71,7 +71,7 @@ void FenetreJeuMineur::ouvrir()
                 
         else if (chrono.tempsEcoule_s() > 11  && nbCoups != 5)
         {
-            //reussite = false;
+            reussite = false;
             SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
             echouer = true;
             std::cout << "booooooo 2                                                                ";
@@ -95,7 +95,7 @@ void FenetreJeuMineur::affichageEcran(int mode) {
     switch (mode)
     {
     case Menu:
-        std::cout << "Appuyez sur X, Y et Z pour commencer, vous avez 10 secondes :o" << std::endl << std::endl; // donnez un coup pour commencer - avec accelerometre
+        std::cout << "Creusez pour commencer (h/b clavier), vous avez 10 secondes :o" << std::endl << std::endl; // donnez un coup pour commencer - avec accelerometre
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if (i == 5 && j == 5) {
@@ -109,7 +109,7 @@ void FenetreJeuMineur::affichageEcran(int mode) {
         break;
     case Jeu:
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
-        std::cout << "Appuyez simultanement sur X, Y et Z pour creuser" << std::endl << std::endl;
+        std::cout << "Creusez jusqu'au diamant pour gagner!" << std::endl << std::endl;
         if (nbCoups == 0)
         {
             for (int i = 0; i < height; i++) {
