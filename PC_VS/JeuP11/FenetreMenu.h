@@ -30,7 +30,7 @@ class FenetreMenu : public Fenetre
 private:
     //Attributs
     Fenetre *fenetres[3];
-    int illegal = 0;
+
 public:
     //Constructeurs & destructeurs
     FenetreMenu(ES *);

@@ -12,16 +12,11 @@ Description: Fenetre du jeu mineur
 ====================================================================================================*/
 #include "FenetreJeuMineur.h"
 
-FenetreJeuMineur::FenetreJeuMineur(ES* thread): FenetreMiniJeu(thread)
-{
-    initialiser();
-}
-
+FenetreJeuMineur::FenetreJeuMineur(ES* thread): FenetreMiniJeu(thread) {initialiser();}
 FenetreJeuMineur::~FenetreJeuMineur() {}
 
 void FenetreJeuMineur::ouvrir()
 {
-
     bool demarrage = true;
     std::unique_ptr<Evenement> evenement;
     //int nbCoupsReussis = 0;
@@ -260,7 +255,12 @@ void FenetreJeuMineur::initialiser()
 {
     //TODO
     chrono = Chronometre();
-    nbCoups = 0;
+    nbCoups = 0; // compteur
+    bitCount = 0;
+    positionHaut = false;
+    positionBas = false;
+    enso = true;
+    echouer = false;
 }
 
 

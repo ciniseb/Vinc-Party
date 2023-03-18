@@ -402,9 +402,7 @@ void FenetreJeu::initialiser()
 
     //TODO : Charger les mini-jeux.
     mini_jeux[0] = new FenetreJeuPiano(threadArduino);
-    mini_jeux[1] = new FenetreJeuPiano(threadArduino);
-    mini_jeux[2] = new FenetreJeuPiano(threadArduino);
-    mini_jeux[3] = new FenetreJeuPiano(threadArduino);
+    mini_jeux[1] = new FenetreJeuMineur(threadArduino);
     //mini_jeux[1] = ...
     //mini_jeux[2] = ...
 
@@ -412,6 +410,8 @@ void FenetreJeu::initialiser()
 
     //Coordonnee pos_adversaire{ 32, 8 };//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{ "BOB", genererPosAdversaire()};
+
+    nb_affichages = 0;
 }
 
 void FenetreJeu::ouvrir()

@@ -45,13 +45,13 @@ private:
 	//Chronometre getTemps();
 	//void setTemps(Chronometre);
 
-	int nbCoups = 0; // compteur
+	int nbCoups; // compteur
 	double bit;
-	double bitCount = 0;
-	bool positionHaut = false;
-	bool positionBas = false;
-	bool enso = true;
-	bool echouer = false;
+	double bitCount;
+	bool positionHaut;
+	bool positionBas;
+	bool enso;
+	bool echouer;
 
 	void affichageEcran(int mode);
 	void variationAxe(TypeMotion variation);

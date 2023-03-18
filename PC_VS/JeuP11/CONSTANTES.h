@@ -15,9 +15,9 @@ Description: Constantes utiles à la compréhension du programme
 //Cheat codes
 #define ENNEMI_INNOFFENSIF true
 #define VISION_NOCTURNE true
-#define MODE_MOZART false
+#define MODE_MOZART true
 #define MODE_FLASH_MC_QUEEN true
-#define MODE_TERRAIN_VAGUE false
+#define MODE_TERRAIN_VAGUE true
 
 #define LARGEUR_CARTE 60
 #define HAUTEUR_CARTE 30
@@ -28,7 +28,7 @@ Description: Constantes utiles à la compréhension du programme
 #define PLEIN_VARIABLE -2
 #define MINI_JEU_VARIABLE 2
 
-#define NB_MINI_JEUX 4
+#define NB_MINI_JEUX 2
 
 #if MODE_FLASH_MC_QUEEN
     #define DT_DEPLACEMENT_JOUEUR 100 //Milisecondes

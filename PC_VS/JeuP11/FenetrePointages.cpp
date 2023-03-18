@@ -108,7 +108,7 @@ void FenetrePointages::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D)
+                if (lettreAppuyee == Dieu::JOYSTICK)
                 {
                     system("cls");
                     return;
