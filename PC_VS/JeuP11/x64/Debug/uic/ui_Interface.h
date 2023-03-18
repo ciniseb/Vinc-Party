@@ -23,7 +23,7 @@ public:
     {
         if (InterfaceClass->objectName().isEmpty())
             InterfaceClass->setObjectName("InterfaceClass");
-        InterfaceClass->resize(600, 400);
+        InterfaceClass->resize(1000, 700);
 
         retranslateUi(InterfaceClass);
 

@@ -11,7 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,18 +19,35 @@ QT_BEGIN_NAMESPACE
 class Ui_WidgetMenuClass
 {
 public:
-    QLabel *label;
+    QPushButton *bouton_jouer;
+    QPushButton *bouton_pointages;
+    QPushButton *bouton_quitter;
 
     void setupUi(QWidget *WidgetMenuClass)
     {
         if (WidgetMenuClass->objectName().isEmpty())
             WidgetMenuClass->setObjectName("WidgetMenuClass");
-        WidgetMenuClass->resize(405, 219);
-        label = new QLabel(WidgetMenuClass);
-        label->setObjectName("label");
-        label->setGeometry(QRect(150, 70, 91, 81));
+        WidgetMenuClass->resize(1000, 700);
+        bouton_jouer = new QPushButton(WidgetMenuClass);
+        bouton_jouer->setObjectName("bouton_jouer");
+        bouton_jouer->setGeometry(QRect(250, 230, 500, 50));
+        bouton_jouer->setCheckable(true);
+        bouton_jouer->setChecked(true);
+        bouton_jouer->setAutoDefault(false);
+        bouton_jouer->setFlat(false);
+        bouton_pointages = new QPushButton(WidgetMenuClass);
+        bouton_pointages->setObjectName("bouton_pointages");
+        bouton_pointages->setGeometry(QRect(250, 290, 500, 50));
+        bouton_pointages->setCheckable(true);
+        bouton_quitter = new QPushButton(WidgetMenuClass);
+        bouton_quitter->setObjectName("bouton_quitter");
+        bouton_quitter->setGeometry(QRect(250, 420, 500, 50));
+        bouton_quitter->setCheckable(true);
 
         retranslateUi(WidgetMenuClass);
+
+        bouton_jouer->setDefault(false);
+
 
         QMetaObject::connectSlotsByName(WidgetMenuClass);
     } // setupUi
@@ -38,7 +55,9 @@ public:
     void retranslateUi(QWidget *WidgetMenuClass)
     {
         WidgetMenuClass->setWindowTitle(QCoreApplication::translate("WidgetMenuClass", "WidgetMenu", nullptr));
-        label->setText(QCoreApplication::translate("WidgetMenuClass", "TextLabel", nullptr));
+        bouton_jouer->setText(QCoreApplication::translate("WidgetMenuClass", "Jouer", nullptr));
+        bouton_pointages->setText(QCoreApplication::translate("WidgetMenuClass", "Pointages", nullptr));
+        bouton_quitter->setText(QCoreApplication::translate("WidgetMenuClass", "Quitter", nullptr));
     } // retranslateUi
 
 };

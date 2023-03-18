@@ -37,7 +37,7 @@ void MoteurMenu::initialiser()
 
 void MoteurMenu::demarrer()
 {
-    std::unique_ptr<Evenement> evenement;
+    /*std::unique_ptr<Evenement> evenement;
     bool actif = true;
 
     int i = 0;
@@ -49,7 +49,7 @@ void MoteurMenu::demarrer()
         {
             break;
         }
-        mutex.unlock();*/
+        mutex.unlock();
 
         if (threadArduino->evenementDisponible())
         {
@@ -76,9 +76,9 @@ void MoteurMenu::demarrer()
             threadMoteur->msleep(100);
             emit threadMoteur->updateNumero(i++);
         }
-    }
-
-    /*std::unique_ptr<Evenement> evenement;
+    }*/
+    ////////////////////////////////////////////////////////////////////////////////////////
+    std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
     affichage_DEBUG(selection);
@@ -97,20 +97,28 @@ void MoteurMenu::demarrer()
                 {
                     if (selection == 0)
                     {
-#if DEMANDER_NOM
-                        std::cin.clear();
-                        std::cin.ignore(10000, '\n');
-
-                        system("cls");
-                        affichage_DEBUG(selection);
-
                         std::string nom_joueur;
-                        std::cout << "Nom du joueur : ";
-                        getline(std::cin, nom_joueur);
-                        std::cout << std::endl;
-#else
-                        std::string nom_joueur = "PeuplierBlanc";
-#endif // DEMANDER_NOM
+                        if (DEMANDER_NOM)
+                        {
+                            std::cin.clear();
+                            std::cin.ignore(10000, '\n');
+
+                            system("cls");
+                            affichage_DEBUG(selection);
+
+                            std::cout << "Nom du joueur : ";
+                            getline(std::cin, nom_joueur);
+                            std::cout << std::endl;
+                        }
+                        else
+                        {
+                            nom_joueur = "PeuplierBlanc";
+                        }
+
+                        if (!MODE_CONSOLE)
+                        {
+                            emit threadMoteur->menu_confirmation();
+                        }
                         
                         moteurs[selection] = new MoteurJeu(nom_joueur, threadArduino);
                     }
@@ -135,16 +143,32 @@ void MoteurMenu::demarrer()
                 if (direction == Direction::HAUT && (selection > 0))
                 {
                     selection--;
-                    affichage_DEBUG(selection);
+
+                    if (MODE_CONSOLE)
+                    {
+                        affichage_DEBUG(selection);
+                    }
+                    else
+                    {
+                        emit threadMoteur->menu_selection(selection);
+                    }
                 }
                 else if (direction == Direction::BAS && selection < 3)
                 {
                     selection++;
-                    affichage_DEBUG(selection);
+
+                    if (MODE_CONSOLE)
+                    {
+                        affichage_DEBUG(selection);
+                    }
+                    else
+                    {
+                        emit threadMoteur->menu_selection(selection);
+                    }
                 }
             }
         }
-    }*/
+    }
 }
 
 void MoteurMenu::affichage_DEBUG(int selection)

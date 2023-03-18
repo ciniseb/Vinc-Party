@@ -4,6 +4,7 @@
 #include "ui_Interface.h"
 #include "ThreadMoteur.h"
 #include "WidgetMenu.h"
+#include "WidgetJeu.h"
 
 class Interface : public QStackedWidget
 {
@@ -13,10 +14,11 @@ public:
 	Interface(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
 	~Interface();
 
-	ThreadMoteur* threadMoteur;
-
 private:
 	Ui::InterfaceClass ui;
 
+	ThreadMoteur* threadMoteur;
+
 	WidgetMenu* widgetMenu;
+	WidgetJeu* widgetJeu;
 };

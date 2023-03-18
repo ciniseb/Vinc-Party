@@ -20,5 +20,23 @@ public:
 	void run();
 	bool stop = false;
 signals:
+	/*=======================================================================================
+	-Écrire ses signals dans sa section
+	-Commencer le nom du signal avec le moteur en question et suivre d'une barre en bas (_)
+	=======================================================================================*/
+	//MoteurMenu
+	void menu_selection(int selection);
+	void menu_confirmation();
+
+	//MoteurJeu
+	
+
+	//MoteurJeuPiano
+	
+
+	//Moteur...
+	
+	
+	//Tests
 	void updateNumero(int valeur);
 };

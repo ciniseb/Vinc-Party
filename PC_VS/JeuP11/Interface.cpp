@@ -8,9 +8,14 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent)
 	threadMoteur = thread;
 
 	widgetMenu = new WidgetMenu(threadMoteur, this);
+	widgetJeu = new WidgetJeu(threadMoteur, this);
 
 	addWidget(widgetMenu);
+	addWidget(widgetJeu);
 }
 
 Interface::~Interface()
-{}
+{
+	delete threadMoteur;
+	delete widgetMenu;
+}

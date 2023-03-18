@@ -29,7 +29,7 @@ bool MoteurMiniJeu::reussi()
     bool reponse = reussite;
     if (reussite)
     {
-        !reussite;
+        reussite = false;
     }
 
     return reponse;

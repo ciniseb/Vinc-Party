@@ -19,7 +19,13 @@ MoteurJeu::MoteurJeu(std::string nom_joueur, ES *thread) : Moteur(thread)
     joueur.nom = nom_joueur;
     initialiser();
 }
-MoteurJeu::~MoteurJeu() {}
+MoteurJeu::~MoteurJeu()
+{
+    for (int i = 0 ; i < NB_MINI_JEUX ; i++)
+    {
+        delete mini_jeux[i];
+    }
+}
 
 //Getteurs & setteurs
 Niveau MoteurJeu::getNiveau()

@@ -112,6 +112,9 @@
     <ClCompile Include="WidgetMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WidgetJeu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
@@ -230,12 +233,18 @@
     <QtMoc Include="WidgetMenu.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="WidgetJeu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Interface.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="WidgetMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetJeu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

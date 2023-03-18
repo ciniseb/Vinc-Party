@@ -112,6 +112,7 @@
     <ClCompile Include="ThreadMoteur.cpp" />
     <ClCompile Include="Tuile.cpp" />
     <ClCompile Include="Vibration.cpp" />
+    <ClCompile Include="WidgetJeu.cpp" />
     <ClCompile Include="WidgetMenu.cpp" />
     <QtRcc Include="JeuP11.qrc" />
     <ClCompile Include="Bargraph.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
+    <QtMoc Include="WidgetJeu.h" />
     <QtMoc Include="WidgetMenu.h" />
     <QtMoc Include="Interface.h" />
     <ClInclude Include="Joystick.h" />
@@ -164,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Interface.ui" />
+    <QtUic Include="WidgetJeu.ui" />
     <QtUic Include="WidgetMenu.ui" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

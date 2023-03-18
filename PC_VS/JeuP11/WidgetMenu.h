@@ -18,6 +18,10 @@ private:
     Ui::WidgetMenuClass ui;
 
 public slots:
+    void selection(int);
+    void confirmation();
+
+    //Tests
     void numeroBouton(int);
 };
 
