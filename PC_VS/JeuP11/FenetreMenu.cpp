@@ -19,8 +19,8 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 {
     fenetres[0] = new FenetreJeu();
     fenetres[1] = new FenetrePointages(thread);
-    fenetres[2] = new FenetreTests(thread);
-    fenetres[3] = new FenetreJeuMineur(thread);
+    fenetres[2] = new FenetreCR(thread);
+    fenetres[3] = new FenetreJeuPeche(thread);
 }
 FenetreMenu::~FenetreMenu()
 {
@@ -76,6 +76,10 @@ void FenetreMenu::ouvrir()
                     fenetres[selection]->ouvrir();
                     system("cls");
                     affichage_DEBUG(selection);
+                    if (selection == 0)
+                    {
+                        
+                    }
                 }
                 else if (lettreAppuyee == Dieu::D && selection == 4)
                 {
@@ -114,45 +118,59 @@ void FenetreMenu::affichage_DEBUG(int selection)
     {
         std::cout << " ---> | Jouer" << std::endl;
         std::cout << "      | Pointages"  << std::endl;
-        std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Mineur" << std::endl << std::endl;
+        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Peche" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << " ---> | Pointages" << std::endl;
-        std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Mineur" << std::endl << std::endl;
+        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Peche" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
-        std::cout << " ---> | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Mineur" << std::endl << std::endl;
+        std::cout << " ---> | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Peche" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 3)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << " ---> | Mineur" << std::endl << std::endl;
+        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << " ---> | Peche" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
-
     else if (selection == 4)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
-        std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Mineur" << std::endl << std::endl;
+        std::cout << "      | Crossy Road" << std::endl << std::endl;
+        std::cout << "      | Peche" << std::endl << std::endl;
         std::cout << " ---> | Quitter" << std::endl;
     }
     else
     {
 
     }
+
+
+
+    //Triches en cours
+    std::cout << std::endl << std::endl;
+    if (ENNEMI_INNOFFENSIF) std::cout << "ENNEMI_INNOFENSIF" << std::endl;
+    if (MODE_CLAVIER) std::cout << "MODE_CLAVIER" << std::endl;
+    if (VISION_NOCTURNE) std::cout << "VISION_NOCTURNE" << std::endl; 
+    if (MODE_MOZART) std::cout << "MODE_MOZART" << std::endl;
+    if (MODE_FLASH_MC_QUEEN) std::cout << "MODE_FLASH_MC_QUEEN" << std::endl; 
+    if (MODE_TERRAIN_VAGUE) std::cout << "MODE_TERRAIN_VAGUE" << std::endl;
+
+
+
+
 }

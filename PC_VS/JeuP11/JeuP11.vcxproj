@@ -123,7 +123,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <Profile>true</Profile>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);winmm.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,7 +153,7 @@
     <ClCompile Include="Fenetre.cpp" />
     <ClCompile Include="FenetreCR.cpp" />
     <ClCompile Include="FenetreJeu.cpp" />
-    <ClCompile Include="FenetreJeuMineur.cpp" />
+    <ClCompile Include="FenetreJeuPeche.cpp" />
     <ClCompile Include="FenetreJeuPiano.cpp" />
     <ClCompile Include="FenetreMenu.cpp" />
     <ClCompile Include="FenetrePointages.cpp" />
@@ -186,12 +185,12 @@
     <ClInclude Include="Fenetre.h" />
     <ClInclude Include="FenetreCR.h" />
     <ClInclude Include="FenetreJeu.h" />
-    <ClInclude Include="FenetreJeuMineur.h" />
     <ClInclude Include="FenetreJeuPiano.h" />
     <ClInclude Include="FenetreMenu.h" />
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
+    <ClInclude Include="FenetreJeuPeche.h" />
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\serial\SerialPort.hpp" />
     <ClInclude Include="Joystick.h" />
