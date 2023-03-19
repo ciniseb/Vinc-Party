@@ -121,6 +121,12 @@
     <ClCompile Include="WidgetPiano.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WidgetPeche.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetMineur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
@@ -248,6 +254,12 @@
     <QtMoc Include="WidgetPiano.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="WidgetPeche.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetMineur.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Interface.ui">
@@ -263,6 +275,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="WidgetPiano.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetPeche.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WidgetMineur.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

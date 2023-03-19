@@ -27,11 +27,16 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent)
 	widgetJeu = new WidgetJeu(threadMoteur, this);
 	widgetPointage = new WidgetPointage(threadMoteur, this);
 	widgetPiano = new WidgetPiano(threadMoteur, this);
+	widgetPeche = new WidgetPeche(threadMoteur, this);
+	widgetMineur = new WidgetMineur(threadMoteur, this);
 
 	addWidget(widgetMenu);
 	addWidget(widgetJeu);
 	addWidget(widgetPointage);
 	addWidget(widgetPiano);
+	addWidget(widgetPeche);
+	addWidget(widgetMineur);
+
 
 	connect(threadMoteur, SIGNAL(selecPointage()), this, SLOT(uiPointage()));
 }	
@@ -57,4 +62,16 @@ void Interface::uiJeu()
 void Interface::uiPiano()
 {
 	setCurrentWidget(widgetPiano);
+}
+
+void Interface::uiPeche()
+{
+	setCurrentWidget(widgetPeche);
+
+}
+
+void Interface::uiMineur()
+{
+	setCurrentWidget(widgetMineur);
+
 }

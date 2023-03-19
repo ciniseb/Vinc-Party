@@ -114,6 +114,8 @@
     <ClCompile Include="Vibration.cpp" />
     <ClCompile Include="WidgetJeu.cpp" />
     <ClCompile Include="WidgetMenu.cpp" />
+    <ClCompile Include="WidgetMineur.cpp" />
+    <ClCompile Include="WidgetPeche.cpp" />
     <ClCompile Include="WidgetPiano.cpp" />
     <ClCompile Include="WidgetPointage.cpp" />
     <QtRcc Include="JeuP11.qrc" />
@@ -142,6 +144,8 @@
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
+    <QtMoc Include="WidgetMineur.h" />
+    <QtMoc Include="WidgetPeche.h" />
     <QtMoc Include="WidgetPiano.h" />
     <QtMoc Include="WidgetPointage.h" />
     <QtMoc Include="WidgetJeu.h" />
@@ -172,6 +176,8 @@
     <QtUic Include="Interface.ui" />
     <QtUic Include="WidgetJeu.ui" />
     <QtUic Include="WidgetMenu.ui" />
+    <QtUic Include="WidgetMineur.ui" />
+    <QtUic Include="WidgetPeche.ui" />
     <QtUic Include="WidgetPiano.ui" />
     <QtUic Include="WidgetPointage.ui" />
   </ItemGroup>

@@ -19,7 +19,8 @@ Description:
 #include "WidgetJeu.h"
 #include "WidgetPiano.h"
 #include "WidgetPointage.h"
-
+#include "WidgetMineur.h"
+#include "WidgetPeche.h"
 
 class Interface : public QStackedWidget
 {
@@ -34,6 +35,8 @@ private slots:
 	void uiPointage();
 	void uiJeu();
 	void uiPiano();
+	void uiPeche();
+	void uiMineur();
 
 private:
 	Ui::InterfaceClass ui;
@@ -44,6 +47,8 @@ private:
 	WidgetJeu* widgetJeu;
 	WidgetPointage* widgetPointage;
 	WidgetPiano* widgetPiano;
+	WidgetMineur* widgetMineur;
+	WidgetPeche* widgetPeche;
 
  
 };

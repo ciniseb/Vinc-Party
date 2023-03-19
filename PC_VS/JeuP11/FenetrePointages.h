@@ -24,7 +24,7 @@ Description:
 #include "Pointage.h"
 #include "Joystick.h"
 #include "Bouton.h"
-
+#include "ThreadMoteur.h"
 
 class MoteurPointages : public Moteur
 {
