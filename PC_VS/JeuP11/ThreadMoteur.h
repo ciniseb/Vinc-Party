@@ -39,14 +39,13 @@ signals:
 	//MoteurMenu
 	void menu_selection(int selection);
 	void menu_confirmation();
-
 	//MoteurJeu
 	
 
 	//MoteurJeuPiano
 	
 	//MoteurPointage
-	void pointage_ui();
+	void pointage_uiPointage();
 
 
 	//Moteur...

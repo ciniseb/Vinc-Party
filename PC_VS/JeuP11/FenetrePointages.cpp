@@ -92,7 +92,7 @@ void MoteurPointages::initialiser()
 void MoteurPointages::demarrer()
 {
     chargerPointages();
-    emit threadMoteur->pointage_ui();
+    emit threadMoteur->pointage_uiPointage();
 
     std::unique_ptr<Evenement> evenement;
     int selection = 0;

@@ -37,8 +37,8 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent)
 	addWidget(widgetPeche);
 	addWidget(widgetMineur);
 
+	connect(threadMoteur, SIGNAL(pointage_uiPointage()), this, SLOT(uiPointage()));
 
-	connect(threadMoteur, SIGNAL(selecPointage()), this, SLOT(uiPointage()));
 }	
 
 

@@ -32,7 +32,7 @@ struct qt_meta_stringdata_ThreadMoteur_t {
     char stringdata2[1];
     char stringdata3[10];
     char stringdata4[18];
-    char stringdata5[12];
+    char stringdata5[20];
     char stringdata6[13];
     char stringdata7[7];
 };
@@ -45,16 +45,16 @@ Q_CONSTINIT static const qt_meta_stringdata_ThreadMoteur_t qt_meta_stringdata_Th
         QT_MOC_LITERAL(28, 0),  // ""
         QT_MOC_LITERAL(29, 9),  // "selection"
         QT_MOC_LITERAL(39, 17),  // "menu_confirmation"
-        QT_MOC_LITERAL(57, 11),  // "pointage_ui"
-        QT_MOC_LITERAL(69, 12),  // "updateNumero"
-        QT_MOC_LITERAL(82, 6)   // "valeur"
+        QT_MOC_LITERAL(57, 19),  // "pointage_uiPointage"
+        QT_MOC_LITERAL(77, 12),  // "updateNumero"
+        QT_MOC_LITERAL(90, 6)   // "valeur"
     },
     "ThreadMoteur",
     "menu_selection",
     "",
     "selection",
     "menu_confirmation",
-    "pointage_ui",
+    "pointage_uiPointage",
     "updateNumero",
     "valeur"
 };
@@ -103,7 +103,7 @@ Q_CONSTINIT const QMetaObject ThreadMoteur::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'menu_confirmation'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'pointage_ui'
+        // method 'pointage_uiPointage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'updateNumero'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -120,7 +120,7 @@ void ThreadMoteur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->menu_selection((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 1: _t->menu_confirmation(); break;
-        case 2: _t->pointage_ui(); break;
+        case 2: _t->pointage_uiPointage(); break;
         case 3: _t->updateNumero((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
@@ -142,7 +142,7 @@ void ThreadMoteur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         }
         {
             using _t = void (ThreadMoteur::*)();
-            if (_t _q_method = &ThreadMoteur::pointage_ui; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ThreadMoteur::pointage_uiPointage; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 2;
                 return;
             }
@@ -201,7 +201,7 @@ void ThreadMoteur::menu_confirmation()
 }
 
 // SIGNAL 2
-void ThreadMoteur::pointage_ui()
+void ThreadMoteur::pointage_uiPointage()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
