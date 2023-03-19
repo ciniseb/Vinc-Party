@@ -102,24 +102,65 @@ void FenetreJeuPeche::AffichageEcran(int mode)
             for (int j = 0; j < 20; j++)
             {
 
-                if (i == 0 || i == 13)
+                /*if (i == 0 || i == 13)
                 {
                     screen[i][j] = '#';
-                }
-                else
+                }*/
+                if (j == 1)
                 {
-                    screen[i][j] = ' ';
+                   if (i == 0 || i == 13)
+                   {
+                    screen[i][j] = '#';
+                   }
+                   else
+                   {
+                       screen[i][j] = ' ';
+                   }
                 }
-                if (i == 0 || i == 13 || j == 0 || j == 2 || j == 17 || j == 19)
+                else if (j == 18)
+                {
+                    if (i == 0 || i == 10)
+                    {
+                        screen[i][j] = '#';
+                    }
+                    else
+                    {
+                        screen[i][j] = ' ';
+                    }
+                }
+                else if (i == 0 || i == 13 || j == 0 || j == 2)
                 {
                     if (j >= 3 && j <= 17)
                     {
+                        for (int k = 3; k < 17; k++)
+                        {
+                            screen[i][k] = ' ';
+                        }
+                    }
+                    if (j <= 3)
+                    {
+                        screen[i][j] = '#';
+                    }
+
+                }
+                else if (i == 0 || i == 10 || j == 17 || j == 19)
+                {
                     for (int k = 3; k < 17; k++)
                     {
                         screen[i][k] = ' ';
                     }
+                    if (j > 16 && j != 18)
+                    {
+                        for (int h = 0; h < 11; h++)
+                        {
+                            screen[h][j] = '#';
+                        }
+
                     }
-                   screen[i][j] = '#';
+                    for (int h = 11; h < 14; h++)
+                    {
+                        screen[h][j] = ' ';
+                    }
                 }
                 else
                 {
@@ -201,7 +242,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                 }
                 else
                 {
-                    if (i == 0 || i == 13 || j == 0 || j == 2 || j == 17 || j == 19)
+                    if (i == 0 || i == 13 || j == 0 || j == 2)
                     {
                         if (j >= 3 && j <= 17)
                         {
@@ -210,18 +251,31 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                                 screen[i][k] = ' ';
                             }
                         }
-                            screen[i][j] = '#';
+                        if (j <= 3)
+                        {
+                          screen[i][j] = '#';
+                        }
+  
                     }
                     else if (i == 0 || i == 10 || j == 17 || j == 19 )
                     {
-                        if (j >= 3 && j <= 17)
+                        for (int k = 3; k < 17; k++)
                         {
-                            for (int k = 3; k < 17; k++)
-                            {
-                                screen[i][k] = ' ';
-                            }
+                            screen[i][k] = ' ';
                         }
-                        screen[i][j] = '#';
+                        if (j > 16)
+                        {
+                            for (int h = 0; h < 11; h++)
+                            {
+                       screen[h][j] = '#';
+                            }
+ 
+                        }
+                        for (int h = 11; h < 14; h++)
+                        {
+                            screen[h][j] = ' ';
+                        }
+
                     }
                     else
                     {
