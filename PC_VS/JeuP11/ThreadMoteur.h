@@ -2,11 +2,11 @@
 Fichier: FenetrePointages.cpp
 Auteurs: Antoine Allard
 		 Charles Beaulieu
-		 Émile Bois
+		 ï¿½mile Bois
 		 Enes Caku
 		 Zachari Gervais
 		 Anne-Sophie Nguyen
-		 Sébastien St-Denis
+		 Sï¿½bastien St-Denis
 		 Date: 18 mars 2023
 Description:
 ====================================================================================================*/
@@ -33,7 +33,7 @@ public:
 	bool stop = false;
 signals:
 	/*=======================================================================================
-	-Écrire ses signals dans sa section
+	-ï¿½crire ses signals dans sa section
 	-Commencer le nom du signal avec le moteur en question et suivre d'une barre en bas (_)
 	=======================================================================================*/
 	void changementWidgetActif(int index);

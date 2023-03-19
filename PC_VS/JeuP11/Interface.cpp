@@ -2,11 +2,11 @@
 Fichier: FenetrePointages.h
 Auteurs: Antoine Allard
 		 Charles Beaulieu
-		 Émile Bois
+		 ï¿½mile Bois
 		 Enes Caku
 		 Zachari Gervais
 		 Anne-Sophie Nguyen
-		 Sébastien St-Denis
+		 Sï¿½bastien St-Denis
 		 Date: 18 mars 2023
 Description:
 ====================================================================================================*/
