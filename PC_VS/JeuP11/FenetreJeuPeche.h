@@ -31,6 +31,7 @@ Description: Mini-jeu de piano style Piano tiles
 #include "CONSTANTES.h"
 #include "QuadBargraph.h"
 #include "Accel.h"
+#include "Vibration.h"
 
 class FenetreJeuPeche : public FenetreMiniJeu
 {

@@ -50,6 +50,11 @@ void FenetreJeuPeche::ouvrir()
                 Direction lettreAppuyee = eJoystick->getDirection();
                 getJoueur(lettreAppuyee);
             }
+            if (pretPecher == true)
+            {
+            threadArduino->envoyerEvenement(std::make_unique<Vibration>());
+            }
+
             if (evenement->getCode() == ACCELEROMETRE)
             {
                 Accel* eAccel = static_cast<Accel*>(evenement.get());
@@ -174,7 +179,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                         {
                             if (pretPecher == true)
                             {
-                                for (int k = 0; k <= 7; k++)
+                                for (int k = 0; k <= 8; k++)
                                 {
                                 screen[k+1][j] = '=';
                                 }
@@ -185,7 +190,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                             }
                         }
                     }
-                    if (i == 0 || i == 13)
+                    if (i == 0 || i == 10)
                     {
                         screen[i][j] = '#';
                     }
@@ -206,6 +211,17 @@ void FenetreJeuPeche::AffichageEcran(int mode)
                             }
                         }
                             screen[i][j] = '#';
+                    }
+                    else if (i == 0 || i == 10 || j == 17 || j == 19 )
+                    {
+                        if (j >= 3 && j <= 17)
+                        {
+                            for (int k = 3; k < 17; k++)
+                            {
+                                screen[i][k] = ' ';
+                            }
+                        }
+                        screen[i][j] = '#';
                     }
                     else
                     {
