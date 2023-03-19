@@ -93,7 +93,7 @@ void MoteurMenu::demarrer()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::JOYSTICK && selection < 3 && selection >= 0)
+                if (lettreAppuyee == Dieu::JOYSTICK && selection < 2 && selection >= 0)
                 {
                     if (selection == 0)
                     {
@@ -114,23 +114,20 @@ void MoteurMenu::demarrer()
                         {
                             nom_joueur = "PeuplierBlanc";
                         }
-
-                        if (!MODE_CONSOLE)
-                        {
-                            emit threadMoteur->menu_confirmation();
-                        }
                         
                         moteurs[selection] = new MoteurJeu(nom_joueur, threadArduino);
                     }
-                    moteurs[selection]->demarrer();
-                    system("cls");
-                    affichage_DEBUG(selection);
-                    if (selection == 0)
+
+                    if (!MODE_CONSOLE)
                     {
-                        
+                        emit threadMoteur->changementWidgetActif(selection + 1);
                     }
+
+                    moteurs[selection]->demarrer();
+                    //system("cls");
+                    //affichage_DEBUG(selection);
                 }
-                else if (lettreAppuyee == Dieu::JOYSTICK && selection == 3)
+                else if (lettreAppuyee == Dieu::JOYSTICK && selection == 2)
                 {
                     exit(1);
                 }
@@ -153,7 +150,7 @@ void MoteurMenu::demarrer()
                         emit threadMoteur->menu_selection(selection);
                     }
                 }
-                else if (direction == Direction::BAS && selection < 3)
+                else if (direction == Direction::BAS && selection < 2)
                 {
                     selection++;
 
@@ -182,34 +179,20 @@ void MoteurMenu::affichage_DEBUG(int selection)
     if (selection == 0)
     {
         std::cout << " ---> | Jouer" << std::endl;
-        std::cout << "      | Pointages"  << std::endl;
-        std::cout << "      | Test hardware" << std::endl << std::endl;
+        std::cout << "      | Pointages"  << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << " ---> | Pointages" << std::endl;
-        std::cout << "      | Test hardware" << std::endl << std::endl;
+        std::cout << " ---> | Pointages" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" <<  std::endl;
-        std::cout << " ---> | Test hardware" << std::endl << std::endl;
-        std::cout << "      | Quitter" << std::endl;
-    }
-    else if (selection == 3)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" <<  std::endl;
-        std::cout << "      | Test hardware" << std::endl << std::endl;
+        std::cout << "      | Pointages" <<  std::endl << std::endl;
         std::cout << " ---> | Quitter" << std::endl;
-    }
-    else
-    {
-
     }
 
     //Triches en cours

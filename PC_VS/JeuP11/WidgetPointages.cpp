@@ -8,27 +8,19 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 18 mars 2023
-Description: UI de peche
+Description: UI des pointages
 ====================================================================================================*/
+#include "WidgetPointages.h"
 
-
-#pragma once
-
-#include <QWidget>
-#include "ui_WidgetPeche.h"
-#include "ThreadMoteur.h"
-
-
-class WidgetPeche : public QWidget
+WidgetPointages::WidgetPointages(ThreadMoteur* thread, QWidget* parent)
+	: QWidget(parent)
 {
-	Q_OBJECT
+	ui.setupUi(this);
 
-public:
-	WidgetPeche(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
-	~WidgetPeche();
+    threadMoteur = thread;
 
-    ThreadMoteur* threadMoteur;
+	//Connextion
+}
 
-private:
-	Ui::WidgetPecheClass ui;
-};
+WidgetPointages::~WidgetPointages()
+{}

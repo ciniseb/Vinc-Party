@@ -8,21 +8,19 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 18 mars 2023
-Description: UI du mineur
+Description: UI du piano
 ====================================================================================================*/
+#include "WidgetJeuPiano.h"
 
-
-#include "WidgetMineur.h"
-
-WidgetMineur::WidgetMineur(ThreadMoteur* thread, QWidget* parent)
+WidgetJeuPiano::WidgetJeuPiano(ThreadMoteur* thread, QWidget* parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
 
-	threadMoteur = thread;
+    threadMoteur = thread;
 
-	//Connexions
+    //Connexions
 }
 
-WidgetMineur::~WidgetMineur()
+WidgetJeuPiano::~WidgetJeuPiano()
 {}

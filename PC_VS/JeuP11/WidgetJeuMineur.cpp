@@ -8,19 +8,19 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 18 mars 2023
-Description: UI des pointages
+Description: UI du mineur
 ====================================================================================================*/
-#include "WidgetPointage.h"
+#include "WidgetJeuMineur.h"
 
-WidgetPointage::WidgetPointage(ThreadMoteur* thread, QWidget* parent)
+WidgetJeuMineur::WidgetJeuMineur(ThreadMoteur* thread, QWidget* parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
 
-    threadMoteur = thread;
+	threadMoteur = thread;
 
-	//Connextion
+	//Connexions
 }
 
-WidgetPointage::~WidgetPointage()
+WidgetJeuMineur::~WidgetJeuMineur()
 {}

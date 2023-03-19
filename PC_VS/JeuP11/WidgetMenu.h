@@ -31,11 +31,6 @@ private:
 
 public slots:
     void selection(int);
-    void confirmation();
-
-    //Tests
-    void numeroBouton(int);
-
 
 signals:
 

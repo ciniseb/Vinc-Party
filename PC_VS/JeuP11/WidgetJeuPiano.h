@@ -10,24 +10,22 @@ Auteurs: Antoine Allard
          Date: 18 mars 2023
 Description: UI du piano
 ====================================================================================================*/
-
-
 #pragma once
 
 #include <QWidget>
-#include "ui_WidgetPiano.h"
+#include "ui_WidgetJeuPiano.h"
 #include "ThreadMoteur.h"
 
-class WidgetPiano : public QWidget
+class WidgetJeuPiano : public QWidget
 {
 	Q_OBJECT
 
 public:
-	WidgetPiano(ThreadMoteur* thread = nullptr, QWidget *parent = nullptr);
-	~WidgetPiano();
+	WidgetJeuPiano(ThreadMoteur* thread = nullptr, QWidget *parent = nullptr);
+	~WidgetJeuPiano();
 
 	ThreadMoteur* threadMoteur;
 
 private:
-	Ui::WidgetPianoClass ui;
+	Ui::WidgetJeuPianoClass ui;
 };

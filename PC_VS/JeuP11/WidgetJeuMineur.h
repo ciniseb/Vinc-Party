@@ -8,25 +8,24 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 18 mars 2023
-Description: UI des pointages
+Description: UI du mineur
 ====================================================================================================*/
 #pragma once
 
 #include <QWidget>
-#include "ui_WidgetPointage.h"
+#include "ui_WidgetJeuMineur.h"
 #include "ThreadMoteur.h"
 
-
-class WidgetPointage : public QWidget
+class WidgetJeuMineur : public QWidget
 {
 	Q_OBJECT
 
 public:
-	WidgetPointage(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
-	~WidgetPointage();
+	WidgetJeuMineur(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
+	~WidgetJeuMineur();
 
     ThreadMoteur* threadMoteur;
 
 private:
-	Ui::WidgetPointageClass ui;
+	Ui::WidgetJeuMineurClass ui;
 };

@@ -115,16 +115,16 @@
     <ClCompile Include="WidgetJeu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WidgetPointage.cpp">
+    <ClCompile Include="WidgetPointages.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WidgetPiano.cpp">
+    <ClCompile Include="WidgetJeuPiano.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WidgetPeche.cpp">
+    <ClCompile Include="WidgetJeuPeche.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WidgetMineur.cpp">
+    <ClCompile Include="WidgetJeuMineur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -248,16 +248,16 @@
     <QtMoc Include="WidgetJeu.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="WidgetPointage.h">
+    <QtMoc Include="WidgetPointages.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="WidgetPiano.h">
+    <QtMoc Include="WidgetJeuPiano.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="WidgetPeche.h">
+    <QtMoc Include="WidgetJeuPeche.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="WidgetMineur.h">
+    <QtMoc Include="WidgetJeuMineur.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -271,16 +271,16 @@
     <QtUic Include="WidgetJeu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="WidgetPointage.ui">
+    <QtUic Include="WidgetPointages.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="WidgetPiano.ui">
+    <QtUic Include="WidgetJeuPiano.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="WidgetPeche.ui">
+    <QtUic Include="WidgetJeuPeche.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="WidgetMineur.ui">
+    <QtUic Include="WidgetJeuMineur.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

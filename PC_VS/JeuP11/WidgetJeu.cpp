@@ -10,8 +10,6 @@ Auteurs: Antoine Allard
          Date: 18 mars 2023
 Description: UI du jeu
 ====================================================================================================*/
-
-
 #include "WidgetJeu.h"
 
 WidgetJeu::WidgetJeu(ThreadMoteur* thread, QWidget* parent)

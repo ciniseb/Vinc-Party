@@ -8,21 +8,24 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 18 mars 2023
-Description: UI du piano
+Description: UI des pointages
 ====================================================================================================*/
+#pragma once
 
+#include <QWidget>
+#include "ui_WidgetPointages.h"
+#include "ThreadMoteur.h"
 
-#include "WidgetPiano.h"
-
-WidgetPiano::WidgetPiano(ThreadMoteur* thread, QWidget* parent)
-	: QWidget(parent)
+class WidgetPointages : public QWidget
 {
-	ui.setupUi(this);
+	Q_OBJECT
 
-    threadMoteur = thread;
+public:
+    WidgetPointages(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
+	~WidgetPointages();
 
-    //Connexions
-}
+    ThreadMoteur* threadMoteur;
 
-WidgetPiano::~WidgetPiano()
-{}
+private:
+	Ui::WidgetPointagesClass ui;
+};

@@ -8,25 +8,24 @@ Auteurs: Antoine Allard
          Anne-Sophie Nguyen
          Sébastien St-Denis
          Date: 18 mars 2023
-Description: UI du mineur
+Description: UI de peche
 ====================================================================================================*/
-
 #pragma once
 
 #include <QWidget>
-#include "ui_WidgetMineur.h"
+#include "ui_WidgetJeuPeche.h"
 #include "ThreadMoteur.h"
 
-class WidgetMineur : public QWidget
+class WidgetJeuPeche : public QWidget
 {
 	Q_OBJECT
 
 public:
-	WidgetMineur(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
-	~WidgetMineur();
+	WidgetJeuPeche(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
+	~WidgetJeuPeche();
 
     ThreadMoteur* threadMoteur;
 
 private:
-	Ui::WidgetMineurClass ui;
+	Ui::WidgetJeuPecheClass ui;
 };

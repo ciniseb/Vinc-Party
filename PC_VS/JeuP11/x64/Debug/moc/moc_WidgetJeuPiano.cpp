@@ -1,19 +1,18 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'WidgetPointage.h'
+** Meta object code from reading C++ file 'WidgetJeuPiano.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.3)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
 #include <memory>
-#include "../../../WidgetPointage.h"
-#include <QtGui/qtextcursor.h>
+#include "../../../WidgetJeuPiano.h"
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'WidgetPointage.h' doesn't include <QObject>."
+#error "The header file 'WidgetJeuPiano.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.4.3. It"
+#error "This file was generated using the moc from 6.4.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -26,22 +25,22 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
-struct qt_meta_stringdata_WidgetPointage_t {
+struct qt_meta_stringdata_WidgetJeuPiano_t {
     uint offsetsAndSizes[2];
     char stringdata0[15];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(sizeof(qt_meta_stringdata_WidgetPointage_t::offsetsAndSizes) + ofs), len 
-Q_CONSTINIT static const qt_meta_stringdata_WidgetPointage_t qt_meta_stringdata_WidgetPointage = {
+    uint(sizeof(qt_meta_stringdata_WidgetJeuPiano_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_WidgetJeuPiano_t qt_meta_stringdata_WidgetJeuPiano = {
     {
-        QT_MOC_LITERAL(0, 14)   // "WidgetPointage"
+        QT_MOC_LITERAL(0, 14)   // "WidgetJeuPiano"
     },
-    "WidgetPointage"
+    "WidgetJeuPiano"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_WidgetPointage[] = {
+Q_CONSTINIT static const uint qt_meta_data_WidgetJeuPiano[] = {
 
  // content:
       10,       // revision
@@ -57,20 +56,20 @@ Q_CONSTINIT static const uint qt_meta_data_WidgetPointage[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject WidgetPointage::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject WidgetJeuPiano::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_WidgetPointage.offsetsAndSizes,
-    qt_meta_data_WidgetPointage,
+    qt_meta_stringdata_WidgetJeuPiano.offsetsAndSizes,
+    qt_meta_data_WidgetJeuPiano,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_WidgetPointage_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_WidgetJeuPiano_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<WidgetPointage, std::true_type>
+        QtPrivate::TypeAndForceComplete<WidgetJeuPiano, std::true_type>
     >,
     nullptr
 } };
 
-void WidgetPointage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void WidgetJeuPiano::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     (void)_o;
     (void)_id;
@@ -78,20 +77,20 @@ void WidgetPointage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
     (void)_a;
 }
 
-const QMetaObject *WidgetPointage::metaObject() const
+const QMetaObject *WidgetJeuPiano::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *WidgetPointage::qt_metacast(const char *_clname)
+void *WidgetJeuPiano::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_WidgetPointage.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_WidgetJeuPiano.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int WidgetPointage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int WidgetJeuPiano::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     return _id;

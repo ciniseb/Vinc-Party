@@ -10,8 +10,6 @@ Auteurs: Antoine Allard
 		 Date: 18 mars 2023
 Description:
 ====================================================================================================*/
-
-
 #include "Interface.h"
 
 Interface::Interface(ThreadMoteur *thread, QWidget *parent)
@@ -20,58 +18,42 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent)
 
 	ui.setupUi(this);
 	
-
 	threadMoteur = thread;
 
 	widgetMenu = new WidgetMenu(threadMoteur, this);
 	widgetJeu = new WidgetJeu(threadMoteur, this);
-	widgetPointage = new WidgetPointage(threadMoteur, this);
-	widgetPiano = new WidgetPiano(threadMoteur, this);
-	widgetPeche = new WidgetPeche(threadMoteur, this);
-	widgetMineur = new WidgetMineur(threadMoteur, this);
+	widgetPointages = new WidgetPointages(threadMoteur, this);
+	widgetJeuPiano = new WidgetJeuPiano(threadMoteur, this);
+	widgetJeuPeche = new WidgetJeuPeche(threadMoteur, this);
+	widgetJeuMineur = new WidgetJeuMineur(threadMoteur, this);
 
 	addWidget(widgetMenu);
 	addWidget(widgetJeu);
-	addWidget(widgetPointage);
-	addWidget(widgetPiano);
-	addWidget(widgetPeche);
-	addWidget(widgetMineur);
+	addWidget(widgetPointages);
+	addWidget(widgetJeuPiano);
+	addWidget(widgetJeuPeche);
+	addWidget(widgetJeuMineur);
 
-
-	connect(threadMoteur, SIGNAL(selecPointage()), this, SLOT(uiPointage()));
+	//Connexions
+	connect(threadMoteur, SIGNAL(changementWidgetActif(int)), this, SLOT(setWidgetActif(int)));
 }	
 
 
 Interface::~Interface()
 {
+	//Enes, ne pas oublier de delete les pointeurs. Peut causer un memory leak.
 	delete threadMoteur;
+
 	delete widgetMenu;
-
+	delete widgetJeu;
+	delete widgetPointages;
+	delete widgetJeuPiano;
+	delete widgetJeuPeche;
+	delete widgetJeuMineur;
 }
 
-void Interface::uiPointage()
+//Slots
+void Interface::setWidgetActif(int index)
 {
-	setCurrentWidget(widgetPointage);
-}
-
-void Interface::uiJeu()
-{
-	setCurrentWidget(widgetJeu);
-}
-
-void Interface::uiPiano()
-{
-	setCurrentWidget(widgetPiano);
-}
-
-void Interface::uiPeche()
-{
-	setCurrentWidget(widgetPeche);
-
-}
-
-void Interface::uiMineur()
-{
-	setCurrentWidget(widgetMineur);
-
+	setCurrentIndex(index);
 }

@@ -22,8 +22,6 @@ WidgetMenu::WidgetMenu(ThreadMoteur* thread, QWidget* parent)
 
     //Connexions
     connect(threadMoteur, SIGNAL(menu_selection(int)), this, SLOT(selection(int)));
-    connect(threadMoteur, SIGNAL(menu_confirmation()), this, SLOT(confirmation()));
-    //connect(threadMoteur, SIGNAL(updateNumero(int)), this, SLOT(numeroBouton(int)));
 }
 
 WidgetMenu::~WidgetMenu()
@@ -55,25 +53,4 @@ void WidgetMenu::selection(int selection)
     default:
         break;
     }
-}
-void WidgetMenu::confirmation()
-{
-    if (ui.bouton_jouer->isChecked())
-    {
-        ui.bouton_jouer->animateClick();
-        //parentWidget->
-    }
-    else if (ui.bouton_pointages->isChecked())
-    {
-        ui.bouton_pointages->animateClick();
-    }
-    else if (ui.bouton_quitter->isChecked())
-    {
-        ui.bouton_quitter->animateClick();
-    }
-}
-
-void WidgetMenu::numeroBouton(int valeur)
-{
-    //ui.label->setText(QString::number(valeur));
 }

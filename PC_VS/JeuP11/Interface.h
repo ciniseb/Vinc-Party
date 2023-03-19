@@ -17,10 +17,10 @@ Description:
 #include "ThreadMoteur.h"
 #include "WidgetMenu.h"
 #include "WidgetJeu.h"
-#include "WidgetPiano.h"
-#include "WidgetPointage.h"
-#include "WidgetMineur.h"
-#include "WidgetPeche.h"
+#include "WidgetJeuPiano.h"
+#include "WidgetPointages.h"
+#include "WidgetJeuMineur.h"
+#include "WidgetJeuPeche.h"
 
 class Interface : public QStackedWidget
 {
@@ -30,13 +30,8 @@ public:
 	Interface(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
 	~Interface();
 
-
-private slots:
-	void uiPointage();
-	void uiJeu();
-	void uiPiano();
-	void uiPeche();
-	void uiMineur();
+public slots:
+	void setWidgetActif(int);
 
 private:
 	Ui::InterfaceClass ui;
@@ -45,10 +40,11 @@ private:
 
 	WidgetMenu* widgetMenu;
 	WidgetJeu* widgetJeu;
-	WidgetPointage* widgetPointage;
-	WidgetPiano* widgetPiano;
-	WidgetMineur* widgetMineur;
-	WidgetPeche* widgetPeche;
+	WidgetPointages* widgetPointages;
+
+	WidgetJeuPiano* widgetJeuPiano;
+	WidgetJeuMineur* widgetJeuMineur;
+	WidgetJeuPeche* widgetJeuPeche;
 
  
 };

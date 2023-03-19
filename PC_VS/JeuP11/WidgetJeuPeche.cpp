@@ -10,18 +10,17 @@ Auteurs: Antoine Allard
          Date: 18 mars 2023
 Description: UI de peche
 ====================================================================================================*/
+#include "WidgetJeuPeche.h"
 
-
-#include "WidgetPeche.h"
-
-WidgetPeche::WidgetPeche(ThreadMoteur* thread, QWidget* parent)
+WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+
     threadMoteur = thread;
 
     //Connexions
 }
 
-WidgetPeche::~WidgetPeche()
+WidgetJeuPeche::~WidgetJeuPeche()
 {}
