@@ -52,7 +52,7 @@ void FenetreJeuPeche::ouvrir()
             }
             if (pretPecher == true)
             {
-            threadArduino->envoyerEvenement(std::make_unique<Vibration>());
+                //threadArduino->envoyerEvenement(std::make_unique<Vibration>());
             }
 
             if (evenement->getCode() == ACCELEROMETRE)
@@ -61,7 +61,7 @@ void FenetreJeuPeche::ouvrir()
                 TypeMotion mouvement = eAccel->getType();
                 if (pretPecher == true)
                 {
-                    if (mouvement == PECHE && comptePretPecher <= 10)
+                    if (mouvement == MINER && comptePretPecher <= 10)
                     {
                         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                         reussite = true;
@@ -333,6 +333,8 @@ void FenetreJeuPeche::setPoisson()
     {
     if (firstscan == true)
     {
+        srand(time(NULL));
+
         nombre = (rand() % 10) + 2;
         positionPoisson = nombre;
         firstscan = false;
