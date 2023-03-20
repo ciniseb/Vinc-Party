@@ -8,8 +8,6 @@ class GestionAccel
 private:
     unsigned long DerniereMesure = 0;
     bool accelerationdetectee = false;
-    bool etatancien =false;
-    bool etatactuel = true;
     TypeMotion coup;
 
 public:

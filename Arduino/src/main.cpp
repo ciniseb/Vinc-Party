@@ -125,11 +125,9 @@ void loop() {
 
   if(gestionAccel.getAccelerationDetecte()){
     TypeMotion coup = gestionAccel.getCoup();
-    Accel acceleration = Accel(coup);
-    Serial.write(acceleration.dataOut());
-    Serial.print("Coup detecte");
-    
-    
+    Accel accel = Accel(coup);
+    Serial.write(accel.dataOut());
+    //Serial.print("Coup detecte");
   }
 
   while (Serial.available())
