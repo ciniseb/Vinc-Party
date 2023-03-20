@@ -30,9 +30,12 @@ Description: Mini-jeu de piano style Piano tiles
 #include "Accel.h"
 #include "FenetreMiniJeu.h"
 #include "CONSTANTES.h"
+#include "Bargraph.h"
+#include "QuadBargraph.h"
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
+#include "Vibration.h"
 
 
 class FenetreJeuMineur : public FenetreMiniJeu
@@ -42,23 +45,21 @@ private:
 #define Menu 0
 #define Jeu 1
 	Chronometre chrono;
-	//Chronometre getTemps();
-	//void setTemps(Chronometre);
 
-	int nbCoups; // compteur
+	int nbCoups = 0; // compteur
+	int nbVoulu = 5; // changer pour augmenter la difficulte
+	int tempsMax = 30; // changer pour augmenter la difficulte
 	double bit;
-	double bitCount;
-	bool positionHaut;
-	bool positionBas;
-	bool enso;
-	bool echouer;
+	double bitCount = 0;
+	bool positionHaut = false;
+	bool positionBas = false;
+	bool echouer = false;
 
 	void affichageEcran(int mode);
 	void variationAxe(TypeMotion variation);
 	int getCoup(); // accelerometre
 	void setCoup(int x); // accelerometre
 	bool Temps();
-
 
 public:
 	FenetreJeuMineur(ES* thread);
@@ -67,6 +68,5 @@ public:
 	void ouvrir();
 	void initialiser();
 };
-
 
 #endif
