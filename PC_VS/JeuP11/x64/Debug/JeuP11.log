@@ -1,5 +1,7 @@
-﻿  FenetreMenu.cpp
+﻿  FenetreJeuMineur.cpp
+  FenetreMenu.cpp
   JeuP11.cpp
+  Tests.cpp
   Generating Code...
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
 Accel.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
