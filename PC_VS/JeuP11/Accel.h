@@ -2,7 +2,7 @@
 #include "Evenement.h"
 enum TypeMotion
 {
-	PECHE,
+	RIEN,
 	MINER,
 };
 

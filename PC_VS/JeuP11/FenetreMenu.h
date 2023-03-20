@@ -30,7 +30,7 @@ class FenetreMenu : public Fenetre
 {
 private:
     //Attributs
-    Fenetre *fenetres[4];
+    Fenetre *fenetres[3];
 
 public:
     //Constructeurs & destructeurs

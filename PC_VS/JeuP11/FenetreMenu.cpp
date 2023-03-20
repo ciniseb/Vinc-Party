@@ -23,7 +23,7 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 }
 FenetreMenu::~FenetreMenu()
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 3; i++)
     {
         delete fenetres[i];
     }

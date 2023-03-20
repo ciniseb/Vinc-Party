@@ -25,20 +25,20 @@ FenetreJeuPeche::~FenetreJeuPeche()
 void FenetreJeuPeche::initialiser()
 {
     chrono = Chronometre();
-    int positionJoueur = 0;
-    int positionPoisson = 0;
-    int foisReussi = 0;
-    bool activation = true;
-    bool firstscan = true;
-    bool pretPecher = false;
-    int comptePretPecher = 0;
+    positionJoueur = 0;
+    positionPoisson = 0;
+    foisReussi = 0;
+    activation = true;
+    firstscan = true;
+    pretPecher = false;
+    comptePretPecher = 0;
 
-    double tempsInit = 0;
-    double tempsReussi = 0;
-    double totalReussi = 0;
-    double bit = 0;
-    double bitCount = 0;
-    double bitPrecedent = 0;
+    tempsInit = 0;
+    tempsReussi = 0;
+    totalReussi = 0;
+    bit = 0;
+    bitCount = 0;
+    bitPrecedent = 0;
 }
 
 void FenetreJeuPeche::ouvrir()
@@ -50,13 +50,12 @@ void FenetreJeuPeche::ouvrir()
     system("cls");
     AffichageEcran(Menu);
 
-
-
     while (true)
     {
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
+            std::cout << evenement->getCode() << std::endl;
             if (evenement->getCode() == JOYSTICK)
             {
                 if (demarrage)
@@ -71,7 +70,7 @@ void FenetreJeuPeche::ouvrir()
             }
             if (pretPecher == true)
             {
-            threadArduino->envoyerEvenement(std::make_unique<Vibration>());
+                //threadArduino->envoyerEvenement(std::make_unique<Vibration>());
             }
 
             if (evenement->getCode() == ACCELEROMETRE)
@@ -80,7 +79,7 @@ void FenetreJeuPeche::ouvrir()
                 TypeMotion mouvement = eAccel->getType();
                 if (pretPecher == true)
                 {
-                    if (mouvement == PECHE && comptePretPecher <= 10)
+                    if (mouvement == MINER && comptePretPecher <= 10)
                     {
                         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                         reussite = true;
@@ -89,7 +88,9 @@ void FenetreJeuPeche::ouvrir()
                 }
             }
         }
+
         Temps();
+
         if (foisReussi >= 10)
         {
             pretPecher = true;
@@ -322,7 +323,7 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
 
     bit = bitCount - chrono.tempsEcoule_s();
 
-    if (bit == 0 && bitCount < 30)
+    if (bit <= 0 && bitCount < 30)
     {
         if (bitCount >= bitPrecedent);
         {
@@ -352,6 +353,8 @@ void FenetreJeuPeche::setPoisson()
     {
     if (firstscan == true)
     {
+        srand(time(NULL));
+
         nombre = (rand() % 10) + 2;
         positionPoisson = nombre;
         firstscan = false;
@@ -434,6 +437,8 @@ void FenetreJeuPeche::setPoisson()
 
 void FenetreJeuPeche::getJoueur(Direction touche)
 {
+    if (pretPecher != true)
+    {
      switch(touche)
     { 
     case Direction::BAS:
@@ -452,6 +457,8 @@ void FenetreJeuPeche::getJoueur(Direction touche)
      {
          positionJoueur = 12;
      }
+    }
+
 }
 
 void FenetreJeuPeche::VerificationJoueurPoisson()

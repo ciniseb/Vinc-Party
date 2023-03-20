@@ -15,7 +15,7 @@ Description: Constantes utiles à la compréhension du programme
 //Cheat codes
 #define ENNEMI_INNOFFENSIF true
 #define VISION_NOCTURNE true
-#define MODE_MOZART true
+#define MODE_MOZART false
 #define MODE_FLASH_MC_QUEEN true
 #define MODE_TERRAIN_VAGUE true
 
