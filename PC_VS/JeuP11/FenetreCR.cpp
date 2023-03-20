@@ -15,16 +15,7 @@ Description:
 #include "CR_Vehicule.h"
 
 //Constructeurs & destructeurs
-FenetreCR::FenetreCR(ES* thread) : FenetreMiniJeu(thread) // Main du jeu
-{
-    vehicules[0] = new CR_Vehicule(10, 1, Vitesse::LENTE);
-    vehicules[1] = new CR_Vehicule(20, 15, Vitesse::NORMALE);
-    vehicules[2] = new CR_Vehicule(10, 5, Vitesse::LENTE);
-    vehicules[3] = new CR_Vehicule(10, 3, Vitesse::RAPIDE);
-    vehicules[4] = new CR_Vehicule(5, 1, Vitesse::LENTE);
-    vehicules[5] = new CR_Vehicule(10, 1, Vitesse::LENTE);
-    
-}
+FenetreCR::FenetreCR(ES* thread) : FenetreMiniJeu(thread) { initialiser(); }
 FenetreCR::~FenetreCR() {
     for (int i = 0; i < 6; i++)
     {
@@ -32,6 +23,16 @@ FenetreCR::~FenetreCR() {
     }
 }
 
+void FenetreCR::initialiser()
+{
+    //TODO
+    vehicules[0] = new CR_Vehicule(10, 1, Vitesse::LENTE);
+    vehicules[1] = new CR_Vehicule(20, 15, Vitesse::NORMALE);
+    vehicules[2] = new CR_Vehicule(10, 5, Vitesse::LENTE);
+    vehicules[3] = new CR_Vehicule(10, 3, Vitesse::RAPIDE);
+    vehicules[4] = new CR_Vehicule(5, 1, Vitesse::LENTE);
+    vehicules[5] = new CR_Vehicule(10, 1, Vitesse::LENTE);
+}
 
 void FenetreCR::ouvrir()
 {

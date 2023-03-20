@@ -13,7 +13,7 @@ Description:
 #include "FenetrePointages.h"
 
 //Constructeurs & destructeurs
-FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) {}
+FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) { initialiser(); }
 FenetrePointages::~FenetrePointages() {}
 
 //Getteurs & setteurs
@@ -84,6 +84,11 @@ bool FenetrePointages::enregistrerPointages()
     return false;
 }
 
+void FenetrePointages::initialiser()
+{
+    //TODO
+}
+
 void FenetrePointages::ouvrir()
 {
     chargerPointages();
@@ -103,7 +108,7 @@ void FenetrePointages::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D)
+                if (lettreAppuyee == Dieu::JOYSTICK)
                 {
                     system("cls");
                     return;

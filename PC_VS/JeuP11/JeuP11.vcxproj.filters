@@ -94,6 +94,9 @@
     <ClCompile Include="Muons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FenetreJeuMineur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FenetreMenu.h">
@@ -111,21 +114,6 @@
     <ClInclude Include="FenetreMiniJeu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Niveau.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tuile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Acteur.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CONSTANTES.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Coordonnee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Fenetre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -135,43 +123,7 @@
     <ClInclude Include="FenetreJeuPiano.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ES.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pointage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\serial\SerialPort.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\json.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Chronometre.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Tests.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Evenement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bouton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Joystick.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Accel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bargraph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vibration.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Boussole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FenetreCR.h">
@@ -181,10 +133,64 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FenetreJeuPeche.h">
+    <ClInclude Include="Accel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bargraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boussole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bouton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Acteur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chronometre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CONSTANTES.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordonnee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ES.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Evenement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Joystick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Niveau.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pointage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\serial\SerialPort.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tuile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vibration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="QuadBargraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Muons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreJeuMineur.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

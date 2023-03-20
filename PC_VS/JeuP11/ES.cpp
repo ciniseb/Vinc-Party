@@ -103,11 +103,19 @@ void ES::exec() {
         }
         V = tempV;
 
+        bool tempH = (GetKeyState('H') & 0x8000);
+        if (H != tempH && tempH == true) {
+            ajouterAuQueue(std::make_unique < Accel > (TypeMotion::PECHE));
+        }
+        H = tempH;
+
         bool tempB = (GetKeyState('B') & 0x8000);
         if (B != tempB && tempB == true) {
-            ajouterAuQueue(std::make_unique<Accel>(TypeMotion::PECHE));
+            ajouterAuQueue(std::make_unique<Accel>(TypeMotion::MINER));
         }
         B = tempB;
+
+
         ///
         /// !!!!ENTER == BOUTON D!!!! ////
         /// 

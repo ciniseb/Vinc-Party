@@ -33,6 +33,7 @@ public:
 
     //Méthodes
     virtual void ouvrir() = 0;
+    virtual void initialiser() = 0;
 };
 
 #endif
