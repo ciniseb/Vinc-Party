@@ -47,7 +47,7 @@ private:
 	Chronometre chrono;
 
 	int nbCoups = 0; // compteur
-	int nbVoulu = 5; // changer pour augmenter la difficulte
+	int nbVoulu = 8; // changer pour augmenter la difficulte
 	int tempsMax = 10; // changer pour augmenter la difficulte
 	double bit;
 	double bitCount = 0;

@@ -9,3 +9,4 @@ Bob;1;5;73
 Vincent;6;69;666
 Roger Laperdrie;1;32;2000
 PeuplierBlanc;4;2.05226;357
+PeuplierBlanc;4;1.73043;293
