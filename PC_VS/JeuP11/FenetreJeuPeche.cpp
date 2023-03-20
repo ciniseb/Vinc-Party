@@ -14,12 +14,31 @@ Description:
 
 FenetreJeuPeche::FenetreJeuPeche(ES* thread) : FenetreMiniJeu(thread) // Main du jeu
 {
-
+    initialiser();
 }
 
 FenetreJeuPeche::~FenetreJeuPeche()
 {
 
+}
+
+void FenetreJeuPeche::initialiser()
+{
+    chrono = Chronometre();
+    int positionJoueur;
+    int positionPoisson;
+    int foisReussi;
+    bool activation;
+    bool firstscan;
+    bool pretPecher;
+    int comptePretPecher;
+
+    double tempsInit;
+    double tempsReussi;
+    double totalReussi;
+    double bit;
+    double bitCount;
+    double bitPrecedent;
 }
 
 void FenetreJeuPeche::ouvrir()

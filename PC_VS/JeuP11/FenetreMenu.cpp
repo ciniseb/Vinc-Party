@@ -20,7 +20,6 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
     fenetres[0] = new FenetreJeu();
     fenetres[1] = new FenetrePointages(thread);
     fenetres[2] = new FenetreCR(thread);
-    fenetres[3] = new FenetreJeuPeche(thread);
 }
 FenetreMenu::~FenetreMenu()
 {
@@ -132,14 +131,6 @@ void FenetreMenu::affichage_DEBUG(int selection)
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 3)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Crossy Road" << std::endl << std::endl;
-        std::cout << " ---> | Peche" << std::endl << std::endl;
-        std::cout << "      | Quitter" << std::endl;
-    }
-    else if (selection == 4)
     {
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;

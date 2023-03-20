@@ -70,6 +70,7 @@ public:
     void setPoisson();
     void getJoueur(Direction touche);
     void VerificationJoueurPoisson();
+    void initialiser();
     //Méthodes
     void ouvrir();
 };
