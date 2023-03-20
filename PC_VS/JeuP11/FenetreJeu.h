@@ -50,14 +50,13 @@ private:
     int carte_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
     int nb_p_variables;
     int nb_mj_variables;
-    int jtanner = 0;
 
     Acteur joueur;
     Acteur adversaire;
 
     Chronometre temps;
 
-    double nb_affichages = 0;
+    double nb_affichages;
 
     double distanceEntreTuiles(int x1, int y1, int x2, int y2);
     PointCardinal directionMiniJeuPlusProche(int nbrJeux);

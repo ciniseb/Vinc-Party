@@ -19,8 +19,7 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 {
     fenetres[0] = new FenetreJeu();
     fenetres[1] = new FenetrePointages(thread);
-    fenetres[2] = new FenetreTests(thread);
-    fenetres[3] = new FenetreJeuMineur(thread);
+    fenetres[2] = new FenetreJeuPeche(thread);
 }
 FenetreMenu::~FenetreMenu()
 {
@@ -51,7 +50,7 @@ void FenetreMenu::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D && selection < 4 && selection >= 0)
+                if (lettreAppuyee == Dieu::D && selection < 3 && selection >= 0)
                 {
                     if (selection == 0)
                     {
@@ -77,7 +76,7 @@ void FenetreMenu::ouvrir()
                     system("cls");
                     affichage_DEBUG(selection);
                 }
-                else if (lettreAppuyee == Dieu::D && selection == 4)
+                else if (lettreAppuyee == Dieu::D && selection == 3)
                 {
                     exit(1);
                 }
@@ -115,7 +114,6 @@ void FenetreMenu::affichage_DEBUG(int selection)
         std::cout << " ---> | Jouer" << std::endl;
         std::cout << "      | Pointages"  << std::endl;
         std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Mineur" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 1)
@@ -123,7 +121,6 @@ void FenetreMenu::affichage_DEBUG(int selection)
         std::cout << "      | Jouer" << std::endl;
         std::cout << " ---> | Pointages" << std::endl;
         std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Mineur" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 2)
@@ -131,24 +128,13 @@ void FenetreMenu::affichage_DEBUG(int selection)
         std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
         std::cout << " ---> | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Mineur" << std::endl << std::endl;
         std::cout << "      | Quitter" << std::endl;
     }
     else if (selection == 3)
     {
         std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" << std::endl;
-        std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << " ---> | Mineur" << std::endl << std::endl;
-        std::cout << "      | Quitter" << std::endl;
-    }
-
-    else if (selection == 4)
-    {
-        std::cout << "      | Jouer" << std::endl;
         std::cout << "      | Pointages" <<  std::endl;
         std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Mineur" << std::endl << std::endl;
         std::cout << " ---> | Quitter" << std::endl;
     }
     else

@@ -24,13 +24,14 @@ Description:
 #include "Joystick.h"
 #include "Bouton.h"
 #include "FenetreCR.h"
+#include "FenetreJeuPeche.h"
 
 class FenetreMenu : public Fenetre
 {
 private:
     //Attributs
-    Fenetre *fenetres[3];
-    int illegal = 0;
+    Fenetre *fenetres[4];
+
 public:
     //Constructeurs & destructeurs
     FenetreMenu(ES *);

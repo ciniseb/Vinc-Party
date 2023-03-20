@@ -147,3 +147,11 @@ void Tests::tests_FenetreJeuPiano()
     FenetreJeuPiano piano(&thread);
     piano.ouvrir();
 }
+
+void Tests::tests_FenetreJeuPeche()
+{
+    ES thread;
+    thread.demarrer();
+    FenetreJeuPeche peche(&thread);
+    peche.ouvrir();
+}
