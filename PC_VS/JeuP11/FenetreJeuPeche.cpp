@@ -50,13 +50,12 @@ void FenetreJeuPeche::ouvrir()
     system("cls");
     AffichageEcran(Menu);
 
-
-
     while (true)
     {
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
+            std::cout << evenement->getCode() << std::endl;
             if (evenement->getCode() == JOYSTICK)
             {
                 if (demarrage)
@@ -89,7 +88,9 @@ void FenetreJeuPeche::ouvrir()
                 }
             }
         }
+
         Temps();
+
         if (foisReussi >= 10)
         {
             pretPecher = true;
@@ -322,7 +323,7 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
 
     bit = bitCount - chrono.tempsEcoule_s();
 
-    if (bit == 0 && bitCount < 30)
+    if (bit <= 0 && bitCount < 30)
     {
         if (bitCount >= bitPrecedent);
         {
@@ -352,6 +353,8 @@ void FenetreJeuPeche::setPoisson()
     {
     if (firstscan == true)
     {
+        srand(time(NULL));
+
         nombre = (rand() % 10) + 2;
         positionPoisson = nombre;
         firstscan = false;
