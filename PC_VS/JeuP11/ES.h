@@ -16,7 +16,7 @@
 
 
 
-#define MODE_CLAVIER true
+
 
 
 
