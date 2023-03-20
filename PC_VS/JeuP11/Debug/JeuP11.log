@@ -1,10 +1,9 @@
-﻿  FenetreJeuPeche.cpp
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(327,38): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
-C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(459,34): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
-  FenetreMenu.cpp
-  JeuP11.cpp
-  Tests.cpp
-  Génération de code en cours...
+﻿  FenetreMenu.cpp
 LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
 Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
+Vibration.obj : warning LNK4205: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage en cours pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
+Tuile.obj : warning LNK4205: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage en cours pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
+QuadBargraph.obj : warning LNK4205: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage en cours pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
+Pointage.obj : warning LNK4205: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage en cours pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
+FenetreJeuPeche.obj : warning LNK4205: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage en cours pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
   JeuP11.vcxproj -> C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe
