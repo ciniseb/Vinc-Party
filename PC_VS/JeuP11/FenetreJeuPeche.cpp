@@ -84,6 +84,12 @@ void FenetreJeuPeche::ouvrir()
                         reussite = true;
                         return;
                     }
+                    else if (comptePretPecher > 10)
+                    {
+                        threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
+                        reussite = false;
+                        return;
+                    }
 
                 }
             }

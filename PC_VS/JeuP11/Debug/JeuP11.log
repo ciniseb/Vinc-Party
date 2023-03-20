@@ -1,4 +1,7 @@
-﻿  FenetreJeuMineur.cpp
+﻿  FenetreJeuPeche.cpp
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(334,38): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(362,19): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(472,34): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
 LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
 Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
 Vibration.obj : warning LNK4204: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
