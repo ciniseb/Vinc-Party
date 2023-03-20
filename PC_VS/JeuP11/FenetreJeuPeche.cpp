@@ -61,7 +61,7 @@ void FenetreJeuPeche::ouvrir()
                 TypeMotion mouvement = eAccel->getType();
                 if (pretPecher == true)
                 {
-                    if (mouvement == PECHE && comptePretPecher <= 10)
+                    if (mouvement == MINER && comptePretPecher <= 10)
                     {
                         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                         reussite = true;

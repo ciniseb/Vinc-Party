@@ -11,7 +11,13 @@ Accel::~Accel() {
 
 char Accel::dataOut(){
     char data = 0b10000000;
-    data |= (type == MINER);
+    if (type == MINER)
+    {
+        data |= 0b00000001;
+        return data;
+    }
+    else  
+    data |= 0b00000000;
     return data;
 }
 

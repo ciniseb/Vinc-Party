@@ -1,8 +1,8 @@
 #pragma once
 enum TypeMotion
 {
-	PECHE,
 	MINER,
+	RIEN
 };
 
 

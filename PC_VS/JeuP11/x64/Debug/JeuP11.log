@@ -1,3 +1,7 @@
-﻿  FenetreJeu.cpp
-C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(348,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
-  JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe
+﻿  FenetreJeuPiano.cpp
+C:\Users\antoi\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(166,29): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\antoi\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(427): warning C4715: 'FenetreJeuPiano::VersBoutonPressee' : les chemins de contrôle ne retournent pas tous une valeur
+LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
+Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
+FenetreJeuPiano.obj : error LNK2019: symbole externe non résolu __imp_PlaySoundW référencé dans la fonction "public: virtual void __cdecl FenetreJeuPiano::ouvrir(void)" (?ouvrir@FenetreJeuPiano@@UEAAXXZ)
+C:\Users\antoi\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe : fatal error LNK1120: 1 externes non résolus
