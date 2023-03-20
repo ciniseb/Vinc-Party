@@ -13,15 +13,18 @@ Description:
 #include "Chronometre.h"
 
 //Constructeurs & destructeurs
-Chronometre::Chronometre() { actif = false; }
+Chronometre::Chronometre() { etat = Etat::Inactif; }
 Chronometre::~Chronometre() {}
 
 //Getteurs & setteurs
 double Chronometre::tempsEcoule_ms()
 {
-    t_actuel = std::chrono::steady_clock::now();
-
-    if(actif)
+    if(etat == Etat::Actif)
+    {
+        t_actuel = std::chrono::steady_clock::now();
+    }
+    
+    if(etat != Etat::Inactif)
     {
         std::chrono::duration<double, std::milli> t_ecoule = t_actuel - t_depart;
         return t_ecoule.count();
@@ -33,12 +36,15 @@ double Chronometre::tempsEcoule_ms()
 }
 double Chronometre::tempsEcoule_s()
 {
-    t_actuel = std::chrono::steady_clock::now();
+    if (etat == Etat::Actif)
+    {
+        t_actuel = std::chrono::steady_clock::now();
+    }
 
-    if(actif)
+    if (etat != Etat::Inactif)
     {
         std::chrono::duration<double, std::ratio<1>> t_ecoule = t_actuel - t_depart;
-        return round(t_ecoule.count());
+        return t_ecoule.count();
     }
     else
     {
@@ -47,12 +53,15 @@ double Chronometre::tempsEcoule_s()
 }
 double Chronometre::tempsEcoule_m()
 {
-    t_actuel = std::chrono::steady_clock::now();
+    if (etat == Etat::Actif)
+    {
+        t_actuel = std::chrono::steady_clock::now();
+    }
 
-    if(actif)
+    if (etat != Etat::Inactif)
     {
         std::chrono::duration<double, std::ratio<60>> t_ecoule = t_actuel - t_depart;
-        return round(t_ecoule.count());
+        return t_ecoule.count();
     }
     else
     {
@@ -64,14 +73,35 @@ double Chronometre::tempsEcoule_m()
 void Chronometre::demarrer()
 {
     t_depart = std::chrono::steady_clock::now();
-    actif = true;
+    etat = Etat::Actif;
+}
+void Chronometre::pause()
+{
+    if (etat == Etat::Actif)
+    {
+        etat = Etat::Pause;
+    }
+}
+void Chronometre::continuer()
+{
+    if (etat == Etat::Pause)
+    {
+        etat = Etat::Actif;
+    }
+}
+void Chronometre::arreter()
+{
+    etat = Etat::Inactif;
 }
 
 bool Chronometre::tempsAtteint_ms(double ms)
 {
-    t_actuel = std::chrono::steady_clock::now();
+    if (etat == Etat::Actif)
+    {
+        t_actuel = std::chrono::steady_clock::now();
+    }
 
-    if(actif)
+    if (etat != Etat::Inactif)
     {
         std::chrono::duration<double, std::milli> t_ecoule = t_actuel - t_depart;
         return ms < t_ecoule.count();

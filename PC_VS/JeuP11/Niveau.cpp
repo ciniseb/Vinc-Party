@@ -11,6 +11,9 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "niveau.h"
+#include <vector>
+#include <map>
+#include <random>
 
 //Constructeurs & destructeurs
 Niveau::Niveau()
@@ -75,12 +78,41 @@ int Niveau::getNB_Mj_Restants()
 {
     return (nb_mj_dispo - nb_mj_finis);
 }
-
 void Niveau::miniJeuReussi(int mj)
 {
     mjx_faits[mj] = true;
     nb_mj_finis++;
 }
+int Niveau::choixMiniJeu()
+{
+    std::vector<int> index_mjx;
+
+    for (int i = 0; i < NB_MINI_JEUX; i++)
+    {
+        if (!mjx_faits[i])
+        {
+            index_mjx.push_back(i);
+        }
+    }
+    std::cout << std::endl << "nb mjx : " << index_mjx.size() << std::endl;
+
+    if (index_mjx.empty())
+    {
+        srand(time(NULL));
+        int nb = (rand() % (NB_MINI_JEUX - 1));
+        std::cout << std::endl << "mj choisi : " << nb << std::endl;
+        return nb;
+    }
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(index_mjx.begin(), index_mjx.end(), g);
+
+    std::cout << std::endl << "mj choisi : " << index_mjx[0] << std::endl;
+
+    return index_mjx[0];
+}
+
 bool Niveau::niveauFinit()
 {
     if (nb_mj_finis == nb_mj_dispo)
@@ -101,32 +133,22 @@ bool Niveau::niveauSuivant()
     {
     case 1:
         nb_pleins_variables = 45;
-        nb_mj_dispo = 2;
+        nb_mj_dispo = 1;
         v_adversaire = 1;
         break;
     case 2:
-        nb_pleins_variables = 60;
-        nb_mj_dispo = 3;
-        v_adversaire = 1.05;
+        nb_pleins_variables = 70;
+        nb_mj_dispo = 2;
+        v_adversaire = 1.0666;
         break;
     case 3:
-        nb_pleins_variables = 75;
+        nb_pleins_variables = 95;
         nb_mj_dispo = 3;
-        v_adversaire = 1.1;
+        v_adversaire = 1.1333;
         break;
     case 4:
-        nb_pleins_variables = 90;
-        nb_mj_dispo = 4;
-        v_adversaire = 1.15;
-        break;
-    case 5:
-        nb_pleins_variables = 105;
-        nb_mj_dispo = 4;
-        v_adversaire = 1.15;
-        break;
-    case 6:
         nb_pleins_variables = 120;
-        nb_mj_dispo = 5;
+        nb_mj_dispo = 4;
         v_adversaire = 1.2;
         break;
     default:

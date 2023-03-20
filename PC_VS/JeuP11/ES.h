@@ -47,6 +47,7 @@ private:
     bool X = 0;
     bool C = 0;
     bool V = 0;
+    bool H = 0;
     bool B = 0;
     bool Enter = 0;
 #endif // MODE_CLAVIER
