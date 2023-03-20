@@ -19,7 +19,7 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 {
     fenetres[0] = new FenetreJeu();
     fenetres[1] = new FenetrePointages(thread);
-    fenetres[2] = new FenetreCR(thread);
+    fenetres[2] = new FenetreJeuMineur(thread);
 }
 FenetreMenu::~FenetreMenu()
 {
@@ -50,7 +50,7 @@ void FenetreMenu::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D && selection < 4 && selection >= 0)
+                if (lettreAppuyee == Dieu::D && selection < 3 && selection >= 0)
                 {
                     if (selection == 0)
                     {

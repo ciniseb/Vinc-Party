@@ -25,20 +25,20 @@ FenetreJeuPeche::~FenetreJeuPeche()
 void FenetreJeuPeche::initialiser()
 {
     chrono = Chronometre();
-    int positionJoueur;
-    int positionPoisson;
-    int foisReussi;
-    bool activation;
-    bool firstscan;
-    bool pretPecher;
-    int comptePretPecher;
+    int positionJoueur = 0;
+    int positionPoisson = 0;
+    int foisReussi = 0;
+    bool activation = true;
+    bool firstscan = true;
+    bool pretPecher = false;
+    int comptePretPecher = 0;
 
-    double tempsInit;
-    double tempsReussi;
-    double totalReussi;
-    double bit;
-    double bitCount;
-    double bitPrecedent;
+    double tempsInit = 0;
+    double tempsReussi = 0;
+    double totalReussi = 0;
+    double bit = 0;
+    double bitCount = 0;
+    double bitPrecedent = 0;
 }
 
 void FenetreJeuPeche::ouvrir()
@@ -113,7 +113,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
     switch (mode)
     {
     case Menu:
-        std::cout << "Appuyez sur Z,X,C ou V pour commencer" << '\n';
+        std::cout << "Appuyez sur A,S,D ou W pour commencer" << '\n';
         std::cout << "Ligne de peche   Barre de progression" << std::endl;
         for (int i = 0; i < 14; i++)
         {
@@ -191,7 +191,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
     case Jeu:
         if (pretPecher == false)
         {
-        std::cout << "Appuyez sur Z,C pour descendre X,V pour monter" << '\n';
+        std::cout << "Appuyez sur W pour descendre S pour monter" << '\n';
         }
         else
         {
