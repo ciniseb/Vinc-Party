@@ -15,5 +15,5 @@ public:
     void init();
     bool getMouvementDetecte();
     Direction getMouvement();
-    void rafraichir();
+    void rafraichir();   
 };

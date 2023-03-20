@@ -37,7 +37,7 @@ void GestionBoussole::commande(Boussole boussole){
         break;
     default:
         break;
-    }
+    } 
 }
 void GestionBoussole::init(){
     pinMode(LED_N_PIN,OUTPUT);
