@@ -105,7 +105,7 @@ void ES::exec() {
 
         bool tempH = (GetKeyState('H') & 0x8000);
         if (H != tempH && tempH == true) {
-            ajouterAuQueue(std::make_unique < Accel > (TypeMotion::RIEN));
+            ajouterAuQueue(std::make_unique < Accel > (TypeMotion::PECHE));
         }
         H = tempH;
 

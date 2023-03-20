@@ -42,7 +42,7 @@ Description: Constantes utiles à la compréhension du programme
 #define RAYON_VIBRATION 12
 
 
-#define MODE_CLAVIER true
+#define MODE_CLAVIER false
 
 enum class Dieu
 {

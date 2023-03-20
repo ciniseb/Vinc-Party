@@ -17,7 +17,7 @@ Accel::Accel(char data):Evenement(ACCELEROMETRE) {
 	if (code == 1)
 		type = MINER;
 	else
-		type = RIEN;
+		type = PECHE;
 }
 
 TypeMotion Accel::getType() {
@@ -26,7 +26,7 @@ TypeMotion Accel::getType() {
 
 std::string Accel::getDesciption() {
 	std::string type_str = "";
-	if (type == RIEN) {
+	if (type == PECHE) {
 		type_str = "PECHE";
 	}
 	else {

@@ -19,7 +19,7 @@ FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 {
     fenetres[0] = new FenetreJeu();
     fenetres[1] = new FenetrePointages(thread);
-    fenetres[2] = new FenetreJeuMineur(thread);
+    fenetres[2] = new FenetreJeuPeche(thread);
 }
 FenetreMenu::~FenetreMenu()
 {

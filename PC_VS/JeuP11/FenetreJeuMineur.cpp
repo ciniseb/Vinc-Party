@@ -64,7 +64,7 @@ void FenetreJeuMineur::ouvrir()
 
                 }
                 
-        else if (chrono.tempsEcoule_s() > 11  && nbCoups != 5)
+        else if (chrono.tempsEcoule_s() > 31  && nbCoups != 5)
         {
             reussite = false;
             SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
@@ -226,13 +226,15 @@ void FenetreJeuMineur::setCoup(int x) {
 }
 
 void FenetreJeuMineur::variationAxe(TypeMotion variation) {
-    if (variation == RIEN) {
+    if (variation == PECHE) {
         positionHaut = true;
         positionBas = false;
+        std::cout << "monte" << std::endl;
     }
     if (variation == MINER && positionHaut==true){
         positionBas = true;
         positionHaut = false;
+        std::cout << "descendu" << std::endl;
         nbCoups++;
     }
 }
