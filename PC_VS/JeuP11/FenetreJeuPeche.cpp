@@ -25,20 +25,20 @@ FenetreJeuPeche::~FenetreJeuPeche()
 void FenetreJeuPeche::initialiser()
 {
     chrono = Chronometre();
-    int positionJoueur = 0;
-    int positionPoisson = 0;
-    int foisReussi = 0;
-    bool activation = true;
-    bool firstscan = true;
-    bool pretPecher = false;
-    int comptePretPecher = 0;
+    positionJoueur = 0;
+    positionPoisson = 0;
+    foisReussi = 0;
+    activation = true;
+    firstscan = true;
+    pretPecher = false;
+    comptePretPecher = 0;
 
-    double tempsInit = 0;
-    double tempsReussi = 0;
-    double totalReussi = 0;
-    double bit = 0;
-    double bitCount = 0;
-    double bitPrecedent = 0;
+    tempsInit = 0;
+    tempsReussi = 0;
+    totalReussi = 0;
+    bit = 0;
+    bitCount = 0;
+    bitPrecedent = 0;
 }
 
 void FenetreJeuPeche::ouvrir()
@@ -437,6 +437,8 @@ void FenetreJeuPeche::setPoisson()
 
 void FenetreJeuPeche::getJoueur(Direction touche)
 {
+    if (pretPecher != true)
+    {
      switch(touche)
     { 
     case Direction::BAS:
@@ -455,6 +457,8 @@ void FenetreJeuPeche::getJoueur(Direction touche)
      {
          positionJoueur = 12;
      }
+    }
+
 }
 
 void FenetreJeuPeche::VerificationJoueurPoisson()

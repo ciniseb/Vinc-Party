@@ -226,7 +226,7 @@ void FenetreJeuMineur::setCoup(int x) {
 }
 
 void FenetreJeuMineur::variationAxe(TypeMotion variation) {
-    if (variation == PECHE) {
+    if (variation == RIEN) {
         positionHaut = true;
         positionBas = false;
     }
@@ -242,7 +242,7 @@ bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
     //std::cout << "Temps" << std::endl;   
     //system("cls");
     bit = bitCount - chrono.tempsEcoule_s();
-    if (bit == 0 && bitCount < 10) {
+    if (bit <= 0 && bitCount < 10) {
         bitCount++;
     }
 
@@ -253,7 +253,7 @@ bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
 
 void FenetreJeuMineur::initialiser()
 {
-    //TODO
+
     chrono = Chronometre();
     nbCoups = 0; // compteur
     bitCount = 0;
