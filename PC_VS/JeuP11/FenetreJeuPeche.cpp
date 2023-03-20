@@ -2,12 +2,12 @@
 Fichier: FenetreJeuPiano.cpp
 Auteurs: Antoine Allard
          Charles Beaulieu
-         Émile Bois
+         ï¿½mile Bois
          Enes Caku
          Zachari Gervais
          Anne-Sophie Nguyen
-         Sébastien St-Denis
-         Date: 05 février 2023
+         Sï¿½bastien St-Denis
+         Date: 05 fï¿½vrier 2023
 Description:
 ====================================================================================================*/
 #include "FenetreJeuPeche.h"
@@ -191,7 +191,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
     case Jeu:
         if (pretPecher == false)
         {
-        std::cout << "Appuyez sur W pour descendre S pour monter" << '\n';
+        std::cout << "Appuyez sur S pour descendre W pour monter" << '\n';
         }
         else
         {

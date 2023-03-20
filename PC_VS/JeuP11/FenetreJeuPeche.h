@@ -3,12 +3,12 @@
 Fichier: FenetreJeuPiano.h
 Auteurs: Antoine Allard
          Charles Beaulieu
-         Émile Bois
+         ï¿½mile Bois
          Enes Caku
          Zachari Gervais
          Anne-Sophie Nguyen
-         Sébastien St-Denis
-         Date: 05 février 2023
+         Sï¿½bastien St-Denis
+         Date: 05 fï¿½vrier 2023
 Description: Mini-jeu de piano style Piano tiles
 ====================================================================================================*/
 #ifndef FENETREJEUPECHE_H
@@ -42,7 +42,7 @@ private:
 #define Score 2
     Chronometre chrono;
     //Attribut
-    int positionJoueur ;
+    int positionJoueur;
     int positionPoisson;
     int foisReussi;
     bool activation;
@@ -58,7 +58,7 @@ private:
     double bitPrecedent;
     // Methodes
 
-    bool Temps(); // Gère le temps et l'appel des methodes
+    bool Temps(); // Gï¿½re le temps et l'appel des methodes
     void AffichageEcran(int mode); // affiche l'ecran et ses valeurs
 
 public:
@@ -71,7 +71,7 @@ public:
     void getJoueur(Direction touche);
     void VerificationJoueurPoisson();
     void initialiser();
-    //Méthodes
+    //Mï¿½thodes
     void ouvrir();
 };
 
