@@ -42,20 +42,20 @@ private:
 #define Score 2
     Chronometre chrono;
     //Attribut
-    int positionJoueur = 0;
-    int positionPoisson = 0;
-    int foisReussi = 0;
-    bool activation = true;
-    bool firstscan = true;
-    bool pretPecher = false;
-    int comptePretPecher = 0;
+    int positionJoueur;
+    int positionPoisson;
+    int foisReussi;
+    bool activation;
+    bool firstscan;
+    bool pretPecher;
+    int comptePretPecher;
 
-    double tempsInit = 0;
-    double tempsReussi = 0;
-    double totalReussi = 0;
-    double bit=0;
-    double bitCount = 0;
-    double bitPrecedent = 0;
+    double tempsInit;
+    double tempsReussi;
+    double totalReussi;
+    double bit;
+    double bitCount;
+    double bitPrecedent;
     // Methodes
 
     bool Temps(); // Gère le temps et l'appel des methodes
