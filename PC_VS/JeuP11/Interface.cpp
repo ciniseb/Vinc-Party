@@ -12,12 +12,8 @@ Description:
 ====================================================================================================*/
 #include "Interface.h"
 
-Interface::Interface(ThreadMoteur *thread, QWidget *parent)
-	: QStackedWidget(parent)
-{
-
-	ui.setupUi(this);
-	
+Interface::Interface(ThreadMoteur *thread, QWidget *parent) : QStackedWidget(parent)
+{	
 	threadMoteur = thread;
 
 	widgetMenu = new WidgetMenu(threadMoteur, this);
@@ -55,5 +51,9 @@ Interface::~Interface()
 //Slots
 void Interface::setWidgetActif(int index)
 {
+	if (currentIndex() == 0 && index == 1)
+	{
+		//TODO : page 352, Théorie C++
+	}
 	setCurrentIndex(index);
 }

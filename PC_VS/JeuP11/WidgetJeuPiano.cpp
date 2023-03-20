@@ -12,11 +12,8 @@ Description: UI du piano
 ====================================================================================================*/
 #include "WidgetJeuPiano.h"
 
-WidgetJeuPiano::WidgetJeuPiano(ThreadMoteur* thread, QWidget* parent)
-	: QWidget(parent)
+WidgetJeuPiano::WidgetJeuPiano(ThreadMoteur* thread, QWidget* parent) : QWidget(parent)
 {
-	ui.setupUi(this);
-
     threadMoteur = thread;
 
     //Connexions

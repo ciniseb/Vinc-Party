@@ -91,12 +91,11 @@ void Tests::tests_fenetrejeu()
 
     for (int i = 0 ; i < 6 ; i++)
     {
-
         niveau.niveauSuivant();
         partie.setNiveau(niveau);
         std::cout << niveau.getNumero() << std::endl;
         partie.genererCarte();
-        partie.affichage_DEBUG(std::cout);
+        partie.affichage(AFFICHAGE_COMPLET);
         std::cout << std::endl << std::endl;
     }
 }
@@ -115,7 +114,7 @@ void Tests::tests_fenetrePointages()
     f_pointages.ajoutPointage(Pointage("ANNE-SOPHIE", 6, 28));
     f_pointages.ajoutPointage(Pointage("Bob", 1, 5));*/
 
-    m_pointages.affichage_DEBUG(0);
+    m_pointages.affichage(0);
 }
 
 void assignerTableau(int t[3][3])

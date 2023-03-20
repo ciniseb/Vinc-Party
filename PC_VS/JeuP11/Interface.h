@@ -13,7 +13,6 @@ Description:
 #pragma once
 
 #include <QStackedWidget>
-#include "ui_Interface.h"
 #include "ThreadMoteur.h"
 #include "WidgetMenu.h"
 #include "WidgetJeu.h"
@@ -34,8 +33,6 @@ public slots:
 	void setWidgetActif(int);
 
 private:
-	Ui::InterfaceClass ui;
-
 	ThreadMoteur* threadMoteur;
 
 	WidgetMenu* widgetMenu;

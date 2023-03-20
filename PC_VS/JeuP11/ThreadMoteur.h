@@ -15,6 +15,7 @@ Description:
 #include <QThread>
 #include "ES.h"
 #include "Fenetre.h"
+#include "Coordonnee.h"
 
 class Moteur;
 class ThreadMoteur : public QThread
@@ -45,7 +46,10 @@ signals:
 
 
 	//MoteurJeu
-	
+	void jeuMAJ_Complet(std::string, int, std::string, int, int,  int[HAUTEUR_CARTE][LARGEUR_CARTE]);
+	void jeuMAJ_Temps(std::string);
+	void jeuMAJ_Adversaire(Coordonnee);
+	void jeuMAJ_Joueur(Coordonnee, int);
 
 	//MoteurJeuPiano
 

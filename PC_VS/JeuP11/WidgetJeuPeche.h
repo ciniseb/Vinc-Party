@@ -13,7 +13,6 @@ Description: UI de peche
 #pragma once
 
 #include <QWidget>
-#include "ui_WidgetJeuPeche.h"
 #include "ThreadMoteur.h"
 
 class WidgetJeuPeche : public QWidget
@@ -27,5 +26,6 @@ public:
     ThreadMoteur* threadMoteur;
 
 private:
-	Ui::WidgetJeuPecheClass ui;
+    //Attributs
+
 };

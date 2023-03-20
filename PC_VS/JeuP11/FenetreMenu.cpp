@@ -37,51 +37,10 @@ void MoteurMenu::initialiser()
 
 void MoteurMenu::demarrer()
 {
-    /*std::unique_ptr<Evenement> evenement;
-    bool actif = true;
-
-    int i = 0;
-    while (true)
-    {
-        /*QMutex mutex;
-        mutex.lock();
-        if (stop)
-        {
-            break;
-        }
-        mutex.unlock();
-
-        if (threadArduino->evenementDisponible())
-        {
-            evenement = threadArduino->prochainEvenement();
-
-            if (evenement->getCode() == BOUTON)
-            {
-                Bouton* eBouton = static_cast<Bouton*>(evenement.get());
-                Dieu lettreAppuyee = eBouton->getNom();
-
-                if (lettreAppuyee == Dieu::JOYSTICK && !threadMoteur->stop)
-                {
-                    threadMoteur->stop = true;
-                }
-                else if (lettreAppuyee == Dieu::JOYSTICK && threadMoteur->stop)
-                {
-                    threadMoteur->stop = false;
-                }
-            }
-        }
-
-        if (!threadMoteur->stop)
-        {
-            threadMoteur->msleep(100);
-            emit threadMoteur->updateNumero(i++);
-        }
-    }*/
-    ////////////////////////////////////////////////////////////////////////////////////////
     std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
-    affichage_DEBUG(selection);
+    affichage(selection);
     while(true)
     {
         if(threadArduino->evenementDisponible())
@@ -103,8 +62,7 @@ void MoteurMenu::demarrer()
                             std::cin.clear();
                             std::cin.ignore(10000, '\n');
 
-                            system("cls");
-                            affichage_DEBUG(selection);
+                            affichage(selection);
 
                             std::cout << "Nom du joueur : ";
                             getline(std::cin, nom_joueur);
@@ -123,9 +81,19 @@ void MoteurMenu::demarrer()
                         emit threadMoteur->changementWidgetActif(selection + 1);
                     }
 
+                    if (MODE_CONSOLE)
+                    {
+                        system("cls");
+                    }
+
                     moteurs[selection]->demarrer();
-                    //system("cls");
-                    //affichage_DEBUG(selection);
+
+                    if (MODE_CONSOLE)
+                    {
+                        system("cls");
+                    }
+
+                    affichage(selection);
                 }
                 else if (lettreAppuyee == Dieu::JOYSTICK && selection == 2)
                 {
@@ -139,68 +107,56 @@ void MoteurMenu::demarrer()
 
                 if (direction == Direction::HAUT && (selection > 0))
                 {
-                    selection--;
-
-                    if (MODE_CONSOLE)
-                    {
-                        affichage_DEBUG(selection);
-                    }
-                    else
-                    {
-                        emit threadMoteur->menu_selection(selection);
-                    }
+                    affichage(--selection);
                 }
                 else if (direction == Direction::BAS && selection < 2)
                 {
-                    selection++;
-
-                    if (MODE_CONSOLE)
-                    {
-                        affichage_DEBUG(selection);
-                    }
-                    else
-                    {
-                        emit threadMoteur->menu_selection(selection);
-                    }
+                    affichage(++selection);
                 }
             }
         }
     }
 }
 
-void MoteurMenu::affichage_DEBUG(int selection)
+void MoteurMenu::affichage(int selection)
 {
-    //system("cls");
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
+    if (MODE_CONSOLE)
+    {
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
-    std::cout << "------------------------------------------------" << std::endl;
-    std::cout << "               Le Chemin de Croix               " << std::endl;
-    std::cout << "------------------------------------------------" << std::endl;
-    if (selection == 0)
-    {
-        std::cout << " ---> | Jouer" << std::endl;
-        std::cout << "      | Pointages"  << std::endl << std::endl;
-        std::cout << "      | Quitter" << std::endl;
-    }
-    else if (selection == 1)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << " ---> | Pointages" << std::endl << std::endl;
-        std::cout << "      | Quitter" << std::endl;
-    }
-    else if (selection == 2)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" <<  std::endl << std::endl;
-        std::cout << " ---> | Quitter" << std::endl;
-    }
+        std::cout << "------------------------------------------------" << std::endl;
+        std::cout << "               Le Chemin de Croix               " << std::endl;
+        std::cout << "------------------------------------------------" << std::endl;
+        if (selection == 0)
+        {
+            std::cout << " ---> | Jouer" << std::endl;
+            std::cout << "      | Pointages" << std::endl << std::endl;
+            std::cout << "      | Quitter" << std::endl;
+        }
+        else if (selection == 1)
+        {
+            std::cout << "      | Jouer" << std::endl;
+            std::cout << " ---> | Pointages" << std::endl << std::endl;
+            std::cout << "      | Quitter" << std::endl;
+        }
+        else if (selection == 2)
+        {
+            std::cout << "      | Jouer" << std::endl;
+            std::cout << "      | Pointages" << std::endl << std::endl;
+            std::cout << " ---> | Quitter" << std::endl;
+        }
 
-    //Triches en cours
-    std::cout << std::endl << std::endl;
-    if (ENNEMI_INNOFFENSIF) std::cout << "ENNEMI_INNOFENSIF" << std::endl;
-    if (MODE_CLAVIER) std::cout << "MODE_CLAVIER" << std::endl;
-    if (VISION_NOCTURNE) std::cout << "VISION_NOCTURNE" << std::endl; 
-    if (MODE_MOZART) std::cout << "MODE_MOZART" << std::endl;
-    if (MODE_FLASH_MC_QUEEN) std::cout << "MODE_FLASH_MC_QUEEN" << std::endl; 
-    if (MODE_TERRAIN_VAGUE) std::cout << "MODE_TERRAIN_VAGUE" << std::endl;
+        //Triches en cours
+        std::cout << std::endl << std::endl;
+        if (ENNEMI_INNOFFENSIF) std::cout << "ENNEMI_INNOFENSIF" << std::endl;
+        if (MODE_CLAVIER) std::cout << "MODE_CLAVIER" << std::endl;
+        if (VISION_NOCTURNE) std::cout << "VISION_NOCTURNE" << std::endl;
+        if (MODE_MOZART) std::cout << "MODE_MOZART" << std::endl;
+        if (MODE_FLASH_MC_QUEEN) std::cout << "MODE_FLASH_MC_QUEEN" << std::endl;
+        if (MODE_TERRAIN_VAGUE) std::cout << "MODE_TERRAIN_VAGUE" << std::endl;
+    }
+    else
+    {
+        emit threadMoteur->menu_selection(selection);
+    }
 }

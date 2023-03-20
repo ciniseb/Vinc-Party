@@ -13,7 +13,6 @@ Description: UI du piano
 #pragma once
 
 #include <QWidget>
-#include "ui_WidgetJeuPiano.h"
 #include "ThreadMoteur.h"
 
 class WidgetJeuPiano : public QWidget
@@ -27,5 +26,6 @@ public:
 	ThreadMoteur* threadMoteur;
 
 private:
-	Ui::WidgetJeuPianoClass ui;
+    //Attributs
+
 };

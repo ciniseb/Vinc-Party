@@ -96,7 +96,7 @@ void MoteurPointages::demarrer()
     std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
-    affichage_DEBUG(selection);
+    affichage(selection);
     while (true)
     {
         if (threadArduino->evenementDisponible())
@@ -122,12 +122,12 @@ void MoteurPointages::demarrer()
                 if (direction == Direction::HAUT && (selection > 0))
                 {
                     selection--;
-                    affichage_DEBUG(selection);
+                    affichage(selection);
                 }
                 else if (direction == Direction::BAS && selection < 1)
                 {
                     selection++;
-                    affichage_DEBUG(selection);
+                    affichage(selection);
                 }
             }
         }
@@ -160,7 +160,7 @@ bool plusPetiteDistance(const Pointage& p1, const Pointage& p2)
         return p1.getNb_tuiles_parcourues() < p2.getNb_tuiles_parcourues();
     }
 }
-void MoteurPointages::affichage_DEBUG(int selection)
+void MoteurPointages::affichage(int selection)
 {
     system("cls");
 

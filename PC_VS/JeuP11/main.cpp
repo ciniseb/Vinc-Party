@@ -47,7 +47,7 @@ int main()
 
     ES threadArduino;
     threadArduino.demarrer();
-    FenetreMenu menu(&threadArduino);
+    MoteurMenu menu(&threadArduino);
 
     menu.demarrer();
 

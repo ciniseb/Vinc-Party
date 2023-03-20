@@ -13,7 +13,6 @@ Description: UI du mineur
 #pragma once
 
 #include <QWidget>
-#include "ui_WidgetJeuMineur.h"
 #include "ThreadMoteur.h"
 
 class WidgetJeuMineur : public QWidget
@@ -27,5 +26,6 @@ public:
     ThreadMoteur* threadMoteur;
 
 private:
-	Ui::WidgetJeuMineurClass ui;
+    //Attributs
+
 };

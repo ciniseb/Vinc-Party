@@ -13,8 +13,10 @@ Description: UI du menu
 #pragma once
 
 #include <QtWidgets/QWidget>
-#include "ui_WidgetMenu.h"
 #include "ThreadMoteur.h"
+#include <QGridLayout>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 class WidgetMenu : public QWidget
 {
@@ -27,7 +29,13 @@ public:
     ThreadMoteur* threadMoteur;
 
 private:
-    Ui::WidgetMenuClass ui;
+    //Attributs
+    QGridLayout *layout_principal;
+    QVBoxLayout *layout_boutons;
+
+    QPushButton *bouton_jouer;
+    QPushButton *bouton_pointages;
+    QPushButton *bouton_quitter;
 
 public slots:
     void selection(int);

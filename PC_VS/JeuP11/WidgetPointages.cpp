@@ -12,11 +12,8 @@ Description: UI des pointages
 ====================================================================================================*/
 #include "WidgetPointages.h"
 
-WidgetPointages::WidgetPointages(ThreadMoteur* thread, QWidget* parent)
-	: QWidget(parent)
+WidgetPointages::WidgetPointages(ThreadMoteur* thread, QWidget* parent) : QWidget(parent)
 {
-	ui.setupUi(this);
-
     threadMoteur = thread;
 
 	//Connextion

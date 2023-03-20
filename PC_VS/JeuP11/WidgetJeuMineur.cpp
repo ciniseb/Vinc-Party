@@ -12,11 +12,8 @@ Description: UI du mineur
 ====================================================================================================*/
 #include "WidgetJeuMineur.h"
 
-WidgetJeuMineur::WidgetJeuMineur(ThreadMoteur* thread, QWidget* parent)
-	: QWidget(parent)
+WidgetJeuMineur::WidgetJeuMineur(ThreadMoteur* thread, QWidget* parent) : QWidget(parent)
 {
-	ui.setupUi(this);
-
 	threadMoteur = thread;
 
 	//Connexions

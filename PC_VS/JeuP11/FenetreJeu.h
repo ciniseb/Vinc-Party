@@ -99,9 +99,8 @@ public:
 
     void initialiser();
     void demarrer();
-    void jouer();
 
-    void affichage_DEBUG(std::ostream &);
+    void affichage(int);
     bool modeChasse();
     bool scanBFS(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
     void modeSuiveurAdversaire(int[HAUTEUR_CARTE][LARGEUR_CARTE]);

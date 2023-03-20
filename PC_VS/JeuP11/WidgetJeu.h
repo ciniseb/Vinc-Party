@@ -13,7 +13,6 @@ Description: UI du jeu
 #pragma once
 
 #include <QWidget>
-#include "ui_WidgetJeu.h"
 #include "ThreadMoteur.h"
 
 class WidgetJeu : public QWidget
@@ -27,5 +26,6 @@ public:
 	ThreadMoteur* threadMoteur;
 
 private:
-	Ui::WidgetJeuClass ui;
+    //Attributs
+
 };

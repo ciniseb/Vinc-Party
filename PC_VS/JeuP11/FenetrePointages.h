@@ -49,7 +49,7 @@ public:
     void initialiser();
     void demarrer();
 
-    void affichage_DEBUG(int);
+    void affichage(int);
 };
 
 #endif

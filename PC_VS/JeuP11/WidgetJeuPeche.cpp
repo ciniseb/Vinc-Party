@@ -12,11 +12,8 @@ Description: UI de peche
 ====================================================================================================*/
 #include "WidgetJeuPeche.h"
 
-WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent)
-	: QWidget(parent)
+WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent) : QWidget(parent)
 {
-	ui.setupUi(this);
-
     threadMoteur = thread;
 
     //Connexions

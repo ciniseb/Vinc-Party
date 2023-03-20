@@ -13,7 +13,6 @@ Description: UI des pointages
 #pragma once
 
 #include <QWidget>
-#include "ui_WidgetPointages.h"
 #include "ThreadMoteur.h"
 
 class WidgetPointages : public QWidget
@@ -27,5 +26,6 @@ public:
     ThreadMoteur* threadMoteur;
 
 private:
-	Ui::WidgetPointagesClass ui;
+    //Attributs
+
 };

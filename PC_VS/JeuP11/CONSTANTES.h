@@ -13,11 +13,11 @@ Description: Constantes utiles à la compréhension du programme
 #pragma once
 
 //Cheat codes
-#define ENNEMI_INNOFFENSIF true
+#define ENNEMI_INNOFFENSIF false
 #define VISION_NOCTURNE true
 #define MODE_MOZART false
-#define MODE_FLASH_MC_QUEEN true
-#define MODE_TERRAIN_VAGUE true
+#define MODE_FLASH_MC_QUEEN false
+#define MODE_TERRAIN_VAGUE false
 
 #define LARGEUR_CARTE 60
 #define HAUTEUR_CARTE 30
@@ -27,6 +27,8 @@ Description: Constantes utiles à la compréhension du programme
 #define MINI_JEU 1
 #define PLEIN_VARIABLE -2
 #define MINI_JEU_VARIABLE 2
+#define ADVERSAIRE -3
+#define JOUEUR 3
 
 #define NB_MINI_JEUX 4
 
@@ -59,3 +61,9 @@ enum class Etat
     Inactif,
     Pause
 };
+
+//Affichage FenetreJeu
+#define AFFICHAGE_COMPLET 0
+#define AFFICHAGE_TEMPS 1
+#define AFFICHAGE_ADVERSAIRE 2
+#define AFFICHAGE_JOUEUR 3

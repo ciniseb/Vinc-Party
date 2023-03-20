@@ -400,6 +400,9 @@ float MoteurJeu::distance(Coordonnee c1, Coordonnee c2)
 
 void MoteurJeu::initialiser()
 {
+    nb_p_variables = 0;
+    nb_mj_variables = 0;
+
     niveau = Niveau();
     niveau.niveauSuivant();
 
@@ -422,13 +425,8 @@ void MoteurJeu::initialiser()
 
 void MoteurJeu::demarrer()
 {
-    jouer();
-}
-void MoteurJeu::jouer()
-{
     temps.demarrer();
-    system("cls");
-    affichage_DEBUG(std::cout);
+    affichage(AFFICHAGE_COMPLET);
 
     int mj_actif = niveau.choixMiniJeu();
     double dernier_t = 0;
@@ -444,9 +442,9 @@ void MoteurJeu::jouer()
     while (true)
     {
         //Mise à jour du temps de jeu à l'écran
-        if (temps.tempsAtteint_ms(dernier_t+1000))
+        if (temps.tempsAtteint_ms(dernier_t + 1000))
         {
-            affichage_DEBUG(std::cout);
+            affichage(AFFICHAGE_TEMPS);
             dernier_t += 1000;
         }
 
@@ -460,14 +458,14 @@ void MoteurJeu::jouer()
         //Déplacement de l'adversaire
         if (deplacementAdversaire())
         {
-            affichage_DEBUG(std::cout);
+            affichage(AFFICHAGE_ADVERSAIRE);
         }
 
         //Mise à jour du déplacement du joueur
         if (directionActuelle != AUCUNE && deplacementJoueur(directionActuelle))
         {
             joueur.nb_tuiles_parcourues++;
-            affichage_DEBUG(std::cout);
+            affichage(AFFICHAGE_JOUEUR);
 
             //Determiner direction boussole;
             pointCardinalActuel = directionMiniJeuPlusProche(niveau.getNB_Mj_Restants());
@@ -485,7 +483,7 @@ void MoteurJeu::jouer()
 
             if (evenement->getCode() == JOYSTICK)
             {
-                Joystick *eJoystick = static_cast<Joystick*>(evenement.get());
+                Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
                 directionActuelle = eJoystick->getDirection();
             }
         }
@@ -504,6 +502,16 @@ void MoteurJeu::jouer()
             pointCardinalAncien = OFF;
             directionActuelle = AUCUNE;
 
+            if (!MODE_CONSOLE)
+            {
+                emit threadMoteur->changementWidgetActif(mj_actif + 3);
+            }
+
+            if (MODE_CONSOLE)
+            {
+                system("cls");
+            }
+
             mini_jeux[mj_actif]->demarrer();
 
             if (mini_jeux[mj_actif]->reussi())
@@ -520,6 +528,12 @@ void MoteurJeu::jouer()
                     else
                     {
                         Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m(), joueur.nb_tuiles_parcourues).enregistrerPointage();
+
+                        if (!MODE_CONSOLE)
+                        {
+                            emit threadMoteur->changementWidgetActif(0);
+                        }
+
                         return;
                     }
                 }
@@ -533,62 +547,122 @@ void MoteurJeu::jouer()
             mj_actif = niveau.choixMiniJeu();
             carte[joueur.position.Y][joueur.position.X].setRemplissage(VIDE);
 
-            affichage_DEBUG(std::cout);
+            if (MODE_CONSOLE)
+            {
+                system("cls");
+            }
+
+            affichage(AFFICHAGE_COMPLET);
         }
     }
 }
 
-void MoteurJeu::affichage_DEBUG(std::ostream &flux)
+void MoteurJeu::affichage(int selection)
 {
-    int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
-    int nb_p_variables = 0;
-    int nb_mj_variables = 0;
-    chargerGabaritCarte(c_gabarit, &nb_p_variables, &nb_mj_variables);
-
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
-
-    std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
-    std::cout << "  Joueur : " << joueur.nom << "  |  " << "Distance parcourue : " << joueur.nb_tuiles_parcourues << "  |  temps de jeu : " << temps << "  |  Niveau : " << niveau.getNumero() << "  |  " << niveau.getNB_Mj_Restants() << " (!!)" << std::endl;
-    std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
-
-    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    if (MODE_CONSOLE)
     {
-        for (int c = 0; c < LARGEUR_CARTE; c++)
-        {
-            if (distance(joueur.position, {c, r}) > RAYON_VISION && !VISION_NOCTURNE)
-            {
-                flux << "  ";
-            }
-            else if (joueur.position.X == c && joueur.position.Y == r)
-            {
-                flux << "**";
-            }
-            else if (adversaire.position.X == c && adversaire.position.Y == r)
-            {
-                flux << "XX";
-            }
-            /*else if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
-            {
-                flux << "HH";
-            }*/
-            else if (carte[r][c].getRemplissage() == PLEIN)
-            {
-                flux << char(219) << char(219);
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
-            }
-            else if (carte[r][c].getRemplissage() == VIDE)
+        std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
+        std::cout << "  Joueur : " << joueur.nom << "  |  " << "Distance parcourue : " << joueur.nb_tuiles_parcourues << "  |  temps de jeu : " << temps << "  |  Niveau : " << niveau.getNumero() << "  |  " << niveau.getNB_Mj_Restants() << " (!!)" << std::endl;
+        std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
+
+        for (int r = 0; r < HAUTEUR_CARTE; r++)
+        {
+            for (int c = 0; c < LARGEUR_CARTE; c++)
             {
-                    flux << "  ";
+                if (distance(joueur.position, { c, r }) > RAYON_VISION && !VISION_NOCTURNE)
+                {
+                    std::cout << "  ";
+                }
+                else if (joueur.position.X == c && joueur.position.Y == r)
+                {
+                    std::cout << "**";
+                }
+                else if (adversaire.position.X == c && adversaire.position.Y == r)
+                {
+                    std::cout << "XX";
+                }
+                /*else if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
+                {
+                    std::cout << "HH";
+                }*/
+                else if (carte[r][c].getRemplissage() == PLEIN)
+                {
+                    std::cout << char(219) << char(219);
+
+                }
+                else if (carte[r][c].getRemplissage() == VIDE)
+                {
+                    std::cout << "  ";
+                }
+                else if (carte[r][c].getRemplissage() == MINI_JEU)
+                {
+                    std::cout << "!!";
+                }
             }
-            else if (carte[r][c].getRemplissage() == MINI_JEU)
-            {
-                flux << "!!";
-            }
+            std::cout << std::endl;
         }
-        flux << std::endl;
+        std::cout << ++nb_affichages << std::endl;
+        std::cout << adversaire.position.Y << ", " << adversaire.position.X;
     }
-    flux << ++nb_affichages << std::endl;
-    std::cout << adversaire.position.Y << ", " << adversaire.position.X;
+    else if(selection == AFFICHAGE_COMPLET)
+    {
+        int i_carte[HAUTEUR_CARTE][LARGEUR_CARTE];
+
+        for (int r = 0; r < HAUTEUR_CARTE; r++)
+        {
+            for (int c = 0; c < LARGEUR_CARTE; c++)
+            {
+                if (distance(joueur.position, { c, r }) > RAYON_VISION && !VISION_NOCTURNE)
+                {
+                    i_carte[r][c] = VIDE;
+                }
+                else if (joueur.position.X == c && joueur.position.Y == r)
+                {
+                    i_carte[r][c] = JOUEUR;
+                }
+                else if (adversaire.position.X == c && adversaire.position.Y == r)
+                {
+                    i_carte[r][c] = ADVERSAIRE;
+                }
+                else if (carte[r][c].getRemplissage() == PLEIN)
+                {
+                    i_carte[r][c] = PLEIN;
+
+                }
+                else if (carte[r][c].getRemplissage() == VIDE)
+                {
+                    i_carte[r][c] = VIDE;
+                }
+                else if (carte[r][c].getRemplissage() == MINI_JEU)
+                {
+                    i_carte[r][c] = MINI_JEU;
+                }
+            }
+            std::cout << std::endl;
+        }
+
+        std::stringstream t;
+        t << temps;
+
+        emit threadMoteur->jeuMAJ_Complet(joueur.nom,joueur.nb_tuiles_parcourues, t.str(), niveau.getNumero(), niveau.getNB_Mj_Restants(), i_carte);
+    }
+    else if (selection == AFFICHAGE_TEMPS)
+    {
+        std::stringstream t;
+        t << temps;
+
+        emit threadMoteur->jeuMAJ_Temps(t.str());
+    }
+    else if (selection == AFFICHAGE_ADVERSAIRE)
+    {
+        emit threadMoteur->jeuMAJ_Adversaire(adversaire.position);
+    }
+    else if (selection == AFFICHAGE_JOUEUR)
+    {
+        emit threadMoteur->jeuMAJ_Joueur(joueur.position, joueur.nb_tuiles_parcourues);
+    }
 }
 
 bool MoteurJeu::modeChasse()
