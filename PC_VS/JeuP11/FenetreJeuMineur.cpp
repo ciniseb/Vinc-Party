@@ -152,6 +152,7 @@ void FenetreJeuMineur::variationAxe(TypeMotion variation) {
         std::cout << "descendu" << std::endl;
         nbCoups++;
         threadArduino->envoyerEvenement(std::make_unique<Vibration>());
+        threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
     }
 }
 

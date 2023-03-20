@@ -1,7 +1,8 @@
-﻿LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
+﻿  FenetreJeuMineur.cpp
+LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
 Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
-Vibration.obj : warning LNK4204: '' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-Pointage.obj : warning LNK4204: '' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
+Vibration.obj : warning LNK4204: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
+Pointage.obj : warning LNK4204: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
 Muons.obj : warning LNK4204: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
 Joystick.obj : warning LNK4204: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
 SerialPort.obj : warning LNK4204: 'C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
