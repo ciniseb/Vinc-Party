@@ -7,17 +7,11 @@
 #include <mutex>
 #include <memory>
 #include "Evenement.h"
-
+#include "CONSTANTES.h"
 
 #define ARRET 0
 
-
 #define BAUD 9600           // Frequence de transmission serielle
-
-
-
-
-
 
 class ES
 {

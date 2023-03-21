@@ -28,7 +28,7 @@ Description: Constantes utiles à la compréhension du programme
 #define PLEIN_VARIABLE -2
 #define MINI_JEU_VARIABLE 2
 
-#define NB_MINI_JEUX 2
+#define NB_MINI_JEUX 3
 
 #if MODE_FLASH_MC_QUEEN
     #define DT_DEPLACEMENT_JOUEUR 100 //Milisecondes
@@ -42,7 +42,7 @@ Description: Constantes utiles à la compréhension du programme
 #define RAYON_VIBRATION 12
 
 
-#define MODE_CLAVIER false
+#define MODE_CLAVIER true
 
 enum class Dieu
 {

@@ -34,6 +34,7 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Chronometre.h"
 #include "Pointage.h"
 #include "FenetreJeuPiano.h"
+#include "FenetreJeuPeche.h"
 #include "FenetreJeuMineur.h"
 #include "Joystick.h"
 #include "Boussole.h"

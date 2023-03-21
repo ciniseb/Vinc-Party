@@ -1,4 +1,4 @@
 ﻿  FenetreMenu.cpp
-LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
-Accel.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:REF' specification
-  JeuP11.vcxproj -> C:\Users\Anne-Sophie\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe
+LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
+Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
+  JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe

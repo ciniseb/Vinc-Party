@@ -50,7 +50,7 @@ void FenetreMenu::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D && selection < 3 && selection >= 0)
+                if (lettreAppuyee == Dieu::JOYSTICK && selection < 3 && selection >= 0)
                 {
                     if (selection == 0)
                     {
@@ -76,7 +76,7 @@ void FenetreMenu::ouvrir()
                     system("cls");
                     affichage_DEBUG(selection);
                 }
-                else if (lettreAppuyee == Dieu::D && selection == 3)
+                else if (lettreAppuyee == Dieu::JOYSTICK && selection == 3)
                 {
                     exit(1);
                 }
