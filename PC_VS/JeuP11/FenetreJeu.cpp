@@ -559,10 +559,6 @@ void FenetreJeu::affichage_DEBUG(std::ostream &flux)
             {
                 flux << "XX";
             }
-            /*else if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
-            {
-                flux << "HH";
-            }*/
             else if (carte[r][c].getRemplissage() == PLEIN)
             {
                 flux << char(219) << char(219);

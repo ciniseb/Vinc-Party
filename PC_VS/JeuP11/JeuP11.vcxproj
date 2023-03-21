@@ -194,7 +194,6 @@
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
     <ClInclude Include="FenetreJeuPeche.h" />
-    <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\serial\SerialPort.hpp" />
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="FenetreMiniJeu.h" />
