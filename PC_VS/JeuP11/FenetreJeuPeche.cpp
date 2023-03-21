@@ -196,7 +196,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
         }
         else
         {
-        std::cout << "Appuyez sur B pour attraper le poisson        " << '\n';
+        std::cout << "Appuyez sur H pour attraper le poisson        " << '\n';
         }
 
         std::cout << "Ligne de peche   Barre de progression" << std::endl;
