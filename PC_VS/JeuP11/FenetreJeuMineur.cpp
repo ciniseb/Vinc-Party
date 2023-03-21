@@ -167,7 +167,14 @@ bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
 
 void FenetreJeuMineur::initialiser()
 {
-    //TODO
     chrono = Chronometre();
-    nbCoups = 0;
+
+    nbCoups = 0; // compteur
+    nbVoulu = 5; // changer pour augmenter la difficulte
+    tempsMax = 30; // changer pour augmenter la difficulte
+
+    bitCount = 0;
+    positionHaut = false;
+    positionBas = false;
+    echouer = false;
 }
