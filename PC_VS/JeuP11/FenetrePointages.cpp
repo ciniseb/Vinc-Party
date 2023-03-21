@@ -13,7 +13,7 @@ Description:
 #include "FenetrePointages.h"
 
 //Constructeurs & destructeurs
-MoteurPointages::MoteurPointages(ES *thread) : Moteur(thread) { initialiser(); }
+MoteurPointages::MoteurPointages(ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur) { initialiser(); }
 MoteurPointages::~MoteurPointages() {}
 
 //Getteurs & setteurs

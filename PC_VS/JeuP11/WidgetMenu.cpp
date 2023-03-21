@@ -81,10 +81,3 @@ void WidgetMenu::selection(int selection)
         break;
     }
 }
-
-/*QGridLayout * layout = new QGridLayout(this);
-QListWidget * listWidget = new QListWidget(this);
-listWidget->setFixedSize(640,480);
-listWidget->adjustSize();
-
-layout->addWidget(listWidget,0, 0,Qt::AlignCenter);*/

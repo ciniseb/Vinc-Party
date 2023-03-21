@@ -14,6 +14,8 @@ Description: UI du jeu
 
 #include <QWidget>
 #include "ThreadMoteur.h"
+#include <QHBoxLayout>
+#include <QGridLayout>
 
 class WidgetJeu : public QWidget
 {
@@ -27,5 +29,8 @@ public:
 
 private:
     //Attributs
+    QGridLayout *layout_principal;
+    QHBoxLayout *layout_informations;
 
+    QWidget* tuiles[HAUTEUR_CARTE][LARGEUR_CARTE];
 };

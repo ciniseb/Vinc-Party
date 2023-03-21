@@ -65,7 +65,7 @@ private:
 public:
     //Constructeurs & destructeurs
     MoteurJeu();
-    MoteurJeu(std::string, ES *);
+    MoteurJeu(std::string, ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
     ~MoteurJeu();
     
     //Getteurs & setteurs

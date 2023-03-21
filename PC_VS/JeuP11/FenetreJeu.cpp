@@ -14,7 +14,7 @@ Description:
 
 //Constructeurs & destructeurs
 MoteurJeu::MoteurJeu() {}
-MoteurJeu::MoteurJeu(std::string nom_joueur, ES *thread) : Moteur(thread)
+MoteurJeu::MoteurJeu(std::string nom_joueur, ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur)
 {
     joueur.nom = nom_joueur;
     initialiser();

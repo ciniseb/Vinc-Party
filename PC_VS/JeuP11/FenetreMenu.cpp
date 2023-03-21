@@ -73,7 +73,7 @@ void MoteurMenu::demarrer()
                             nom_joueur = "PeuplierBlanc";
                         }
                         
-                        moteurs[selection] = new MoteurJeu(nom_joueur, threadArduino);
+                        moteurs[selection] = new MoteurJeu(nom_joueur, threadArduino, threadMoteur);
                     }
 
                     if (!MODE_CONSOLE)
