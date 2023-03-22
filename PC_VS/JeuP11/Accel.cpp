@@ -14,7 +14,10 @@ Accel::~Accel() {
 
 Accel::Accel(char data):Evenement(ACCELEROMETRE) {
 	char code = (data & 0b00000001);
-	type = code ? PECHE : MINER;
+	if (code == 1)
+		type = MINER;
+	else
+		type = PECHE;
 }
 
 TypeMotion Accel::getType() {

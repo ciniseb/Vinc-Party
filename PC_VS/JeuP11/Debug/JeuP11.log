@@ -1,46 +1,59 @@
-﻿  Bargraph.cpp
+﻿  Accel.cpp
+  Bargraph.cpp
+  Boussole.cpp
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Boussole.cpp(18,14): warning C4309: 'initialisation' : troncation de valeur de constante
   Bouton.cpp
+  Chronometre.cpp
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(120,11): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(123,11): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.cpp(126,11): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+  CR_Vehicule.cpp
   ES.cpp
   Evenement.cpp
   Fenetre.cpp
   FenetreCR.cpp
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(85,88): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(93,53): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(86,88): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreCR.cpp(94,53): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
   FenetreJeu.cpp
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(358,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(687,27): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(392,16): warning C4244: 'return' : conversion de 'double' en 'float', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeu.cpp(735,27): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+  FenetreJeuPeche.cpp
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(328,38): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(356,19): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPeche.cpp(466,34): warning C4390: ';' : une instruction contrôlée a été trouvée vide ; est-ce ce que vous souhaitiez ?
+  FenetreJeuMineur.cpp
   FenetreJeuPiano.cpp
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(166,29): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(171,29): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
   FenetreMenu.cpp
-  FenetreMiniJeu.cpp
   FenetrePointages.cpp
 C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(75,27): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(186,35): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(217,35): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(191,35): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetrePointages.cpp(222,35): warning C4018: '<' : incompatibilité signed/unsigned
   FenetreTests.cpp
+  SerialPort.cpp
   JeuP11.cpp
+  Joystick.cpp
+  Génération de code en cours...
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(429): warning C4715: 'FenetreJeuPiano::VersBoutonPressee' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Evenement.cpp(24): warning C4715: 'Evenement::decoder' : les chemins de contrôle ne retournent pas tous une valeur
+  Compilation en cours...
+  FenetreMiniJeu.cpp
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreMiniJeu.cpp(32,9): warning C4552: '!' : résultat de l'expression non utilisé
+  Muons.cpp
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Muons.cpp(17,14): warning C4309: 'initialisation' : troncation de valeur de constante
   Niveau.cpp
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(110,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(115,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(120,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(125,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(130,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(101,19): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(142,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(147,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Niveau.cpp(152,24): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  Pointage.cpp
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Pointage.cpp(28,20): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
   QuadBargraph.cpp
 C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\QuadBargraph.cpp(20,17): warning C4309: 'initialisation' : troncation de valeur de constante
   Tests.cpp
   Tuile.cpp
+  Vibration.cpp
   Génération de code en cours...
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(424): warning C4715: 'FenetreJeuPiano::VersBoutonPressee' : les chemins de contrôle ne retournent pas tous une valeur
-C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Evenement.cpp(24): warning C4715: 'Evenement::decoder' : les chemins de contrôle ne retournent pas tous une valeur
 LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/PROFILE'
 Accel.obj : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:REF'
-Vibration.obj : warning LNK4204: 'C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-Pointage.obj : warning LNK4204: '' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-Muons.obj : warning LNK4204: 'C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-Joystick.obj : warning LNK4204: 'C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-SerialPort.obj : warning LNK4204: 'C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-CR_Vehicule.obj : warning LNK4204: 'C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-Chronometre.obj : warning LNK4204: '' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-Boussole.obj : warning LNK4204: 'C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
-Accel.obj : warning LNK4204: 'C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\vc142.pdb' n'a pas d'informations de débogage pour référencer le module ; édition de liens des objets comme s'il n'y avait aucune information de débogage
   JeuP11.vcxproj -> C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Debug\JeuP11.exe

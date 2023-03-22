@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include "./include/serial/SerialPort.hpp"
-#include "./include/json.hpp"
 #include <mutex>
 #include <Windows.h>
 #include "Evenement.h"
@@ -11,13 +10,6 @@
 #include "Joystick.h"
 #include "Accel.h"
 #include "CONSTANTES.h"
-
-
-
-
-
-
-
 
 ES::ES() {
 
@@ -102,6 +94,18 @@ void ES::exec() {
             ajouterAuQueue(std::make_unique<Bouton>(Dieu::U));
         }
         V = tempV;
+
+        bool tempH = (GetKeyState('H') & 0x8000);
+        if (H != tempH && tempH == true) {
+            ajouterAuQueue(std::make_unique < Accel > (TypeMotion::PECHE));
+        }
+        H = tempH;
+
+        bool tempB = (GetKeyState('B') & 0x8000);
+        if (B != tempB && tempB == true) {
+            ajouterAuQueue(std::make_unique<Accel>(TypeMotion::MINER));
+        }
+        B = tempB;
 
 
         ///

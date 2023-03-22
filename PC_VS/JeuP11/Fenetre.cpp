@@ -15,7 +15,7 @@ Description:
 //Constructeurs & destructeurs
 Fenetre::Fenetre()
 {
-
+    threadArduino = nullptr;
 }
 Fenetre::Fenetre(ES *thread)
 {

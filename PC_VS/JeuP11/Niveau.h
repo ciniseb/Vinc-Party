@@ -48,8 +48,9 @@ public:
 
     //Méthodes
     int getNB_Mj_Restants();
-
     void miniJeuReussi(int);
+    int choixMiniJeu();
+
     bool niveauFinit();
     bool niveauSuivant();
 };

@@ -24,6 +24,7 @@ Description:
 #include "Joystick.h"
 #include "Bouton.h"
 #include "FenetreCR.h"
+#include "FenetreJeuPeche.h"
 
 class FenetreMenu : public Fenetre
 {
@@ -40,6 +41,7 @@ public:
 
 
     //Méthodes
+    void initialiser();
     void ouvrir();
 
     void affichage_DEBUG(int);

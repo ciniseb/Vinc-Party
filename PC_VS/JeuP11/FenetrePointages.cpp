@@ -13,7 +13,7 @@ Description:
 #include "FenetrePointages.h"
 
 //Constructeurs & destructeurs
-FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) {}
+FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) { initialiser(); }
 FenetrePointages::~FenetrePointages() {}
 
 //Getteurs & setteurs
@@ -84,6 +84,11 @@ bool FenetrePointages::enregistrerPointages()
     return false;
 }
 
+void FenetrePointages::initialiser()
+{
+    //TODO
+}
+
 void FenetrePointages::ouvrir()
 {
     chargerPointages();
@@ -103,7 +108,7 @@ void FenetrePointages::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::D)
+                if (lettreAppuyee == Dieu::JOYSTICK)
                 {
                     system("cls");
                     return;
@@ -192,17 +197,17 @@ void FenetrePointages::affichage_DEBUG(int selection)
 
             std::cout << trie_pointages.at(index).getN_Atteint();
             std::cout << "  |  ";
-            if (trie_pointages.at(index).getTemps() <= 9)
+            if (trie_pointages.at(index).getTemps() < 10)
             {
                 std::cout << "00";
             }
-            else if (trie_pointages.at(index).getTemps() <= 99)
+            else if (trie_pointages.at(index).getTemps() <= 100)
             {
                 std::cout << "0";
             }
             std::cout << trie_pointages.at(index).getTemps();
             std::cout << "  |  ";
-            if (trie_pointages.at(index).getMoy_t_n() <= 9)
+            if (trie_pointages.at(index).getMoy_t_n() < 10)
             {
                 std::cout << "0";
             }
