@@ -39,7 +39,7 @@ enum Dieu
 #define ACCEL_X A2
 #define ACCEL_Y A3
 #define ACCEL_Z A4
-#define miner 540
+#define miner 570
 
 #define DUREE_BARGRAPH 1000
 #define DUREE_VIBRATION 250

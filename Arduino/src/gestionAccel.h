@@ -8,6 +8,9 @@ class GestionAccel
 private:
     unsigned long DerniereMesure = 0;
     bool accelerationdetectee = false;
+    unsigned long premieremesure =0; 
+    float axe_Z1 =0;
+    float axe_Z2;
     TypeMotion coup;
 
 public:

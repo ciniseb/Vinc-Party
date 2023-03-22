@@ -25,25 +25,47 @@ TypeMotion GestionAccel:: getCoup(){
 
 
 void GestionAccel::rafraichir(){
-     float axe_Y = analogRead(ACCEL_Y);
-     float axe_Z = analogRead(ACCEL_Z);
-
-    float acceleration = sqrt((axe_Y*axe_Y)+(axe_Z*axe_Z));
+    //acceleration1 = sqrt((axe_Y*axe_Y)+(axe_Z*axe_Z));
     
-    //Serial.print("\n");
-    //Serial.print(acceleration);
-    //delay(1000);
-    
-    if (millis()-DerniereMesure > 200)
+    if( millis()-premieremesure > 60)
     {
-        if (acceleration < miner)
-        {
-            coup = RIEN;
+        
+        axe_Z2 = analogRead(ACCEL_Z);
+        //acceleration2 = sqrt((axe_Y*axe_Y)+(axe_Z*axe_Z)); 
+        
+        premieremesure = millis();
+
+        if(axe_Z2 > axe_Z1 + 90)
+        {   coup = PECHE;
+            Serial.print("Peche");
+            accelerationdetectee = true;
         }
+        else if(axe_Z2 +70 < axe_Z1 ) 
+        {
+            coup = MINER;
+            Serial.print("Mineur");
+            accelerationdetectee = true;
+        }
+
+        axe_Z1 = axe_Z2; 
+
+    }
+
+    
+    /*if (millis()-DerniereMesure > 400 && acceleration > miner)
+    {
+        if(axe_Y < 430)
+        {
+            coup = PECHE;
+            Serial.print("Peche");
+            accelerationdetectee = true;
+        } 
         else
         {
             coup = MINER;
+            Serial.print("Mineur");
             accelerationdetectee = true;
         }
-    }
+        
+    }*/
 }
