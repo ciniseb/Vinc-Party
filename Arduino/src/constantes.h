@@ -36,6 +36,10 @@ enum Dieu
 #define	JOY_HB_PIN	A1
 #define	JOY_GD_PIN	A0
 #define MUONS_PIN A5
+#define ACCEL_X A2
+#define ACCEL_Y A3
+#define ACCEL_Z A4
+#define miner 570
 
 #define DUREE_BARGRAPH 1000
 #define DUREE_VIBRATION 250
