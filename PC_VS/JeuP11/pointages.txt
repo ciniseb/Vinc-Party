@@ -8,3 +8,8 @@ ANNE-SOPHIE;4;28;702
 Bob;1;3;73
 Vincent;4;69;666
 Roger Laperdrie;1;32;2000
+PeuplierBlanc;1;0.186136;4
+PeuplierBlanc;1;0.261567;18
+PeuplierBlanc;1;0.261063;7
+PeuplierBlanc;1;0.368717;7
+PeuplierBlanc;1;0.143829;7

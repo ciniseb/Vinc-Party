@@ -37,7 +37,7 @@ void GestionJoystick::rafraichir(){
     int abs_axeHautBas = abs(axeHautBas);
     Direction temporaire;
     //deadzone
-    if(abs_axeGaucheDroite < 75 && abs_axeHautBas < 75){
+    if(abs_axeGaucheDroite < 200 && abs_axeHautBas < 200){
         temporaire = AUCUNE;
     }else{
         
