@@ -30,7 +30,7 @@ Description: Constantes utiles à la compréhension du programme
 #define ADVERSAIRE -3
 #define JOUEUR 3
 
-#define NB_MINI_JEUX 4
+#define NB_MINI_JEUX 3
 
 #if MODE_FLASH_MC_QUEEN
     #define DT_DEPLACEMENT_JOUEUR 100 //Milisecondes

@@ -409,18 +409,16 @@ void MoteurJeu::initialiser()
     chargerGabaritCarte(carte_gabarit, &nb_p_variables, &nb_mj_variables);
     genererCarte();
 
-    //TODO : Charger les mini-jeux.
-    mini_jeux[0] = new MoteurJeuPiano(threadArduino);
-    mini_jeux[1] = new MoteurJeuPiano(threadArduino);
-    mini_jeux[2] = new MoteurJeuPiano(threadArduino);
-    mini_jeux[3] = new MoteurJeuPiano(threadArduino);
-    //mini_jeux[1] = ...
-    //mini_jeux[2] = ...
+    mini_jeux[0] = new FenetreJeuPiano(threadArduino);
+    mini_jeux[1] = new FenetreJeuPeche(threadArduino);
+    mini_jeux[2] = new FenetreJeuMineur(threadArduino);
 
     joueur = Acteur{ joueur.nom, Coordonnee{(LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1} };
 
     //Coordonnee pos_adversaire{ 32, 8 };//TODO : générer une position aléatoire dans la map pour l'adversaire
     adversaire = Acteur{ "BOB", genererPosAdversaire()};
+
+    nb_affichages = 0;
 }
 
 void MoteurJeu::demarrer()

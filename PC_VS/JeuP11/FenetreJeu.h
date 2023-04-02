@@ -34,6 +34,8 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Chronometre.h"
 #include "Pointage.h"
 #include "FenetreJeuPiano.h"
+#include "FenetreJeuPeche.h"
+#include "FenetreJeuMineur.h"
 #include "Joystick.h"
 #include "Boussole.h"
 
@@ -55,7 +57,7 @@ private:
 
     Chronometre temps;
 
-    double nb_affichages = 0;
+    double nb_affichages;
 
     double distanceEntreTuiles(int x1, int y1, int x2, int y2);
     PointCardinal directionMiniJeuPlusProche(int nbrJeux);

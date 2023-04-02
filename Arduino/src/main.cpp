@@ -21,6 +21,7 @@
 #include "gestionVibration.h"
 #include "gestionBouton.h"
 #include "gestionMuons.h"
+#include "gestionAccel.h"
 
 
 #include "test.h"
@@ -41,6 +42,7 @@ GestionBargraph gestionBargraph;
 GestionJoystick gestionJoystick;
 GestionBouton gestionBouton[] = {GestionBouton(D,BTN_1_PIN),GestionBouton(I,BTN_2_PIN),GestionBouton(E,BTN_3_PIN),GestionBouton(U,BTN_4_PIN),GestionBouton(JOYSTICK,BTN_JOY_PIN)};
 GestionMuons gestionMuons;
+GestionAccel gestionAccel;
 
 int ledPin[] = {LED_1_PIN,LED_2_PIN,LED_3_PIN,LED_4_PIN,LED_5_PIN,LED_6_PIN,LED_7_PIN,LED_8_PIN,LED_9_PIN,LED_10_PIN};
 
@@ -60,6 +62,8 @@ void setup() {
   gestionVibration.init();
   gestionBargraph.init();
   gestionJoystick.init();
+  gestionAccel.init();
+
   for (int i = 0; i < 4; i++)
   {
     gestionBouton[i].init();
@@ -92,7 +96,10 @@ void loop() {
 
   gestionVibration.afficher();
   gestionBoussole.afficher();
-
+  
+  
+  gestionAccel.rafraichir();
+  
 
 
 
@@ -115,8 +122,13 @@ void loop() {
     Muons muons = Muons(gestionMuons.getValeur());
     Serial.write(muons.dataOut());
   }
-  
-  
+
+  if(gestionAccel.getAccelerationDetecte()){
+    TypeMotion coup = gestionAccel.getCoup();
+    Accel accel = Accel(coup);
+    Serial.write(accel.dataOut());
+    //Serial.print("Coup detecte");
+  }
 
   while (Serial.available())
   {

@@ -39,6 +39,8 @@ private:
 #define Score 2
 
     Chronometre chrono;
+    //Bouton* btn = Bouton();
+
     //Attribut
     Dieu chanson[200];
     char noteD[22]; // notes: indiqent si une note est présente ou non sur une rangée
