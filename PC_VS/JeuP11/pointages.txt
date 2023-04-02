@@ -13,3 +13,5 @@ PeuplierBlanc;1;0.244186;15
 PeuplierBlanc;1;0.168754;22
 PeuplierBlanc;1;0.234725;22
 PeuplierBlanc;1;0.193067;13
+PeuplierBlanc;1;0.391714;0
+PeuplierBlanc;1;0.200018;0

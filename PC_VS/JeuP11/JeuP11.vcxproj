@@ -32,7 +32,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>C:\Qt\6.4.1\msvc2019_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;gui;widgets;svg;svgwidgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
@@ -165,6 +165,7 @@
     <None Include="chanson_1.csv" />
     <None Include="c_gabarit_20_40.csv" />
     <None Include="c_gabarit_30_60.csv" />
+    <None Include="losange.svg" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="pointages.txt" />

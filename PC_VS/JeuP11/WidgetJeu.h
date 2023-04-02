@@ -16,6 +16,10 @@ Description: UI du jeu
 #include "ThreadMoteur.h"
 #include <QHBoxLayout>
 #include <QGridLayout>
+#include <QLabel>
+#include <QGraphicsView>
+#include <QtSvg>
+#include <QSvgWidget>
 
 class WidgetJeu : public QWidget
 {
@@ -32,5 +36,26 @@ private:
     QGridLayout *layout_principal;
     QHBoxLayout *layout_informations;
 
-    QWidget* tuiles[HAUTEUR_CARTE][LARGEUR_CARTE];
+    //
+    QLabel *nom_joueur;
+
+    QSvgWidget *svg_distance;
+    QLabel *distance;
+
+    QSvgWidget *svg_temps;
+    QLabel *temps;
+
+    //
+    QLabel *niveau;
+
+    QLabel *mjx;
+    QSvgWidget *svg_mjx;
+
+
+    QSvgWidget *tuiles[HAUTEUR_CARTE][LARGEUR_CARTE];
 };
+
+/*QGraphicsView *view = new QGraphicsView(this);
+QGraphicsScene *scene = new QGraphicsScene(this);
+
+QGraphicsSvgItem *svgItem = new QGraphicsSvgItem(":/images/image.svg");*/

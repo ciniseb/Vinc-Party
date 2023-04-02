@@ -8,6 +8,8 @@
 
 #include <memory>
 #include "../../../Interface.h"
+#include <QtGui/qtextcursor.h>
+#include <QScreen>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Interface.h' doesn't include <QObject>."

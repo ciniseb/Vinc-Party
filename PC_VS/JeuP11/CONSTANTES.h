@@ -43,7 +43,7 @@ Description: Constantes utiles à la compréhension du programme
 #define RAYON_VISION 8
 #define RAYON_VIBRATION 12
 
-#define MODE_CONSOLE false
+#define MODE_CONSOLE true
 #define MODE_CLAVIER true
 
 enum class Dieu
