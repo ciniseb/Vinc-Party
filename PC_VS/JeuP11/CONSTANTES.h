@@ -12,7 +12,7 @@ Description: Constantes utiles à la compréhension du programme
 ====================================================================================================*/
 #pragma once
 
-#define MODE_CONSOLE false
+#define MODE_CONSOLE true
 #define MODE_CLAVIER true
 
 //Cheat codes
