@@ -12,16 +12,15 @@ Description: Fenetre du jeu mineur
 ====================================================================================================*/
 #include "FenetreJeuMineur.h"
 
-FenetreJeuMineur::FenetreJeuMineur(ES* thread): FenetreMiniJeu(thread)
+MoteurJeuMineur::MoteurJeuMineur(ES* thread): MoteurMiniJeu(thread)
 {
     initialiser();
 }
 
-FenetreJeuMineur::~FenetreJeuMineur() {}
+MoteurJeuMineur::~MoteurJeuMineur() {}
 
-void FenetreJeuMineur::ouvrir()
+void MoteurJeuMineur::demarrer()
 {
-
     bool demarrage = true;
     std::unique_ptr<Evenement> evenement;
     
@@ -81,7 +80,8 @@ void FenetreJeuMineur::ouvrir()
     }
 }
 
-void FenetreJeuMineur::affichageEcran(int mode) {
+void MoteurJeuMineur::affichageEcran(int mode)
+{
     int height = ((nbVoulu * 2) + 1), width = ((nbVoulu * 2) + 1);
     char matrice[50][50];
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
@@ -132,15 +132,15 @@ void FenetreJeuMineur::affichageEcran(int mode) {
     std::cout << std::endl << positionHaut << positionBas << std::endl;
 }
 
-int FenetreJeuMineur::getCoup() {
+int MoteurJeuMineur::getCoup() {
     return nbCoups;
 }
 
-void FenetreJeuMineur::setCoup(int x) {
+void MoteurJeuMineur::setCoup(int x) {
     nbCoups = x;
 }
 
-void FenetreJeuMineur::variationAxe(TypeMotion variation) {
+void MoteurJeuMineur::variationAxe(TypeMotion variation) {
     if (variation == PECHE) {
         positionHaut = true;
         positionBas = false;
@@ -156,7 +156,7 @@ void FenetreJeuMineur::variationAxe(TypeMotion variation) {
     }
 }
 
-bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
+bool MoteurJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
 {
     bit = bitCount - chrono.tempsEcoule_s();
     if (bit == 0 && bitCount < tempsMax) {
@@ -165,7 +165,7 @@ bool FenetreJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
     return true;
 }
 
-void FenetreJeuMineur::initialiser()
+void MoteurJeuMineur::initialiser()
 {
     chrono = Chronometre();
 

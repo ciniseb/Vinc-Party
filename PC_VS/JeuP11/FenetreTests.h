@@ -26,7 +26,7 @@ Description:
 #include "Boussole.h"
 #include "CONSTANTES.h"
 
-class FenetreTests : public Fenetre
+class MoteurTests : public Moteur
 {
 private:
     //Attributs
@@ -38,15 +38,15 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    FenetreTests(ES *);
-    ~FenetreTests();
+    MoteurTests(ES *);
+    ~MoteurTests();
 
     //Getteurs & setteurs
 
 
     //Méthodes
     void initialiser();
-    void ouvrir();
+    void demarrer();
 
     void afficher();
     void remplirListe();

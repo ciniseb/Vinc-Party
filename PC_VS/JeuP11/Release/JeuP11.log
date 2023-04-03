@@ -1,8 +1,0 @@
-﻿  ES.cpp
-  SerialPort.cpp
-  JeuP11.cpp
-  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 1400 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  JeuP11.vcxproj -> C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\Release\JeuP11.exe

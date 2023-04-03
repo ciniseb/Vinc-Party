@@ -94,13 +94,13 @@ int Niveau::choixMiniJeu()
             index_mjx.push_back(i);
         }
     }
-    std::cout << std::endl << "nb mjx : " << index_mjx.size() << std::endl;
+    //std::cout << std::endl << "nb mjx : " << index_mjx.size() << std::endl;
 
     if (index_mjx.empty())
     {
         srand(time(NULL));
         int nb = (rand() % (NB_MINI_JEUX - 1));
-        std::cout << std::endl << "mj choisi : " << nb << std::endl;
+        //std::cout << std::endl << "mj choisi : " << nb << std::endl;
         return nb;
     }
 
@@ -108,7 +108,7 @@ int Niveau::choixMiniJeu()
     std::mt19937 g(rd());
     std::shuffle(index_mjx.begin(), index_mjx.end(), g);
 
-    std::cout << std::endl << "mj choisi : " << index_mjx[0] << std::endl;
+    //std::cout << std::endl << "mj choisi : " << index_mjx[0] << std::endl;
 
     return index_mjx[0];
 }

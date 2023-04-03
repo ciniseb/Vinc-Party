@@ -2,12 +2,12 @@
 Fichier: FenetreMenu.h
 Auteurs: Antoine Allard
          Charles Beaulieu
-         Émile Bois
+         ï¿½mile Bois
          Enes Caku
          Zachari Gervais
          Anne-Sophie Nguyen
-         Sébastien St-Denis
-         Date: 05 février 2023
+         Sï¿½bastien St-Denis
+         Date: 05 fï¿½vrier 2023
 Description: 
 ====================================================================================================*/
 #ifndef FENETREMENU_H
@@ -24,27 +24,27 @@ Description:
 #include "Joystick.h"
 #include "Bouton.h"
 #include "FenetreCR.h"
-#include "FenetreJeuPeche.h"
+#include "ThreadMoteur.h"
 
-class FenetreMenu : public Fenetre
+class MoteurMenu : public Moteur
 {
 private:
     //Attributs
-    Fenetre *fenetres[3];
+    Moteur *moteurs[3];
 
 public:
     //Constructeurs & destructeurs
-    FenetreMenu(ES *);
-    ~FenetreMenu();
+    MoteurMenu(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
+    ~MoteurMenu();
 
     //Getteurs & setteurs
 
 
-    //Méthodes
+    //Mï¿½thodes
     void initialiser();
-    void ouvrir();
+    void demarrer();
 
-    void affichage_DEBUG(int);
+    void affichage(int);
 };
 
 #endif

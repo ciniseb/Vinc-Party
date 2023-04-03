@@ -38,7 +38,7 @@ Description: Mini-jeu de piano style Piano tiles
 #include "Vibration.h"
 
 
-class FenetreJeuMineur : public FenetreMiniJeu
+class MoteurJeuMineur : public MoteurMiniJeu
 {
 private:
 
@@ -62,10 +62,10 @@ private:
 	bool Temps();
 
 public:
-	FenetreJeuMineur(ES* thread);
-	~FenetreJeuMineur();
+	MoteurJeuMineur(ES* thread);
+	~MoteurJeuMineur();
 
-	void ouvrir();
+	void demarrer();
 	void initialiser();
 };
 

@@ -19,7 +19,7 @@
 
 
 
-class FenetreCR : public FenetreMiniJeu
+class MoteurCR : public MoteurMiniJeu
 {
 private:
 
@@ -37,12 +37,12 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    FenetreCR(ES* thread);
-    ~FenetreCR();
+    MoteurCR(ES* thread);
+    ~MoteurCR();
 
 
     //Méthodes
     void initialiser();
-    void ouvrir();
+    void demarrer();
 };
 

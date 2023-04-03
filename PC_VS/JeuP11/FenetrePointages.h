@@ -24,16 +24,17 @@ Description:
 #include "Pointage.h"
 #include "Joystick.h"
 #include "Bouton.h"
+#include "ThreadMoteur.h"
 
-class FenetrePointages : public Fenetre
+class MoteurPointages : public Moteur
 {
 private:
     //Attributs
     std::vector<Pointage> pointages;
 public:
     //Constructeurs & destructeurs
-    FenetrePointages(ES *);
-    ~FenetrePointages();
+    MoteurPointages(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
+    ~MoteurPointages();
 
     //Getteurs & setteurs
     std::vector<Pointage> getPointages();
@@ -46,9 +47,9 @@ public:
     bool enregistrerPointages();
 
     void initialiser();
-    void ouvrir();
+    void demarrer();
 
-    void affichage_DEBUG(int);
+    void affichage(int);
 };
 
 #endif

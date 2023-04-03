@@ -30,14 +30,9 @@ Description: Mini-jeu de piano style Piano tiles
 #include "CONSTANTES.h"
 #include "bargraph.h"
 
-class FenetreJeuPiano : public FenetreMiniJeu
+class MoteurJeuPiano : public MoteurMiniJeu
 {
 private:
-
-#define Menu 0
-#define Jeu 1
-#define Score 2
-
     Chronometre chrono;
     //Bouton* btn = Bouton();
 
@@ -65,15 +60,15 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    FenetreJeuPiano(ES *thread);
-    ~FenetreJeuPiano();
+    MoteurJeuPiano(ES *thread);
+    ~MoteurJeuPiano();
 
     //Getteurs & setteurs
     bool VersBoutonPressee(Dieu touche);
 
     //Méthodes
     void initialiser();
-    void ouvrir();
+    void demarrer();
 };
 
 #endif

@@ -15,15 +15,15 @@ Description:
 #include "CR_Vehicule.h"
 
 //Constructeurs & destructeurs
-FenetreCR::FenetreCR(ES* thread) : FenetreMiniJeu(thread) { initialiser(); }
-FenetreCR::~FenetreCR() {
+MoteurCR::MoteurCR(ES* thread) : MoteurMiniJeu(thread) { initialiser(); }
+MoteurCR::~MoteurCR() {
     for (int i = 0; i < 6; i++)
     {
         delete vehicules[i];
     }
 }
 
-void FenetreCR::initialiser()
+void MoteurCR::initialiser()
 {
     //TODO
     vehicules[0] = new CR_Vehicule(10, 1, Vitesse::LENTE);
@@ -34,7 +34,7 @@ void FenetreCR::initialiser()
     vehicules[5] = new CR_Vehicule(10, 1, Vitesse::LENTE);
 }
 
-void FenetreCR::ouvrir()
+void MoteurCR::demarrer()
 {
     int dernierAffichage = 0;
     bool demarrage = true;
@@ -100,7 +100,7 @@ void FenetreCR::ouvrir()
 
 
 
-void FenetreCR::afficher()
+void MoteurCR::afficher()
 {
     
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });

@@ -12,10 +12,13 @@ Description: Constantes utiles à la compréhension du programme
 ====================================================================================================*/
 #pragma once
 
+#define MODE_CONSOLE false
+#define MODE_CLAVIER true
+
 //Cheat codes
 #define DEMANDER_NOM true
 #define ENNEMI_INNOFFENSIF false
-#define VISION_NOCTURNE false
+#define VISION_NOCTURNE true
 #define MODE_MOZART false
 #define MODE_FLASH_MC_QUEEN false
 #define MODE_TERRAIN_VAGUE false
@@ -28,8 +31,15 @@ Description: Constantes utiles à la compréhension du programme
 #define MINI_JEU 1
 #define PLEIN_VARIABLE -2
 #define MINI_JEU_VARIABLE 2
+#define ADVERSAIRE -3
+#define JOUEUR 3
 
 #define NB_MINI_JEUX 3
+
+//MoteurJeuPiano
+#define Menu 0
+#define Jeu 1
+#define Score 2
 
 #if MODE_FLASH_MC_QUEEN
     #define DT_DEPLACEMENT_JOUEUR 100 //Milisecondes
@@ -41,9 +51,6 @@ Description: Constantes utiles à la compréhension du programme
 
 #define RAYON_VISION 8
 #define RAYON_VIBRATION 12
-
-
-#define MODE_CLAVIER true
 
 enum class Dieu
 {
@@ -60,3 +67,9 @@ enum class Etat
     Inactif,
     Pause
 };
+
+//Affichage FenetreJeu
+#define AFFICHAGE_COMPLET 0
+#define AFFICHAGE_TEMPS 1
+#define AFFICHAGE_ADVERSAIRE 2
+#define AFFICHAGE_JOUEUR 3

@@ -13,17 +13,12 @@ Description:
 #include "FenetreMenu.h"
 
 //Constructeurs & destructeurs
-FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
-{
-    fenetres[0] = new FenetreJeu();
-    fenetres[1] = new FenetrePointages(thread);
-    fenetres[2] = new FenetreTests(thread);
-}
-FenetreMenu::~FenetreMenu()
+MoteurMenu::MoteurMenu(ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur) { initialiser(); }
+MoteurMenu::~MoteurMenu()
 {
     for (int i = 0; i < 3; i++)
     {
-        delete fenetres[i];
+        delete moteurs[i];
     }
 }
 
@@ -31,12 +26,19 @@ FenetreMenu::~FenetreMenu()
 
 
 //Méthodes
-void FenetreMenu::ouvrir()
+void MoteurMenu::initialiser()
+{
+    moteurs[0] = new MoteurJeu();
+    moteurs[1] = new MoteurPointages(threadArduino);
+    moteurs[2] = new MoteurTests(threadArduino);
+}
+
+void MoteurMenu::demarrer()
 {
     std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
-    affichage_DEBUG(selection);
+    affichage(selection);
     while(true)
     {
         if(threadArduino->evenementDisponible())
@@ -48,33 +50,50 @@ void FenetreMenu::ouvrir()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::JOYSTICK && selection < 3 && selection >= 0)
+                if (lettreAppuyee == Dieu::JOYSTICK && selection < 2 && selection >= 0)
                 {
                     if (selection == 0)
                     {
-#if DEMANDER_NOM
-                        std::cin.clear();
-                        std::cin.ignore(10000, '\n');
-
-                        system("cls");
-                        affichage_DEBUG(selection);
-
                         std::string nom_joueur;
-                        std::cout << "Nom du joueur : ";
-                        getline(std::cin, nom_joueur);
-                        std::cout << std::endl;
-#else
-                        std::string nom_joueur = "PeuplierBlanc";
+                        if (DEMANDER_NOM)
+                        {
+                            std::cin.clear();
+                            std::cin.ignore(10000, '\n');
 
-#endif // DEMANDER_NOM
+                            affichage(selection);
+
+                            std::cout << "Nom du joueur : ";
+                            getline(std::cin, nom_joueur);
+                            std::cout << std::endl;
+                        }
+                        else
+                        {
+                            nom_joueur = "PeuplierBlanc";
+                        }
                         
-                        fenetres[selection] = new FenetreJeu(nom_joueur, threadArduino);
+                        moteurs[selection] = new MoteurJeu(nom_joueur, threadArduino, threadMoteur);
                     }
-                    fenetres[selection]->ouvrir();
-                    system("cls");
-                    affichage_DEBUG(selection);
+
+                    if (!MODE_CONSOLE)
+                    {
+                        emit threadMoteur->changementWidgetActif(selection + 1);
+                    }
+
+                    if (MODE_CONSOLE)
+                    {
+                        system("cls");
+                    }
+
+                    moteurs[selection]->demarrer();
+
+                    if (MODE_CONSOLE)
+                    {
+                        system("cls");
+                    }
+
+                    affichage(selection);
                 }
-                else if (lettreAppuyee == Dieu::JOYSTICK && selection == 3)
+                else if (lettreAppuyee == Dieu::JOYSTICK && selection == 2)
                 {
                     exit(1);
                 }
@@ -86,61 +105,56 @@ void FenetreMenu::ouvrir()
 
                 if (direction == Direction::HAUT && (selection > 0))
                 {
-                    selection--;
-                    affichage_DEBUG(selection);
+                    affichage(--selection);
                 }
-                else if (direction == Direction::BAS && selection < 4)
+                else if (direction == Direction::BAS && selection < 2)
                 {
-                    selection++;
-                    affichage_DEBUG(selection);
+                    affichage(++selection);
                 }
             }
         }
     }
 }
 
-void FenetreMenu::affichage_DEBUG(int selection)
+void MoteurMenu::affichage(int selection)
 {
-    //system("cls");
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
+    if (MODE_CONSOLE)
+    {
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
-    std::cout << "------------------------------------------------" << std::endl;
-    std::cout << "               Le Chemin de Croix               " << std::endl;
-    std::cout << "------------------------------------------------" << std::endl;
-    if (selection == 0)
-    {
-        std::cout << " ---> | Jouer" << std::endl;
-        std::cout << "      | Pointages"  << std::endl;
-        std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Quitter" << std::endl;
-    }
-    else if (selection == 1)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << " ---> | Pointages" << std::endl;
-        std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Quitter" << std::endl;
-    }
-    else if (selection == 2)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" <<  std::endl;
-        std::cout << " ---> | Demo materiel" << std::endl << std::endl;
-        std::cout << "      | Quitter" << std::endl;
-    }
-    else if (selection == 3)
-    {
-        std::cout << "      | Jouer" << std::endl;
-        std::cout << "      | Pointages" <<  std::endl;
-        std::cout << "      | Demo materiel" << std::endl << std::endl;
-        std::cout << " ---> | Quitter" << std::endl;
+        std::cout << "------------------------------------------------" << std::endl;
+        std::cout << "               Le Chemin de Croix               " << std::endl;
+        std::cout << "------------------------------------------------" << std::endl;
+        if (selection == 0)
+        {
+            std::cout << " ---> | Jouer" << std::endl;
+            std::cout << "      | Pointages" << std::endl << std::endl;
+            std::cout << "      | Quitter" << std::endl;
+        }
+        else if (selection == 1)
+        {
+            std::cout << "      | Jouer" << std::endl;
+            std::cout << " ---> | Pointages" << std::endl << std::endl;
+            std::cout << "      | Quitter" << std::endl;
+        }
+        else if (selection == 2)
+        {
+            std::cout << "      | Jouer" << std::endl;
+            std::cout << "      | Pointages" << std::endl << std::endl;
+            std::cout << " ---> | Quitter" << std::endl;
+        }
+
+        //Triches en cours
+        std::cout << std::endl << std::endl;
+        if (ENNEMI_INNOFFENSIF) std::cout << "ENNEMI_INNOFENSIF" << std::endl;
+        if (MODE_CLAVIER) std::cout << "MODE_CLAVIER" << std::endl;
+        if (VISION_NOCTURNE) std::cout << "VISION_NOCTURNE" << std::endl;
+        if (MODE_MOZART) std::cout << "MODE_MOZART" << std::endl;
+        if (MODE_FLASH_MC_QUEEN) std::cout << "MODE_FLASH_MC_QUEEN" << std::endl;
+        if (MODE_TERRAIN_VAGUE) std::cout << "MODE_TERRAIN_VAGUE" << std::endl;
     }
     else
     {
-
+        emit threadMoteur->menu_selection(selection);
     }
-}
-
-void FenetreMenu::initialiser(){
-
 }

@@ -13,23 +13,23 @@ Description:
 #include "FenetreMiniJeu.h"
 
 //Constructeurs & destructeurs
-FenetreMiniJeu::FenetreMiniJeu(ES *thread) : Fenetre(thread)
+MoteurMiniJeu::MoteurMiniJeu(ES *thread) : Moteur(thread)
 {
     reussite = false;
 }
-FenetreMiniJeu::~FenetreMiniJeu() {}
+MoteurMiniJeu::~MoteurMiniJeu() {}
 
 //Getteurs & setteurs
 
 
 //Méthodes
 //TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
-bool FenetreMiniJeu::reussi()
+bool MoteurMiniJeu::reussi()
 {
     bool reponse = reussite;
     if (reussite)
     {
-        !reussite;
+        reussite = false;
     }
 
     return reponse;
