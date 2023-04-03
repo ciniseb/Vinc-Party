@@ -12,8 +12,6 @@ Description:
 ====================================================================================================*/
 #include "FenetreMenu.h"
 
-#define DEMANDER_NOM false
-
 //Constructeurs & destructeurs
 FenetreMenu::FenetreMenu(ES *thread) : Fenetre(thread)
 {

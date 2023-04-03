@@ -13,6 +13,7 @@ Description: Constantes utiles à la compréhension du programme
 #pragma once
 
 //Cheat codes
+#define DEMANDER_NOM true
 #define ENNEMI_INNOFFENSIF false
 #define VISION_NOCTURNE false
 #define MODE_MOZART false
@@ -42,7 +43,7 @@ Description: Constantes utiles à la compréhension du programme
 #define RAYON_VIBRATION 12
 
 
-#define MODE_CLAVIER false
+#define MODE_CLAVIER true
 
 enum class Dieu
 {

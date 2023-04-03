@@ -13,3 +13,4 @@ PeuplierBlanc;1;0.261567;18
 PeuplierBlanc;1;0.261063;7
 PeuplierBlanc;1;0.368717;7
 PeuplierBlanc;1;0.143829;7
+Ciniseb;1;0.176341;20
