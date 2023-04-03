@@ -53,6 +53,10 @@ signals:
 
 	//MoteurJeuPiano
 
+	//MoteurJeuMineur
+	void jeuMineur_menu();
+	void jeuMineur_block(Nbcout, int);
+
 
 	//Moteur...
 	

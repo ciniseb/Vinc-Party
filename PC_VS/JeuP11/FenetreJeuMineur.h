@@ -36,6 +36,8 @@ Description: Mini-jeu de piano style Piano tiles
 #include <Windows.h>
 #include <conio.h>
 #include "Vibration.h"
+#include "ThreadMoteur.h"
+
 
 
 class MoteurJeuMineur : public MoteurMiniJeu

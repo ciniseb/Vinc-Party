@@ -82,54 +82,71 @@ void MoteurJeuMineur::demarrer()
 
 void MoteurJeuMineur::affichageEcran(int mode)
 {
+
     int height = ((nbVoulu * 2) + 1), width = ((nbVoulu * 2) + 1);
     char matrice[50][50];
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
     switch (mode)
     {
     case Menu:
-        std::cout << "Creusez pour commencer (h/b clavier), "<< nbVoulu << " coups voulus en " << tempsMax << " secondes :o" << std::endl << std::endl; // donnez un coup pour commencer - avec accelerometre
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (i == nbVoulu && j == nbVoulu) {
-                    matrice[i][j] = '*';
-                }
-                else {
-                    matrice[i][j] = '#';
+        if (!MODE_CONSOLE)
+        {
+            emit threadMoteur->menu();
+        }
+        else if (MODE_CONSOLE)
+        {
+            std::cout << "Creusez pour commencer (h/b clavier), " << nbVoulu << " coups voulus en " << tempsMax << " secondes :o" << std::endl << std::endl; // donnez un coup pour commencer - avec accelerometre
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (i == nbVoulu && j == nbVoulu) {
+                        matrice[i][j] = '*';
+                    }
+                    else {
+                        matrice[i][j] = '#';
+                    }
                 }
             }
         }
         break;
     case Jeu:
-        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), {0, 0});
-        std::cout << "Creusez jusqu'au diamant pour gagner!" << std::endl << std::endl;
-        
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (i == nbVoulu && j == nbVoulu) {
-                    matrice[i][j] = '*';
-                }
-                else if (i < (0 + nbCoups) || i >((nbVoulu*2) - nbCoups) || j < (0 + nbCoups) || j >((nbVoulu * 2) - nbCoups)) {
-                    matrice[i][j] = ' ';
-                }
-                else {
-                    matrice[i][j] = '#';
+        if (!MODE_CONSOLE)
+        {
+            emit threadMoteur->jeuMineur_block(nbVoulu);
+        }
+        else if (MODE_CONSOLE)
+        {
+            SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
+            std::cout << "Creusez jusqu'au diamant pour gagner!" << std::endl << std::endl;
+
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (i == nbVoulu && j == nbVoulu) {
+                        matrice[i][j] = '*';
+                    }
+                    else if (i < (0 + nbCoups) || i >((nbVoulu * 2) - nbCoups) || j < (0 + nbCoups) || j >((nbVoulu * 2) - nbCoups)) {
+                        matrice[i][j] = ' ';
+                    }
+                    else {
+                        matrice[i][j] = '#';
+                    }
                 }
             }
         }
         break;
     }
-
-    // affichage matrice
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            std::cout << matrice[i][j];
-            std::cout << ' ';
+    if (MODE_CONSOLE)
+    {
+        // affichage matrice
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                std::cout << matrice[i][j];
+                std::cout << ' ';
+            }
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
+        std::cout << std::endl << "nbCoups: " << nbCoups << "/" << nbVoulu << " coups" << std::endl;
+        std::cout << std::endl << positionHaut << positionBas << std::endl;
     }
-    std::cout << std::endl << "nbCoups: " << nbCoups << "/" << nbVoulu << " coups" << std::endl;
-    std::cout << std::endl << positionHaut << positionBas << std::endl;
 }
 
 int MoteurJeuMineur::getCoup() {
