@@ -141,6 +141,7 @@
     <ClInclude Include="FenetreCR.h" />
     <ClInclude Include="FenetreJeu.h" />
     <ClInclude Include="FenetreJeuMineur.h" />
+    <ClInclude Include="FenetreJeuPeche.h" />
     <ClInclude Include="FenetreJeuPiano.h" />
     <ClInclude Include="FenetreMenu.h" />
     <ClInclude Include="FenetreMiniJeu.h" />

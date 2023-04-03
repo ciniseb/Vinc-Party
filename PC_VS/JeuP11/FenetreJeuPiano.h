@@ -33,11 +33,6 @@ Description: Mini-jeu de piano style Piano tiles
 class MoteurJeuPiano : public MoteurMiniJeu
 {
 private:
-
-#define Menu 0
-#define Jeu 1
-#define Score 2
-
     Chronometre chrono;
     //Bouton* btn = Bouton();
 

@@ -74,10 +74,6 @@ void MoteurTests::afficher()
 
 }
 
-void FenetreTests::afficher(){
-
-}
-
 /*void FenetreTests::remplirListe() {
     listeEvenements[0] = std::make_unique<Boussole>(NORD);
     listeEvenements[1] = std::make_unique<Boussole>(SUD);
@@ -100,7 +96,7 @@ void FenetreTests::afficher(){
 }*/
 
 
-void FenetreTests::remplirListe() {
+void MoteurTests::remplirListe() {
 
     for (int i = 0; i < 15; i++)
     {

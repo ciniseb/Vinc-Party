@@ -261,6 +261,129 @@ void MoteurJeu::deplacementMiniJeu()
     }
 }
 
+bool MoteurJeu::modeChasse()
+{
+    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
+
+    scanBFS(COPIE_DE_CARTE);
+    modeSuiveurAdversaire(COPIE_DE_CARTE);
+    return true;
+}
+
+bool MoteurJeu::scanBFS(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
+{
+    std::queue<int> Xq;
+    std::queue<int> Yq;
+    int ADJx, ADJy, x, y;
+    int Longueur = 5;
+    int PossibiliteRestant = 1;
+    int ProchainePossibilite = 0;
+    int NS[] = { -1, 1, 0, 0 };
+    int EO[] = { 0, 0, 1, -1 };
+    bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE];
+    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    {
+        for (int c = 0; c < LARGEUR_CARTE; c++)
+        {
+            COPIE_DE_CARTE[r][c] = 0;
+            Visite[r][c] = false;
+        }
+    }
+
+    Xq.push(joueur.position.X);
+    Yq.push(joueur.position.Y);
+    Visite[joueur.position.Y][joueur.position.X] = true;
+    while (true /* && !Xq.empty() && !Yq.empty()*/)
+    {
+
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //AUCUNE IDEE FIX TEMPORAIRE
+        if (Xq.size() == 0) {
+            return false;
+        }
+
+        x = Xq.front();
+        y = Yq.front();
+        Xq.pop();
+        Yq.pop();
+        if (x == adversaire.position.X && y == adversaire.position.Y)
+        {
+            return true;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            ADJy = y + NS[i];
+            ADJx = x + EO[i];
+
+            if (ADJy >= 0 && ADJx >= 0 && ADJy < HAUTEUR_CARTE && ADJx < LARGEUR_CARTE && carte[ADJy][ADJx].getRemplissage() != PLEIN && !Visite[ADJy][ADJx])
+            {
+                COPIE_DE_CARTE[ADJy][ADJx] = Longueur;
+                COPIE_DE_CARTE[joueur.position.Y][joueur.position.X] = 4;
+                Xq.push(ADJx);
+                Yq.push(ADJy);
+                Visite[ADJy][ADJx] = true;
+
+                ProchainePossibilite++;
+            }
+        }
+
+        PossibiliteRestant--;
+        if (PossibiliteRestant == 0)
+        {
+            PossibiliteRestant = ProchainePossibilite;
+            ProchainePossibilite = 0;
+            Longueur++;
+        }
+    }
+}
+
+void MoteurJeu::modeSuiveurAdversaire(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
+{
+    int NS[] = { -1, 1, 0, 0 };
+    int EO[] = { 0, 0, 1, -1 };
+    int x = adversaire.position.X;
+    int y = adversaire.position.Y;
+    int Nx, Ny;
+    int LowValue = 9999999;
+
+
+    for (int i = 0; i < 4; i++)
+    {
+        Nx = x + EO[i];
+        if (LowValue > COPIE_DE_CARTE[y][Nx] && (COPIE_DE_CARTE[y][Nx] != 0) && (carte[y][Nx].getRemplissage() != PLEIN))
+        {
+            LowValue = COPIE_DE_CARTE[y][Nx];
+        }
+        Ny = y + NS[i];
+        if (LowValue > COPIE_DE_CARTE[Ny][x] && (COPIE_DE_CARTE[Ny][x] != 0) && (carte[Ny][x].getRemplissage() != PLEIN))
+        {
+            LowValue = COPIE_DE_CARTE[Ny][x];
+        }
+    }
+    for (int i = 0; i < 4; i++)
+    {
+        Nx = x + EO[i];
+        if (LowValue == COPIE_DE_CARTE[y][Nx])
+        {
+            adversaire.ancienneposition.X = adversaire.position.X;
+            adversaire.ancienneposition.Y = adversaire.position.Y;
+
+            adversaire.position.X = Nx;
+            adversaire.position.Y = y;
+        }
+        Ny = y + NS[i];
+        if (LowValue == COPIE_DE_CARTE[Ny][x])
+        {
+            adversaire.ancienneposition.X = adversaire.position.X;
+            adversaire.ancienneposition.Y = adversaire.position.Y;
+
+            adversaire.position.X = x;
+            adversaire.position.Y = Ny;
+        }
+    }
+}
 bool MoteurJeu::verificationVide(Coordonnee coord)
 {
     if (carte[coord.Y][coord.X].getRemplissage() != PLEIN && coord.X < LARGEUR_CARTE && coord.Y < HAUTEUR_CARTE && coord.X > 0 && coord.Y > 0)
@@ -268,7 +391,6 @@ bool MoteurJeu::verificationVide(Coordonnee coord)
     else
         return false;
 }
-
 bool MoteurJeu::verificationCoord(Coordonnee actuelle, Coordonnee ancienne)
 {
     int Xactuelle = actuelle.X;
@@ -281,7 +403,6 @@ bool MoteurJeu::verificationCoord(Coordonnee actuelle, Coordonnee ancienne)
     else
         return false;
 }
-
 void MoteurJeu::deplacementAdversaireRandom()
 {
     Coordonnee haut = { adversaire.position.X, adversaire.position.Y + 1 };
@@ -337,7 +458,6 @@ void MoteurJeu::deplacementAdversaireRandom()
         modeChasse();
     }
 }
-
 bool MoteurJeu::deplacementAdversaire()
 {
     double t_ecoule = temps.tempsEcoule_ms();
@@ -409,9 +529,9 @@ void MoteurJeu::initialiser()
     chargerGabaritCarte(carte_gabarit, &nb_p_variables, &nb_mj_variables);
     genererCarte();
 
-    mini_jeux[0] = new FenetreJeuPiano(threadArduino);
-    mini_jeux[1] = new FenetreJeuPeche(threadArduino);
-    mini_jeux[2] = new FenetreJeuMineur(threadArduino);
+    mini_jeux[0] = new MoteurJeuPiano(threadArduino);
+    mini_jeux[1] = new MoteurJeuPeche(threadArduino);
+    mini_jeux[2] = new MoteurJeuMineur(threadArduino);
 
     joueur = Acteur{ joueur.nom, Coordonnee{(LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1} };
 
@@ -660,130 +780,6 @@ void MoteurJeu::affichage(int selection)
     else if (selection == AFFICHAGE_JOUEUR)
     {
         emit threadMoteur->jeuMAJ_Joueur(joueur.position, joueur.nb_tuiles_parcourues);
-    }
-}
-
-bool MoteurJeu::modeChasse()
-{
-    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
-
-    scanBFS(COPIE_DE_CARTE);
-    modeSuiveurAdversaire(COPIE_DE_CARTE);
-    return true;
-}
-
-bool MoteurJeu::scanBFS(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
-{
-    std::queue<int> Xq;
-    std::queue<int> Yq;
-    int ADJx, ADJy, x, y;
-    int Longueur = 5;
-    int PossibiliteRestant = 1;
-    int ProchainePossibilite = 0;
-    int NS[] = { -1, 1, 0, 0 };
-    int EO[] = { 0, 0, 1, -1 };
-    bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE];
-    for (int r = 0; r < HAUTEUR_CARTE; r++)
-    {
-        for (int c = 0; c < LARGEUR_CARTE; c++)
-        {
-            COPIE_DE_CARTE[r][c] = 0;
-            Visite[r][c] = false;
-        }
-    }
-
-    Xq.push(joueur.position.X);
-    Yq.push(joueur.position.Y);
-    Visite[joueur.position.Y][joueur.position.X] = true;
-    while (true /* && !Xq.empty() && !Yq.empty()*/)
-    {
-
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //AUCUNE IDEE FIX TEMPORAIRE
-        if (Xq.size() == 0) {
-            return false;
-        }
-
-        x = Xq.front();
-        y = Yq.front();
-        Xq.pop();
-        Yq.pop();
-        if (x == adversaire.position.X && y == adversaire.position.Y)
-        {     
-            return true;
-        }
-
-        for (int i = 0; i < 4; i++)
-        {
-            ADJy = y + NS[i];
-            ADJx = x + EO[i];
-
-            if (ADJy >= 0 && ADJx >= 0 && ADJy < HAUTEUR_CARTE && ADJx < LARGEUR_CARTE && carte[ADJy][ADJx].getRemplissage() != PLEIN && !Visite[ADJy][ADJx])
-            {      
-                COPIE_DE_CARTE[ADJy][ADJx] = Longueur;
-                COPIE_DE_CARTE[joueur.position.Y][joueur.position.X] = 4;
-                Xq.push(ADJx);
-                Yq.push(ADJy);
-                Visite[ADJy][ADJx] = true;
-
-                ProchainePossibilite++;
-            }
-        }
-
-        PossibiliteRestant--;
-        if (PossibiliteRestant == 0)
-        {
-            PossibiliteRestant = ProchainePossibilite;
-            ProchainePossibilite = 0; 
-            Longueur++;
-        }
-    }    
-}
-
-void MoteurJeu::modeSuiveurAdversaire(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
-{
-    int NS[] = { -1, 1, 0, 0 };
-    int EO[] = { 0, 0, 1, -1 };
-    int x = adversaire.position.X;
-    int y = adversaire.position.Y;
-    int Nx, Ny;
-    int LowValue = 9999999;
-    
-    
-    for (int i = 0; i < 4; i++)
-    {
-        Nx = x + EO[i];
-        if (LowValue > COPIE_DE_CARTE[y][Nx] && (COPIE_DE_CARTE[y][Nx] != 0) && (carte[y][Nx].getRemplissage() != PLEIN))
-        {
-            LowValue = COPIE_DE_CARTE[y][Nx];
-        }
-        Ny = y + NS[i];
-        if (LowValue > COPIE_DE_CARTE[Ny][x] && (COPIE_DE_CARTE[Ny][x] != 0) && (carte[Ny][x].getRemplissage() != PLEIN))
-        {
-            LowValue = COPIE_DE_CARTE[Ny][x];
-        }
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        Nx = x + EO[i];
-        if (LowValue == COPIE_DE_CARTE[y][Nx])
-        {
-            adversaire.ancienneposition.X = adversaire.position.X;
-            adversaire.ancienneposition.Y = adversaire.position.Y;
-
-            adversaire.position.X = Nx;
-            adversaire.position.Y = y;
-        }
-        Ny = y + NS[i];
-        if (LowValue == COPIE_DE_CARTE[Ny][x])
-        {
-            adversaire.ancienneposition.X = adversaire.position.X;
-            adversaire.ancienneposition.Y = adversaire.position.Y;
-
-            adversaire.position.X = x;
-            adversaire.position.Y = Ny;
-        }
     }
 }
 

@@ -59,10 +59,9 @@ private:
 
     double nb_affichages;
 
+    //M�thodes
     double distanceEntreTuiles(int x1, int y1, int x2, int y2);
     PointCardinal directionMiniJeuPlusProche(int nbrJeux);
-
-    //M�thodes
 
 public:
     //Constructeurs & destructeurs
@@ -90,9 +89,11 @@ public:
 
     void deplacementMiniJeu();
 
+    bool modeChasse();
+    bool scanBFS(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
+    void modeSuiveurAdversaire(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
     bool verificationVide(Coordonnee);
     bool verificationCoord(Coordonnee, Coordonnee);
-
     void deplacementAdversaireRandom();
     bool deplacementAdversaire();
     bool deplacementJoueur(Direction);
@@ -103,9 +104,6 @@ public:
     void demarrer();
 
     void affichage(int);
-    bool modeChasse();
-    bool scanBFS(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
-    void modeSuiveurAdversaire(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
 };
 
 #endif

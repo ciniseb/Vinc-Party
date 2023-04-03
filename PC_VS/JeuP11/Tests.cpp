@@ -151,6 +151,6 @@ void Tests::tests_FenetreJeuPeche()
 {
     ES thread;
     thread.demarrer();
-    FenetreJeuPeche peche(&thread);
-    peche.ouvrir();
+    MoteurJeuPeche peche(&thread);
+    peche.demarrer();
 }

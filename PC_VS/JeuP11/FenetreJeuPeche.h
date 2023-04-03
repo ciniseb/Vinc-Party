@@ -33,7 +33,7 @@ Description: Mini-jeu de piano style Piano tiles
 #include "Accel.h"
 #include "Vibration.h"
 
-class FenetreJeuPeche : public FenetreMiniJeu
+class MoteurJeuPeche : public MoteurMiniJeu
 {
 private:
 
@@ -63,8 +63,8 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    FenetreJeuPeche(ES* thread);
-    ~FenetreJeuPeche();
+    MoteurJeuPeche(ES* thread);
+    ~MoteurJeuPeche();
 
     //Getteurs & setteurs
     void setPoisson();
@@ -72,7 +72,7 @@ public:
     void VerificationJoueurPoisson();
     void initialiser();
     //M�thodes
-    void ouvrir();
+    void demarrer();
 };
 
 #endif
