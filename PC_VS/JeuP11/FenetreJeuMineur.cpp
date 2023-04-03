@@ -21,7 +21,6 @@ MoteurJeuMineur::~MoteurJeuMineur() {}
 
 void MoteurJeuMineur::demarrer()
 {
-
     bool demarrage = true;
     std::unique_ptr<Evenement> evenement;
     
@@ -81,7 +80,8 @@ void MoteurJeuMineur::demarrer()
     }
 }
 
-void MoteurJeuMineur::affichageEcran(int mode) {
+void MoteurJeuMineur::affichageEcran(int mode)
+{
     int height = ((nbVoulu * 2) + 1), width = ((nbVoulu * 2) + 1);
     char matrice[50][50];
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
