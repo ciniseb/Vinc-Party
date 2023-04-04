@@ -13,15 +13,16 @@ Description:
 #include "Fenetre.h"
 
 //Constructeurs & destructeurs
-Fenetre::Fenetre()
+Moteur::Moteur(ES* threadArduino, ThreadMoteur* threadMoteur)
 {
-    threadArduino = nullptr;
+    this->threadArduino = threadArduino;
+    this->threadMoteur = threadMoteur;
 }
-Fenetre::Fenetre(ES *thread)
+Moteur::~Moteur()
 {
-    threadArduino = thread;
+    delete threadArduino;
+    delete threadMoteur;
 }
-Fenetre::~Fenetre() {}
 
 //Getteurs & setteurs
 

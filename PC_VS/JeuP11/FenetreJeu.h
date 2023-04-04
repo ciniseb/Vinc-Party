@@ -39,14 +39,14 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Joystick.h"
 #include "Boussole.h"
 
-class FenetreJeu : public Fenetre
+class MoteurJeu : public Moteur
 {
 private:
     //Attributs
     Niveau niveau;
 
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
-    FenetreMiniJeu *mini_jeux[NB_MINI_JEUX];
+    MoteurMiniJeu *mini_jeux[NB_MINI_JEUX];
 
     int carte_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
     int nb_p_variables;
@@ -59,16 +59,15 @@ private:
 
     double nb_affichages;
 
+    //M�thodes
     double distanceEntreTuiles(int x1, int y1, int x2, int y2);
     PointCardinal directionMiniJeuPlusProche(int nbrJeux);
 
-    //M�thodes
-
 public:
     //Constructeurs & destructeurs
-    FenetreJeu();
-    FenetreJeu(std::string, ES *);
-    ~FenetreJeu();
+    MoteurJeu();
+    MoteurJeu(std::string, ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
+    ~MoteurJeu();
     
     //Getteurs & setteurs
     Niveau getNiveau();
@@ -90,9 +89,11 @@ public:
 
     void deplacementMiniJeu();
 
+    bool modeChasse();
+    bool scanBFS(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
+    void modeSuiveurAdversaire(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
     bool verificationVide(Coordonnee);
     bool verificationCoord(Coordonnee, Coordonnee);
-
     void deplacementAdversaireRandom();
     bool deplacementAdversaire();
     bool deplacementJoueur(Direction);
@@ -100,13 +101,9 @@ public:
     float distance(Coordonnee, Coordonnee);
 
     void initialiser();
-    void ouvrir();
-    void jouer();
+    void demarrer();
 
-    void affichage_DEBUG(std::ostream &);
-    bool modeChasse();
-    bool scanBFS(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
-    void modeSuiveurAdversaire(int[HAUTEUR_CARTE][LARGEUR_CARTE]);
+    void affichage(int);
 };
 
 #endif
