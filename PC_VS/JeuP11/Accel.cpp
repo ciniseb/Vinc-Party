@@ -26,11 +26,11 @@ TypeMotion Accel::getType() {
 
 std::string Accel::getDesciption() {
 	std::string type_str = "";
-	if (type == PECHE) {
-		type_str = "PECHE";
+	if (type == MINER) {
+		type_str = "MINER";
 	}
 	else {
-		type_str = "MINER";
+		type_str = "RIEN";
 	}
 
 	return "Accelerometre: " + type_str;

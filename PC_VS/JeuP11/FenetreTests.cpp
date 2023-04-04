@@ -80,7 +80,7 @@ void FenetreTests::afficher(){
 
 }
 
-void FenetreTests::remplirListe(){
+/*void FenetreTests::remplirListe() {
     listeEvenements[0] = std::make_unique<Boussole>(NORD);
     listeEvenements[1] = std::make_unique<Boussole>(SUD);
     listeEvenements[2] = std::make_unique<Boussole>(EST);
@@ -99,4 +99,14 @@ void FenetreTests::remplirListe(){
     listeEvenements[12] = std::make_unique<QuadBargraph>(8);
     listeEvenements[13] = std::make_unique<QuadBargraph>(5);
     listeEvenements[14] = std::make_unique<QuadBargraph>(10);
+}*/
+
+
+void FenetreTests::remplirListe() {
+
+    for (int i = 0; i < 15; i++)
+    {
+        listeEvenements[i] = std::make_unique<Vibration>();
+    }
+
 }

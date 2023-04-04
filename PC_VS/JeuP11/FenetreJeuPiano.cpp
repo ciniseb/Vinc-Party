@@ -103,6 +103,7 @@ void FenetreJeuPiano::ouvrir()
                     Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                     Dieu lettreAppuyee = eBouton->getNom();
                     if (VersBoutonPressee(lettreAppuyee) == true)
+                    //if (eBouton->getPianoReussi())
                     {
                         noteReussi++;
                         char note = Dieu_en_char(lettreAppuyee);
