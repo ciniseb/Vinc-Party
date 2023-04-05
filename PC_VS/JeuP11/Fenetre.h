@@ -15,24 +15,26 @@ Description: Classe abstraite pour l'UI des fenêtres.
 
 #include <iostream>
 #include "ES.h"
+#include "ThreadMoteur.h"
 
-class Fenetre
+class ThreadMoteur;
+class Moteur
 {
 protected:
     //Attributs
     ES *threadArduino;
+    ThreadMoteur* threadMoteur;
     
 public:
     //Constructeurs & destructeurs
-    Fenetre();
-    Fenetre(ES *);
-    virtual ~Fenetre();
+    Moteur(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
+    virtual ~Moteur();
 
     //Getteurs & setteurs
 
 
     //Méthodes
-    virtual void ouvrir() = 0;
+    virtual void demarrer() = 0;
     virtual void initialiser() = 0;
 };
 

@@ -16,7 +16,7 @@ Description: Classe abstraite pour chaque classe d'un mini-jeu spécifique
 #include <iostream>
 #include "Fenetre.h"
 
-class FenetreMiniJeu : public Fenetre
+class MoteurMiniJeu : public Moteur
 {
 protected:
     //Attributs
@@ -24,8 +24,8 @@ protected:
 
 public:
     //Constructeurs & destructeurs
-    FenetreMiniJeu(ES *);
-    ~FenetreMiniJeu();
+    MoteurMiniJeu(ES *);
+    ~MoteurMiniJeu();
 
     //Getteurs & setteurs
 
@@ -33,7 +33,7 @@ public:
     //Méthodes
     //TODO : définir les méthodes communes aux mini-jeux ainsi que celles virtuelles pures.
     virtual void initialiser() = 0;
-    virtual void ouvrir() = 0;
+    virtual void demarrer() = 0;
     bool reussi();
 };
 

@@ -38,7 +38,7 @@ Description: Mini-jeu de piano style Piano tiles
 #include "Vibration.h"
 
 
-class FenetreJeuMineur : public FenetreMiniJeu
+class MoteurJeuMineur : public MoteurMiniJeu
 {
 private:
 
@@ -46,14 +46,14 @@ private:
 #define Jeu 1
 	Chronometre chrono;
 
-	int nbCoups = 0; // compteur
-	int nbVoulu = 5; // changer pour augmenter la difficulte
-	int tempsMax = 30; // changer pour augmenter la difficulte
+	int nbCoups; // compteur
+	int nbVoulu; // changer pour augmenter la difficulte
+	int tempsMax; // changer pour augmenter la difficulte
 	double bit;
-	double bitCount = 0;
-	bool positionHaut = false;
-	bool positionBas = false;
-	bool echouer = false;
+	double bitCount;
+	bool positionHaut;
+	bool positionBas;
+	bool echouer;
 
 	void affichageEcran(int mode);
 	void variationAxe(TypeMotion variation);
@@ -62,10 +62,10 @@ private:
 	bool Temps();
 
 public:
-	FenetreJeuMineur(ES* thread);
-	~FenetreJeuMineur();
+	MoteurJeuMineur(ES* thread);
+	~MoteurJeuMineur();
 
-	void ouvrir();
+	void demarrer();
 	void initialiser();
 };
 

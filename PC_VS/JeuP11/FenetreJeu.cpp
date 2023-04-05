@@ -13,59 +13,65 @@ Description:
 #include "FenetreJeu.h"
 
 //Constructeurs & destructeurs
-FenetreJeu::FenetreJeu() {}
-FenetreJeu::FenetreJeu(std::string nom_joueur, ES *thread) : Fenetre(thread)
+MoteurJeu::MoteurJeu() {}
+MoteurJeu::MoteurJeu(std::string nom_joueur, ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur)
 {
     joueur.nom = nom_joueur;
     initialiser();
 }
-FenetreJeu::~FenetreJeu() {}
+MoteurJeu::~MoteurJeu()
+{
+    for (int i = 0 ; i < NB_MINI_JEUX ; i++)
+    {
+        delete mini_jeux[i];
+    }
+}
 
 //Getteurs & setteurs
-Niveau FenetreJeu::getNiveau()
+Niveau MoteurJeu::getNiveau()
 {
     return niveau;
 }
-Tuile FenetreJeu::getTuile(Coordonnee coord)
+Tuile MoteurJeu::getTuile(Coordonnee coord)
 {
     return carte[coord.Y][coord.X];
 }
-Acteur FenetreJeu::getJoueur()
+Acteur MoteurJeu::getJoueur()
 {
     return joueur;
 }
-Acteur FenetreJeu::getAdversaire()
+Acteur MoteurJeu::getAdversaire()
 {
     return adversaire;
 }
-Chronometre FenetreJeu::getTemps()
+Chronometre MoteurJeu::getTemps()
 {
     return temps;
 }
 
-void FenetreJeu::setNiveau(Niveau n)
+void MoteurJeu::setNiveau(Niveau n)
 {
     niveau = n;
 }
-void FenetreJeu::setTuile(Coordonnee coord, Tuile tuile)
+void MoteurJeu::setTuile(Coordonnee coord, Tuile tuile)
 {
     carte[coord.Y][coord.X] = tuile;
 }
-void FenetreJeu::setJoueur(Acteur j)
+void MoteurJeu::setJoueur(Acteur j)
 {
     joueur = j;
 }
-void FenetreJeu::setAdversaire(Acteur a)
+void MoteurJeu::setAdversaire(Acteur a)
 {
     adversaire = a;
 }
-void FenetreJeu::setTemps(Chronometre t)
+void MoteurJeu::setTemps(Chronometre t)
 {
     temps = t;
 }
 
 //Méthodes
-bool FenetreJeu::chargerGabaritCarte(int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE], int *nb_p_variables, int *nb_mj_variables)
+bool MoteurJeu::chargerGabaritCarte(int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE], int *nb_p_variables, int *nb_mj_variables)
 {
     std::ifstream fichier;
 
@@ -130,7 +136,7 @@ std::vector<bool> variablesAleatoires(int nb_total, int nb_variables)
 
     return variables;
 }
-bool FenetreJeu::genererCarte()
+bool MoteurJeu::genererCarte()
 {
     std::vector<bool> p_variables = variablesAleatoires(nb_p_variables, niveau.getNb_PleinsVariables());
     std::vector<bool> mj_variables = variablesAleatoires(nb_mj_variables, niveau.getNb_Mj_Dispo());
@@ -196,7 +202,7 @@ bool FenetreJeu::genererCarte()
 
     return true;
 }
-Coordonnee FenetreJeu::genererPosAdversaire()
+Coordonnee MoteurJeu::genererPosAdversaire()
 {
     int nb_pos_variables = 0;
     for (int r = 0; r < HAUTEUR_CARTE; r++)
@@ -232,7 +238,7 @@ Coordonnee FenetreJeu::genererPosAdversaire()
     return Coordonnee();
 }
 
-void FenetreJeu::deplacementMiniJeu()
+void MoteurJeu::deplacementMiniJeu()
 {
     std::vector<bool> mj_variables = variablesAleatoires(nb_mj_variables - niveau.getNB_Mj_Restants() + 1, 1);
 
@@ -255,15 +261,137 @@ void FenetreJeu::deplacementMiniJeu()
     }
 }
 
-bool FenetreJeu::verificationVide(Coordonnee coord)
+bool MoteurJeu::modeChasse()
+{
+    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
+
+    scanBFS(COPIE_DE_CARTE);
+    modeSuiveurAdversaire(COPIE_DE_CARTE);
+    return true;
+}
+
+bool MoteurJeu::scanBFS(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
+{
+    std::queue<int> Xq;
+    std::queue<int> Yq;
+    int ADJx, ADJy, x, y;
+    int Longueur = 5;
+    int PossibiliteRestant = 1;
+    int ProchainePossibilite = 0;
+    int NS[] = { -1, 1, 0, 0 };
+    int EO[] = { 0, 0, 1, -1 };
+    bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE];
+    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    {
+        for (int c = 0; c < LARGEUR_CARTE; c++)
+        {
+            COPIE_DE_CARTE[r][c] = 0;
+            Visite[r][c] = false;
+        }
+    }
+
+    Xq.push(joueur.position.X);
+    Yq.push(joueur.position.Y);
+    Visite[joueur.position.Y][joueur.position.X] = true;
+    while (true /* && !Xq.empty() && !Yq.empty()*/)
+    {
+
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //AUCUNE IDEE FIX TEMPORAIRE
+        if (Xq.size() == 0) {
+            return false;
+        }
+
+        x = Xq.front();
+        y = Yq.front();
+        Xq.pop();
+        Yq.pop();
+        if (x == adversaire.position.X && y == adversaire.position.Y)
+        {
+            return true;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            ADJy = y + NS[i];
+            ADJx = x + EO[i];
+
+            if (ADJy >= 0 && ADJx >= 0 && ADJy < HAUTEUR_CARTE && ADJx < LARGEUR_CARTE && carte[ADJy][ADJx].getRemplissage() != PLEIN && !Visite[ADJy][ADJx])
+            {
+                COPIE_DE_CARTE[ADJy][ADJx] = Longueur;
+                COPIE_DE_CARTE[joueur.position.Y][joueur.position.X] = 4;
+                Xq.push(ADJx);
+                Yq.push(ADJy);
+                Visite[ADJy][ADJx] = true;
+
+                ProchainePossibilite++;
+            }
+        }
+
+        PossibiliteRestant--;
+        if (PossibiliteRestant == 0)
+        {
+            PossibiliteRestant = ProchainePossibilite;
+            ProchainePossibilite = 0;
+            Longueur++;
+        }
+    }
+}
+
+void MoteurJeu::modeSuiveurAdversaire(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
+{
+    int NS[] = { -1, 1, 0, 0 };
+    int EO[] = { 0, 0, 1, -1 };
+    int x = adversaire.position.X;
+    int y = adversaire.position.Y;
+    int Nx, Ny;
+    int LowValue = 9999999;
+
+
+    for (int i = 0; i < 4; i++)
+    {
+        Nx = x + EO[i];
+        if (LowValue > COPIE_DE_CARTE[y][Nx] && (COPIE_DE_CARTE[y][Nx] != 0) && (carte[y][Nx].getRemplissage() != PLEIN))
+        {
+            LowValue = COPIE_DE_CARTE[y][Nx];
+        }
+        Ny = y + NS[i];
+        if (LowValue > COPIE_DE_CARTE[Ny][x] && (COPIE_DE_CARTE[Ny][x] != 0) && (carte[Ny][x].getRemplissage() != PLEIN))
+        {
+            LowValue = COPIE_DE_CARTE[Ny][x];
+        }
+    }
+    for (int i = 0; i < 4; i++)
+    {
+        Nx = x + EO[i];
+        if (LowValue == COPIE_DE_CARTE[y][Nx])
+        {
+            adversaire.ancienneposition.X = adversaire.position.X;
+            adversaire.ancienneposition.Y = adversaire.position.Y;
+
+            adversaire.position.X = Nx;
+            adversaire.position.Y = y;
+        }
+        Ny = y + NS[i];
+        if (LowValue == COPIE_DE_CARTE[Ny][x])
+        {
+            adversaire.ancienneposition.X = adversaire.position.X;
+            adversaire.ancienneposition.Y = adversaire.position.Y;
+
+            adversaire.position.X = x;
+            adversaire.position.Y = Ny;
+        }
+    }
+}
+bool MoteurJeu::verificationVide(Coordonnee coord)
 {
     if (carte[coord.Y][coord.X].getRemplissage() != PLEIN && coord.X < LARGEUR_CARTE && coord.Y < HAUTEUR_CARTE && coord.X > 0 && coord.Y > 0)
         return true;
     else
         return false;
 }
-
-bool FenetreJeu::verificationCoord(Coordonnee actuelle, Coordonnee ancienne)
+bool MoteurJeu::verificationCoord(Coordonnee actuelle, Coordonnee ancienne)
 {
     int Xactuelle = actuelle.X;
     int Yactuelle = actuelle.Y;
@@ -275,8 +403,7 @@ bool FenetreJeu::verificationCoord(Coordonnee actuelle, Coordonnee ancienne)
     else
         return false;
 }
-
-void FenetreJeu::deplacementAdversaireRandom()
+void MoteurJeu::deplacementAdversaireRandom()
 {
     Coordonnee haut = { adversaire.position.X, adversaire.position.Y + 1 };
     Coordonnee droite = { adversaire.position.X + 1, adversaire.position.Y };
@@ -331,8 +458,7 @@ void FenetreJeu::deplacementAdversaireRandom()
         modeChasse();
     }
 }
-
-bool FenetreJeu::deplacementAdversaire()
+bool MoteurJeu::deplacementAdversaire()
 {
     double t_ecoule = temps.tempsEcoule_ms();
     if ((adversaire.t_dernier_deplacement + DT_DEPLACEMENT_ADVERSAIRE)/niveau.getV_Adversaire() <= t_ecoule)
@@ -352,7 +478,7 @@ bool FenetreJeu::deplacementAdversaire()
     return false;
 }
 
-bool FenetreJeu::deplacementJoueur(Direction reponse)
+bool MoteurJeu::deplacementJoueur(Direction reponse)
 {
     int NouveauX = joueur.position.X;
     int NouveauY = joueur.position.Y;
@@ -385,26 +511,27 @@ bool FenetreJeu::deplacementJoueur(Direction reponse)
     return false;
 }
 
-float FenetreJeu::distance(Coordonnee c1, Coordonnee c2)
+float MoteurJeu::distance(Coordonnee c1, Coordonnee c2)
 {
     double a = abs(c2.X - c1.X);
     double b = abs(c2.Y - c1.Y);
     return sqrt((a*a) + (b*b));
 }
 
-void FenetreJeu::initialiser()
+void MoteurJeu::initialiser()
 {
+    nb_p_variables = 0;
+    nb_mj_variables = 0;
+
     niveau = Niveau();
     niveau.niveauSuivant();
 
     chargerGabaritCarte(carte_gabarit, &nb_p_variables, &nb_mj_variables);
     genererCarte();
 
-    //TODO : Charger les mini-jeux.
-    mini_jeux[0] = new FenetreJeuPiano(threadArduino);
-    mini_jeux[1] = new FenetreJeuMineur(threadArduino);
-    //mini_jeux[1] = ...
-    //mini_jeux[2] = ...
+    mini_jeux[0] = new MoteurJeuPiano(threadArduino);
+    mini_jeux[1] = new MoteurJeuPeche(threadArduino);
+    mini_jeux[2] = new MoteurJeuMineur(threadArduino);
 
     joueur = Acteur{ joueur.nom, Coordonnee{(LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1} };
 
@@ -414,15 +541,10 @@ void FenetreJeu::initialiser()
     nb_affichages = 0;
 }
 
-void FenetreJeu::ouvrir()
-{
-    jouer();
-}
-void FenetreJeu::jouer()
+void MoteurJeu::demarrer()
 {
     temps.demarrer();
-    system("cls");
-    affichage_DEBUG(std::cout);
+    affichage(AFFICHAGE_COMPLET);
 
     int mj_actif = niveau.choixMiniJeu();
     double dernier_t = 0;
@@ -438,9 +560,9 @@ void FenetreJeu::jouer()
     while (true)
     {
         //Mise à jour du temps de jeu à l'écran
-        if (temps.tempsAtteint_ms(dernier_t+1000))
+        if (temps.tempsAtteint_ms(dernier_t + 1000))
         {
-            affichage_DEBUG(std::cout);
+            affichage(AFFICHAGE_TEMPS);
             dernier_t += 1000;
         }
 
@@ -454,14 +576,14 @@ void FenetreJeu::jouer()
         //Déplacement de l'adversaire
         if (deplacementAdversaire())
         {
-            affichage_DEBUG(std::cout);
+            affichage(AFFICHAGE_ADVERSAIRE);
         }
 
         //Mise à jour du déplacement du joueur
         if (directionActuelle != AUCUNE && deplacementJoueur(directionActuelle))
         {
             joueur.nb_tuiles_parcourues++;
-            affichage_DEBUG(std::cout);
+            affichage(AFFICHAGE_JOUEUR);
 
             //Determiner direction boussole;
             pointCardinalActuel = directionMiniJeuPlusProche(niveau.getNB_Mj_Restants());
@@ -479,7 +601,7 @@ void FenetreJeu::jouer()
 
             if (evenement->getCode() == JOYSTICK)
             {
-                Joystick *eJoystick = static_cast<Joystick*>(evenement.get());
+                Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
                 directionActuelle = eJoystick->getDirection();
             }
         }
@@ -498,7 +620,17 @@ void FenetreJeu::jouer()
             pointCardinalAncien = OFF;
             directionActuelle = AUCUNE;
 
-            mini_jeux[mj_actif]->ouvrir();
+            if (!MODE_CONSOLE)
+            {
+                emit threadMoteur->changementWidgetActif(mj_actif + 3);
+            }
+
+            if (MODE_CONSOLE)
+            {
+                system("cls");
+            }
+
+            mini_jeux[mj_actif]->demarrer();
 
             if (mini_jeux[mj_actif]->reussi())
             {
@@ -514,6 +646,12 @@ void FenetreJeu::jouer()
                     else
                     {
                         Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m(), joueur.nb_tuiles_parcourues).enregistrerPointage();
+
+                        if (!MODE_CONSOLE)
+                        {
+                            emit threadMoteur->changementWidgetActif(0);
+                        }
+
                         return;
                     }
                 }
@@ -527,196 +665,129 @@ void FenetreJeu::jouer()
             mj_actif = niveau.choixMiniJeu();
             carte[joueur.position.Y][joueur.position.X].setRemplissage(VIDE);
 
-            affichage_DEBUG(std::cout);
+            if (MODE_CONSOLE)
+            {
+                system("cls");
+            }
+
+            affichage(AFFICHAGE_COMPLET);
         }
     }
 }
 
-void FenetreJeu::affichage_DEBUG(std::ostream &flux)
+void MoteurJeu::affichage(int selection)
 {
-    int c_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];
-    int nb_p_variables = 0;
-    int nb_mj_variables = 0;
-    chargerGabaritCarte(c_gabarit, &nb_p_variables, &nb_mj_variables);
-
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
-
-    std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
-    std::cout << "  Joueur : " << joueur.nom << "  |  " << "Distance parcourue : " << joueur.nb_tuiles_parcourues << "  |  temps de jeu : " << temps << "  |  Niveau : " << niveau.getNumero() << "  |  " << niveau.getNB_Mj_Restants() << " (!!)" << std::endl;
-    std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
-
-    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    if (MODE_CONSOLE)
     {
-        for (int c = 0; c < LARGEUR_CARTE; c++)
-        {
-            if (distance(joueur.position, {c, r}) > RAYON_VISION && !VISION_NOCTURNE)
-            {
-                flux << "  ";
-            }
-            else if (joueur.position.X == c && joueur.position.Y == r)
-            {
-                flux << "**";
-            }
-            else if (adversaire.position.X == c && adversaire.position.Y == r)
-            {
-                flux << "XX";
-            }
-            /*else if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
-            {
-                flux << "HH";
-            }*/
-            else if (carte[r][c].getRemplissage() == PLEIN)
-            {
-                flux << char(219) << char(219);
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
-            }
-            else if (carte[r][c].getRemplissage() == VIDE)
+        std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
+        std::cout << "  Joueur : " << joueur.nom << "  |  " << "Distance parcourue : " << joueur.nb_tuiles_parcourues << "  |  temps de jeu : " << temps << "  |  Niveau : " << niveau.getNumero() << "  |  " << niveau.getNB_Mj_Restants() << " (!!)" << std::endl;
+        std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
+
+        for (int r = 0; r < HAUTEUR_CARTE; r++)
+        {
+            for (int c = 0; c < LARGEUR_CARTE; c++)
             {
-                    flux << "  ";
+                if (distance(joueur.position, { c, r }) > RAYON_VISION && !VISION_NOCTURNE)
+                {
+                    std::cout << "  ";
+                }
+                else if (joueur.position.X == c && joueur.position.Y == r)
+                {
+                    std::cout << "**";
+                }
+                else if (adversaire.position.X == c && adversaire.position.Y == r)
+                {
+                    std::cout << "XX";
+                }
+                /*else if (carte[r][c].getRemplissage() == PLEIN && c_gabarit[r][c] == PLEIN_VARIABLE)
+                {
+                    std::cout << "HH";
+                }*/
+                else if (carte[r][c].getRemplissage() == PLEIN)
+                {
+                    std::cout << char(219) << char(219);
+
+                }
+                else if (carte[r][c].getRemplissage() == VIDE)
+                {
+                    std::cout << "  ";
+                }
+                else if (carte[r][c].getRemplissage() == MINI_JEU)
+                {
+                    std::cout << "!!";
+                }
             }
-            else if (carte[r][c].getRemplissage() == MINI_JEU)
-            {
-                flux << "!!";
-            }
+            std::cout << std::endl;
         }
-        flux << std::endl;
+        std::cout << ++nb_affichages << std::endl;
+        std::cout << adversaire.position.Y << ", " << adversaire.position.X;
     }
-    flux << ++nb_affichages << std::endl;
-    std::cout << adversaire.position.Y << ", " << adversaire.position.X;
-}
-
-bool FenetreJeu::modeChasse()
-{
-    int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE];
-
-    scanBFS(COPIE_DE_CARTE);
-    modeSuiveurAdversaire(COPIE_DE_CARTE);
-    return true;
-}
-
-
-bool FenetreJeu::scanBFS(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
-{
-    std::queue<int> Xq;
-    std::queue<int> Yq;
-    int ADJx, ADJy, x, y;
-    int Longueur = 5;
-    int PossibiliteRestant = 1;
-    int ProchainePossibilite = 0;
-    int NS[] = { -1, 1, 0, 0 };
-    int EO[] = { 0, 0, 1, -1 };
-    bool Visite[HAUTEUR_CARTE][LARGEUR_CARTE];
-    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    else if(selection == AFFICHAGE_COMPLET)
     {
-        for (int c = 0; c < LARGEUR_CARTE; c++)
+        int i_carte[HAUTEUR_CARTE][LARGEUR_CARTE];
+
+        for (int r = 0; r < HAUTEUR_CARTE; r++)
         {
-            COPIE_DE_CARTE[r][c] = 0;
-            Visite[r][c] = false;
-        }
-    }
+            for (int c = 0; c < LARGEUR_CARTE; c++)
+            {
+                if (distance(joueur.position, { c, r }) > RAYON_VISION && !VISION_NOCTURNE)
+                {
+                    i_carte[r][c] = VIDE;
+                }
+                else if (joueur.position.X == c && joueur.position.Y == r)
+                {
+                    i_carte[r][c] = JOUEUR;
+                }
+                else if (adversaire.position.X == c && adversaire.position.Y == r)
+                {
+                    i_carte[r][c] = ADVERSAIRE;
+                }
+                else if (carte[r][c].getRemplissage() == PLEIN)
+                {
+                    i_carte[r][c] = PLEIN;
 
-    Xq.push(joueur.position.X);
-    Yq.push(joueur.position.Y);
-    Visite[joueur.position.Y][joueur.position.X] = true;
-    while (true /* && !Xq.empty() && !Yq.empty()*/)
-    {
-
-
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //AUCUNE IDEE FIX TEMPORAIRE
-        if (Xq.size() == 0) {
-            return false;
-        }
-
-        x = Xq.front();
-        y = Yq.front();
-        Xq.pop();
-        Yq.pop();
-        if (x == adversaire.position.X && y == adversaire.position.Y)
-        {     
-            return true;
-        }
-
-        for (int i = 0; i < 4; i++)
-        {
-            ADJy = y + NS[i];
-            ADJx = x + EO[i];
-
-            if (ADJy >= 0 && ADJx >= 0 && ADJy < HAUTEUR_CARTE && ADJx < LARGEUR_CARTE && carte[ADJy][ADJx].getRemplissage() != PLEIN && !Visite[ADJy][ADJx])
-            {      
-                COPIE_DE_CARTE[ADJy][ADJx] = Longueur;
-                COPIE_DE_CARTE[joueur.position.Y][joueur.position.X] = 4;
-                Xq.push(ADJx);
-                Yq.push(ADJy);
-                Visite[ADJy][ADJx] = true;
-
-                ProchainePossibilite++;
+                }
+                else if (carte[r][c].getRemplissage() == VIDE)
+                {
+                    i_carte[r][c] = VIDE;
+                }
+                else if (carte[r][c].getRemplissage() == MINI_JEU)
+                {
+                    i_carte[r][c] = MINI_JEU;
+                }
             }
+            std::cout << std::endl;
         }
 
-        PossibiliteRestant--;
-        if (PossibiliteRestant == 0)
-        {
-            PossibiliteRestant = ProchainePossibilite;
-            ProchainePossibilite = 0; 
-            Longueur++;
-        }
-    }    
-}
+        std::stringstream t;
+        t << temps;
 
-void FenetreJeu::modeSuiveurAdversaire(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_CARTE])
-{
-    int NS[] = { -1, 1, 0, 0 };
-    int EO[] = { 0, 0, 1, -1 };
-    int x = adversaire.position.X;
-    int y = adversaire.position.Y;
-    int Nx, Ny;
-    int LowValue = 9999999;
-    
-    
-    for (int i = 0; i < 4; i++)
-    {
-        Nx = x + EO[i];
-        if (LowValue > COPIE_DE_CARTE[y][Nx] && (COPIE_DE_CARTE[y][Nx] != 0) && (carte[y][Nx].getRemplissage() != PLEIN))
-        {
-            LowValue = COPIE_DE_CARTE[y][Nx];
-        }
-        Ny = y + NS[i];
-        if (LowValue > COPIE_DE_CARTE[Ny][x] && (COPIE_DE_CARTE[Ny][x] != 0) && (carte[Ny][x].getRemplissage() != PLEIN))
-        {
-            LowValue = COPIE_DE_CARTE[Ny][x];
-        }
+        emit threadMoteur->jeuMAJ_Complet(joueur.nom,joueur.nb_tuiles_parcourues, t.str(), niveau.getNumero(), niveau.getNB_Mj_Restants(), i_carte);
     }
-    for (int i = 0; i < 4; i++)
+    else if (selection == AFFICHAGE_TEMPS)
     {
-        Nx = x + EO[i];
-        if (LowValue == COPIE_DE_CARTE[y][Nx])
-        {
-            adversaire.ancienneposition.X = adversaire.position.X;
-            adversaire.ancienneposition.Y = adversaire.position.Y;
+        std::stringstream t;
+        t << temps;
 
-            adversaire.position.X = Nx;
-            adversaire.position.Y = y;
-        }
-        Ny = y + NS[i];
-        if (LowValue == COPIE_DE_CARTE[Ny][x])
-        {
-            adversaire.ancienneposition.X = adversaire.position.X;
-            adversaire.ancienneposition.Y = adversaire.position.Y;
-
-            adversaire.position.X = x;
-            adversaire.position.Y = Ny;
-        }
+        emit threadMoteur->jeuMAJ_Temps(t.str());
+    }
+    else if (selection == AFFICHAGE_ADVERSAIRE)
+    {
+        emit threadMoteur->jeuMAJ_Adversaire(adversaire.position);
+    }
+    else if (selection == AFFICHAGE_JOUEUR)
+    {
+        emit threadMoteur->jeuMAJ_Joueur(joueur.position, joueur.nb_tuiles_parcourues);
     }
 }
 
-
-
-double FenetreJeu::distanceEntreTuiles(int x1, int y1, int x2, int y2) {
+double MoteurJeu::distanceEntreTuiles(int x1, int y1, int x2, int y2) {
     return sqrt((float)pow(x1-x2,2) + (float)pow(y1-y2,2));
 }
 
-PointCardinal FenetreJeu::directionMiniJeuPlusProche(int nbrJeux) {
+PointCardinal MoteurJeu::directionMiniJeuPlusProche(int nbrJeux) {
     std::vector<Coordonnee> listePositionsJeux;
     float distanceMin = 10000.0;
     int index = 0;
@@ -731,9 +802,6 @@ PointCardinal FenetreJeu::directionMiniJeuPlusProche(int nbrJeux) {
         }
     }
 
-
-
-
     for (int i = 0; i < nbrJeux; i++)
     {
         double distance = distanceEntreTuiles(joueur.position.X, joueur.position.Y, listePositionsJeux[i].X, listePositionsJeux[i].Y);
@@ -743,11 +811,8 @@ PointCardinal FenetreJeu::directionMiniJeuPlusProche(int nbrJeux) {
         }
     }
 
-
     int distanceX = joueur.position.X - listePositionsJeux[index].X;
     int distanceY = joueur.position.Y - listePositionsJeux[index].Y;
-
-
 
     if (abs(distanceX) > abs(distanceY)) {
         if (distanceX >= 0) {

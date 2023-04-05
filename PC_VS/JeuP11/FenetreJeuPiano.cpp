@@ -13,10 +13,10 @@ Description:
 #include "FenetreJeuPiano.h"
 
 //Constructeurs & destructeurs
-FenetreJeuPiano::FenetreJeuPiano(ES* thread) : FenetreMiniJeu(thread) { initialiser(); }
-FenetreJeuPiano::~FenetreJeuPiano() {}
+MoteurJeuPiano::MoteurJeuPiano(ES* thread) : MoteurMiniJeu(thread) { initialiser(); }
+MoteurJeuPiano::~MoteurJeuPiano() {}
 
-bool FenetreJeuPiano::chargerChanson(bool matrice[50001][4])
+bool MoteurJeuPiano::chargerChanson(bool matrice[50001][4])
 {
     std::ifstream fichier;
 
@@ -40,7 +40,7 @@ bool FenetreJeuPiano::chargerChanson(bool matrice[50001][4])
     return true;
 }
 
-void FenetreJeuPiano::initialiser()
+void MoteurJeuPiano::initialiser()
 {
     //TODO
     chrono = Chronometre();
@@ -50,9 +50,10 @@ void FenetreJeuPiano::initialiser()
     chargerChanson(matrice);
 }
 
-void FenetreJeuPiano::ouvrir()
+void MoteurJeuPiano::demarrer()
 {
-    if (MODE_MOZART) {
+    if (MODE_MOZART)
+    {
         reussite = true;
         return;
     }
@@ -103,6 +104,7 @@ void FenetreJeuPiano::ouvrir()
                     Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                     Dieu lettreAppuyee = eBouton->getNom();
                     if (VersBoutonPressee(lettreAppuyee) == true)
+                    //if (eBouton->getPianoReussi())
                     {
                         noteReussi++;
                         char note = Dieu_en_char(lettreAppuyee);
@@ -159,7 +161,7 @@ void FenetreJeuPiano::ouvrir()
     }
 }
 
-bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
+bool MoteurJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
 {
     //std::cout << "Temps" << std::endl;   
     //system("cls");
@@ -177,7 +179,7 @@ bool FenetreJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
     return true;
 }
 
-void FenetreJeuPiano::SetNote(int t)
+void MoteurJeuPiano::SetNote(int t)
 {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 30});
     std::cout << t << std::endl;
@@ -229,7 +231,7 @@ void FenetreJeuPiano::SetNote(int t)
     }
 }
 
-void FenetreJeuPiano::AffichageEcran(int mode)
+void MoteurJeuPiano::AffichageEcran(int mode)
 {
     //std::cout << "Affichage" << std::endl;
     char screen[25][50];
@@ -332,7 +334,7 @@ void FenetreJeuPiano::AffichageEcran(int mode)
     return;
 }
 
-char FenetreJeuPiano::GetNote(int note, int ligne)
+char MoteurJeuPiano::GetNote(int note, int ligne)
 {
     switch (note)
     {
@@ -353,7 +355,7 @@ char FenetreJeuPiano::GetNote(int note, int ligne)
     return ' ';
 }
 
-char FenetreJeuPiano::Dieu_en_char(Dieu dieu)
+char MoteurJeuPiano::Dieu_en_char(Dieu dieu)
 {
     char toucheEnChar = ' ';
 
@@ -376,7 +378,7 @@ char FenetreJeuPiano::Dieu_en_char(Dieu dieu)
 }
 
 //Getteurs & setteurs
-bool FenetreJeuPiano::VersBoutonPressee(Dieu touche)
+bool MoteurJeuPiano::VersBoutonPressee(Dieu touche)
 {
     char toucheEnChar = Dieu_en_char(touche);
     bool toucheReussi = 0;

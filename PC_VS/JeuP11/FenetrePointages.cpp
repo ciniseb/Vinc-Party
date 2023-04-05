@@ -13,26 +13,26 @@ Description:
 #include "FenetrePointages.h"
 
 //Constructeurs & destructeurs
-FenetrePointages::FenetrePointages(ES *thread) : Fenetre(thread) { initialiser(); }
-FenetrePointages::~FenetrePointages() {}
+MoteurPointages::MoteurPointages(ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur) { initialiser(); }
+MoteurPointages::~MoteurPointages() {}
 
 //Getteurs & setteurs
-std::vector<Pointage> FenetrePointages::getPointages()
+std::vector<Pointage> MoteurPointages::getPointages()
 {
     return pointages;
 }
 
-void FenetrePointages::setPointages(std::vector<Pointage> p)
+void MoteurPointages::setPointages(std::vector<Pointage> p)
 {
     pointages = p;
 }
-void FenetrePointages::ajoutPointage(Pointage p)
+void MoteurPointages::ajoutPointage(Pointage p)
 {
     pointages.push_back(p);
 }
 
 //Méthodes
-bool FenetrePointages::chargerPointages()
+bool MoteurPointages::chargerPointages()
 {
     pointages.clear();
 
@@ -64,7 +64,7 @@ bool FenetrePointages::chargerPointages()
     std::cout << "Fichier introuvable..." << std::endl;
     return false;
 }
-bool FenetrePointages::enregistrerPointages()
+bool MoteurPointages::enregistrerPointages()
 {
     std::ofstream fichier;
 
@@ -84,19 +84,19 @@ bool FenetrePointages::enregistrerPointages()
     return false;
 }
 
-void FenetrePointages::initialiser()
+void MoteurPointages::initialiser()
 {
     //TODO
 }
 
-void FenetrePointages::ouvrir()
+void MoteurPointages::demarrer()
 {
     chargerPointages();
 
     std::unique_ptr<Evenement> evenement;
     int selection = 0;
 
-    affichage_DEBUG(selection);
+    affichage(selection);
     while (true)
     {
         if (threadArduino->evenementDisponible())
@@ -122,12 +122,12 @@ void FenetrePointages::ouvrir()
                 if (direction == Direction::HAUT && (selection > 0))
                 {
                     selection--;
-                    affichage_DEBUG(selection);
+                    affichage(selection);
                 }
                 else if (direction == Direction::BAS && selection < 1)
                 {
                     selection++;
-                    affichage_DEBUG(selection);
+                    affichage(selection);
                 }
             }
         }
@@ -160,7 +160,7 @@ bool plusPetiteDistance(const Pointage& p1, const Pointage& p2)
         return p1.getNb_tuiles_parcourues() < p2.getNb_tuiles_parcourues();
     }
 }
-void FenetrePointages::affichage_DEBUG(int selection)
+void MoteurPointages::affichage(int selection)
 {
     system("cls");
 
@@ -197,17 +197,17 @@ void FenetrePointages::affichage_DEBUG(int selection)
 
             std::cout << trie_pointages.at(index).getN_Atteint();
             std::cout << "  |  ";
-            if (trie_pointages.at(index).getTemps() <= 9)
+            if (trie_pointages.at(index).getTemps() < 10)
             {
                 std::cout << "00";
             }
-            else if (trie_pointages.at(index).getTemps() <= 99)
+            else if (trie_pointages.at(index).getTemps() <= 100)
             {
                 std::cout << "0";
             }
             std::cout << trie_pointages.at(index).getTemps();
             std::cout << "  |  ";
-            if (trie_pointages.at(index).getMoy_t_n() <= 9)
+            if (trie_pointages.at(index).getMoy_t_n() < 10)
             {
                 std::cout << "0";
             }

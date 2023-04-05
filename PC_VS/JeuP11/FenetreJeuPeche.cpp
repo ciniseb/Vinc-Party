@@ -12,17 +12,17 @@ Description:
 ====================================================================================================*/
 #include "FenetreJeuPeche.h"
 
-FenetreJeuPeche::FenetreJeuPeche(ES* thread) : FenetreMiniJeu(thread) // Main du jeu
+MoteurJeuPeche::MoteurJeuPeche(ES* thread) : MoteurMiniJeu(thread) // Main du jeu
 {
     initialiser();
 }
 
-FenetreJeuPeche::~FenetreJeuPeche()
+MoteurJeuPeche::~MoteurJeuPeche()
 {
 
 }
 
-void FenetreJeuPeche::initialiser()
+void MoteurJeuPeche::initialiser()
 {
     chrono = Chronometre();
     positionJoueur = 0;
@@ -41,7 +41,7 @@ void FenetreJeuPeche::initialiser()
     bitPrecedent = 0;
 }
 
-void FenetreJeuPeche::ouvrir()
+void MoteurJeuPeche::demarrer()
 {
     bool demarrage = true;
     std::unique_ptr<Evenement> evenement;
@@ -111,7 +111,7 @@ void FenetreJeuPeche::ouvrir()
     }
 }
 
-void FenetreJeuPeche::AffichageEcran(int mode)
+void MoteurJeuPeche::AffichageEcran(int mode)
 {
     //std::cout << "Affichage" << std::endl;
     char screen[14][20];
@@ -202,7 +202,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
         }
         else
         {
-        std::cout << "Appuyez sur B pour attraper le poisson        " << '\n';
+        std::cout << "Appuyez sur H pour attraper le poisson        " << '\n';
         }
 
         std::cout << "Ligne de peche   Barre de progression" << std::endl;
@@ -322,7 +322,7 @@ void FenetreJeuPeche::AffichageEcran(int mode)
     }
 }
 
-bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
+bool MoteurJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
 {
     //std::cout << "Temps" << std::endl;   
     //system("cls");
@@ -348,7 +348,7 @@ bool FenetreJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
     return true;
 }
 
-void FenetreJeuPeche::setPoisson()
+void MoteurJeuPeche::setPoisson()
 {
     int nombre = 0;
     if (pretPecher == true)
@@ -441,7 +441,7 @@ void FenetreJeuPeche::setPoisson()
     }*/
 }
 
-void FenetreJeuPeche::getJoueur(Direction touche)
+void MoteurJeuPeche::getJoueur(Direction touche)
 {
     if (pretPecher != true)
     {
@@ -467,7 +467,7 @@ void FenetreJeuPeche::getJoueur(Direction touche)
 
 }
 
-void FenetreJeuPeche::VerificationJoueurPoisson()
+void MoteurJeuPeche::VerificationJoueurPoisson()
 {
     if (bitCount >= bitPrecedent);
     {
