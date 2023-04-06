@@ -123,6 +123,12 @@
     <ClCompile Include="WidgetJeuMineur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FenetreJeuPeche.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetreJeuMineur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
@@ -207,6 +213,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tuile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreJeuMineur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreJeuPeche.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
