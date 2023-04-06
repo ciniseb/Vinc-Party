@@ -39,6 +39,8 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Joystick.h"
 #include "Boussole.h"
 
+#include <QVector>
+
 class MoteurJeu : public Moteur
 {
 private:
@@ -46,6 +48,7 @@ private:
     Niveau niveau;
 
     Tuile carte[HAUTEUR_CARTE][LARGEUR_CARTE];
+    QVector<QVector<int>> q_carte;
     MoteurMiniJeu *mini_jeux[NB_MINI_JEUX];
 
     int carte_gabarit[HAUTEUR_CARTE][LARGEUR_CARTE];

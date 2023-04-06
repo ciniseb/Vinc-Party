@@ -16,6 +16,7 @@ Description: Constantes utiles à la compréhension du programme
 #define MODE_CLAVIER true
 
 //Cheat codes
+#define DEMANDER_NOM false
 #define ENNEMI_INNOFFENSIF false
 #define VISION_NOCTURNE true
 #define MODE_MOZART false
@@ -67,8 +68,11 @@ enum class Etat
     Pause
 };
 
-//Affichage FenetreJeu
+//Affichage MoteurJeu
 #define AFFICHAGE_COMPLET 0
 #define AFFICHAGE_TEMPS 1
 #define AFFICHAGE_ADVERSAIRE 2
 #define AFFICHAGE_JOUEUR 3
+
+//WidgetCarte
+#define TAILLE_MINIMUM_TUILE 16

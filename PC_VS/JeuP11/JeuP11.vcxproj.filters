@@ -123,6 +123,18 @@
     <ClCompile Include="WidgetJeuMineur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FenetreJeuPeche.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenetreJeuMineur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QSvgRatioWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetCarte.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
@@ -209,6 +221,12 @@
     <ClInclude Include="Tuile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FenetreJeuMineur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenetreJeuPeche.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="chanson_1.csv">
@@ -259,5 +277,16 @@
     <QtMoc Include="WidgetJeuMineur.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="QSvgRatioWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetCarte.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="MicrosoftTeams-image.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
