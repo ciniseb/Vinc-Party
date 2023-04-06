@@ -1,4 +1,16 @@
 ﻿  Reading Qt configuration (C:/Qt/6.4.2/msvc2019_64/bin/qmake)
+  rcc JeuP11.qrc
+  moc WidgetCarte.h
+  moc WidgetJeuMineur.h
+  moc WidgetJeuPeche.h
+  moc WidgetJeuPiano.h
+  moc WidgetPointages.h
+  moc WidgetJeu.h
+  moc WidgetMenu.h
+  moc Interface.h
+   RCC: Warning: No resources in 'C:\Users\sebas\OneDrive - USherbrooke\Bureau\Universit├®\S2\PROJET\Vinc-Party\PC_VS\JeuP11\JeuP11.qrc'.
+  moc QSvgRatioWidget.h
+  moc ThreadMoteur.h
   Accel.cpp
   Bouton.cpp
   Chronometre.cpp
