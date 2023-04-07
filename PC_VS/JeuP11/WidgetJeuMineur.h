@@ -31,11 +31,20 @@ public:
     ThreadMoteur* threadMoteur;
 
 private:
+    int etat;
+
+    QPixmap pixmap;
+    QLabel* image;
+    QStringList etatBlock;
+
     QGridLayout* layout_principal;
     QRect cube;
     QLabel* chrono;
     QRect* rect;
     QTimer* timer;
+
+protected:
+    void resizeEvent(QResizeEvent* event) override;
 
 public slots:
     void debut();

@@ -17,14 +17,32 @@ WidgetJeuMineur::WidgetJeuMineur(ThreadMoteur* thread, QWidget* parent) : QWidge
 	threadMoteur = thread;
 
     //UI
+
         //Timer//
     timer = new QTimer(this);
+
+        //Label to display the picture//
+    image = new QLabel(this);
+    image->setAlignment(Qt::AlignCenter);
+    image->setScaledContents(true);
+
+        //Load image//
+    etatBlock << ""
+              << ""
+              << ""
+              << "";
+
+
+
+
+    /*
     chrono = new QLabel("LOL");
     rect = new QRect;
     rect->adjust(20, 20, 20, 20);
 
     QFrame* frame = new QFrame(this);
     frame->setFrameShape(QFrame::Box);
+    
 
 
     layout_principal = new QGridLayout();
@@ -33,55 +51,55 @@ WidgetJeuMineur::WidgetJeuMineur(ThreadMoteur* thread, QWidget* parent) : QWidge
 
     setLayout(layout_principal);
     chrono->setText("Chrono");
-
+    */
 
 
 
     //Connexions
     connect(threadMoteur, SIGNAL(jeuMineur_block(float)), this, SLOT(blockUpadate(float)));
     connect(threadMoteur, SIGNAL(jeuMineur_menu()), this, SLOT(debut()));
-    connect(threadMoteur, SIGNAL(jeuMineur_temps(int)), this, SLOT(temps(int)));
+    //connect(threadMoteur, SIGNAL(jeuMineur_temps(int)), this, SLOT(temps(int)));
 }
 
 void WidgetJeuMineur::blockUpadate(float pourcentage)
 {
     if (pourcentage <= 100 * (1 / 5.0))
     {
-        rect->adjust(30, 30, 30, 30);
-        chrono->setText("10");
-
+        pixmap.load(etatBlock[0]);
     }
     else if (pourcentage <= 100 * (2 / 5.0))
     {
-        rect->adjust(40, 40, 40, 40);
-        chrono->setText("20");
+        pixmap.load(etatBlock[1]);
     }
     else if (pourcentage <= 100 * (3 / 5.0))
     {
-        rect->adjust(50, 50, 50, 50);
-        chrono->setText("30");
-
+        pixmap.load(etatBlock[2]);
     }
     else if (pourcentage <= 100 * (4 / 5.0))
     {
-        rect->adjust(60, 60, 60, 60);
-        chrono->setText("40");
+        pixmap.load(etatBlock[3]);
     }
     else
     {
-        rect->adjust(70, 70, 70, 70);
-        chrono->setText("50");
+        pixmap.load(etatBlock[4]);
     }
+    image->setPixmap(pixmap);
+}
+
+void WidgetJeuMineur::resizeEvent(QResizeEvent* event)
+{
+    QSize size = image->size();
+    image->setPixmap(pixmap.scaled(size, Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 
 void WidgetJeuMineur::debut()
 {
-    chrono->setText("change");
+    pixmap.load(etatBlock[0]);
+    image->setPixmap(pixmap);
 }
 
 void WidgetJeuMineur::temps(int time)
 {
-    chrono->setText(QString::number(time));
 }
 
 WidgetJeuMineur::~WidgetJeuMineur()
