@@ -12,7 +12,7 @@ Description:
 ====================================================================================================*/
 #include "FenetreJeuPeche.h"
 
-MoteurJeuPeche::MoteurJeuPeche(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr) : MoteurMiniJeu(threadArduino, threadMoteur) // Main du jeu
+MoteurJeuPeche::MoteurJeuPeche(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur) // Main du jeu
 {
     initialiser();
 }
@@ -327,13 +327,7 @@ void MoteurJeuPeche::AffichageEcran(int mode)
     }
     else if (MODE_CONSOLE == false)
     {
-        if (bit > bitPrecedent)
-        {
-            if (Riviere1Etat == true)
-            {
-                
-            }
-        }
+
     }
 }
 

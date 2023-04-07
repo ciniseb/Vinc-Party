@@ -135,6 +135,9 @@
     <ClCompile Include="WidgetCarte.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WidgetRiviere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
@@ -281,6 +284,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="WidgetCarte.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetRiviere.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

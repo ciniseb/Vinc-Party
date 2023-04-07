@@ -122,6 +122,7 @@
     <ClCompile Include="WidgetJeuPeche.cpp" />
     <ClCompile Include="WidgetJeuPiano.cpp" />
     <ClCompile Include="WidgetPointages.cpp" />
+    <ClCompile Include="WidgetRiviere.cpp" />
     <QtRcc Include="JeuP11.qrc" />
     <ClCompile Include="Bargraph.cpp" />
     <ClCompile Include="Boussole.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
+    <QtMoc Include="WidgetRiviere.h" />
     <QtMoc Include="WidgetCarte.h" />
     <QtMoc Include="WidgetJeuMineur.h" />
     <QtMoc Include="WidgetJeuPeche.h" />

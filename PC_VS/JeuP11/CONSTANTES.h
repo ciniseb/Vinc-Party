@@ -12,7 +12,7 @@ Description: Constantes utiles à la compréhension du programme
 ====================================================================================================*/
 #pragma once
 
-#define MODE_CONSOLE true
+#define MODE_CONSOLE false
 #define MODE_CLAVIER true
 
 //Cheat codes
@@ -76,3 +76,10 @@ enum class Etat
 
 //WidgetCarte
 #define TAILLE_MINIMUM_TUILE 16
+
+//WidgetRiviere
+#define TAILLE_RIVIERE 1000
+#define HAUTEUR_RIVIERE 500
+#define LARGEUR_RIVIERE 1000
+#define HAUTEUR_MINIMUM_RIVIERE 480
+#define LARGEUR_MINIMUM_RIVIERE 960
