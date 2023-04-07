@@ -14,6 +14,11 @@ Description: UI du mineur
 
 #include <QWidget>
 #include "ThreadMoteur.h"
+#include <QPushButton>
+#include <QLabel>
+#include <QGridLayout>
+#include <QTimer>
+
 
 class WidgetJeuMineur : public QWidget
 {
@@ -21,11 +26,20 @@ class WidgetJeuMineur : public QWidget
 
 public:
 	WidgetJeuMineur(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
-	~WidgetJeuMineur();
+    ~WidgetJeuMineur();
 
     ThreadMoteur* threadMoteur;
 
 private:
-    //Attributs
+    QGridLayout* layout_principal;
+    QRect cube;
+    QLabel* chrono;
+    QRect* rect;
+    QTimer* timer;
+
+public slots:
+    void debut();
+    void temps(int time);
+    void blockUpadate(float pourcentage);
 
 };

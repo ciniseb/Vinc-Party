@@ -64,7 +64,7 @@ private:
 	bool Temps();
 
 public:
-	MoteurJeuMineur(ES* thread);
+	MoteurJeuMineur(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
 	~MoteurJeuMineur();
 
 	void demarrer();

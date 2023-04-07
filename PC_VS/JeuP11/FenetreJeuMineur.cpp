@@ -12,7 +12,7 @@ Description: Fenetre du jeu mineur
 ====================================================================================================*/
 #include "FenetreJeuMineur.h"
 
-MoteurJeuMineur::MoteurJeuMineur(ES* thread): MoteurMiniJeu(thread)
+MoteurJeuMineur::MoteurJeuMineur(ES* threadArduino, ThreadMoteur* threadMoteur): MoteurMiniJeu(threadArduino, threadMoteur)
 {
     initialiser();
 }
@@ -26,6 +26,7 @@ void MoteurJeuMineur::demarrer()
     
     system("cls");
     affichageEcran(Menu);
+
 
     while (true)
     {
@@ -44,13 +45,20 @@ void MoteurJeuMineur::demarrer()
                 Accel* aaccel = static_cast<Accel*>(evenement.get());
                 TypeMotion mouvement = aaccel->getType();
                 variationAxe(mouvement);
+
+                emit threadMoteur->jeuMineur_block(nbCoups/(nbVoulu*1.0)*100);
+                // Animation(selon le pourcentage)
+
                 affichageEcran(Jeu);
             }
         }
+
         Temps();
 
                 if (nbCoups == nbVoulu)
                 {
+                    //Diamant...
+
                     reussite = true;
                     system("cls");
                     std::cout << "yeah gg" << std::endl;
@@ -63,6 +71,8 @@ void MoteurJeuMineur::demarrer()
                 
         else if (chrono.tempsEcoule_s() > (tempsMax+1) && nbCoups != 5)
         {
+            ///Animation de fail....
+
             reussite = false;
             SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
             echouer = true;
@@ -89,12 +99,7 @@ void MoteurJeuMineur::affichageEcran(int mode)
     switch (mode)
     {
     case Menu:
-        if (!MODE_CONSOLE)
-        {
-            emit threadMoteur->menu();
-        }
-        else if (MODE_CONSOLE)
-        {
+        emit threadMoteur->jeuMineur_menu();
             std::cout << "Creusez pour commencer (h/b clavier), " << nbVoulu << " coups voulus en " << tempsMax << " secondes :o" << std::endl << std::endl; // donnez un coup pour commencer - avec accelerometre
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
@@ -106,15 +111,10 @@ void MoteurJeuMineur::affichageEcran(int mode)
                     }
                 }
             }
-        }
         break;
     case Jeu:
-        if (!MODE_CONSOLE)
-        {
-            emit threadMoteur->jeuMineur_block(nbVoulu);
-        }
-        else if (MODE_CONSOLE)
-        {
+ 
+
             SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
             std::cout << "Creusez jusqu'au diamant pour gagner!" << std::endl << std::endl;
 
@@ -131,11 +131,9 @@ void MoteurJeuMineur::affichageEcran(int mode)
                     }
                 }
             }
-        }
         break;
     }
-    if (MODE_CONSOLE)
-    {
+
         // affichage matrice
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -146,7 +144,7 @@ void MoteurJeuMineur::affichageEcran(int mode)
         }
         std::cout << std::endl << "nbCoups: " << nbCoups << "/" << nbVoulu << " coups" << std::endl;
         std::cout << std::endl << positionHaut << positionBas << std::endl;
-    }
+   
 }
 
 int MoteurJeuMineur::getCoup() {
@@ -175,10 +173,7 @@ void MoteurJeuMineur::variationAxe(TypeMotion variation) {
 
 bool MoteurJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
 {
-    bit = bitCount - chrono.tempsEcoule_s();
-    if (bit == 0 && bitCount < tempsMax) {
-        bitCount++;
-    }
+ 
     return true;
 }
 
@@ -187,8 +182,8 @@ void MoteurJeuMineur::initialiser()
     chrono = Chronometre();
 
     nbCoups = 0; // compteur
-    nbVoulu = 5; // changer pour augmenter la difficulte
-    tempsMax = 30; // changer pour augmenter la difficulte
+    nbVoulu = 17; // changer pour augmenter la difficulte
+    tempsMax = 10; // changer pour augmenter la difficulte
 
     bitCount = 0;
     positionHaut = false;

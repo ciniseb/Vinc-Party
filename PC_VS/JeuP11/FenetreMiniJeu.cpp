@@ -13,7 +13,7 @@ Description:
 #include "FenetreMiniJeu.h"
 
 //Constructeurs & destructeurs
-MoteurMiniJeu::MoteurMiniJeu(ES *thread) : Moteur(thread)
+MoteurMiniJeu::MoteurMiniJeu(ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur)
 {
     reussite = false;
 }
