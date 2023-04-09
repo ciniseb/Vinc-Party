@@ -325,9 +325,14 @@ void MoteurJeuPeche::AffichageEcran(int mode)
             std::cout << '\n';
         }
     }
-    else if (MODE_CONSOLE == false)
+    else
     {
+        switch (mode)
+        {
+        case Menu:
         emit threadMoteur->jeuPecheMAJ_Riviere(1);
+        break;
+        }
     }
 }
 

@@ -51,11 +51,11 @@ WidgetRiviere::~WidgetRiviere()
 
 void WidgetRiviere::paintEvent(QPaintEvent* event)
 {
-    QImage riviere1("Riviere1.png");
-    QImage riviere2("Riviere2.png");
-    QImage Pecheur("Pecheur.png");
-    QImage BaleineDroite("Wailord_droite.png");
-    QImage BaleineGauche("Wailord_gauche.png");
+    QPixmap riviere1("Riviere1.png");
+    QPixmap riviere2("Riviere2.png");
+    QPixmap Pecheur("Pecheur.png");
+    QPixmap BaleineDroite("Wailord_droite.png");
+    QPixmap BaleineGauche("Wailord_gauche.png");
 
     QPainter toile;
     toile.setRenderHint(QPainter::Antialiasing, false);
@@ -163,7 +163,7 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
 
         toile.drawImage(espace_x, espace_y, riviere1);*/
 
-        toile.drawImage(0, 0, riviere1);
+        toile.drawPixmap(0, 0, riviere1);
 
     }
     else if(riviere == 2)
@@ -198,7 +198,7 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
 
         toile.drawImage(espace_x, espace_y, riviere2);*/
 
-        toile.drawImage(0, 0, riviere2);
+        toile.drawPixmap(0, 0, riviere2);
     }
 
 }
