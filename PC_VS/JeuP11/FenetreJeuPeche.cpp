@@ -327,7 +327,7 @@ void MoteurJeuPeche::AffichageEcran(int mode)
     }
     else if (MODE_CONSOLE == false)
     {
-
+        emit threadMoteur->jeuPecheMAJ_Riviere(1);
     }
 }
 

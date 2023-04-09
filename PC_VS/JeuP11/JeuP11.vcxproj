@@ -184,6 +184,8 @@
     <Media Include="StillDre.wav" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\..\..\Pictures\Riviere1.png" />
+    <Image Include="..\..\..\..\..\..\Pictures\Riviere2.png" />
     <Image Include="MicrosoftTeams-image.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

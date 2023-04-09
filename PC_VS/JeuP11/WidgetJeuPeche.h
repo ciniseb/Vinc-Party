@@ -40,4 +40,5 @@ private:
     QWidget* widget;
     
     QHBoxLayout* layout;
+
 };

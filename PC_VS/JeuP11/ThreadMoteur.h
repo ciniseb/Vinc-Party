@@ -58,9 +58,10 @@ signals:
 	//MoteurJeuPiano
 	
 	//MoteurJeuPeche
-	void jeuPecheMAJ_Riviere(int riviere);
-	void jeuPecheMAJ_Pecheur(int position);
-	void jeuPecheMAJ_Baleine(int mouvement);
+	void jeuPecheMAJ_Riviere(int);
+	void jeuPecheMAJ_Pecheur(int);
+	void jeuPecheMAJ_Baleine(int);
+	void jeuPecheMAJ_ProgressBar(int);
 
 	//Moteur...
 	
