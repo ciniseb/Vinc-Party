@@ -27,6 +27,11 @@ void MoteurJeuMineur::demarrer()
     system("cls");
     affichageEcran(Menu);
 
+    emit threadMoteur->jeuMineur_timer(tempsMax);
+
+    const wchar_t* chanson_ambiance = L"MineurSon.wav";
+
+    bool played = PlaySound(chanson_ambiance, NULL, SND_ASYNC);
 
     while (true)
     {
@@ -41,6 +46,7 @@ void MoteurJeuMineur::demarrer()
                     demarrage = false;
 
                 }
+
                 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 26 });
                 Accel* aaccel = static_cast<Accel*>(evenement.get());
                 TypeMotion mouvement = aaccel->getType();
@@ -66,6 +72,7 @@ void MoteurJeuMineur::demarrer()
                     demarrage = false;
                     threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                     nbCoups = 0;
+                    PlaySound(NULL, NULL, SND_ASYNC);
                     return;
                 }
                 
@@ -78,6 +85,7 @@ void MoteurJeuMineur::demarrer()
             echouer = true;
             system("cls");
             std::cout << "booooooo :(                                                                 ";
+            PlaySound(NULL, NULL, SND_ASYNC);
             if (evenement->getCode() == BOUTON)
             {
                 threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
@@ -156,12 +164,18 @@ void MoteurJeuMineur::setCoup(int x) {
 }
 
 void MoteurJeuMineur::variationAxe(TypeMotion variation) {
+
+    const wchar_t* coups1 = L"MineurPart1.wav";
+    const wchar_t* coups2 = L"MineurPart2.wav";
+    const wchar_t* coups3 = L"MineurMeme.wav";
+
     if (variation == PECHE) {
         positionHaut = true;
         positionBas = false;
         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(10));
     }
     if (variation == MINER && positionHaut==true){
+
         positionBas = true;
         positionHaut = false;
         std::cout << "descendu" << std::endl;
@@ -183,10 +197,10 @@ void MoteurJeuMineur::initialiser()
 
     nbCoups = 0; // compteur
     nbVoulu = 17; // changer pour augmenter la difficulte
-    tempsMax = 10; // changer pour augmenter la difficulte
-
+    tempsMax = 15; // changer pour augmenter la difficulte
     bitCount = 0;
     positionHaut = false;
     positionBas = false;
     echouer = false;
+
 }

@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_ThreadMoteur_t {
-    uint offsetsAndSizes[32];
+    uint offsetsAndSizes[34];
     char stringdata0[13];
     char stringdata1[22];
     char stringdata2[1];
@@ -43,6 +43,7 @@ struct qt_meta_stringdata_ThreadMoteur_t {
     char stringdata13[15];
     char stringdata14[16];
     char stringdata15[16];
+    char stringdata16[16];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_ThreadMoteur_t::offsetsAndSizes) + ofs), len 
@@ -63,7 +64,8 @@ Q_CONSTINIT static const qt_meta_stringdata_ThreadMoteur_t qt_meta_stringdata_Th
         QT_MOC_LITERAL(148, 13),  // "jeuMAJ_Joueur"
         QT_MOC_LITERAL(162, 14),  // "jeuMineur_menu"
         QT_MOC_LITERAL(177, 15),  // "jeuMineur_block"
-        QT_MOC_LITERAL(193, 15)   // "jeuMineur_temps"
+        QT_MOC_LITERAL(193, 15),  // "jeuMineur_temps"
+        QT_MOC_LITERAL(209, 15)   // "jeuMineur_timer"
     },
     "ThreadMoteur",
     "changementWidgetActif",
@@ -80,7 +82,8 @@ Q_CONSTINIT static const qt_meta_stringdata_ThreadMoteur_t qt_meta_stringdata_Th
     "jeuMAJ_Joueur",
     "jeuMineur_menu",
     "jeuMineur_block",
-    "jeuMineur_temps"
+    "jeuMineur_temps",
+    "jeuMineur_timer"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -91,23 +94,24 @@ Q_CONSTINIT static const uint qt_meta_data_ThreadMoteur[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       9,       // signalCount
+      10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   68,    2, 0x06,    1 /* Public */,
-       4,    1,   71,    2, 0x06,    3 /* Public */,
-       6,    6,   74,    2, 0x06,    5 /* Public */,
-       9,    1,   87,    2, 0x06,   12 /* Public */,
-      10,    1,   90,    2, 0x06,   14 /* Public */,
-      12,    2,   93,    2, 0x06,   16 /* Public */,
-      13,    0,   98,    2, 0x06,   19 /* Public */,
-      14,    1,   99,    2, 0x06,   20 /* Public */,
-      15,    1,  102,    2, 0x06,   22 /* Public */,
+       1,    1,   74,    2, 0x06,    1 /* Public */,
+       4,    1,   77,    2, 0x06,    3 /* Public */,
+       6,    6,   80,    2, 0x06,    5 /* Public */,
+       9,    1,   93,    2, 0x06,   12 /* Public */,
+      10,    1,   96,    2, 0x06,   14 /* Public */,
+      12,    2,   99,    2, 0x06,   16 /* Public */,
+      13,    0,  104,    2, 0x06,   19 /* Public */,
+      14,    1,  105,    2, 0x06,   20 /* Public */,
+      15,    1,  108,    2, 0x06,   22 /* Public */,
+      16,    1,  111,    2, 0x06,   24 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -118,6 +122,7 @@ Q_CONSTINIT static const uint qt_meta_data_ThreadMoteur[] = {
     QMetaType::Void, 0x80000000 | 11, QMetaType::Int,    2,    2,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Float,    2,
+    QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
 
        0        // eod
@@ -163,6 +168,9 @@ Q_CONSTINIT const QMetaObject ThreadMoteur::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<float, std::false_type>,
         // method 'jeuMineur_temps'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'jeuMineur_timer'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
@@ -183,6 +191,7 @@ void ThreadMoteur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 6: _t->jeuMineur_menu(); break;
         case 7: _t->jeuMineur_block((*reinterpret_cast< std::add_pointer_t<float>>(_a[1]))); break;
         case 8: _t->jeuMineur_temps((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->jeuMineur_timer((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -250,6 +259,13 @@ void ThreadMoteur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
                 return;
             }
         }
+        {
+            using _t = void (ThreadMoteur::*)(int );
+            if (_t _q_method = &ThreadMoteur::jeuMineur_timer; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 9;
+                return;
+            }
+        }
     }
 }
 
@@ -272,13 +288,13 @@ int ThreadMoteur::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }
@@ -343,6 +359,13 @@ void ThreadMoteur::jeuMineur_temps(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 8, _a);
+}
+
+// SIGNAL 9
+void ThreadMoteur::jeuMineur_timer(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 9, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

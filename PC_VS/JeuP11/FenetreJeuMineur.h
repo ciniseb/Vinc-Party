@@ -40,6 +40,8 @@ Description: Mini-jeu de piano style Piano tiles
 
 
 
+
+
 class MoteurJeuMineur : public MoteurMiniJeu
 {
 private:

@@ -57,6 +57,7 @@ signals:
 	void jeuMineur_menu();
 	void jeuMineur_block(float);
 	void jeuMineur_temps(int);
+	void jeuMineur_timer(int);
 
 
 	//Moteur...
