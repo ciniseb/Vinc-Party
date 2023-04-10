@@ -166,7 +166,7 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
         toile.drawPixmap(0, 0, riviere1);
 
     }
-    else if(riviere == 2)
+    else
     {
         float hauteur_riviere2 = 0;
         float largeur_riviere2 = 0;

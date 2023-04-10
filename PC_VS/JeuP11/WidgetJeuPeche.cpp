@@ -18,7 +18,7 @@ WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent) : QWidget(
 
     //Connexions
     widget = new QWidget();
-    riviere = new WidgetRiviere(threadMoteur);
+    riviere = new WidgetRiviere(threadMoteur, this);
     progressBar = new QProgressBar();
 
     layout = new QHBoxLayout(widget);
