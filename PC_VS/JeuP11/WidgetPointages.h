@@ -16,6 +16,9 @@ Description: UI des pointages
 #include "ThreadMoteur.h"
 #include <QPainter>
 #include <QLabel>
+#include <QGridLayout>
+#include <QPushButton>
+
 
 
 class WidgetPointages : public QWidget
@@ -32,7 +35,11 @@ protected:
     void paintEvent(QPaintEvent* event) override;
 
 private:
+
     QPixmap* background;
+    QRect* footprint;
+    QGridLayout* layout;
+    QPushButton* button;
 
 
     QLabel* titlelabel;

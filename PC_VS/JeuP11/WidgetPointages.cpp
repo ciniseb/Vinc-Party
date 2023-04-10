@@ -34,11 +34,32 @@ WidgetPointages::WidgetPointages(ThreadMoteur* thread, QWidget* parent) : QWidge
         "border-radius: 10px;"
         "padding: 10px;");
 
+    /////Leaderboard/////
+    footprint = new QRect(width() * 0.1, height() * 0.2, width() * 0.8, height() * 0.75);
+    layout = new QGridLayout(this);
 
+    int numButtons = 6;
+
+    int numRows = 2;
+    int numCols = 3;
+
+    for (int i = 0; i < numButtons; ++i)
+    {
+        button = new QPushButton(QString("Button %1").arg(i + 1), this);
+        button->setFixedSize(QSize(footprint->width()*10, 60));
+        button->setStyleSheet("background-color: transparent; border: none;");
+        layout->addWidget(button);
+    }
 }
 
+
 WidgetPointages::~WidgetPointages()
-{}
+{
+    delete titlelabel;
+    delete footprint;
+}
+
+
 
 void WidgetPointages::updateTitleLabelFontSize()
 {
@@ -86,6 +107,12 @@ void WidgetPointages::paintEvent(QPaintEvent* event)
     int titleLabelWidth = width() * 1 / 2;
     int titleLabelHeight = height() * 1 / 8;
     titlelabel->resize(titleLabelWidth, titleLabelHeight);
-    titlelabel->move((width() - titleLabelWidth) / 2, (height() - titleLabelHeight) *0.02);
+    titlelabel->move((width() - titleLabelWidth) / 2, (height() - titleLabelHeight) *0.05);
     updateTitleLabelFontSize();
+
+    /////Leaderboard/////
+    footprint->setRect(width()*0.1, height() * 0.2, width() * 0.8, height() * 0.75);
+    layout->setGeometry(*footprint);
+
 }
+
