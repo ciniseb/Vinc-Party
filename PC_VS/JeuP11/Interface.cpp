@@ -22,12 +22,14 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent) : QStackedWidget(par
 	widgetJeuPiano = new WidgetJeuPiano(threadMoteur, this);
 	widgetJeuPeche = new WidgetJeuPeche(threadMoteur, this);
 	widgetJeuMineur = new WidgetJeuMineur(threadMoteur, this);
+	widgetRiviere = new WidgetRiviere(threadMoteur, this);
 
 	addWidget(widgetMenu);
 	addWidget(widgetJeu);
+	addWidget(widgetJeuPeche);
 	addWidget(widgetPointages);
 	addWidget(widgetJeuPiano);
-	addWidget(widgetJeuPeche);
+
 	addWidget(widgetJeuMineur);
 
 	//Connexions

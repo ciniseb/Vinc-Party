@@ -42,6 +42,7 @@ private:
 	WidgetJeuPiano* widgetJeuPiano;
 	WidgetJeuMineur* widgetJeuMineur;
 	WidgetJeuPeche* widgetJeuPeche;
+	WidgetRiviere* widgetRiviere;
 
  
 };
