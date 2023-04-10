@@ -102,6 +102,7 @@ void WidgetJeuMineur::blockUpadate(float pourcentage)
     else
     {
         block_shape->load(shapes[5]);
+        countdownTimer->stop();
     }
 
     if (!timerStarted) {
@@ -235,12 +236,16 @@ void WidgetJeuMineur::paintEvent(QPaintEvent* event)
 
     qreal sourceAspectRatio = qreal(mine_background->width()) / qreal(mine_background->height());
 
-    int cropWidth, cropHeight;
-    if (targetAspectRatio > sourceAspectRatio) {
+    int cropWidth;
+    int cropHeight;
+
+    if (targetAspectRatio > sourceAspectRatio) 
+    {
         cropWidth = mine_background->width();
         cropHeight = int(cropWidth / targetAspectRatio);
     }
-    else {
+    else 
+    {
         cropHeight = mine_background->height();
         cropWidth = int(cropHeight * targetAspectRatio);
     }

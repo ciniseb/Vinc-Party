@@ -272,7 +272,4 @@
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="WidgetJeuMineurBlock.ui" />
-  </ItemGroup>
 </Project>

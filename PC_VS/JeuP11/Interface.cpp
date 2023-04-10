@@ -25,11 +25,11 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent) : QStackedWidget(par
 
 	addWidget(widgetMenu);
 	addWidget(widgetJeu);
-	addWidget(widgetJeuMineur); //temp
+	addWidget(widgetPointages); //temp
 	//addWidget(widgetPointages);
 	addWidget(widgetJeuPiano);
 	addWidget(widgetJeuPeche);
-	//addWidget(widgetJeuMineur);
+	addWidget(widgetJeuMineur);
 
 	//Connexions
 	connect(threadMoteur, SIGNAL(changementWidgetActif(int)), this, SLOT(setWidgetActif(int)));

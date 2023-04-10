@@ -177,9 +177,6 @@
   <ItemGroup>
     <Media Include="StillDre.wav" />
   </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="WidgetJeuMineurBlock.ui" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />
