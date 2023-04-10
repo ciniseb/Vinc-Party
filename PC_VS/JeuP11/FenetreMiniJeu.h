@@ -15,8 +15,6 @@ Description: Classe abstraite pour chaque classe d'un mini-jeu spécifique
 
 #include <iostream>
 #include "Fenetre.h"
-#include "ThreadMoteur.h"
-#include "ES.h"
 
 class MoteurMiniJeu : public Moteur
 {
@@ -26,7 +24,7 @@ protected:
 
 public:
     //Constructeurs & destructeurs
-    MoteurMiniJeu(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
+    MoteurMiniJeu(ES* threadArduino, ThreadMoteur* threadMoteur);
     ~MoteurMiniJeu();
 
     //Getteurs & setteurs

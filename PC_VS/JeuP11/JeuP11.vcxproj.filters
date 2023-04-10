@@ -129,6 +129,15 @@
     <ClCompile Include="FenetreJeuMineur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QSvgRatioWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetCarte.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetRiviere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
@@ -271,5 +280,25 @@
     <QtMoc Include="WidgetJeuMineur.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="QSvgRatioWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetCarte.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WidgetRiviere.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="MicrosoftTeams-image.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Pictures\Riviere1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\..\Pictures\Riviere2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

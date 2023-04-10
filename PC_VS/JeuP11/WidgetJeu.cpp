@@ -19,19 +19,23 @@ WidgetJeu::WidgetJeu(ThreadMoteur* thread, QWidget* parent) : QWidget(parent)
     //UI
     nom_joueur = new QLabel("Joueur : ");
 
-    svg_distance = new QSvgWidget("losange.svg");
-    svg_distance->setFixedSize(100, 100);
+    svg_distance = new QSvgWidget(QString("gutgh0bq1nllg31iowl.svg"));
+    svg_distance->setFixedSize(40, 40);
     distance = new QLabel("0");
 
-    svg_temps = new QSvgWidget("losange.svg");
+    svg_temps = new QSvgWidget(QString("gutgh0bq1nllg31iowl.svg"));
+    svg_temps->setFixedSize(40, 40);
     temps = new QLabel("00:00:00");
 
     niveau = new QLabel("Niveau 0");
 
     mjx = new QLabel("0");
-    svg_mjx = new QSvgWidget("losange.svg");
+    svg_mjx = new QSvgWidget(QString("gutgh0bq1nllg31iowl.svg"));
+    svg_mjx->setFixedSize(40, 40);
 
-    layout_informations = new QHBoxLayout();
+    widget_informations = new QWidget();
+    widget_informations->setFixedHeight(50);
+    layout_informations = new QHBoxLayout(widget_informations);
     layout_informations->addWidget(nom_joueur);
     layout_informations->addWidget(svg_distance);
     layout_informations->addWidget(distance);
@@ -41,11 +45,13 @@ WidgetJeu::WidgetJeu(ThreadMoteur* thread, QWidget* parent) : QWidget(parent)
     layout_informations->addWidget(mjx);
     layout_informations->addWidget(svg_mjx);
 
+    widgetCarte = new WidgetCarte(threadMoteur);
 
-    //tuiles[HAUTEUR_CARTE][LARGEUR_CARTE];
-
-    layout_principal = new QGridLayout();
-    layout_principal->addLayout(layout_informations, 0, 0, 1, LARGEUR_CARTE, Qt::AlignCenter);
+    layout_principal = new QVBoxLayout();
+    layout_principal->setContentsMargins(0, 0, 0, 0);
+    layout_principal->setSpacing(0);
+    layout_principal->addWidget(widget_informations);
+    layout_principal->addWidget(widgetCarte);
 
     setLayout(layout_principal);
 
