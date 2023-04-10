@@ -17,7 +17,26 @@ WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent) : QWidget(
     threadMoteur = thread;
 
     //Connexions
+    widget = new QWidget();
+    riviere = new WidgetRiviere(threadMoteur);
+    progressBar = new QProgressBar();
+
+    layout = new QHBoxLayout(widget);
+    layout->addWidget(riviere);
+    layout->addWidget(progressBar);
+
+    setLayout(layout);
+    connect(threadMoteur, SIGNAL(jeuPecheMAJ_ProgressBar(int)), progressBar, SLOT(setValue(int)));
 }
 
 WidgetJeuPeche::~WidgetJeuPeche()
-{}
+{
+
+}
+
+/*void WidgetJeuPeche::MAJ_ProgressBar(int x)
+{
+
+}*/
+
+

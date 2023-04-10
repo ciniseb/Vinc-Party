@@ -12,11 +12,11 @@ Description: Constantes utiles à la compréhension du programme
 ====================================================================================================*/
 #pragma once
 
-#define MODE_CONSOLE true
+#define MODE_CONSOLE false
 #define MODE_CLAVIER true
 
 //Cheat codes
-#define DEMANDER_NOM true
+#define DEMANDER_NOM false
 #define ENNEMI_INNOFFENSIF false
 #define VISION_NOCTURNE true
 #define MODE_MOZART false
@@ -68,8 +68,18 @@ enum class Etat
     Pause
 };
 
-//Affichage FenetreJeu
+//Affichage MoteurJeu
 #define AFFICHAGE_COMPLET 0
 #define AFFICHAGE_TEMPS 1
 #define AFFICHAGE_ADVERSAIRE 2
 #define AFFICHAGE_JOUEUR 3
+
+//WidgetCarte
+#define TAILLE_MINIMUM_TUILE 16
+
+//WidgetRiviere
+#define TAILLE_RIVIERE 500
+#define HAUTEUR_RIVIERE 500
+#define LARGEUR_RIVIERE 500
+#define HAUTEUR_MINIMUM_RIVIERE 480
+#define LARGEUR_MINIMUM_RIVIERE 480

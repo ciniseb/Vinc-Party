@@ -13,7 +13,7 @@ Description:
 #include "FenetreJeuPiano.h"
 
 //Constructeurs & destructeurs
-MoteurJeuPiano::MoteurJeuPiano(ES* thread) : MoteurMiniJeu(thread) { initialiser(); }
+MoteurJeuPiano::MoteurJeuPiano(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur) { initialiser(); }
 MoteurJeuPiano::~MoteurJeuPiano() {}
 
 bool MoteurJeuPiano::chargerChanson(bool matrice[50001][4])

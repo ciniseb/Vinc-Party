@@ -14,12 +14,15 @@ Description: UI du jeu
 
 #include <QWidget>
 #include "ThreadMoteur.h"
+#include "WidgetCarte.h"
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QGridLayout>
 #include <QLabel>
 #include <QGraphicsView>
 #include <QtSvg>
 #include <QSvgWidget>
+#include <QString>
 
 class WidgetJeu : public QWidget
 {
@@ -33,29 +36,26 @@ public:
 
 private:
     //Attributs
-    QGridLayout *layout_principal;
-    QHBoxLayout *layout_informations;
+    QVBoxLayout *layout_principal;
+
+
+    QWidget* widget_informations;
+    QHBoxLayout* layout_informations;
+    //
+    QLabel* nom_joueur;
+
+    QSvgWidget* svg_distance;
+    QLabel* distance;
+
+    QSvgWidget* svg_temps;
+    QLabel* temps;
 
     //
-    QLabel *nom_joueur;
+    QLabel* niveau;
 
-    QSvgWidget *svg_distance;
-    QLabel *distance;
-
-    QSvgWidget *svg_temps;
-    QLabel *temps;
-
-    //
-    QLabel *niveau;
-
-    QLabel *mjx;
-    QSvgWidget *svg_mjx;
+    QLabel* mjx;
+    QSvgWidget* svg_mjx;
 
 
-    QSvgWidget *tuiles[HAUTEUR_CARTE][LARGEUR_CARTE];
+    WidgetCarte* widgetCarte;
 };
-
-/*QGraphicsView *view = new QGraphicsView(this);
-QGraphicsScene *scene = new QGraphicsScene(this);
-
-QGraphicsSvgItem *svgItem = new QGraphicsSvgItem(":/images/image.svg");*/

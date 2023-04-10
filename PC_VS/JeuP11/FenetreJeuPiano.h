@@ -60,7 +60,7 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    MoteurJeuPiano(ES *thread);
+    MoteurJeuPiano(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
     ~MoteurJeuPiano();
 
     //Getteurs & setteurs

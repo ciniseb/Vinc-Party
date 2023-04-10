@@ -18,6 +18,16 @@ MoteurJeu::MoteurJeu(std::string nom_joueur, ES* threadArduino, ThreadMoteur* th
 {
     joueur.nom = nom_joueur;
     initialiser();
+
+    q_carte.resize(HAUTEUR_CARTE);
+    for (int r = 0; r < HAUTEUR_CARTE; r++)
+    {
+        q_carte[r].resize(LARGEUR_CARTE);
+        for (int c = 0; c < LARGEUR_CARTE; c++)
+        {
+            q_carte[r][c] = PLEIN;
+        }
+    }
 }
 MoteurJeu::~MoteurJeu()
 {
@@ -559,6 +569,7 @@ void MoteurJeu::demarrer()
 
     while (true)
     {
+        affichage(AFFICHAGE_COMPLET);
         //Mise à jour du temps de jeu à l'écran
         if (temps.tempsAtteint_ms(dernier_t + 1000))
         {
@@ -726,45 +737,44 @@ void MoteurJeu::affichage(int selection)
     }
     else if(selection == AFFICHAGE_COMPLET)
     {
-        int i_carte[HAUTEUR_CARTE][LARGEUR_CARTE];
-
         for (int r = 0; r < HAUTEUR_CARTE; r++)
         {
             for (int c = 0; c < LARGEUR_CARTE; c++)
             {
                 if (distance(joueur.position, { c, r }) > RAYON_VISION && !VISION_NOCTURNE)
                 {
-                    i_carte[r][c] = VIDE;
+                    q_carte[r][c] = PLEIN;
                 }
                 else if (joueur.position.X == c && joueur.position.Y == r)
                 {
-                    i_carte[r][c] = JOUEUR;
+                    q_carte[r][c] = JOUEUR;
                 }
                 else if (adversaire.position.X == c && adversaire.position.Y == r)
                 {
-                    i_carte[r][c] = ADVERSAIRE;
+                    q_carte[r][c] = ADVERSAIRE;
                 }
                 else if (carte[r][c].getRemplissage() == PLEIN)
                 {
-                    i_carte[r][c] = PLEIN;
-
+                    q_carte[r][c] = PLEIN;
                 }
                 else if (carte[r][c].getRemplissage() == VIDE)
                 {
-                    i_carte[r][c] = VIDE;
+                    q_carte[r][c] = VIDE;
                 }
                 else if (carte[r][c].getRemplissage() == MINI_JEU)
                 {
-                    i_carte[r][c] = MINI_JEU;
+                    q_carte[r][c] = MINI_JEU;
                 }
             }
-            std::cout << std::endl;
         }
 
         std::stringstream t;
         t << temps;
 
-        emit threadMoteur->jeuMAJ_Complet(joueur.nom,joueur.nb_tuiles_parcourues, t.str(), niveau.getNumero(), niveau.getNB_Mj_Restants(), i_carte);
+        emit threadMoteur->jeuMAJ_Informations(joueur.nom, joueur.nb_tuiles_parcourues, t.str(), niveau.getNumero(), niveau.getNB_Mj_Restants());
+        emit threadMoteur->jeuMAJ_Carte(q_carte);
+
+        //emit threadMoteur->jeuMAJ_Complet(joueur.nom,joueur.nb_tuiles_parcourues, t.str(), niveau.getNumero(), niveau.getNB_Mj_Restants(), q_carte);
     }
     else if (selection == AFFICHAGE_TEMPS)
     {
@@ -779,7 +789,8 @@ void MoteurJeu::affichage(int selection)
     }
     else if (selection == AFFICHAGE_JOUEUR)
     {
-        emit threadMoteur->jeuMAJ_Joueur(joueur.position, joueur.nb_tuiles_parcourues);
+        emit threadMoteur->jeuMAJ_Joueur(joueur.position);
+        emit threadMoteur->jeuMAJ_distance(joueur.nb_tuiles_parcourues);
     }
 }
 

@@ -1,1 +1,13 @@
-﻿
+﻿  FenetreJeuPeche.cpp
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xbd et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x11e et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x144 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x165 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x16f et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x426 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x4b3 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x4c4 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xbc et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x11d et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x143 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+  JeuP11.vcxproj -> C:\Users\emile\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe

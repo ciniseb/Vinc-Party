@@ -13,6 +13,7 @@ Description:
 #pragma once
 
 #include <QThread>
+#include <QVector>
 #include "ES.h"
 #include "Fenetre.h"
 #include "Coordonnee.h"
@@ -46,13 +47,21 @@ signals:
 
 
 	//MoteurJeu
-	void jeuMAJ_Complet(std::string, int, std::string, int, int,  int[HAUTEUR_CARTE][LARGEUR_CARTE]);
+	void jeuMAJ_Informations(std::string, int, std::string, int, int);
+	void jeuMAJ_Carte(QVector<QVector<int>>);
+	//void jeuMAJ_Complet(std::string, int, std::string, int, int,  int[HAUTEUR_CARTE][LARGEUR_CARTE]);
 	void jeuMAJ_Temps(std::string);
 	void jeuMAJ_Adversaire(Coordonnee);
-	void jeuMAJ_Joueur(Coordonnee, int);
+	void jeuMAJ_Joueur(Coordonnee);
+	void jeuMAJ_distance(int);
 
 	//MoteurJeuPiano
-
+	
+	//MoteurJeuPeche
+	void jeuPecheMAJ_Riviere(int);
+	void jeuPecheMAJ_Pecheur(int);
+	void jeuPecheMAJ_Baleine(int);
+	void jeuPecheMAJ_ProgressBar(int);
 
 	//Moteur...
 	
