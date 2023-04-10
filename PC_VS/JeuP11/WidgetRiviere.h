@@ -31,6 +31,12 @@ private:
     
     int riviere;
 
+    QPixmap* riviere1;
+    QPixmap* riviere2;
+    QPixmap* Pecheur;
+    QPixmap* BaleineDroite;
+    QPixmap* BaleineGauche;
+
     QVector<QVector<int>> q_riviere;
 
 public slots:

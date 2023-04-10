@@ -294,10 +294,10 @@
     <Image Include="MicrosoftTeams-image.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\..\..\..\..\Pictures\Riviere1.png">
+    <Image Include="Riviere2.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\..\..\..\..\Pictures\Riviere2.png">
+    <Image Include="Riviere1.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

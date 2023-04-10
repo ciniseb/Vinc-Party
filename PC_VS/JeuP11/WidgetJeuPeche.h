@@ -17,7 +17,7 @@ Description: UI de peche
 #include <QImage>
 #include <QPainter>
 #include <QProgressBar>
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include "WidgetRiviere.h"
 
 class WidgetJeuPeche : public QWidget
@@ -39,6 +39,6 @@ private:
 
     QWidget* widget;
     
-    QHBoxLayout* layout;
+    QVBoxLayout* layout;
 
 };

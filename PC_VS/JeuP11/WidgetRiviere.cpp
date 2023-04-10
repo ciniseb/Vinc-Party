@@ -4,23 +4,25 @@ WidgetRiviere::WidgetRiviere(ThreadMoteur* thread, QWidget* parent) : QWidget(pa
 {
     threadMoteur = thread;
 
-    QPixmap riviere1("Riviere1.png");
-    QPixmap riviere2("Riviere2.png");
-    QPixmap Pecheur("Pecheur.png");
-    QPixmap BaleineDroite("Wailord_droite.png");
-    QPixmap BaleineGauche("Wailord_gauche.png");
+    riviere1 = new QPixmap ;
+    riviere2 = new QPixmap;
+    Pecheur = new QPixmap;
+    BaleineDroite = new QPixmap;
+    BaleineGauche = new QPixmap;
+
+    riviere1->load("Riviere1.png");
 
     riviere = 1;
  
-    float hauteur_image = 0;
+    /*float hauteur_image = 0;
     float largeur_image = 0;
-    float ratio_image = riviere1.height() / (riviere1.width() * 1.0);
+    float ratio_image = riviere1->height() / (riviere1->width() * 1.0);
 
     //toile = new QPainter(this);
     //toile->setRenderHint(QPainter::Antialiasing);
     //toile->setPen(Qt::NoPen);
 
-    setMinimumSize(LARGEUR_MINIMUM_RIVIERE,HAUTEUR_MINIMUM_RIVIERE);
+    /*setMinimumSize(LARGEUR_MINIMUM_RIVIERE, HAUTEUR_MINIMUM_RIVIERE);
 
     if (width() * HAUTEUR_RIVIERE > height() * LARGEUR_RIVIERE)
     {
@@ -34,11 +36,16 @@ WidgetRiviere::WidgetRiviere(ThreadMoteur* thread, QWidget* parent) : QWidget(pa
     }
 
     system("cls");
-    std::cout << riviere1.height() << std::endl << riviere1.width() << std::endl;
+    std::cout << riviere1->height() << std::endl << riviere1->width() << std::endl;
     std::cout << ratio_image << std::endl;
     std::cout << hauteur_image << std::endl << largeur_image << std::endl;
 
-    riviere1 = riviere1.scaled(largeur_image, hauteur_image);
+    int cropX = (riviere1->width() - largeur_image) / 2;
+    int cropY = (riviere1->height() - hauteur_image) / 2;
+
+    QPixmap riviereCopy = riviere1->copy(cropX, cropY, largeur_image, hauteur_image);
+
+    QPixmap riviereScaled = riviereCopy.scaled(size());*/
 
     //Connexions
     connect(threadMoteur, SIGNAL(jeuPecheMAJ_Riviere(int)), this, SLOT(MAJ_Riviere(int)));
@@ -51,13 +58,8 @@ WidgetRiviere::~WidgetRiviere()
 
 void WidgetRiviere::paintEvent(QPaintEvent* event)
 {
-    QPixmap riviere1("Riviere1.png");
-    QPixmap riviere2("Riviere2.png");
-    QPixmap Pecheur("Pecheur.png");
-    QPixmap BaleineDroite("Wailord_droite.png");
-    QPixmap BaleineGauche("Wailord_gauche.png");
 
-    QPainter painter(this);
+    /*QPainter painter(this);
 
     qreal targetAspectRatio = qreal(width()) / qreal(height());
 
@@ -84,16 +86,16 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
 
     QPixmap scaled_backgroup = cropped_background.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-    painter.drawPixmap(0, 0, scaled_backgroup);
+    painter.drawPixmap(0, 0, scaled_backgroup);*/
 
 
 
-        /* QPainter toile(this);
+         QPainter toile(this);
          toile.setRenderHint(QPainter::Antialiasing, false);
          toile.setRenderHint(QPainter::SmoothPixmapTransform, false);
          toile.setPen(Qt::NoPen);
 
-         toile.setBrush(Qt::black);
+         /*toile.setBrush(Qt::black);
          toile.drawRect(0, 0, width(), height());
 
         if (width() * HAUTEUR_RIVIERE > height() * LARGEUR_RIVIERE)
@@ -158,7 +160,7 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
                      break;
                  }
              }
-         }
+         }*/
 
          //Émile
 
@@ -166,7 +168,7 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
          {
              float hauteur_riviere = 0;
              float largeur_riviere = 0;
-             float ratio_riviere = riviere1.height() / (riviere1.width() * 1.0);
+             float ratio_riviere = riviere1->height() / (riviere1->width() * 1.0);
              //#define TAILLE_IMAGE 10;
 
              if (width() * HAUTEUR_RIVIERE > height() * LARGEUR_RIVIERE)
@@ -181,57 +183,61 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
              }
 
              system("cls");
-             std::cout << riviere1.height() << std::endl << riviere1.width() << std::endl;
+             std::cout << riviere1->height() << std::endl << riviere1->width() << std::endl;
              std::cout << ratio_riviere << std::endl;
              std::cout << hauteur_riviere << std::endl << largeur_riviere << std::endl;
-
-             riviere1 = riviere1.scaled(largeur_riviere, hauteur_riviere);
 
 
 
              espace_y = (height() - taille_riviere * HAUTEUR_RIVIERE) / 2;
              espace_x = (width() - taille_riviere * LARGEUR_RIVIERE) / 2;
 
-             toile.drawImage(espace_x, espace_y, riviere1);
+             QPixmap riviereCopy = riviere1->copy(espace_x, espace_y, largeur_riviere, hauteur_riviere);
 
-             toile.drawPixmap(0, 0, riviere1);
+             QPixmap riviereScaled = riviereCopy.scaled(size());
+
+             toile.drawPixmap(espace_x, espace_y, riviereScaled);
+
+             toile.drawPixmap(0, 0, riviereScaled);
 
          }
          else
          {
-             float hauteur_riviere2 = 0;
-             float largeur_riviere2 = 0;
-             float ratio_riviere2 = riviere2.height() / (riviere2.width() * 1.0);
+             float hauteur_riviere = 0;
+             float largeur_riviere = 0;
+             float ratio_riviere = riviere1->height() / (riviere1->width() * 1.0);
              //#define TAILLE_IMAGE 10;
 
              if (width() * HAUTEUR_RIVIERE > height() * LARGEUR_RIVIERE)
              {
-                 hauteur_riviere2 = ratio_riviere2 * float(height() / (HAUTEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
-                 largeur_riviere2 = float(height() / (HAUTEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
+                 hauteur_riviere = ratio_riviere * float(height() / (HAUTEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
+                 largeur_riviere = float(height() / (HAUTEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
              }
              else
              {
-                 hauteur_riviere2 = ratio_riviere2 * float(width() / (LARGEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
-                 largeur_riviere2 = float(width() / (LARGEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
+                 hauteur_riviere = ratio_riviere * float(width() / (LARGEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
+                 largeur_riviere = float(width() / (LARGEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
              }
 
              system("cls");
-             std::cout << riviere2.height() << std::endl << riviere2.width() << std::endl;
-             std::cout << ratio_riviere2 << std::endl;
-             std::cout << hauteur_riviere2 << std::endl << largeur_riviere2 << std::endl;
-
-             riviere1 = riviere2.scaled(largeur_riviere2, hauteur_riviere2);
+             std::cout << riviere1->height() << std::endl << riviere1->width() << std::endl;
+             std::cout << ratio_riviere << std::endl;
+             std::cout << hauteur_riviere << std::endl << largeur_riviere << std::endl;
 
 
 
              espace_y = (height() - taille_riviere * HAUTEUR_RIVIERE) / 2;
              espace_x = (width() - taille_riviere * LARGEUR_RIVIERE) / 2;
 
-             toile.drawImage(espace_x, espace_y, riviere2);
+             QPixmap riviereCopy = riviere1->copy(espace_x, espace_y, largeur_riviere, hauteur_riviere);
 
-             toile.drawPixmap(0, 0, riviere2);
+             QPixmap riviereScaled = riviereCopy.scaled(size());
+
+             toile.drawPixmap(espace_x, espace_y, riviereScaled);
+
+             toile.drawPixmap(0, 0, riviereScaled);
          }
-*/
+
 }
 
 void WidgetRiviere::resizeEvent(QResizeEvent* event)
