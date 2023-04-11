@@ -28,16 +28,34 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_WidgetJeu_t {
-    uint offsetsAndSizes[2];
+    uint offsetsAndSizes[14];
     char stringdata0[10];
+    char stringdata1[17];
+    char stringdata2[1];
+    char stringdata3[12];
+    char stringdata4[10];
+    char stringdata5[13];
+    char stringdata6[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_WidgetJeu_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_WidgetJeu_t qt_meta_stringdata_WidgetJeu = {
     {
-        QT_MOC_LITERAL(0, 9)   // "WidgetJeu"
+        QT_MOC_LITERAL(0, 9),  // "WidgetJeu"
+        QT_MOC_LITERAL(10, 16),  // "MAJ_Informations"
+        QT_MOC_LITERAL(27, 0),  // ""
+        QT_MOC_LITERAL(28, 11),  // "std::string"
+        QT_MOC_LITERAL(40, 9),  // "MAJ_Temps"
+        QT_MOC_LITERAL(50, 12),  // "MAJ_Distance"
+        QT_MOC_LITERAL(63, 12)   // "MAJ_MiniJeux"
     },
-    "WidgetJeu"
+    "WidgetJeu",
+    "MAJ_Informations",
+    "",
+    "std::string",
+    "MAJ_Temps",
+    "MAJ_Distance",
+    "MAJ_MiniJeux"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -48,12 +66,24 @@ Q_CONSTINIT static const uint qt_meta_data_WidgetJeu[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    5,   38,    2, 0x0a,    1 /* Public */,
+       4,    1,   49,    2, 0x0a,    7 /* Public */,
+       5,    1,   52,    2, 0x0a,    9 /* Public */,
+       6,    1,   55,    2, 0x0a,   11 /* Public */,
+
+ // slots: parameters
+    QMetaType::Void, 0x80000000 | 3, QMetaType::Int, 0x80000000 | 3, QMetaType::Int, QMetaType::Int,    2,    2,    2,    2,    2,
+    QMetaType::Void, 0x80000000 | 3,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
 
        0        // eod
 };
@@ -66,17 +96,40 @@ Q_CONSTINIT const QMetaObject WidgetJeu::staticMetaObject = { {
     nullptr,
     qt_incomplete_metaTypeArray<qt_meta_stringdata_WidgetJeu_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<WidgetJeu, std::true_type>
+        QtPrivate::TypeAndForceComplete<WidgetJeu, std::true_type>,
+        // method 'MAJ_Informations'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'MAJ_Temps'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
+        // method 'MAJ_Distance'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'MAJ_MiniJeux'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
 } };
 
 void WidgetJeu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    (void)_o;
-    (void)_id;
-    (void)_c;
-    (void)_a;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<WidgetJeu *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->MAJ_Informations((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<std::string>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[5]))); break;
+        case 1: _t->MAJ_Temps((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
+        case 2: _t->MAJ_Distance((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 3: _t->MAJ_MiniJeux((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObject *WidgetJeu::metaObject() const
@@ -95,6 +148,17 @@ void *WidgetJeu::qt_metacast(const char *_clname)
 int WidgetJeu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
     return _id;
 }
 QT_WARNING_POP

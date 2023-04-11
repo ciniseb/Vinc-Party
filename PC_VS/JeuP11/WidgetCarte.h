@@ -22,8 +22,6 @@ protected:
     void resizeEvent(QResizeEvent* event) override;
 
 private:
-    QPainter *toile;
-
     float taille_tuile;
 
     float espace_y;
@@ -35,6 +33,5 @@ private:
 
 public slots:
     void MAJ_Carte(QVector<QVector<int>>);
-    void MAJ_Adversaire(Coordonnee);
-    void MAJ_Joueur(Coordonnee);
+    void MAJ_Coordonnee(int, Coordonnee, Coordonnee);
 };

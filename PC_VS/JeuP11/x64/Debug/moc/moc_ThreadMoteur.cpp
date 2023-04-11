@@ -34,15 +34,15 @@ struct qt_meta_stringdata_ThreadMoteur_t {
     char stringdata3[6];
     char stringdata4[15];
     char stringdata5[10];
-    char stringdata6[20];
+    char stringdata6[21];
     char stringdata7[12];
-    char stringdata8[13];
-    char stringdata9[18];
-    char stringdata10[13];
-    char stringdata11[18];
-    char stringdata12[11];
-    char stringdata13[14];
-    char stringdata14[16];
+    char stringdata8[14];
+    char stringdata9[17];
+    char stringdata10[17];
+    char stringdata11[14];
+    char stringdata12[18];
+    char stringdata13[19];
+    char stringdata14[11];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_ThreadMoteur_t::offsetsAndSizes) + ofs), len 
@@ -54,15 +54,15 @@ Q_CONSTINIT static const qt_meta_stringdata_ThreadMoteur_t qt_meta_stringdata_Th
         QT_MOC_LITERAL(36, 5),  // "index"
         QT_MOC_LITERAL(42, 14),  // "menu_selection"
         QT_MOC_LITERAL(57, 9),  // "selection"
-        QT_MOC_LITERAL(67, 19),  // "jeuMAJ_Informations"
-        QT_MOC_LITERAL(87, 11),  // "std::string"
-        QT_MOC_LITERAL(99, 12),  // "jeuMAJ_Carte"
-        QT_MOC_LITERAL(112, 17),  // "QList<QList<int>>"
-        QT_MOC_LITERAL(130, 12),  // "jeuMAJ_Temps"
-        QT_MOC_LITERAL(143, 17),  // "jeuMAJ_Adversaire"
-        QT_MOC_LITERAL(161, 10),  // "Coordonnee"
-        QT_MOC_LITERAL(172, 13),  // "jeuMAJ_Joueur"
-        QT_MOC_LITERAL(186, 15)   // "jeuMAJ_distance"
+        QT_MOC_LITERAL(67, 20),  // "jeu_MAJ_Informations"
+        QT_MOC_LITERAL(88, 11),  // "std::string"
+        QT_MOC_LITERAL(100, 13),  // "jeu_MAJ_Temps"
+        QT_MOC_LITERAL(114, 16),  // "jeu_MAJ_Distance"
+        QT_MOC_LITERAL(131, 16),  // "jeu_MAJ_MiniJeux"
+        QT_MOC_LITERAL(148, 13),  // "jeu_MAJ_Carte"
+        QT_MOC_LITERAL(162, 17),  // "QList<QList<int>>"
+        QT_MOC_LITERAL(180, 18),  // "jeu_MAJ_Coordonnee"
+        QT_MOC_LITERAL(199, 10)   // "Coordonnee"
     },
     "ThreadMoteur",
     "changementWidgetActif",
@@ -70,15 +70,15 @@ Q_CONSTINIT static const qt_meta_stringdata_ThreadMoteur_t qt_meta_stringdata_Th
     "index",
     "menu_selection",
     "selection",
-    "jeuMAJ_Informations",
+    "jeu_MAJ_Informations",
     "std::string",
-    "jeuMAJ_Carte",
+    "jeu_MAJ_Temps",
+    "jeu_MAJ_Distance",
+    "jeu_MAJ_MiniJeux",
+    "jeu_MAJ_Carte",
     "QList<QList<int>>",
-    "jeuMAJ_Temps",
-    "jeuMAJ_Adversaire",
-    "Coordonnee",
-    "jeuMAJ_Joueur",
-    "jeuMAJ_distance"
+    "jeu_MAJ_Coordonnee",
+    "Coordonnee"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -101,20 +101,20 @@ Q_CONSTINIT static const uint qt_meta_data_ThreadMoteur[] = {
        4,    1,   65,    2, 0x06,    3 /* Public */,
        6,    5,   68,    2, 0x06,    5 /* Public */,
        8,    1,   79,    2, 0x06,   11 /* Public */,
-      10,    1,   82,    2, 0x06,   13 /* Public */,
-      11,    1,   85,    2, 0x06,   15 /* Public */,
-      13,    1,   88,    2, 0x06,   17 /* Public */,
-      14,    1,   91,    2, 0x06,   19 /* Public */,
+       9,    1,   82,    2, 0x06,   13 /* Public */,
+      10,    1,   85,    2, 0x06,   15 /* Public */,
+      11,    1,   88,    2, 0x06,   17 /* Public */,
+      13,    3,   91,    2, 0x06,   19 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    5,
     QMetaType::Void, 0x80000000 | 7, QMetaType::Int, 0x80000000 | 7, QMetaType::Int, QMetaType::Int,    2,    2,    2,    2,    2,
-    QMetaType::Void, 0x80000000 | 9,    2,
     QMetaType::Void, 0x80000000 | 7,    2,
-    QMetaType::Void, 0x80000000 | 12,    2,
-    QMetaType::Void, 0x80000000 | 12,    2,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, 0x80000000 | 12,    2,
+    QMetaType::Void, QMetaType::Int, 0x80000000 | 14, 0x80000000 | 14,    2,    2,    2,
 
        0        // eod
 };
@@ -134,28 +134,30 @@ Q_CONSTINIT const QMetaObject ThreadMoteur::staticMetaObject = { {
         // method 'menu_selection'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'jeuMAJ_Informations'
+        // method 'jeu_MAJ_Informations'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'jeuMAJ_Carte'
+        // method 'jeu_MAJ_Temps'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
+        // method 'jeu_MAJ_Distance'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'jeu_MAJ_MiniJeux'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'jeu_MAJ_Carte'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QVector<QVector<int>>, std::false_type>,
-        // method 'jeuMAJ_Temps'
+        // method 'jeu_MAJ_Coordonnee'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<std::string, std::false_type>,
-        // method 'jeuMAJ_Adversaire'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<Coordonnee, std::false_type>,
-        // method 'jeuMAJ_Joueur'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<Coordonnee, std::false_type>,
-        // method 'jeuMAJ_distance'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<Coordonnee, std::false_type>
     >,
     nullptr
 } };
@@ -168,18 +170,18 @@ void ThreadMoteur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->changementWidgetActif((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 1: _t->menu_selection((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 2: _t->jeuMAJ_Informations((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<std::string>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[5]))); break;
-        case 3: _t->jeuMAJ_Carte((*reinterpret_cast< std::add_pointer_t<QList<QList<int>>>>(_a[1]))); break;
-        case 4: _t->jeuMAJ_Temps((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
-        case 5: _t->jeuMAJ_Adversaire((*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[1]))); break;
-        case 6: _t->jeuMAJ_Joueur((*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[1]))); break;
-        case 7: _t->jeuMAJ_distance((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 2: _t->jeu_MAJ_Informations((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<std::string>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[5]))); break;
+        case 3: _t->jeu_MAJ_Temps((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
+        case 4: _t->jeu_MAJ_Distance((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->jeu_MAJ_MiniJeux((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 6: _t->jeu_MAJ_Carte((*reinterpret_cast< std::add_pointer_t<QList<QList<int>>>>(_a[1]))); break;
+        case 7: _t->jeu_MAJ_Coordonnee((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[3]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 3:
+        case 6:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -205,42 +207,42 @@ void ThreadMoteur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         }
         {
             using _t = void (ThreadMoteur::*)(std::string , int , std::string , int , int );
-            if (_t _q_method = &ThreadMoteur::jeuMAJ_Informations; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ThreadMoteur::jeu_MAJ_Informations; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 2;
                 return;
             }
         }
         {
-            using _t = void (ThreadMoteur::*)(QVector<QVector<int>> );
-            if (_t _q_method = &ThreadMoteur::jeuMAJ_Carte; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (ThreadMoteur::*)(std::string );
+            if (_t _q_method = &ThreadMoteur::jeu_MAJ_Temps; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 3;
                 return;
             }
         }
         {
-            using _t = void (ThreadMoteur::*)(std::string );
-            if (_t _q_method = &ThreadMoteur::jeuMAJ_Temps; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (ThreadMoteur::*)(int );
+            if (_t _q_method = &ThreadMoteur::jeu_MAJ_Distance; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 4;
                 return;
             }
         }
         {
-            using _t = void (ThreadMoteur::*)(Coordonnee );
-            if (_t _q_method = &ThreadMoteur::jeuMAJ_Adversaire; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (ThreadMoteur::*)(int );
+            if (_t _q_method = &ThreadMoteur::jeu_MAJ_MiniJeux; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 5;
                 return;
             }
         }
         {
-            using _t = void (ThreadMoteur::*)(Coordonnee );
-            if (_t _q_method = &ThreadMoteur::jeuMAJ_Joueur; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (ThreadMoteur::*)(QVector<QVector<int>> );
+            if (_t _q_method = &ThreadMoteur::jeu_MAJ_Carte; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 6;
                 return;
             }
         }
         {
-            using _t = void (ThreadMoteur::*)(int );
-            if (_t _q_method = &ThreadMoteur::jeuMAJ_distance; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (ThreadMoteur::*)(int , Coordonnee , Coordonnee );
+            if (_t _q_method = &ThreadMoteur::jeu_MAJ_Coordonnee; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 7;
                 return;
             }
@@ -293,44 +295,44 @@ void ThreadMoteur::menu_selection(int _t1)
 }
 
 // SIGNAL 2
-void ThreadMoteur::jeuMAJ_Informations(std::string _t1, int _t2, std::string _t3, int _t4, int _t5)
+void ThreadMoteur::jeu_MAJ_Informations(std::string _t1, int _t2, std::string _t3, int _t4, int _t5)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t5))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 
 // SIGNAL 3
-void ThreadMoteur::jeuMAJ_Carte(QVector<QVector<int>> _t1)
+void ThreadMoteur::jeu_MAJ_Temps(std::string _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 
 // SIGNAL 4
-void ThreadMoteur::jeuMAJ_Temps(std::string _t1)
+void ThreadMoteur::jeu_MAJ_Distance(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 4, _a);
 }
 
 // SIGNAL 5
-void ThreadMoteur::jeuMAJ_Adversaire(Coordonnee _t1)
+void ThreadMoteur::jeu_MAJ_MiniJeux(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
 }
 
 // SIGNAL 6
-void ThreadMoteur::jeuMAJ_Joueur(Coordonnee _t1)
+void ThreadMoteur::jeu_MAJ_Carte(QVector<QVector<int>> _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 6, _a);
 }
 
 // SIGNAL 7
-void ThreadMoteur::jeuMAJ_distance(int _t1)
+void ThreadMoteur::jeu_MAJ_Coordonnee(int _t1, Coordonnee _t2, Coordonnee _t3)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 7, _a);
 }
 QT_WARNING_POP

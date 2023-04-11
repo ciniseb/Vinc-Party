@@ -47,13 +47,13 @@ signals:
 
 
 	//MoteurJeu
-	void jeuMAJ_Informations(std::string, int, std::string, int, int);
-	void jeuMAJ_Carte(QVector<QVector<int>>);
-	//void jeuMAJ_Complet(std::string, int, std::string, int, int,  int[HAUTEUR_CARTE][LARGEUR_CARTE]);
-	void jeuMAJ_Temps(std::string);
-	void jeuMAJ_Adversaire(Coordonnee);
-	void jeuMAJ_Joueur(Coordonnee);
-	void jeuMAJ_distance(int);
+	void jeu_MAJ_Informations(std::string, int, std::string, int, int);
+	void jeu_MAJ_Temps(std::string);
+	void jeu_MAJ_Distance(int);
+	void jeu_MAJ_MiniJeux(int);
+
+	void jeu_MAJ_Carte(QVector<QVector<int>>);
+	void jeu_MAJ_Coordonnee(int, Coordonnee, Coordonnee);
 
 	//MoteurJeuPiano
 
