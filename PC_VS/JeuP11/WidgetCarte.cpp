@@ -123,14 +123,14 @@ void WidgetCarte::paintEvent(QPaintEvent* event)
     }
 
     toile.setBrush(noir);
-    toile.drawEllipse(espace_x + taille_tuile * joueur.position.X + PADDING, espace_x + taille_tuile * joueur.position.Y + PADDING, taille_tuile - PADDING * 2, taille_tuile - PADDING * 2);
+    toile.drawEllipse(espace_x + taille_tuile * joueur.position.X + PADDING, espace_y + taille_tuile * joueur.position.Y + PADDING, taille_tuile - PADDING * 2, taille_tuile - PADDING * 2);
 
     QPoint diamondPoints[] =
     {
-        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile / 2, espace_x + taille_tuile * adversaire.position.Y + PADDING),
-        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile - PADDING, espace_x + taille_tuile * adversaire.position.Y + taille_tuile / 2),
-        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile / 2, espace_x + taille_tuile * adversaire.position.Y + taille_tuile - PADDING),
-        QPoint(espace_x + taille_tuile * adversaire.position.X + PADDING, espace_x + taille_tuile * adversaire.position.Y + taille_tuile / 2)
+        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile / 2, espace_y + taille_tuile * adversaire.position.Y + PADDING),
+        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile - PADDING, espace_y + taille_tuile * adversaire.position.Y + taille_tuile / 2),
+        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile / 2, espace_y + taille_tuile * adversaire.position.Y + taille_tuile - PADDING),
+        QPoint(espace_x + taille_tuile * adversaire.position.X + PADDING, espace_y + taille_tuile * adversaire.position.Y + taille_tuile / 2)
     };
     toile.setBrush(rouge);
     toile.drawPolygon(diamondPoints, 4);
