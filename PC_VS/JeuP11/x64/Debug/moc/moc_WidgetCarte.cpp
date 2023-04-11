@@ -27,13 +27,15 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_WidgetCarte_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[16];
     char stringdata0[12];
     char stringdata1[10];
     char stringdata2[1];
     char stringdata3[18];
-    char stringdata4[15];
-    char stringdata5[11];
+    char stringdata4[11];
+    char stringdata5[7];
+    char stringdata6[15];
+    char stringdata7[11];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_WidgetCarte_t::offsetsAndSizes) + ofs), len 
@@ -43,13 +45,17 @@ Q_CONSTINIT static const qt_meta_stringdata_WidgetCarte_t qt_meta_stringdata_Wid
         QT_MOC_LITERAL(12, 9),  // "MAJ_Carte"
         QT_MOC_LITERAL(22, 0),  // ""
         QT_MOC_LITERAL(23, 17),  // "QList<QList<int>>"
-        QT_MOC_LITERAL(41, 14),  // "MAJ_Coordonnee"
-        QT_MOC_LITERAL(56, 10)   // "Coordonnee"
+        QT_MOC_LITERAL(41, 10),  // "MAJ_Acteur"
+        QT_MOC_LITERAL(52, 6),  // "Acteur"
+        QT_MOC_LITERAL(59, 14),  // "MAJ_Coordonnee"
+        QT_MOC_LITERAL(74, 10)   // "Coordonnee"
     },
     "WidgetCarte",
     "MAJ_Carte",
     "",
     "QList<QList<int>>",
+    "MAJ_Acteur",
+    "Acteur",
     "MAJ_Coordonnee",
     "Coordonnee"
 };
@@ -62,7 +68,7 @@ Q_CONSTINIT static const uint qt_meta_data_WidgetCarte[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,12 +76,14 @@ Q_CONSTINIT static const uint qt_meta_data_WidgetCarte[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   26,    2, 0x0a,    1 /* Public */,
-       4,    3,   29,    2, 0x0a,    3 /* Public */,
+       1,    1,   32,    2, 0x0a,    1 /* Public */,
+       4,    2,   35,    2, 0x0a,    3 /* Public */,
+       6,    2,   40,    2, 0x0a,    6 /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
-    QMetaType::Void, QMetaType::Int, 0x80000000 | 5, 0x80000000 | 5,    2,    2,    2,
+    QMetaType::Void, QMetaType::Int, 0x80000000 | 5,    2,    2,
+    QMetaType::Void, 0x80000000 | 7, 0x80000000 | 7,    2,    2,
 
        0        // eod
 };
@@ -92,9 +100,12 @@ Q_CONSTINIT const QMetaObject WidgetCarte::staticMetaObject = { {
         // method 'MAJ_Carte'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QVector<QVector<int>>, std::false_type>,
-        // method 'MAJ_Coordonnee'
+        // method 'MAJ_Acteur'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Acteur, std::false_type>,
+        // method 'MAJ_Coordonnee'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<Coordonnee, std::false_type>,
         QtPrivate::TypeAndForceComplete<Coordonnee, std::false_type>
     >,
@@ -108,7 +119,8 @@ void WidgetCarte::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         (void)_t;
         switch (_id) {
         case 0: _t->MAJ_Carte((*reinterpret_cast< std::add_pointer_t<QList<QList<int>>>>(_a[1]))); break;
-        case 1: _t->MAJ_Coordonnee((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[3]))); break;
+        case 1: _t->MAJ_Acteur((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Acteur>>(_a[2]))); break;
+        case 2: _t->MAJ_Coordonnee((*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -144,13 +156,13 @@ int WidgetCarte::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

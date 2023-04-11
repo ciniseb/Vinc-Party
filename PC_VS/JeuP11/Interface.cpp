@@ -32,6 +32,7 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent) : QStackedWidget(par
 
 	//Connexions
 	connect(threadMoteur, SIGNAL(changementWidgetActif(int)), this, SLOT(setWidgetActif(int)));
+	connect(this, SIGNAL(MAJ_NomJoueur(std::string)), threadMoteur, SLOT(nomJoueur(std::string)));
 }	
 
 
@@ -53,7 +54,19 @@ void Interface::setWidgetActif(int index)
 {
 	if (currentIndex() == 0 && index == 1)
 	{
-		//TODO : page 352, Théorie C++
+		bool ok = false;
+
+		QString nom = QInputDialog::getText(this, "Joueur", "Quel est votre pseudonyme ?", QLineEdit::Normal, QString(), &ok);
+
+		if (ok && nom.isEmpty())
+		{
+			nom = "PeuplierBlanc";
+		}
+		else if (!ok)
+		{
+			exit(1);
+		}
+		emit MAJ_NomJoueur(nom.toStdString());
 	}
 	setCurrentIndex(index);
 }

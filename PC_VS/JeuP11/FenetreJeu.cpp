@@ -763,11 +763,15 @@ void MoteurJeu::affichage(int selection)
                 }
                 else if (joueur.position.X == c && joueur.position.Y == r)
                 {
-                    q_carte[r][c] = JOUEUR;
+                    q_carte[r][c] = VIDE;
+                    emit threadMoteur->jeu_MAJ_Acteur(JOUEUR, joueur);
+                    //q_carte[r][c] = JOUEUR;
                 }
                 else if (adversaire.position.X == c && adversaire.position.Y == r)
                 {
-                    q_carte[r][c] = ADVERSAIRE;
+                    q_carte[r][c] = VIDE;
+                    emit threadMoteur->jeu_MAJ_Acteur(ADVERSAIRE, adversaire);
+                    //q_carte[r][c] = ADVERSAIRE;
                 }
                 else if (carte[r][c].getRemplissage() == PLEIN)
                 {
@@ -801,12 +805,12 @@ void MoteurJeu::affichage(int selection)
     }
     else if (selection == AFFICHAGE_ADVERSAIRE)
     {
-        emit threadMoteur->jeu_MAJ_Coordonnee(ADVERSAIRE, adversaire.ancienne_position, adversaire.position);
+        emit threadMoteur->jeu_MAJ_Acteur(ADVERSAIRE, adversaire);
     }
     else if (selection == AFFICHAGE_JOUEUR)
     {
         emit threadMoteur->jeu_MAJ_Distance(joueur.nb_tuiles_parcourues);
-        emit threadMoteur->jeu_MAJ_Coordonnee(JOUEUR, joueur.ancienne_position, joueur.position);
+        emit threadMoteur->jeu_MAJ_Acteur(JOUEUR, joueur);
     }
     else if (selection == AFFICHAGE_MINI_JEU) //TODO
     {

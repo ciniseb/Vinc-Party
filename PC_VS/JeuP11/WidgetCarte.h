@@ -6,6 +6,7 @@
 #include "CONSTANTES.h"
 #include "ThreadMoteur.h"
 #include "Coordonnee.h"
+#include "Acteur.h"
 
 class WidgetCarte : public QWidget
 {
@@ -28,10 +29,11 @@ private:
     float espace_x;
 
     QVector<QVector<int>> q_carte;
-    Coordonnee pos_joueur;
-    Coordonnee pos_adversaire;
+    Acteur joueur;
+    Acteur adversaire;
 
 public slots:
     void MAJ_Carte(QVector<QVector<int>>);
-    void MAJ_Coordonnee(int, Coordonnee, Coordonnee);
+    void MAJ_Acteur(int, Acteur);
+    void MAJ_Coordonnee(Coordonnee, Coordonnee);
 };

@@ -25,7 +25,11 @@ MoteurMenu::~MoteurMenu()
 }
 
 //Getteurs & setteurs
-
+void MoteurMenu::setNomJoueur(std::string nom)
+{
+    nom_joueur = nom;
+    std::cout << "Nom joueur envoyé : " << nom_joueur << std::endl;
+}
 
 //Méthodes
 void MoteurMenu::initialiser()
@@ -56,8 +60,16 @@ void MoteurMenu::demarrer()
                 {
                     if (selection == 0)
                     {
-                        std::string nom_joueur;
-                        if (DEMANDER_NOM)
+                        if (!MODE_CONSOLE)
+                        {
+                            emit threadMoteur->changementWidgetActif(selection + 1);
+
+                            while (nom_joueur.empty())
+                            {
+                                threadMoteur->msleep(100);
+                            }
+                        }
+                        else if (DEMANDER_NOM)
                         {
                             std::cin.clear();
                             std::cin.ignore(10000, '\n');
@@ -68,17 +80,10 @@ void MoteurMenu::demarrer()
                             getline(std::cin, nom_joueur);
                             std::cout << std::endl;
                         }
-                        else
-                        {
-                            nom_joueur = "PeuplierBlanc";
-                        }
+
+                        std::cout << "Nom joueur affiché : " << nom_joueur << std::endl;
                         
                         moteurs[selection] = new MoteurJeu(nom_joueur, threadArduino, threadMoteur);
-                    }
-
-                    if (!MODE_CONSOLE)
-                    {
-                        emit threadMoteur->changementWidgetActif(selection + 1);
                     }
 
                     if (MODE_CONSOLE)
