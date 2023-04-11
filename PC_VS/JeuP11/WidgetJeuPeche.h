@@ -41,4 +41,5 @@ private:
     
     QVBoxLayout* layout;
 
+
 };

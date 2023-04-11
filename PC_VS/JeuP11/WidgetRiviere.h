@@ -30,6 +30,10 @@ private:
     float espace_x;
     
     int riviere;
+    
+    int posBal;
+
+    int posPeche;
 
     QPixmap* riviere1;
     QPixmap* riviere2;

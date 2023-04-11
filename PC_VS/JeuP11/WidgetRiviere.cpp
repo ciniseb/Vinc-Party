@@ -98,98 +98,87 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
          toile->setRenderHint(QPainter::SmoothPixmapTransform, false);
          toile->setPen(Qt::NoPen);
 
-         if (width() * HAUTEUR_CARTE > height() * LARGEUR_CARTE)
-         {
-             taille_riviere = float(height() / (HAUTEUR_CARTE * 1.0));
-         }
-         else
-         {
-             taille_riviere = float(width() / (LARGEUR_CARTE * 1.0));
-         }
-
              float hauteur_riviere = 0;
              float largeur_riviere = 0;
+             float targetRatioRiviere = qreal(width()) / qreal(height());
              float ratio_riviere = riviere1->height() / (riviere1->width() * 1.0);
              //#define TAILLE_IMAGE 10;
 
-             if (width() * HAUTEUR_RIVIERE > height() * LARGEUR_RIVIERE)
+             if (targetRatioRiviere > ratio_riviere)
              {
-                 hauteur_riviere = ratio_riviere * float(height() / (HAUTEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
-                 largeur_riviere = float(height() / (HAUTEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
+                 largeur_riviere = riviere1->width();
+                 hauteur_riviere = float(largeur_riviere/targetRatioRiviere);
              }
              else
              {
-                 hauteur_riviere = ratio_riviere * float(width() / (LARGEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
-                 largeur_riviere = float(width() / (LARGEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
+                 hauteur_riviere = riviere1->height();
+                 largeur_riviere = float(hauteur_riviere*targetRatioRiviere);
              }
 
-             system("cls");
-             std::cout << riviere1->height() << std::endl << riviere1->width() << std::endl;
-             std::cout << ratio_riviere << std::endl;
-             std::cout << hauteur_riviere << std::endl << largeur_riviere << std::endl;
 
 
+             float espace_y_Riviere = (riviere1->height() - hauteur_riviere) / 2;
+             float espace_x_Riviere = (riviere1->width() - largeur_riviere) / 2;
 
-             espace_y = (height() - taille_riviere * HAUTEUR_RIVIERE) / 2;
-             espace_x = (width() - taille_riviere * LARGEUR_RIVIERE) / 2;
-
-             QPixmap riviereCopy = riviere1->copy(espace_x, espace_y, largeur_riviere, hauteur_riviere);
+             QPixmap riviereCopy = riviere1->copy(espace_x_Riviere, espace_y_Riviere, largeur_riviere, hauteur_riviere);
 
              QPixmap riviereScaled = riviereCopy.scaled(size());
 
-             toile->drawPixmap(0, 0, riviereScaled);
+             toile->drawPixmap(espace_x_Riviere, espace_y_Riviere, riviereScaled);
 
              //pecheur
 
              float hauteur_pecheur = 0;
              float largeur_pecheur = 0;
+             float targetRatioPecheur = qreal(width()) / qreal(height());
              float ratio_pecheur = (Pecheur->height()/7) / ((Pecheur->width() * 1.0)/7);
 
-             if (width()/7 > height()/7)
+             if (targetRatioPecheur > ratio_pecheur)
              {
-                 hauteur_pecheur = ratio_pecheur * height()/100;
-                 largeur_pecheur = height()/7;
+                 largeur_pecheur = Pecheur->width();
+                 largeur_pecheur = float(largeur_pecheur/targetRatioPecheur);
              }
              else
              {
-                 hauteur_pecheur = ratio_riviere * width()/1000;
-                 largeur_pecheur = width()/7;
+                 hauteur_pecheur = Pecheur->height();
+                 largeur_pecheur = float(hauteur_pecheur * targetRatioPecheur);
              }
 
-             espace_y = (height() - taille_riviere * HAUTEUR_RIVIERE) / 2;
-             espace_x = (width() - taille_riviere * LARGEUR_RIVIERE) / 2;
+             float espace_y_Pecheur = (Pecheur->height() - hauteur_pecheur) / 2;
+             float espace_x_Pecheur = (Pecheur->width() - largeur_pecheur) / 2;
 
-             QPixmap pecheurCopy= Pecheur->copy(espace_x, espace_y, largeur_pecheur, hauteur_pecheur);
+             QPixmap pecheurCopy= Pecheur->copy(espace_x_Pecheur, espace_y_Pecheur, largeur_pecheur, hauteur_pecheur);
 
-             QPixmap pecheurScaled = pecheurCopy.scaled(size()/5);
+             QPixmap pecheurScaled = pecheurCopy.scaled(size()/7);
 
-             toile->drawPixmap(20, 120, pecheurScaled);
+             toile->drawPixmap(espace_x_Pecheur+posPeche, espace_y_Pecheur-125, pecheurScaled);
 
              //baleine
 
              float hauteur_baleine = 0;
              float largeur_baleine = 0;
+             float targetRatioBaleine = qreal(width()) / qreal(height());
              float ratio_baleine = (BaleineDroite->height()) / ((BaleineDroite->width() * 1.0));
 
              if (width() > height())
              {
-                 hauteur_baleine = ratio_baleine * height();
-                 largeur_baleine = height() / 7;
+                 largeur_baleine = BaleineDroite->width();
+                 hauteur_baleine = float(largeur_baleine/targetRatioBaleine);
              }
              else
              {
-                 hauteur_baleine = ratio_baleine * width();
-                 largeur_baleine = width();
+                 hauteur_baleine = BaleineDroite->height();
+                 largeur_baleine = float(hauteur_baleine * targetRatioBaleine);
              }
 
-             espace_y = (height() - taille_riviere * HAUTEUR_RIVIERE) / 2;
-             espace_x = (width() - taille_riviere * LARGEUR_RIVIERE) / 2;
+             espace_y = (BaleineDroite->height() - hauteur_baleine) / 2;
+             espace_x = (BaleineDroite->width() - largeur_baleine) / 2;
 
              QPixmap baleineCopy = BaleineDroite->copy(espace_x, espace_y, largeur_baleine, hauteur_baleine);
 
-             QPixmap baleineScaled = baleineCopy.scaled(size() / 5);
+             QPixmap baleineScaled = baleineCopy.scaled(size()/5);
 
-             toile->drawPixmap(espace_x, espace_y, baleineScaled);
+             toile->drawPixmap(espace_x+posBal, espace_y+210, baleineScaled);
 
 
 
@@ -217,9 +206,103 @@ void WidgetRiviere::MAJ_Riviere(int q_riviere)
 }
 void WidgetRiviere::MAJ_Baleine(int c)
 {
+    switch (c)
+    {
+    case 2:
+        posBal = 0;
+        break;
+        
+    case 3:
+        posBal = 122;
+        break;
 
+    case 4:
+        posBal = 244;
+        break;
+
+    case 5:
+        posBal = 366;
+        break;
+
+    case 6:
+        posBal = 488;
+        break;
+
+    case 7:
+        posBal = 610;
+        break;
+
+    case 8:
+        posBal = 732;
+        break;
+
+    case 9:
+        posBal = 854;
+        break;
+
+    case 10:
+        posBal = 976;
+        break;
+
+    case 11:
+        posBal = 1098;
+        break;
+
+    }
+    update();
 }
 void WidgetRiviere::MAJ_Pecheur(int c)
 {
+    switch (c)
+    {
 
+    case 1:
+        posPeche = -199;
+        break;
+
+    case 2:
+        posPeche =-86;
+        break;
+
+    case 3:
+        posPeche = 27;
+        break;
+
+    case 4:
+        posPeche = 140;
+        break;
+
+    case 5:
+        posPeche = 253;
+        break;
+
+    case 6:
+        posPeche = 366;
+        break;
+
+    case 7:
+        posPeche = 479;
+        break;
+
+    case 8:
+        posPeche = 592;
+        break;
+
+    case 9:
+        posPeche = 705;
+        break;
+
+    case 10:
+        posPeche = 818;
+        break;
+
+    case 11:
+        posPeche = 931;
+        break;
+
+    case 12:
+        posPeche = 1044;
+        break;
+    }
+    update();
 }

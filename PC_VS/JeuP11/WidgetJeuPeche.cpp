@@ -21,6 +21,9 @@ WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent) : QWidget(
     riviere = new WidgetRiviere(threadMoteur, this);
     progressBar = new QProgressBar();
 
+    progressBar->setRange(0, 10);
+
+
     layout = new QVBoxLayout(widget);
     layout->addWidget(riviere);
     layout->addWidget(progressBar);
@@ -33,10 +36,5 @@ WidgetJeuPeche::~WidgetJeuPeche()
 {
 
 }
-
-/*void WidgetJeuPeche::MAJ_ProgressBar(int x)
-{
-
-}*/
 
 

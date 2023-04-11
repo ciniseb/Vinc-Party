@@ -114,8 +114,6 @@ void MoteurJeuPeche::demarrer()
 
 void MoteurJeuPeche::AffichageEcran(int mode)
 {
-    if (MODE_CONSOLE == true)
-    {
 
         //std::cout << "Affichage" << std::endl;
         char screen[14][20];
@@ -197,6 +195,17 @@ void MoteurJeuPeche::AffichageEcran(int mode)
                         screen[i][j] = ' ';
                     }
                 }
+            }
+
+            if (bitCount > bitPrecedent && Riviere1Etat == false)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(2);
+                Riviere1Etat = true;
+            }
+            else if (bitCount > bitPrecedent && Riviere1Etat == true)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(1);
+                Riviere1Etat = false;
             }
             break;
         case Jeu:
@@ -314,6 +323,19 @@ void MoteurJeuPeche::AffichageEcran(int mode)
                     }
                 }
             }
+            if (bitCount > bitPrecedent && Riviere1Etat == false)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(2);
+                Riviere1Etat = true;
+            }
+            else if (bitCount > bitPrecedent && Riviere1Etat == true)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(1);
+                Riviere1Etat = false;
+            }
+            emit threadMoteur->jeuPecheMAJ_Baleine(positionPoisson);
+            emit threadMoteur->jeuPecheMAJ_Pecheur(positionJoueur);
+            emit threadMoteur->jeuPecheMAJ_ProgressBar(foisReussi);
             break;
         }
         for (int i = 0; i < 14; i++)
@@ -323,11 +345,11 @@ void MoteurJeuPeche::AffichageEcran(int mode)
                 std::cout << screen[i][j];
             }
             std::cout << '\n';
+
         }
-    }
-    else
-    {
-        switch (mode)
+
+        
+      /*  switch (mode)
         {
         case Menu:
         if (bitCount > bitPrecedent && Riviere1Etat == false)
@@ -341,8 +363,22 @@ void MoteurJeuPeche::AffichageEcran(int mode)
             Riviere1Etat = false;
         }
         break;
-        }
-    }
+
+        case Jeu:
+            if (bitCount > bitPrecedent && Riviere1Etat == false)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(2);
+                Riviere1Etat = true;
+            }
+            else if (bitCount > bitPrecedent && Riviere1Etat == true)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(1);
+                Riviere1Etat = false;
+            }
+            emit threadMoteur->jeuPecheMAJ_Baleine(positionPoisson);
+            emit threadMoteur->jeuPecheMAJ_Pecheur(positionJoueur);
+            emit threadMoteur->jeuPecheMAJ_ProgressBar((foisReussi / 10) * 100);
+        }*/
 }
 
 bool MoteurJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
@@ -470,11 +506,11 @@ void MoteurJeuPeche::getJoueur(Direction touche)
     {
      switch(touche)
     { 
-    case Direction::BAS:
+    case Direction::DROITE:
         positionJoueur++;
     break;
 
-    case Direction::HAUT:
+    case Direction::GAUCHE:
         positionJoueur--;
     break;
     }      
