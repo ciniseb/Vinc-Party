@@ -185,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="MicrosoftTeams-image.png" />
+    <Image Include="Pecheur2.png" />
     <Image Include="Riviere1.png" />
     <Image Include="Riviere2.png" />
   </ItemGroup>

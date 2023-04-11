@@ -330,7 +330,16 @@ void MoteurJeuPeche::AffichageEcran(int mode)
         switch (mode)
         {
         case Menu:
-        emit threadMoteur->jeuPecheMAJ_Riviere(1);
+        if (bitCount > bitPrecedent && Riviere1Etat == false)
+        {
+            emit threadMoteur->jeuPecheMAJ_Riviere(2);
+            Riviere1Etat = true;
+        }
+        else if (bitCount > bitPrecedent && Riviere1Etat == true)
+        {
+            emit threadMoteur->jeuPecheMAJ_Riviere(1);
+            Riviere1Etat = false;
+        }
         break;
         }
     }

@@ -37,6 +37,8 @@ private:
     QPixmap* BaleineDroite;
     QPixmap* BaleineGauche;
 
+    QPainter* toile;
+
     QVector<QVector<int>> q_riviere;
 
 public slots:
