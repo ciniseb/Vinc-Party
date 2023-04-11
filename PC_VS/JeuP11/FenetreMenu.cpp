@@ -12,8 +12,6 @@ Description:
 ====================================================================================================*/
 #include "FenetreMenu.h"
 
-#define DEMANDER_NOM false
-
 //Constructeurs & destructeurs
 MoteurMenu::MoteurMenu(ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur) { initialiser(); }
 MoteurMenu::~MoteurMenu()
