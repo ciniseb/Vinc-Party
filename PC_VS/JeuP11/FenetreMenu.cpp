@@ -26,7 +26,6 @@ MoteurMenu::~MoteurMenu()
 void MoteurMenu::setNomJoueur(std::string nom)
 {
     nom_joueur = nom;
-    std::cout << "Nom joueur envoyé : " << nom_joueur << std::endl;
 }
 
 //Méthodes
@@ -56,12 +55,15 @@ void MoteurMenu::demarrer()
 
                 if (lettreAppuyee == Dieu::JOYSTICK && selection < 2 && selection >= 0)
                 {
+                    if (!MODE_CONSOLE)
+                    {
+                        emit threadMoteur->changementWidgetActif(selection + 1);
+                    }
+
                     if (selection == 0)
                     {
                         if (!MODE_CONSOLE)
                         {
-                            emit threadMoteur->changementWidgetActif(selection + 1);
-
                             while (nom_joueur.empty())
                             {
                                 threadMoteur->msleep(100);
@@ -78,8 +80,6 @@ void MoteurMenu::demarrer()
                             getline(std::cin, nom_joueur);
                             std::cout << std::endl;
                         }
-
-                        std::cout << "Nom joueur affiché : " << nom_joueur << std::endl;
                         
                         moteurs[selection] = new MoteurJeu(nom_joueur, threadArduino, threadMoteur);
                     }

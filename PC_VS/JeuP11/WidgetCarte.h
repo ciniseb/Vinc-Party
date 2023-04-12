@@ -32,6 +32,9 @@ private:
     Acteur joueur;
     Acteur adversaire;
 
+    //Méthodes
+    float distance(Coordonnee, Coordonnee);
+
 public slots:
     void MAJ_Carte(QVector<QVector<int>>);
     void MAJ_Acteur(int, Acteur);

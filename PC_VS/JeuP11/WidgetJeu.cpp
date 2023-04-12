@@ -102,7 +102,6 @@ void WidgetJeu::MAJ_Informations(std::string nom, int d, std::string t, int n , 
     distance->setText(QString::number(d));
     temps->setText(QString::fromStdString(t));
     niveau->setText(QString::fromStdString("Niveau " + std::to_string(n)));
-    std::cout << niveau->text().toStdString();
     mjx->setText(QString::number(nb_mjx));
 }
 void WidgetJeu::MAJ_Temps(std::string t)
