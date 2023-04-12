@@ -377,8 +377,8 @@ void MoteurJeu::modeSuiveurAdversaire(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_
         Nx = x + EO[i];
         if (LowValue == COPIE_DE_CARTE[y][Nx])
         {
-            adversaire.ancienneposition.X = adversaire.position.X;
-            adversaire.ancienneposition.Y = adversaire.position.Y;
+            adversaire.ancienne_position.X = adversaire.position.X;
+            adversaire.ancienne_position.Y = adversaire.position.Y;
 
             adversaire.position.X = Nx;
             adversaire.position.Y = y;
@@ -386,8 +386,8 @@ void MoteurJeu::modeSuiveurAdversaire(int COPIE_DE_CARTE[HAUTEUR_CARTE][LARGEUR_
         Ny = y + NS[i];
         if (LowValue == COPIE_DE_CARTE[Ny][x])
         {
-            adversaire.ancienneposition.X = adversaire.position.X;
-            adversaire.ancienneposition.Y = adversaire.position.Y;
+            adversaire.ancienne_position.X = adversaire.position.X;
+            adversaire.ancienne_position.Y = adversaire.position.Y;
 
             adversaire.position.X = x;
             adversaire.position.Y = Ny;
@@ -419,7 +419,7 @@ void MoteurJeu::deplacementAdversaireRandom()
     Coordonnee droite = { adversaire.position.X + 1, adversaire.position.Y };
     Coordonnee bas = { adversaire.position.X, adversaire.position.Y - 1 };
     Coordonnee gauche = { adversaire.position.X - 1, adversaire.position.Y };
-    Coordonnee anciennecoord = { adversaire.ancienneposition.X, adversaire.ancienneposition.Y };
+    Coordonnee anciennecoord = { adversaire.ancienne_position.X, adversaire.ancienne_position.Y };
     int nb_choix = 0;
 
     std::vector<Coordonnee> coords_possibles;
@@ -450,15 +450,22 @@ void MoteurJeu::deplacementAdversaireRandom()
 
     if (nb_choix == 0)
     {
-        adversaire.position.X = adversaire.ancienneposition.X;
-        adversaire.position.Y = adversaire.ancienneposition.Y;
+        Coordonnee temp_c;
+        temp_c.X = adversaire.ancienne_position.X;
+        temp_c.Y = adversaire.ancienne_position.Y;
+
+        adversaire.ancienne_position.X = adversaire.position.X;
+        adversaire.ancienne_position.Y = adversaire.position.Y;
+
+        adversaire.position.X = temp_c.X;
+        adversaire.position.Y = temp_c.Y;
     }
     else if (nb_choix == 1 || rand() % 4 + 1 <= 3)
     {
         Coordonnee NouvelleCoord = coords_possibles[rand() % nb_choix];
 
-        adversaire.ancienneposition.X = adversaire.position.X;
-        adversaire.ancienneposition.Y = adversaire.position.Y;
+        adversaire.ancienne_position.X = adversaire.position.X;
+        adversaire.ancienne_position.Y = adversaire.position.Y;
 
         adversaire.position.X = NouvelleCoord.X;
         adversaire.position.Y = NouvelleCoord.Y;
@@ -513,8 +520,12 @@ bool MoteurJeu::deplacementJoueur(Direction reponse)
     double t_ecoule = temps.tempsEcoule_ms();
     if (((joueur.t_dernier_deplacement + DT_DEPLACEMENT_JOUEUR) <= t_ecoule) && carte[NouveauY][NouveauX].getRemplissage() != PLEIN && NouveauX < LARGEUR_CARTE && NouveauY < HAUTEUR_CARTE && NouveauX>0 && NouveauY>0)
     {
+        joueur.ancienne_position.X = joueur.position.X;
+        joueur.ancienne_position.Y = joueur.position.Y;
+
         joueur.position.X = NouveauX;
         joueur.position.Y = NouveauY;
+
         joueur.t_dernier_deplacement = t_ecoule;
         return true;
     }
@@ -569,7 +580,6 @@ void MoteurJeu::demarrer()
 
     while (true)
     {
-        affichage(AFFICHAGE_COMPLET);
         //Mise à jour du temps de jeu à l'écran
         if (temps.tempsAtteint_ms(dernier_t + 1000))
         {
@@ -581,6 +591,12 @@ void MoteurJeu::demarrer()
         if (adversaire.position.X == joueur.position.X && adversaire.position.Y == joueur.position.Y && !ENNEMI_INNOFFENSIF)
         {
             Pointage(joueur.nom, niveau.getNumero(), temps.tempsEcoule_m(), joueur.nb_tuiles_parcourues).enregistrerPointage();
+
+            if (!MODE_CONSOLE)
+            {
+                emit threadMoteur->changementWidgetActif(0);
+            }
+
             return;
         }
 
@@ -747,11 +763,15 @@ void MoteurJeu::affichage(int selection)
                 }
                 else if (joueur.position.X == c && joueur.position.Y == r)
                 {
-                    q_carte[r][c] = JOUEUR;
+                    q_carte[r][c] = VIDE;
+                    emit threadMoteur->jeu_MAJ_Acteur(JOUEUR, joueur);
+                    //q_carte[r][c] = JOUEUR;
                 }
                 else if (adversaire.position.X == c && adversaire.position.Y == r)
                 {
-                    q_carte[r][c] = ADVERSAIRE;
+                    q_carte[r][c] = VIDE;
+                    emit threadMoteur->jeu_MAJ_Acteur(ADVERSAIRE, adversaire);
+                    //q_carte[r][c] = ADVERSAIRE;
                 }
                 else if (carte[r][c].getRemplissage() == PLEIN)
                 {
@@ -771,8 +791,8 @@ void MoteurJeu::affichage(int selection)
         std::stringstream t;
         t << temps;
 
-        emit threadMoteur->jeuMAJ_Informations(joueur.nom, joueur.nb_tuiles_parcourues, t.str(), niveau.getNumero(), niveau.getNB_Mj_Restants());
-        emit threadMoteur->jeuMAJ_Carte(q_carte);
+        emit threadMoteur->jeu_MAJ_Informations(joueur.nom, joueur.nb_tuiles_parcourues, t.str(), niveau.getNumero(), niveau.getNB_Mj_Restants());
+        emit threadMoteur->jeu_MAJ_Carte(q_carte);
 
         //emit threadMoteur->jeuMAJ_Complet(joueur.nom,joueur.nb_tuiles_parcourues, t.str(), niveau.getNumero(), niveau.getNB_Mj_Restants(), q_carte);
     }
@@ -781,16 +801,20 @@ void MoteurJeu::affichage(int selection)
         std::stringstream t;
         t << temps;
 
-        emit threadMoteur->jeuMAJ_Temps(t.str());
+        emit threadMoteur->jeu_MAJ_Temps(t.str());
     }
     else if (selection == AFFICHAGE_ADVERSAIRE)
     {
-        emit threadMoteur->jeuMAJ_Adversaire(adversaire.position);
+        emit threadMoteur->jeu_MAJ_Acteur(ADVERSAIRE, adversaire);
     }
     else if (selection == AFFICHAGE_JOUEUR)
     {
-        emit threadMoteur->jeuMAJ_Joueur(joueur.position);
-        emit threadMoteur->jeuMAJ_distance(joueur.nb_tuiles_parcourues);
+        emit threadMoteur->jeu_MAJ_Distance(joueur.nb_tuiles_parcourues);
+        emit threadMoteur->jeu_MAJ_Acteur(JOUEUR, joueur);
+    }
+    else if (selection == AFFICHAGE_MINI_JEU) //TODO
+    {
+        //emit threadMoteur->jeu_MAJ_MiniJeux(niveau.getNB_Mj_Restants());
     }
 }
 

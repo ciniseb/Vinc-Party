@@ -23,6 +23,9 @@ Description: UI du jeu
 #include <QtSvg>
 #include <QSvgWidget>
 #include <QString>
+#include <QImage>
+#include <QFrame>
+#include <QPalette>
 
 class WidgetJeu : public QWidget
 {
@@ -44,18 +47,27 @@ private:
     //
     QLabel* nom_joueur;
 
-    QSvgWidget* svg_distance;
+    QLabel* image_distance;
     QLabel* distance;
 
-    QSvgWidget* svg_temps;
+    QLabel* image_temps;
     QLabel* temps;
 
     //
     QLabel* niveau;
 
     QLabel* mjx;
-    QSvgWidget* svg_mjx;
+    QLabel* image_mjx;
 
 
     WidgetCarte* widgetCarte;
+
+    //Méthodes
+    QFrame* ligneVerticale();
+
+public slots:
+    void MAJ_Informations(std::string, int, std::string, int, int);
+    void MAJ_Temps(std::string);
+    void MAJ_Distance(int);
+    void MAJ_MiniJeux(int);
 };

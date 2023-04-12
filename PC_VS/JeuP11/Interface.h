@@ -20,6 +20,7 @@ Description:
 #include "WidgetPointages.h"
 #include "WidgetJeuMineur.h"
 #include "WidgetJeuPeche.h"
+#include <QInputDialog>
 
 class Interface : public QStackedWidget
 {
@@ -28,9 +29,6 @@ class Interface : public QStackedWidget
 public:
 	Interface(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
 	~Interface();
-
-public slots:
-	void setWidgetActif(int);
 
 private:
 	ThreadMoteur* threadMoteur;
@@ -44,5 +42,11 @@ private:
 	WidgetJeuPeche* widgetJeuPeche;
 	WidgetRiviere* widgetRiviere;
 
- 
+	QInputDialog* inputDialog;
+
+signals:
+	void MAJ_NomJoueur(std::string);
+
+public slots:
+	void setWidgetActif(int);
 };

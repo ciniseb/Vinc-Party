@@ -5,7 +5,7 @@
 class GestionMuons
 {
 private:
-    int valeur;
+    unsigned int valeur;
     unsigned long tempsDerniereMesure = 0;
     int pinMuons =0;
     bool pret = false;

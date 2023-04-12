@@ -14,25 +14,27 @@ Description:
 
 #include <QThread>
 #include <QVector>
+#include <QString>
+#include <QInputDialog>
 #include "ES.h"
-#include "Fenetre.h"
 #include "Coordonnee.h"
+#include "Acteur.h"
 
-class Moteur;
+class MoteurMenu;
 class ThreadMoteur : public QThread
 {
 	Q_OBJECT
 
 private:
 	ES* threadArduino;
-	Moteur* moteur;
+	MoteurMenu* moteur;
 
 public:
 	ThreadMoteur(ES* threadArduino = nullptr, QObject *parent = nullptr);
 	~ThreadMoteur();
 
 	void run();
-	bool stop = false;
+
 signals:
 	/*=======================================================================================
 	-�crire ses signals dans sa section
@@ -47,13 +49,14 @@ signals:
 
 
 	//MoteurJeu
-	void jeuMAJ_Informations(std::string, int, std::string, int, int);
-	void jeuMAJ_Carte(QVector<QVector<int>>);
-	//void jeuMAJ_Complet(std::string, int, std::string, int, int,  int[HAUTEUR_CARTE][LARGEUR_CARTE]);
-	void jeuMAJ_Temps(std::string);
-	void jeuMAJ_Adversaire(Coordonnee);
-	void jeuMAJ_Joueur(Coordonnee);
-	void jeuMAJ_distance(int);
+	void jeu_MAJ_Informations(std::string, int, std::string, int, int);
+	void jeu_MAJ_Temps(std::string);
+	void jeu_MAJ_Distance(int);
+	void jeu_MAJ_MiniJeux(int);
+
+	void jeu_MAJ_Carte(QVector<QVector<int>>);
+	void jeu_MAJ_Acteur(int, Acteur);
+	void jeu_MAJ_Coordonnee(Coordonnee, Coordonnee);
 
 	//MoteurJeuPiano
 	
@@ -68,4 +71,6 @@ signals:
 	//Moteur...
 	
 	
+public slots:
+	void nomJoueur(std::string);
 };

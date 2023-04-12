@@ -30,3 +30,9 @@ void ThreadMoteur::run()
 {
     moteur->demarrer();
 }
+
+//Slots
+void ThreadMoteur::nomJoueur(std::string nom)
+{
+	moteur->setNomJoueur(nom);
+}

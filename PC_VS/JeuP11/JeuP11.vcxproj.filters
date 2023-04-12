@@ -316,6 +316,18 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Wailord_gauche.png">
+          <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="clef.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="clef2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="temps.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="distance.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

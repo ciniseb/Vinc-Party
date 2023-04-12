@@ -184,6 +184,9 @@
     <Media Include="StillDre.wav" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="clef.png" />
+    <Image Include="clef2.png" />
+    <Image Include="distance.png" />
     <Image Include="MicrosoftTeams-image.png" />
     <Image Include="Pecheur2.png" />
     <Image Include="Riviere1.png" />
@@ -193,6 +196,7 @@
     <Image Include="Snorlax4.png" />
     <Image Include="Snorlax5.png" />
     <Image Include="Wailord_gauche.png" />
+    <Image Include="temps.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

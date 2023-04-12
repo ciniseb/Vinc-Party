@@ -73,6 +73,7 @@ enum class Etat
 #define AFFICHAGE_TEMPS 1
 #define AFFICHAGE_ADVERSAIRE 2
 #define AFFICHAGE_JOUEUR 3
+#define AFFICHAGE_MINI_JEU 4
 
 //WidgetCarte
 #define TAILLE_MINIMUM_TUILE 16
@@ -85,3 +86,4 @@ enum class Etat
 #define LARGEUR_RIVIERE 1000
 #define HAUTEUR_MINIMUM_RIVIERE 100
 #define LARGEUR_MINIMUM_RIVIERE 100
+#define PADDING 2
