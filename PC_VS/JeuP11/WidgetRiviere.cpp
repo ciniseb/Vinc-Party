@@ -529,6 +529,11 @@ void WidgetRiviere::MAJ_Baleine(int c)
         pretPecher = true;
         baleineShake = true;
     }
+    if (c == 14)
+    {
+        pretPecher = false;
+        baleineShake = false;
+    }
     update();
 }
 void WidgetRiviere::MAJ_Pecheur(int c)
