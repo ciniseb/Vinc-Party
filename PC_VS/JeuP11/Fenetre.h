@@ -17,7 +17,6 @@ Description: Classe abstraite pour l'UI des fenêtres.
 #include "ES.h"
 #include "ThreadMoteur.h"
 
-class ThreadMoteur;
 class Moteur
 {
 protected:

@@ -37,13 +37,13 @@ void GestionAccel::rafraichir(){
 
         if(axe_Z2 > axe_Z1 + 90)
         {   coup = PECHE;
-            Serial.print("Peche");
+            //Serial.print("Peche");
             accelerationdetectee = true;
         }
         else if(axe_Z2 +70 < axe_Z1 ) 
         {
             coup = MINER;
-            Serial.print("Mineur");
+            //Serial.print("Mineur");
             accelerationdetectee = true;
         }
 
