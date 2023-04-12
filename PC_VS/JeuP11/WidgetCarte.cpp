@@ -81,43 +81,33 @@ void WidgetCarte::paintEvent(QPaintEvent* event)
         {
             float x = espace_x + taille_tuile * c;
             float y = espace_y + taille_tuile * r;
-
-            switch (q_carte[r][c])
+            
+            if (q_carte[r][c] == VIDE || q_carte[r][c] == MINI_JEU)
             {
-            case VIDE:
-                toile.setBrush(beige);
-                toile.drawRect(x, y, taille_tuile, taille_tuile);
-                break;
-            case MINI_JEU:
                 toile.setBrush(beige);
                 toile.drawRect(x, y, taille_tuile, taille_tuile);
 
+                if (r > 0 && q_carte[r - 1][c] == VIDE)
+                {
+                    toile.drawRect(x, y - taille_tuile / 2, taille_tuile, taille_tuile);
+                }
+                if (c > 0 && q_carte[r][c - 1] == VIDE)
+                {
+                    toile.drawRect(x - taille_tuile / 2, y, taille_tuile, taille_tuile);
+                }
+                if (r < HAUTEUR_CARTE - 1 && q_carte[r + 1][c] == VIDE)
+                {
+                    toile.drawRect(x, y + taille_tuile / 2, taille_tuile, taille_tuile);
+                }
+                if (c < LARGEUR_CARTE - 1 && q_carte[r][c + 1] == VIDE)
+                {
+                    toile.drawRect(x + taille_tuile / 2, y, taille_tuile, taille_tuile);
+                }
+            }
+
+            if (q_carte[r][c] == MINI_JEU)
+            {
                 toile.drawImage(x + PADDING, y + PADDING, pixmap_mj);
-                //toile.setBrush(Qt::green);
-                //toile.drawRect(x + PADDING, y + PADDING, taille_tuile - PADDING * 2, taille_tuile - PADDING * 2);
-                break;
-            //case JOUEUR:
-                //toile.setBrush(beige);
-                //toile.drawRect(x, y, taille_tuile, taille_tuile);
-
-                //toile.setBrush(bleu);
-                //toile.drawEllipse(x + PADDING, y + PADDING, taille_tuile - PADDING * 2, taille_tuile - PADDING * 2);
-                //break;
-            //case ADVERSAIRE:
-                //toile.setBrush(beige);
-                //ile.setBrush();
-                //std::cout << x << ", " << y << std::endl;
-                //toile.drawRect(x, y, taille_tuile, taille_tuile);
-
-                //toile.setBrush(rouge);
-                //toile.drawPolygon(diamondPoints, 4);
-                //break;
-            case PLEIN:
-                toile.setBrush(brun);
-                toile.drawRect(x, y, taille_tuile, taille_tuile);
-                break;
-            default:
-                break;
             }
         }
     }
@@ -125,15 +115,18 @@ void WidgetCarte::paintEvent(QPaintEvent* event)
     toile.setBrush(noir);
     toile.drawEllipse(espace_x + taille_tuile * joueur.position.X + PADDING, espace_y + taille_tuile * joueur.position.Y + PADDING, taille_tuile - PADDING * 2, taille_tuile - PADDING * 2);
 
-    QPoint diamondPoints[] =
+    if (distance(joueur.position, adversaire.position) <= RAYON_VISION || VISION_NOCTURNE)
     {
-        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile / 2, espace_y + taille_tuile * adversaire.position.Y + PADDING),
-        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile - PADDING, espace_y + taille_tuile * adversaire.position.Y + taille_tuile / 2),
-        QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile / 2, espace_y + taille_tuile * adversaire.position.Y + taille_tuile - PADDING),
-        QPoint(espace_x + taille_tuile * adversaire.position.X + PADDING, espace_y + taille_tuile * adversaire.position.Y + taille_tuile / 2)
-    };
-    toile.setBrush(rouge);
-    toile.drawPolygon(diamondPoints, 4);
+        QPoint diamondPoints[] =
+        {
+            QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile / 2, espace_y + taille_tuile * adversaire.position.Y + PADDING),
+            QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile - PADDING, espace_y + taille_tuile * adversaire.position.Y + taille_tuile / 2),
+            QPoint(espace_x + taille_tuile * adversaire.position.X + taille_tuile / 2, espace_y + taille_tuile * adversaire.position.Y + taille_tuile - PADDING),
+            QPoint(espace_x + taille_tuile * adversaire.position.X + PADDING, espace_y + taille_tuile * adversaire.position.Y + taille_tuile / 2)
+        };
+        toile.setBrush(rouge);
+        toile.drawPolygon(diamondPoints, 4);
+    }
 }
 
 void WidgetCarte::resizeEvent(QResizeEvent* event)
@@ -141,6 +134,14 @@ void WidgetCarte::resizeEvent(QResizeEvent* event)
     QWidget::resizeEvent(event);
 
     repaint();
+}
+
+//Méthodes
+float WidgetCarte::distance(Coordonnee c1, Coordonnee c2)
+{
+    double a = abs(c2.X - c1.X);
+    double b = abs(c2.Y - c1.Y);
+    return sqrt((a * a) + (b * b));
 }
 
 //Slots
@@ -155,18 +156,19 @@ void WidgetCarte::MAJ_Acteur(int type, Acteur acteur)
     {
     case JOUEUR:
         joueur = acteur;
-        repaint(espace_x + taille_tuile * acteur.ancienne_position.X, espace_y + taille_tuile * acteur.ancienne_position.Y, taille_tuile, taille_tuile);
+        //repaint(espace_x + taille_tuile * acteur.ancienne_position.X, espace_y + taille_tuile * acteur.ancienne_position.Y, taille_tuile, taille_tuile);
         break;
     case ADVERSAIRE:
         adversaire = acteur;
-        repaint(espace_x + taille_tuile * acteur.ancienne_position.X - taille_tuile, espace_y + taille_tuile * acteur.ancienne_position.Y - taille_tuile, taille_tuile * 3, taille_tuile * 3);
+        //repaint(espace_x + taille_tuile * acteur.ancienne_position.X - taille_tuile, espace_y + taille_tuile * acteur.ancienne_position.Y - taille_tuile, taille_tuile * 3, taille_tuile * 3);
         break;
     default:
         break;
     }
 
+    repaint();
     //repaint(espace_x + taille_tuile * acteur.ancienne_position.X, espace_y + taille_tuile * acteur.ancienne_position.Y, taille_tuile, taille_tuile);
-    repaint(espace_x + taille_tuile * acteur.position.X, espace_y + taille_tuile * acteur.position.Y, taille_tuile, taille_tuile);
+    //repaint(espace_x + taille_tuile * acteur.position.X, espace_y + taille_tuile * acteur.position.Y, taille_tuile, taille_tuile);
 }
 void WidgetCarte::MAJ_Coordonnee(Coordonnee xc, Coordonnee c)
 {
