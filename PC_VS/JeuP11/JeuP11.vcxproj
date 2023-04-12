@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{74205A31-BA41-4B1C-8C43-2FE3E47660A9}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
@@ -31,7 +31,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>C:\Qt\6.4.1\msvc2019_64</QtInstall>
+    <QtInstall>C:\Qt\6.4.2\msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets;svg;svgwidgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -186,6 +186,14 @@
     <Image Include="clef2.png" />
     <Image Include="distance.png" />
     <Image Include="MicrosoftTeams-image.png" />
+    <Image Include="Pecheur2.png" />
+    <Image Include="Riviere1.png" />
+    <Image Include="Riviere2.png" />
+    <Image Include="riviere3.png" />
+    <Image Include="Snorlax3.png" />
+    <Image Include="Snorlax4.png" />
+    <Image Include="Snorlax5.png" />
+    <Image Include="Wailord_gauche.png" />
     <Image Include="temps.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -135,6 +135,9 @@
     <ClCompile Include="WidgetCarte.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WidgetRiviere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
@@ -287,6 +290,30 @@
   <ItemGroup>
     <Image Include="MicrosoftTeams-image.png">
       <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Riviere2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Riviere1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Pecheur2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="riviere3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Snorlax3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Snorlax4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Snorlax5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Wailord_gauche.png">
+          <Filter>Resource Files</Filter>
     </Image>
     <Image Include="clef.png">
       <Filter>Resource Files</Filter>

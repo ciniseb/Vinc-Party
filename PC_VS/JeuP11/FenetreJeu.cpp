@@ -550,9 +550,9 @@ void MoteurJeu::initialiser()
     chargerGabaritCarte(carte_gabarit, &nb_p_variables, &nb_mj_variables);
     genererCarte();
 
-    mini_jeux[0] = new MoteurJeuPiano(threadArduino);
-    mini_jeux[1] = new MoteurJeuPeche(threadArduino);
-    mini_jeux[2] = new MoteurJeuMineur(threadArduino);
+    mini_jeux[0] = new MoteurJeuPiano(threadArduino, threadMoteur);
+    mini_jeux[1] = new MoteurJeuPeche(threadArduino, threadMoteur);
+    mini_jeux[2] = new MoteurJeuMineur(threadArduino, threadMoteur);
 
     joueur = Acteur{ joueur.nom, Coordonnee{(LARGEUR_CARTE / 2) - 1, HAUTEUR_CARTE - 1} };
 

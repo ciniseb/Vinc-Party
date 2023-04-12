@@ -16,12 +16,12 @@ Description: Constantes utiles à la compréhension du programme
 #define MODE_CLAVIER true
 
 //Cheat codes
-#define DEMANDER_NOM false
-#define ENNEMI_INNOFFENSIF false
+#define DEMANDER_NOM true
+#define ENNEMI_INNOFFENSIF true
 #define VISION_NOCTURNE true
 #define MODE_MOZART false
-#define MODE_FLASH_MC_QUEEN false
-#define MODE_TERRAIN_VAGUE false
+#define MODE_FLASH_MC_QUEEN true
+#define MODE_TERRAIN_VAGUE true
 
 #define LARGEUR_CARTE 60
 #define HAUTEUR_CARTE 30
@@ -77,4 +77,14 @@ enum class Etat
 
 //WidgetCarte
 #define TAILLE_MINIMUM_TUILE 16
+#define PADDING 2
+
+//WidgetRiviere
+#define TAILLE_RIVIERE 1400
+#define TAILLE_PECHEUR 1400
+#define TAILLE_BALEINE 1400
+#define HAUTEUR_RIVIERE 500
+#define LARGEUR_RIVIERE 1000
+#define HAUTEUR_MINIMUM_RIVIERE 100
+#define LARGEUR_MINIMUM_RIVIERE 100
 #define PADDING 2

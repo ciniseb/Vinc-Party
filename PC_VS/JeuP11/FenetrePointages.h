@@ -2,12 +2,12 @@
 Fichier: FenetrePointages.h
 Auteurs: Antoine Allard
          Charles Beaulieu
-         Émile Bois
+         ï¿½mile Bois
          Enes Caku
          Zachari Gervais
          Anne-Sophie Nguyen
-         Sébastien St-Denis
-         Date: 05 février 2023
+         Sï¿½bastien St-Denis
+         Date: 05 fï¿½vrier 2023
 Description:
 ====================================================================================================*/
 #ifndef FENETREPOINTAGES_H
@@ -30,13 +30,14 @@ Description:
 
 class MoteurPointages : public Moteur
 {
-    private:
-        //Attributs
-        std::vector<Pointage> pointages;
-    public:
-        //Constructeurs & destructeurs
-        MoteurPointages(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
-        ~MoteurPointages();
+private:
+    //Attributs
+    std::vector<Pointage> pointages;
+    bool Qt = false;
+public:
+    //Constructeurs & destructeurs
+    MoteurPointages(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
+    ~MoteurPointages();
 
         //Getteurs & setteurs
         std::vector<Pointage> getPointages();
@@ -44,7 +45,7 @@ class MoteurPointages : public Moteur
         void setPointages(std::vector<Pointage>);
         void ajoutPointage(Pointage);
 
-        //Méthodes
+        //Mï¿½thodes
         bool chargerPointages();
         bool enregistrerPointages();
 
