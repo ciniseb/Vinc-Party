@@ -1,1 +1,16 @@
-﻿
+﻿  FenetreJeuPiano.cpp
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xbd et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x11e et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x144 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x165 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x16f et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x426 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x4b3 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x4c4 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xbc et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x11d et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x143 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetJeuPiano.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xc0 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\WidgetJeuPiano.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x121 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\FenetreJeuPiano.cpp(443): warning C4715: 'MoteurJeuPiano::VersBoutonPressee' : les chemins de contrôle ne retournent pas tous une valeur
+  JeuP11.vcxproj -> C:\Users\zacha\OneDrive\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\x64\Debug\JeuP11.exe

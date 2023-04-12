@@ -286,6 +286,9 @@
     <QtMoc Include="WidgetCarte.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="WidgetRiviere.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <Image Include="MicrosoftTeams-image.png">
@@ -313,7 +316,7 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Wailord_gauche.png">
-          <Filter>Resource Files</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="clef.png">
       <Filter>Resource Files</Filter>

@@ -158,6 +158,10 @@ void MoteurJeuPiano::demarrer()
             {
                 reussite = false;
             }
+            if (!MODE_CONSOLE)
+            {
+                emit threadMoteur->changementWidgetActif(1);
+            }
             return;
         }
     }
