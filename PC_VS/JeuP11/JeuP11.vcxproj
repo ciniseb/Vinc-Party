@@ -192,6 +192,7 @@
     <Image Include="Snorlax3.png" />
     <Image Include="Snorlax4.png" />
     <Image Include="Snorlax5.png" />
+    <Image Include="Wailord_gauche.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

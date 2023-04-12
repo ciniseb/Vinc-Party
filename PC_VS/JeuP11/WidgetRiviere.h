@@ -32,7 +32,7 @@ private:
     int riviere;
     
     int posBal;
-
+    int lastPos;
     int posPeche;
 
     bool baleineShake;

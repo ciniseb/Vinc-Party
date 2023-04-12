@@ -315,5 +315,8 @@
     <Image Include="Snorlax5.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Wailord_gauche.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

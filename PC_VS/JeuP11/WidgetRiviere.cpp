@@ -22,6 +22,7 @@ WidgetRiviere::WidgetRiviere(ThreadMoteur* thread, QWidget* parent) : QWidget(pa
     Snorlax->load("Snorlax4.png");
     Snorlax2->load("Snorlax5.png");
     BaleineDroite->load("MicrosoftTeams-image.png");
+    BaleineGauche->load("Wailord_gauche.png");
 
 
     riviere = 1;
@@ -301,71 +302,143 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
              toile->drawPixmap(espace_x_Pecheur+posPeche, espace_y_Pecheur-125, pecheurScaled);
 
              //baleine
-             if (pretPecher == false)
+             if (lastPos < posBal)
              {
-                 float hauteur_baleine = 0;
-                 float largeur_baleine = 0;
-                 float targetRatioBaleine = qreal(width()) / qreal(height());
-                 float ratio_baleine = (BaleineDroite->height()) / ((BaleineDroite->width() * 1.0));
-
-                 if (targetRatioBaleine > ratio_baleine)
+                 if (pretPecher == false)
                  {
-                     largeur_baleine = BaleineDroite->width();
-                     hauteur_baleine = float(largeur_baleine / targetRatioBaleine);
+                     float hauteur_baleine = 0;
+                     float largeur_baleine = 0;
+                     float targetRatioBaleine = qreal(width()) / qreal(height());
+                     float ratio_baleine = (BaleineDroite->height()) / ((BaleineDroite->width() * 1.0));
+
+                     if (targetRatioBaleine > ratio_baleine)
+                     {
+                         largeur_baleine = BaleineDroite->width();
+                         hauteur_baleine = float(largeur_baleine / targetRatioBaleine);
+                     }
+                     else
+                     {
+                         hauteur_baleine = BaleineDroite->height();
+                         largeur_baleine = float(hauteur_baleine * targetRatioBaleine);
+                     }
+
+                     espace_y = (BaleineDroite->height() - hauteur_baleine) / 2;
+                     espace_x = (BaleineDroite->width() - largeur_baleine) / 2;
+
+                     QPixmap baleineCopy = BaleineDroite->copy(espace_x, espace_y, largeur_baleine, hauteur_baleine);
+
+                     QPixmap baleineScaled = baleineCopy.scaled(size() / 5);
+
+                     toile->drawPixmap(espace_x + posBal, espace_y + 210, baleineScaled);
                  }
                  else
                  {
-                     hauteur_baleine = BaleineDroite->height();
-                     largeur_baleine = float(hauteur_baleine * targetRatioBaleine);
+                     float hauteur_baleine = 0;
+                     float largeur_baleine = 0;
+                     float targetRatioBaleine = qreal(width()) / qreal(height());
+                     float ratio_baleine = (BaleineDroite->height()) / ((BaleineDroite->width() * 1.0));
+
+                     if (targetRatioBaleine > ratio_baleine)
+                     {
+                         largeur_baleine = BaleineDroite->width();
+                         hauteur_baleine = float(largeur_baleine / targetRatioBaleine);
+                     }
+                     else
+                     {
+                         hauteur_baleine = BaleineDroite->height();
+                         largeur_baleine = float(hauteur_baleine * targetRatioBaleine);
+                     }
+
+                     espace_y = (BaleineDroite->height() - hauteur_baleine) / 2;
+                     espace_x = (BaleineDroite->width() - largeur_baleine) / 2;
+
+                     QPixmap baleineCopy = BaleineDroite->copy(espace_x, espace_y, largeur_baleine, hauteur_baleine);
+
+                     QPixmap baleineScaled = baleineCopy.scaled(size() / 5);
+
+                     if (baleineShake == false)
+                     {
+                         toile->drawPixmap(espace_x + posBal, espace_y + 190, baleineScaled);
+                         baleineShake = true;
+                         update();
+                     }
+                     else
+                     {
+                         toile->drawPixmap(espace_x + posBal, espace_y + 210, baleineScaled);
+                         baleineShake = false;
+                         update();
+                     }
                  }
-
-                 espace_y = (BaleineDroite->height() - hauteur_baleine) / 2;
-                 espace_x = (BaleineDroite->width() - largeur_baleine) / 2;
-
-                 QPixmap baleineCopy = BaleineDroite->copy(espace_x, espace_y, largeur_baleine, hauteur_baleine);
-
-                 QPixmap baleineScaled = baleineCopy.scaled(size() / 5);
-
-                 toile->drawPixmap(espace_x + posBal, espace_y + 210, baleineScaled);
              }
              else
              {
-                 float hauteur_baleine = 0;
-                 float largeur_baleine = 0;
-                 float targetRatioBaleine = qreal(width()) / qreal(height());
-                 float ratio_baleine = (BaleineDroite->height()) / ((BaleineDroite->width() * 1.0));
-
-                 if (targetRatioBaleine > ratio_baleine)
+                 if (pretPecher == false)
                  {
-                     largeur_baleine = BaleineDroite->width();
-                     hauteur_baleine = float(largeur_baleine / targetRatioBaleine);
+                     float hauteur_baleine = 0;
+                     float largeur_baleine = 0;
+                     float targetRatioBaleine = qreal(width()) / qreal(height());
+                     float ratio_baleine = (BaleineGauche->height()) / ((BaleineGauche->width() * 1.0));
+
+                     if (targetRatioBaleine > ratio_baleine)
+                     {
+                         largeur_baleine = BaleineGauche->width();
+                         hauteur_baleine = float(largeur_baleine / targetRatioBaleine);
+                     }
+                     else
+                     {
+                         hauteur_baleine = BaleineGauche->height();
+                         largeur_baleine = float(hauteur_baleine * targetRatioBaleine);
+                     }
+
+                     espace_y = (BaleineGauche->height() - hauteur_baleine) / 2;
+                     espace_x = (BaleineGauche->width() - largeur_baleine) / 2;
+
+                     QPixmap baleineCopy = BaleineGauche->copy(espace_x, espace_y, largeur_baleine, hauteur_baleine);
+
+                     QPixmap baleineScaled = baleineCopy.scaled(size() / 5);
+
+                     toile->drawPixmap(espace_x + posBal, espace_y + 210, baleineScaled);
                  }
                  else
                  {
-                     hauteur_baleine = BaleineDroite->height();
-                     largeur_baleine = float(hauteur_baleine * targetRatioBaleine);
-                 }
+                     float hauteur_baleine = 0;
+                     float largeur_baleine = 0;
+                     float targetRatioBaleine = qreal(width()) / qreal(height());
+                     float ratio_baleine = (BaleineDroite->height()) / ((BaleineDroite->width() * 1.0));
 
-                 espace_y = (BaleineDroite->height() - hauteur_baleine) / 2;
-                 espace_x = (BaleineDroite->width() - largeur_baleine) / 2;
+                     if (targetRatioBaleine > ratio_baleine)
+                     {
+                         largeur_baleine = BaleineDroite->width();
+                         hauteur_baleine = float(largeur_baleine / targetRatioBaleine);
+                     }
+                     else
+                     {
+                         hauteur_baleine = BaleineDroite->height();
+                         largeur_baleine = float(hauteur_baleine * targetRatioBaleine);
+                     }
 
-                 QPixmap baleineCopy = BaleineDroite->copy(espace_x, espace_y, largeur_baleine, hauteur_baleine);
+                     espace_y = (BaleineDroite->height() - hauteur_baleine) / 2;
+                     espace_x = (BaleineDroite->width() - largeur_baleine) / 2;
 
-                 QPixmap baleineScaled = baleineCopy.scaled(size() / 5);
+                     QPixmap baleineCopy = BaleineDroite->copy(espace_x, espace_y, largeur_baleine, hauteur_baleine);
 
-                 if (baleineShake == false)
-                 {
-                 toile->drawPixmap(espace_x + posBal, espace_y + 190, baleineScaled);
-                 baleineShake = true;
-                 update();
-                 }
-                 else
-                 {
-                 toile->drawPixmap(espace_x + posBal, espace_y + 210, baleineScaled);
-                 baleineShake = false;
-                 update();
+                     QPixmap baleineScaled = baleineCopy.scaled(size() / 5);
+
+                     if (baleineShake == false)
+                     {
+                         toile->drawPixmap(espace_x + posBal, espace_y + 190, baleineScaled);
+                         baleineShake = true;
+                         update();
+                     }
+                     else
+                     {
+                         toile->drawPixmap(espace_x + posBal, espace_y + 210, baleineScaled);
+                         baleineShake = false;
+                         update();
+                     }
                  }
              }
+
 
 
 
@@ -398,6 +471,7 @@ void WidgetRiviere::MAJ_Riviere(int q_riviere)
 }
 void WidgetRiviere::MAJ_Baleine(int c)
 {
+    lastPos = posBal;
     switch (c)
     {
     case 2:
