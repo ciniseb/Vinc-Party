@@ -1,1 +1,1 @@
-﻿
+﻿C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\JeuP11.vcxproj(50,5): error MSB4019: The imported project "C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\QtMsBuild\Qt.props" was not found. Confirm that the expression in the Import declaration "C:\Users\cbowlieu\github\Vinc-Party\PC_VS\JeuP11\QtMsBuild\Qt.props" is correct, and that the file exists on disk.
