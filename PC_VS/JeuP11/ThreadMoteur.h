@@ -71,6 +71,7 @@ signals:
 	
 	void AjoutNote(int);
 	void Update_score(int);
+	void Demarrage_WidgetPiano();
 
 	//MoteurJeuPeche
 	void jeuPecheMAJ_Riviere(int);

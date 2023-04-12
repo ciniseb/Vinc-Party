@@ -20,10 +20,6 @@ WidgetJeuPiano::WidgetJeuPiano(ThreadMoteur* thread, QWidget* parent) : QWidget(
     background = new QPixmap;
     background->load("background_Piano.png");
 
-    infoStaticText.setTextFormat(Qt::RichText);
-    infoText = "Bienvenue dans le jeu du piano du diable! \n Appuyez su D, I, E, U pour commencer \n \n Pour gagner, Appuyez quand la lumiere de la manette est jaune";
-    firstNoteAppeared = false;
-
     // Load note images
     bleu.load("bleu.png");
     orange.load("orange.png");
@@ -42,15 +38,39 @@ WidgetJeuPiano::WidgetJeuPiano(ThreadMoteur* thread, QWidget* parent) : QWidget(
     timer = new QTimer(this);
     timer->start(1000 / 60); // 60 FPS
     
+    Demarrage();
+
     //Connexions
     connect(threadMoteur, &ThreadMoteur::AjoutNote, this, &WidgetJeuPiano::Ajout_Note);
     connect(threadMoteur, &ThreadMoteur::Update_score, this, &WidgetJeuPiano::Update_score);
     connect(timer, &QTimer::timeout, this, &WidgetJeuPiano::updateNotes);
+    connect(threadMoteur, &ThreadMoteur::Demarrage_WidgetPiano, this, &WidgetJeuPiano::Demarrage);
 }
 
 WidgetJeuPiano::~WidgetJeuPiano()
 {
+    // Arrêtez et supprimez le QTimer
+    if (timer)
+    {
+        timer->stop();
+        delete timer;
+        timer = nullptr;
+    }
 
+    // Supprimez le QPixmap pour le fond d'écran
+    if (background)
+    {
+        delete background;
+        background = nullptr;
+    }
+}
+
+void WidgetJeuPiano::Demarrage()
+{
+    infoStaticText.setTextFormat(Qt::RichText);
+    infoText = "Bienvenue dans le jeu du piano du diable! \n Appuyez su D, I, E, U pour commencer \n \n Pour gagner, Appuyez quand la lumiere de la manette est jaune";
+    firstNoteAppeared = false;
+    score = 0;
 }
 
 void WidgetJeuPiano::paintEvent(QPaintEvent* event)
