@@ -14,12 +14,18 @@ Description: UI du jeu
 
 #include <QWidget>
 #include "ThreadMoteur.h"
+#include "WidgetCarte.h"
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QGridLayout>
 #include <QLabel>
 #include <QGraphicsView>
 #include <QtSvg>
 #include <QSvgWidget>
+#include <QString>
+#include <QImage>
+#include <QFrame>
+#include <QPalette>
 
 class WidgetJeu : public QWidget
 {
@@ -33,29 +39,35 @@ public:
 
 private:
     //Attributs
-    QGridLayout *layout_principal;
-    QHBoxLayout *layout_informations;
+    QVBoxLayout *layout_principal;
+
+
+    QWidget* widget_informations;
+    QHBoxLayout* layout_informations;
+    //
+    QLabel* nom_joueur;
+
+    QLabel* image_distance;
+    QLabel* distance;
+
+    QLabel* image_temps;
+    QLabel* temps;
 
     //
-    QLabel *nom_joueur;
+    QLabel* niveau;
 
-    QSvgWidget *svg_distance;
-    QLabel *distance;
-
-    QSvgWidget *svg_temps;
-    QLabel *temps;
-
-    //
-    QLabel *niveau;
-
-    QLabel *mjx;
-    QSvgWidget *svg_mjx;
+    QLabel* mjx;
+    QLabel* image_mjx;
 
 
-    QSvgWidget *tuiles[HAUTEUR_CARTE][LARGEUR_CARTE];
+    WidgetCarte* widgetCarte;
+
+    //Méthodes
+    QFrame* ligneVerticale();
+
+public slots:
+    void MAJ_Informations(std::string, int, std::string, int, int);
+    void MAJ_Temps(std::string);
+    void MAJ_Distance(int);
+    void MAJ_MiniJeux(int);
 };
-
-/*QGraphicsView *view = new QGraphicsView(this);
-QGraphicsScene *scene = new QGraphicsScene(this);
-
-QGraphicsSvgItem *svgItem = new QGraphicsSvgItem(":/images/image.svg");*/

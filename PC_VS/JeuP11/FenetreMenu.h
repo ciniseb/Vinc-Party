@@ -26,11 +26,13 @@ Description:
 #include "FenetreCR.h"
 #include "ThreadMoteur.h"
 
+class ThreadMoteur;
 class MoteurMenu : public Moteur
 {
 private:
     //Attributs
     Moteur *moteurs[3];
+    std::string nom_joueur;
 
 public:
     //Constructeurs & destructeurs
@@ -38,7 +40,7 @@ public:
     ~MoteurMenu();
 
     //Getteurs & setteurs
-
+    void setNomJoueur(std::string);
 
     //M�thodes
     void initialiser();

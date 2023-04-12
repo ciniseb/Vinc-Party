@@ -109,11 +109,13 @@
     <ClCompile Include="Muons.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Pointage.cpp" />
+    <ClCompile Include="QSvgRatioWidget.cpp" />
     <ClCompile Include="QuadBargraph.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="ThreadMoteur.cpp" />
     <ClCompile Include="Tuile.cpp" />
     <ClCompile Include="Vibration.cpp" />
+    <ClCompile Include="WidgetCarte.cpp" />
     <ClCompile Include="WidgetJeu.cpp" />
     <ClCompile Include="WidgetMenu.cpp" />
     <ClCompile Include="WidgetJeuMineur.cpp" />
@@ -148,6 +150,7 @@
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
+    <QtMoc Include="WidgetCarte.h" />
     <QtMoc Include="WidgetJeuMineur.h" />
     <QtMoc Include="WidgetJeuPeche.h" />
     <QtMoc Include="WidgetJeuPiano.h" />
@@ -159,6 +162,7 @@
     <ClInclude Include="Muons.h" />
     <ClInclude Include="Niveau.h" />
     <ClInclude Include="Pointage.h" />
+    <QtMoc Include="QSvgRatioWidget.h" />
     <ClInclude Include="QuadBargraph.h" />
     <ClInclude Include="Tests.h" />
     <QtMoc Include="ThreadMoteur.h" />
@@ -176,6 +180,13 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="StillDre.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="clef.png" />
+    <Image Include="clef2.png" />
+    <Image Include="distance.png" />
+    <Image Include="MicrosoftTeams-image.png" />
+    <Image Include="temps.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

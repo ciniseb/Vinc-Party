@@ -63,6 +63,7 @@ void setup() {
   gestionBargraph.init();
   gestionJoystick.init();
   gestionAccel.init();
+  gestionMuons.init();
 
   for (int i = 0; i < 4; i++)
   {
