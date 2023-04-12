@@ -80,7 +80,7 @@ void MoteurJeuPiano::demarrer()
         noteU[i] = ' ';
     }
     AffichageEcran(Menu);
-    
+    emit threadMoteur->Demarrage_WidgetPiano();
     while (true)
     {
         //SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 27 });

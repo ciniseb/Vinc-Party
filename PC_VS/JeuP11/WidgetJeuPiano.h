@@ -49,6 +49,7 @@ public:
 
     void Ajout_Note(int);
     void Update_score(int);
+    void Demarrage();
 
 protected:
     void paintEvent(QPaintEvent* event) override;
