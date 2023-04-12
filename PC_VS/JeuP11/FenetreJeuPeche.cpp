@@ -84,12 +84,24 @@ void MoteurJeuPeche::demarrer()
                     {
                         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                         reussite = true;
+
+                        if (!MODE_CONSOLE)
+                        {
+                            emit threadMoteur->changementWidgetActif(1);
+                        }
+
                         return;
                     }
                     else if (comptePretPecher > 10)
                     {
                         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                         reussite = false;
+
+                        if (!MODE_CONSOLE)
+                        {
+                            emit threadMoteur->changementWidgetActif(1);
+                        }
+
                         return;
                     }
 
@@ -107,6 +119,12 @@ void MoteurJeuPeche::demarrer()
         {
             threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
             reussite = false;
+
+            if (!MODE_CONSOLE)
+            {
+                emit threadMoteur->changementWidgetActif(1);
+            }
+
             return;
         }
         //VerificationJoueurPoisson();
