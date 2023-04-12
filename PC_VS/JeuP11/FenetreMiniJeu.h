@@ -15,6 +15,8 @@ Description: Classe abstraite pour chaque classe d'un mini-jeu spécifique
 
 #include <iostream>
 #include "Fenetre.h"
+#include "ThreadMoteur.h"
+#include "ES.h"
 
 class MoteurMiniJeu : public Moteur
 {

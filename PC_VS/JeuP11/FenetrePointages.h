@@ -31,6 +31,7 @@ class MoteurPointages : public Moteur
 private:
     //Attributs
     std::vector<Pointage> pointages;
+    bool Qt = false;
 public:
     //Constructeurs & destructeurs
     MoteurPointages(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);

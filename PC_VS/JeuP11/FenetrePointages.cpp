@@ -12,6 +12,7 @@ Description:
 ====================================================================================================*/
 #include "FenetrePointages.h"
 
+
 //Constructeurs & destructeurs
 MoteurPointages::MoteurPointages(ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur) { initialiser(); }
 MoteurPointages::~MoteurPointages() {}
@@ -108,10 +109,14 @@ void MoteurPointages::demarrer()
                 Bouton* eBouton = static_cast<Bouton*>(evenement.get());
                 Dieu lettreAppuyee = eBouton->getNom();
 
-                if (lettreAppuyee == Dieu::JOYSTICK)
+                if (lettreAppuyee == Dieu::D)
                 {
                     system("cls");
                     return;
+                }
+                else if (lettreAppuyee == Dieu::JOYSTICK)
+                {
+                    emit threadMoteur->Pointage_Select();
                 }
             }
             else if(evenement->getCode() == JOYSTICK)
@@ -119,16 +124,27 @@ void MoteurPointages::demarrer()
                 Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
                 Direction direction = eJoystick->getDirection();
 
-                if (direction == Direction::HAUT && (selection > 0))
+                if (direction == Direction::HAUT /* && (selection > 0)*/)
                 {
                     selection--;
                     affichage(selection);
+                    emit threadMoteur->Pointages_Up();
                 }
-                else if (direction == Direction::BAS && selection < 1)
+                else if (direction == Direction::BAS /* && selection < 1*/)
                 {
                     selection++;
                     affichage(selection);
+                    emit threadMoteur->Pointages_Down();
                 }
+                else if (direction == Direction::DROITE)
+                {
+                    emit threadMoteur->Pointages_Right();
+                }
+                else if (direction == Direction::GAUCHE)
+                {
+                    emit threadMoteur->Pointages_Left();
+                }
+
             }
         }
     }
@@ -186,15 +202,29 @@ void MoteurPointages::affichage(int selection)
     std::vector<Pointage> trie_pointages = pointages;
     switch (selection)
     {
+
+
     case 0:
         std::sort(trie_pointages.begin(), trie_pointages.end(), plusPetitTemps);
         for (int index = 0; index < trie_pointages.size(); index++)
-        {
+        {            
             if (index != 0 && trie_pointages.at(index -1).getN_Atteint() > trie_pointages.at(index).getN_Atteint())
             {
                 std::cout << std::endl;
             }
 
+        if (!Qt)
+        {
+            for (int index = 0; index < trie_pointages.size(); index++)
+            {
+                emit threadMoteur->Pointages_Level(trie_pointages.at(index).getN_Atteint());
+                emit threadMoteur->Pointages_Names(trie_pointages.at(index).getNomJoueur());
+                emit threadMoteur->Pointages_Time(trie_pointages.at(index).getTemps());
+                emit threadMoteur->Pointages_TimePerLev(trie_pointages.at(index).getMoy_t_n());
+                emit threadMoteur->Pointages_Distance(trie_pointages.at(index).getNb_tuiles_parcourues());
+                Qt = true;
+            }
+        }
             std::cout << trie_pointages.at(index).getN_Atteint();
             std::cout << "  |  ";
             if (trie_pointages.at(index).getTemps() < 10)
@@ -213,7 +243,7 @@ void MoteurPointages::affichage(int selection)
             }
             std::cout << std::setprecision(2) << std::fixed << trie_pointages.at(index).getMoy_t_n();
             std::cout << "  |  ";
-            std::cout << trie_pointages.at(index).getNomJoueur();
+            std::cout << trie_pointages.at(index).getNomJoueur();            
             std::cout << std::setprecision(precision) << std::resetiosflags(std::ios::fixed) << std::endl;
         }
         break;
