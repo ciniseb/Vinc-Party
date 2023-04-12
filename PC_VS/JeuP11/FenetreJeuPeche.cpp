@@ -57,13 +57,21 @@ void MoteurJeuPeche::demarrer()
         if (threadArduino->evenementDisponible())
         {
             evenement = threadArduino->prochainEvenement();
-            if (evenement->getCode() == JOYSTICK)
+            if (evenement->getCode() == BOUTON && demarrage)
             {
                 if (demarrage)
                 {
                     chrono.demarrer();
                     demarrage = false;
                 }
+            }
+            if (evenement->getCode() == JOYSTICK && demarrage==false)
+            {
+               /* if (demarrage)
+                {
+                    chrono.demarrer();
+                    demarrage = false;
+                }*/
                 SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 26 });
                 Joystick* eJoystick = static_cast<Joystick*>(evenement.get());
                 Direction lettreAppuyee = eJoystick->getDirection();

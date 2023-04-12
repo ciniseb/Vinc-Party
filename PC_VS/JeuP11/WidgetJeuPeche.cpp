@@ -21,7 +21,7 @@ WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent) : QWidget(
     widget2 = new QWidget();
     riviere = new WidgetRiviere(threadMoteur, this);
     progressBar = new QProgressBar();
-    label = new QLabel("Bougez le pecheur avec le joystick et allignez le avec la baleine pour monter la barre de progression.\nUne fois la barre de progression remplit brassez la manette pour pecher la baleine.\nSoyez vite vous avez un temps limite! \nBougez le joystick pour commencer le jeux!", widget2);
+    label = new QLabel("Bougez le pecheur avec le joystick et allignez le avec la baleine pour monter la barre de progression.\nUne fois la barre de progression remplit, brassez la manette pour pecher la baleine.\nSoyez vite, vous avez un temps limite! \nCliquez sur un des 4 boutons DIEU pour commencer le jeux!", widget2);
     label->setFixedHeight(200);
     label->setFixedWidth(1200);
     QFont font = label->font();
