@@ -58,6 +58,12 @@ void MoteurJeuPiano::demarrer()
     if (MODE_MOZART)
     {
         reussite = true;
+
+        if (!MODE_CONSOLE)
+        {
+            emit threadMoteur->changementWidgetActif(1);
+        }
+
         return;
     }
 
@@ -158,10 +164,12 @@ void MoteurJeuPiano::demarrer()
             {
                 reussite = false;
             }
+
             if (!MODE_CONSOLE)
             {
                 emit threadMoteur->changementWidgetActif(1);
             }
+
             return;
         }
     }
