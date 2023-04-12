@@ -84,6 +84,7 @@ void MoteurJeuPeche::demarrer()
                     {
                         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                         reussite = true;
+                        emit threadMoteur->jeuPecheMAJ_Baleine(14);
 
                         if (!MODE_CONSOLE)
                         {
@@ -96,6 +97,7 @@ void MoteurJeuPeche::demarrer()
                     {
                         threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                         reussite = false;
+                        emit threadMoteur->jeuPecheMAJ_Baleine(14);
 
                         if (!MODE_CONSOLE)
                         {
