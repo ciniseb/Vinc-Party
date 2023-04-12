@@ -54,7 +54,7 @@ Interface::~Interface()
 //Slots
 void Interface::setWidgetActif(int index)
 {
-	if (currentIndex() == 0 && index == 1)
+	if (currentIndex() == 0 && index == 1 && DEMANDER_NOM)
 	{
 		bool ok = false;
 
@@ -69,6 +69,10 @@ void Interface::setWidgetActif(int index)
 			exit(1);
 		}
 		emit MAJ_NomJoueur(nom.toStdString());
+	}
+	else
+	{
+		emit MAJ_NomJoueur("PeuplierBlanc");
 	}
 	setCurrentIndex(index);
 }
