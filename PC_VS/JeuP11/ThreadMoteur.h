@@ -59,7 +59,14 @@ signals:
 	void jeu_MAJ_Coordonnee(Coordonnee, Coordonnee);
 
 	//MoteurJeuPiano
-
+	
+	//MoteurJeuPeche
+	void jeuPecheMAJ_Riviere(int);
+	void jeuPecheMAJ_Pecheur(int);
+	void jeuPecheMAJ_Baleine(int);
+	void jeuPecheMAJ_ProgressBar(int);
+	void jeuPecheMAJ_Message();
+	void jeuPecheMAJ_Instruction();
 
 	//Moteur...
 	

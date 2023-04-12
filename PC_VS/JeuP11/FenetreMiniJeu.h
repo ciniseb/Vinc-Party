@@ -24,7 +24,7 @@ protected:
 
 public:
     //Constructeurs & destructeurs
-    MoteurMiniJeu(ES *);
+    MoteurMiniJeu(ES* threadArduino, ThreadMoteur* threadMoteur);
     ~MoteurMiniJeu();
 
     //Getteurs & setteurs

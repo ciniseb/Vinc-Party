@@ -12,7 +12,7 @@ Description: Fenetre du jeu mineur
 ====================================================================================================*/
 #include "FenetreJeuMineur.h"
 
-MoteurJeuMineur::MoteurJeuMineur(ES* thread): MoteurMiniJeu(thread)
+MoteurJeuMineur::MoteurJeuMineur(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur)
 {
     initialiser();
 }

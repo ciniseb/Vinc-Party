@@ -15,7 +15,7 @@ Description:
 #include "CR_Vehicule.h"
 
 //Constructeurs & destructeurs
-MoteurCR::MoteurCR(ES* thread) : MoteurMiniJeu(thread) { initialiser(); }
+MoteurCR::MoteurCR(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur) { initialiser(); }
 MoteurCR::~MoteurCR() {
     for (int i = 0; i < 6; i++)
     {

@@ -37,7 +37,7 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    MoteurCR(ES* thread);
+    MoteurCR(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
     ~MoteurCR();
 
 

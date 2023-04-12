@@ -32,6 +32,7 @@ Description: Mini-jeu de piano style Piano tiles
 #include "QuadBargraph.h"
 #include "Accel.h"
 #include "Vibration.h"
+#include "ThreadMoteur.h"
 
 class MoteurJeuPeche : public MoteurMiniJeu
 {
@@ -44,6 +45,8 @@ private:
     bool activation;
     bool firstscan;
     bool pretPecher;
+    bool Riviere1Etat;
+    bool Riviere2Etat;
     int comptePretPecher;
 
     double tempsInit;
@@ -59,7 +62,7 @@ private:
 
 public:
     //Constructeurs & destructeurs
-    MoteurJeuPeche(ES* thread);
+    MoteurJeuPeche(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
     ~MoteurJeuPeche();
 
     //Getteurs & setteurs

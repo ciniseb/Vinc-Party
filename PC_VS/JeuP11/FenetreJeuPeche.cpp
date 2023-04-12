@@ -12,7 +12,7 @@ Description:
 ====================================================================================================*/
 #include "FenetreJeuPeche.h"
 
-MoteurJeuPeche::MoteurJeuPeche(ES* thread) : MoteurMiniJeu(thread) // Main du jeu
+MoteurJeuPeche::MoteurJeuPeche(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur) // Main du jeu
 {
     initialiser();
 }
@@ -31,6 +31,8 @@ void MoteurJeuPeche::initialiser()
     activation = true;
     firstscan = true;
     pretPecher = false;
+    Riviere1Etat = false;
+    Riviere2Etat = false;
     comptePretPecher = 0;
 
     tempsInit = 0;
@@ -84,6 +86,12 @@ void MoteurJeuPeche::demarrer()
                         reussite = true;
                         return;
                     }
+                    else if (comptePretPecher > 10)
+                    {
+                        threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
+                        reussite = false;
+                        return;
+                    }
 
                 }
             }
@@ -107,162 +115,49 @@ void MoteurJeuPeche::demarrer()
 
 void MoteurJeuPeche::AffichageEcran(int mode)
 {
-    //std::cout << "Affichage" << std::endl;
-    char screen[14][20];
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
-    switch (mode)
-    {
-    case Menu:
-        std::cout << "Appuyez sur A,S,D ou W pour commencer" << '\n';
-        std::cout << "Ligne de peche   Barre de progression" << std::endl;
-        for (int i = 0; i < 14; i++)
+        //std::cout << "Affichage" << std::endl;
+        char screen[14][20];
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
+
+        switch (mode)
         {
-            //std::cout << i << '\n';
-            for (int j = 0; j < 20; j++)
+        case Menu:
+            std::cout << "Appuyez sur A,S,D ou W pour commencer" << '\n';
+            std::cout << "Ligne de peche   Barre de progression" << std::endl;
+            for (int i = 0; i < 14; i++)
             {
+                //std::cout << i << '\n';
+                for (int j = 0; j < 20; j++)
+                {
 
-                /*if (i == 0 || i == 13)
-                {
-                    screen[i][j] = '#';
-                }*/
-                if (j == 1)
-                {
-                   if (i == 0 || i == 13)
-                   {
-                    screen[i][j] = '#';
-                   }
-                   else
-                   {
-                       screen[i][j] = ' ';
-                   }
-                }
-                else if (j == 18)
-                {
-                    if (i == 0 || i == 10)
+                    /*if (i == 0 || i == 13)
                     {
                         screen[i][j] = '#';
-                    }
-                    else
+                    }*/
+                    if (j == 1)
                     {
-                        screen[i][j] = ' ';
-                    }
-                }
-                else if (i == 0 || i == 13 || j == 0 || j == 2)
-                {
-                    if (j >= 3 && j <= 17)
-                    {
-                        for (int k = 3; k < 17; k++)
+                        if (i == 0 || i == 13)
                         {
-                            screen[i][k] = ' ';
-                        }
-                    }
-                    if (j <= 3)
-                    {
-                        screen[i][j] = '#';
-                    }
-
-                }
-                else if (i == 0 || i == 10 || j == 17 || j == 19)
-                {
-                    for (int k = 3; k < 17; k++)
-                    {
-                        screen[i][k] = ' ';
-                    }
-                    if (j > 16 && j != 18)
-                    {
-                        for (int h = 0; h < 11; h++)
-                        {
-                            screen[h][j] = '#';
-                        }
-
-                    }
-                    for (int h = 11; h < 14; h++)
-                    {
-                        screen[h][j] = ' ';
-                    }
-                }
-                else
-                {
-                    screen[i][j] = ' ';
-                }
-            }
-        }
-        break;
-    case Jeu:
-        if (pretPecher == false)
-        {
-        std::cout << "Appuyez sur S pour descendre W pour monter" << '\n';
-        }
-        else
-        {
-        std::cout << "Appuyez sur H pour attraper le poisson        " << '\n';
-        }
-
-        std::cout << "Ligne de peche   Barre de progression" << std::endl;
-        threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(foisReussi));
-        for (int i = 0; i < 14; i++)
-        {
-            for (int j = 0; j < 20; j++)
-            {
-                if(j==1)
-                {
-                    if (i == positionPoisson || i == positionPoisson + 1 || i == positionPoisson -1)
-                    {
-                        if(i == positionJoueur)
-                        {
-                          screen[i][j] = '*';
+                            screen[i][j] = '#';
                         }
                         else
                         {
-                          screen[i][j] = '%';
+                            screen[i][j] = ' ';
                         }
                     }
-                    else if (i == 0 || i == 13)
+                    else if (j == 18)
                     {
-                        screen[i][j] = '#';
-                    }
-                    else if (i == positionJoueur)
-                    {
-                        screen[i][j] = '*';
-                    }
-                    else
-                    {
-                        screen[i][j] = ' ';
-                    }
-
-                }
-                else if (j == 18)
-                {
-                    if (foisReussi >= i)
-                    {
-                        for(int k=0; k <= foisReussi; k++)
+                        if (i == 0 || i == 10)
                         {
-                            if (pretPecher == true)
-                            {
-                                for (int k = 0; k <= 8; k++)
-                                {
-                                screen[k+1][j] = '=';
-                                }
-                            }
-                            else
-                            {
-                            screen[k+1][j] = '=';
-                            }
+                            screen[i][j] = '#';
+                        }
+                        else
+                        {
+                            screen[i][j] = ' ';
                         }
                     }
-                    if (i == 0 || i == 10)
-                    {
-                        screen[i][j] = '#';
-                    }
-                    else
-                    {
-                        screen[i][j] = ' ';
-                    }
-                }
-                else
-                {
-                    if (i == 0 || i == 13 || j == 0 || j == 2)
+                    else if (i == 0 || i == 13 || j == 0 || j == 2)
                     {
                         if (j >= 3 && j <= 17)
                         {
@@ -273,29 +168,28 @@ void MoteurJeuPeche::AffichageEcran(int mode)
                         }
                         if (j <= 3)
                         {
-                          screen[i][j] = '#';
+                            screen[i][j] = '#';
                         }
-  
+
                     }
-                    else if (i == 0 || i == 10 || j == 17 || j == 19 )
+                    else if (i == 0 || i == 10 || j == 17 || j == 19)
                     {
                         for (int k = 3; k < 17; k++)
                         {
                             screen[i][k] = ' ';
                         }
-                        if (j > 16)
+                        if (j > 16 && j != 18)
                         {
                             for (int h = 0; h < 11; h++)
                             {
-                       screen[h][j] = '#';
+                                screen[h][j] = '#';
                             }
- 
+
                         }
                         for (int h = 11; h < 14; h++)
                         {
                             screen[h][j] = ' ';
                         }
-
                     }
                     else
                     {
@@ -303,17 +197,176 @@ void MoteurJeuPeche::AffichageEcran(int mode)
                     }
                 }
             }
+
+            if (bitCount > bitPrecedent && Riviere1Etat == false)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(2);
+                Riviere1Etat = true;
+            }
+            else if (bitCount > bitPrecedent && Riviere1Etat == true)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(1);
+                Riviere1Etat = false;
+            }
+            emit threadMoteur->jeuPecheMAJ_Riviere(1);
+            emit threadMoteur->jeuPecheMAJ_Baleine(3);
+            emit threadMoteur->jeuPecheMAJ_Pecheur(1);
+            emit threadMoteur->jeuPecheMAJ_ProgressBar(foisReussi);
+            emit threadMoteur->jeuPecheMAJ_Instruction();
+            break;
+        case Jeu:
+            if (pretPecher == false)
+            {
+                std::cout << "Appuyez sur S pour descendre W pour monter" << '\n';
+                emit threadMoteur->jeuPecheMAJ_Baleine(positionPoisson);
+            }
+            else
+            {
+                std::cout << "Appuyez sur H pour attraper le poisson        " << '\n';
+                emit threadMoteur->jeuPecheMAJ_Baleine(13);
+            }
+
+            std::cout << "Ligne de peche   Barre de progression" << std::endl;
+            threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(foisReussi));
+            for (int i = 0; i < 14; i++)
+            {
+                for (int j = 0; j < 20; j++)
+                {
+                    if (j == 1)
+                    {
+                        if (i == positionPoisson || i == positionPoisson + 1 || i == positionPoisson - 1)
+                        {
+                            if (i == positionJoueur)
+                            {
+                                screen[i][j] = '*';
+                            }
+                            else
+                            {
+                                screen[i][j] = '%';
+                            }
+                        }
+                        else if (i == 0 || i == 13)
+                        {
+                            screen[i][j] = '#';
+                        }
+                        else if (i == positionJoueur)
+                        {
+                            screen[i][j] = '*';
+                        }
+                        else
+                        {
+                            screen[i][j] = ' ';
+                        }
+
+                    }
+                    else if (j == 18)
+                    {
+                        if (foisReussi >= i)
+                        {
+                            for (int k = 0; k <= foisReussi; k++)
+                            {
+                                if (pretPecher == true)
+                                {
+                                    for (int k = 0; k <= 8; k++)
+                                    {
+                                        screen[k + 1][j] = '=';
+                                    }
+                                }
+                                else
+                                {
+                                    screen[k + 1][j] = '=';
+                                }
+                            }
+                        }
+                        if (i == 0 || i == 10)
+                        {
+                            screen[i][j] = '#';
+                        }
+                        else
+                        {
+                            screen[i][j] = ' ';
+                        }
+                    }
+                    else
+                    {
+                        if (i == 0 || i == 13 || j == 0 || j == 2)
+                        {
+                            if (j >= 3 && j <= 17)
+                            {
+                                for (int k = 3; k < 17; k++)
+                                {
+                                    screen[i][k] = ' ';
+                                }
+                            }
+                            if (j <= 3)
+                            {
+                                screen[i][j] = '#';
+                            }
+
+                        }
+                        else if (i == 0 || i == 10 || j == 17 || j == 19)
+                        {
+                            for (int k = 3; k < 17; k++)
+                            {
+                                screen[i][k] = ' ';
+                            }
+                            if (j > 16)
+                            {
+                                for (int h = 0; h < 11; h++)
+                                {
+                                    screen[h][j] = '#';
+                                }
+
+                            }
+                            for (int h = 11; h < 14; h++)
+                            {
+                                screen[h][j] = ' ';
+                            }
+
+                        }
+                        else
+                        {
+                            screen[i][j] = ' ';
+                        }
+                    }
+                }
+            }
+            if (bitCount >= bitPrecedent && Riviere1Etat == false && Riviere2Etat == false)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(2);
+                Riviere1Etat = true;
+                Riviere2Etat = false;
+            }
+            else if (bitCount >= bitPrecedent && Riviere1Etat == true && Riviere2Etat == false)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(1);
+                Riviere1Etat = false;
+                Riviere2Etat = true;
+            }
+            else if (bitCount >= bitPrecedent && Riviere1Etat == false && Riviere2Etat == true)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(3);
+                Riviere1Etat = false;
+                Riviere2Etat = false;
+            }
+
+            emit threadMoteur->jeuPecheMAJ_Pecheur(positionJoueur);
+            emit threadMoteur->jeuPecheMAJ_ProgressBar(foisReussi);
+            emit threadMoteur->jeuPecheMAJ_Message();
+            break;
         }
-        break;
-    }
-    for (int i = 0; i < 14; i++)
-    {
-        for (int j = 0; j < 20; j++)
+        for (int i = 0; i < 14; i++)
         {
-            std::cout << screen[i][j];
+            for (int j = 0; j < 20; j++)
+            {
+                std::cout << screen[i][j];
+            }
+            std::cout << '\n';
+
         }
-        std::cout << '\n';
-    }
+
+        
+     
 }
 
 bool MoteurJeuPeche::Temps() // Fonction qui fait le refresh des fonctions
@@ -441,11 +494,11 @@ void MoteurJeuPeche::getJoueur(Direction touche)
     {
      switch(touche)
     { 
-    case Direction::BAS:
+    case Direction::DROITE:
         positionJoueur++;
     break;
 
-    case Direction::HAUT:
+    case Direction::GAUCHE:
         positionJoueur--;
     break;
     }      
@@ -457,6 +510,10 @@ void MoteurJeuPeche::getJoueur(Direction touche)
      {
          positionJoueur = 12;
      }
+    }
+    else
+    {
+        positionJoueur = 5;
     }
 
 }

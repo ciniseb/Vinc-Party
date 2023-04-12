@@ -17,7 +17,45 @@ WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent) : QWidget(
     threadMoteur = thread;
 
     //Connexions
+    widget = new QWidget();
+    widget2 = new QWidget();
+    riviere = new WidgetRiviere(threadMoteur, this);
+    progressBar = new QProgressBar();
+    label = new QLabel("Bougez le pecheur avec le joystick et allignez le avec la baleine pour monter la barre de progression.\nUne fois la barre de progression remplit brassez la manette pour pecher la baleine.\nSoyez vite vous avez un temps limite! \nBougez le joystick pour commencer le jeux!", widget2);
+    label->setFixedHeight(200);
+    label->setFixedWidth(1200);
+    QFont font = label->font();
+    font.setPointSize(18);
+    label->setFont(font);
+
+
+    progressBar->setRange(0, 10);
+
+
+    layout = new QVBoxLayout(widget);
+    layout->addWidget(riviere);
+    layout->addWidget(progressBar);
+
+
+    setLayout(layout);
+    connect(threadMoteur, SIGNAL(jeuPecheMAJ_ProgressBar(int)), progressBar, SLOT(setValue(int)));
+    connect(threadMoteur, SIGNAL(jeuPecheMAJ_Message()), widget2, SLOT(close()));
+    connect(threadMoteur, SIGNAL(jeuPecheMAJ_Instruction()), this, SLOT(MAJ_Instruction()));
 }
 
 WidgetJeuPeche::~WidgetJeuPeche()
-{}
+{
+    delete widget;
+    delete widget2;
+    delete riviere;
+    delete progressBar;
+    delete label;
+    delete layout;
+}
+
+void WidgetJeuPeche::MAJ_Instruction()
+{
+    widget2->setVisible(true);
+}
+
+
