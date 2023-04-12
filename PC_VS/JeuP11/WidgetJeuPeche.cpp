@@ -45,7 +45,12 @@ WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent) : QWidget(
 
 WidgetJeuPeche::~WidgetJeuPeche()
 {
-
+    delete widget;
+    delete widget2;
+    delete riviere;
+    delete progressBar;
+    delete label;
+    delete layout;
 }
 
 void WidgetJeuPeche::MAJ_Instruction()

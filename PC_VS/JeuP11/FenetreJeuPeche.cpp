@@ -366,36 +366,7 @@ void MoteurJeuPeche::AffichageEcran(int mode)
         }
 
         
-      /*  switch (mode)
-        {
-        case Menu:
-        if (bitCount > bitPrecedent && Riviere1Etat == false)
-        {
-            emit threadMoteur->jeuPecheMAJ_Riviere(2);
-            Riviere1Etat = true;
-        }
-        else if (bitCount > bitPrecedent && Riviere1Etat == true)
-        {
-            emit threadMoteur->jeuPecheMAJ_Riviere(1);
-            Riviere1Etat = false;
-        }
-        break;
-
-        case Jeu:
-            if (bitCount > bitPrecedent && Riviere1Etat == false)
-            {
-                emit threadMoteur->jeuPecheMAJ_Riviere(2);
-                Riviere1Etat = true;
-            }
-            else if (bitCount > bitPrecedent && Riviere1Etat == true)
-            {
-                emit threadMoteur->jeuPecheMAJ_Riviere(1);
-                Riviere1Etat = false;
-            }
-            emit threadMoteur->jeuPecheMAJ_Baleine(positionPoisson);
-            emit threadMoteur->jeuPecheMAJ_Pecheur(positionJoueur);
-            emit threadMoteur->jeuPecheMAJ_ProgressBar((foisReussi / 10) * 100);
-        }*/
+     
 }
 
 bool MoteurJeuPeche::Temps() // Fonction qui fait le refresh des fonctions

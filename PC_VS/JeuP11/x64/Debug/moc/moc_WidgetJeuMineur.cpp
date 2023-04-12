@@ -8,6 +8,7 @@
 
 #include <memory>
 #include "../../../WidgetJeuMineur.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'WidgetJeuMineur.h' doesn't include <QObject>."

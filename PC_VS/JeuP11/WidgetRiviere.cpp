@@ -67,7 +67,16 @@ WidgetRiviere::WidgetRiviere(ThreadMoteur* thread, QWidget* parent) : QWidget(pa
 }
 
 WidgetRiviere::~WidgetRiviere()
-{}
+{
+    delete riviere1;
+    delete riviere2;
+    delete riviere3;
+    delete Pecheur;
+    delete BaleineDroite;
+    delete BaleineGauche;
+    delete Snorlax;
+    delete Snorlax2;
+}
 
 void WidgetRiviere::paintEvent(QPaintEvent* event)
 {
