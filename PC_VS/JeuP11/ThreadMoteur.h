@@ -43,7 +43,16 @@ signals:
 	void menu_selection(int selection);
 
 	//MoteurPointages
-
+	void Pointages_Right();
+	void Pointages_Left();
+	void Pointages_Up();
+	void Pointages_Down();
+	void Pointage_Select();
+	void Pointages_Names(const std::string& playerName);
+	void Pointages_Level(int);
+	void Pointages_Time(double);
+	void Pointages_TimePerLev(double);
+	void Pointages_Distance(int);
 
 	//MoteurJeu
 	void jeuMAJ_Complet(std::string, int, std::string, int, int,  int[HAUTEUR_CARTE][LARGEUR_CARTE]);
@@ -52,6 +61,7 @@ signals:
 	void jeuMAJ_Joueur(Coordonnee, int);
 
 	//MoteurJeuPiano
+
 
 	//MoteurJeuMineur
 	void jeuMineur_menu();

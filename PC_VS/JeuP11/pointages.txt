@@ -7,4 +7,12 @@ Zahckarye;2;12;322
 ANNE-SOPHIE;4;28;702
 Bob;1;3;73
 Vincent;4;69;666
-Roger Laperdrie;1;32;2000
+Ciniseb;3;18;632
+LordAllard;4;38;888
+Chef QuartUS;4;20;591
+Mimile;3;21;654
+Enes;2;10;512
+Zahckarye;2;12;322
+ANNE-SOPHIE;4;28;702
+Bob;1;3;73
+Vincent;4;69;666
