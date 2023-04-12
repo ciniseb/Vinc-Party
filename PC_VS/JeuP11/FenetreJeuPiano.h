@@ -29,10 +29,13 @@ Description: Mini-jeu de piano style Piano tiles
 #include "FenetreMiniJeu.h"
 #include "CONSTANTES.h"
 #include "bargraph.h"
+#include "WidgetJeuPiano.h"
 
 class MoteurJeuPiano : public MoteurMiniJeu
 {
 private:
+    WidgetJeuPiano* widgetJeuPiano;
+
     Chronometre chrono;
     //Bouton* btn = Bouton();
 

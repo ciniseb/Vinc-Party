@@ -110,8 +110,7 @@ int Niveau::choixMiniJeu()
 
     //std::cout << std::endl << "mj choisi : " << index_mjx[0] << std::endl;
 
-    //return index_mjx[0];
-    return 1;
+    return index_mjx[0];
 }
 
 bool Niveau::niveauFinit()

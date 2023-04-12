@@ -46,7 +46,16 @@ signals:
 	void menu_selection(int selection);
 
 	//MoteurPointages
-
+	void Pointages_Right();
+	void Pointages_Left();
+	void Pointages_Up();
+	void Pointages_Down();
+	void Pointage_Select();
+	void Pointages_Names(const std::string& playerName);
+	void Pointages_Level(int);
+	void Pointages_Time(double);
+	void Pointages_TimePerLev(double);
+	void Pointages_Distance(int);
 
 	//MoteurJeu
 	void jeu_MAJ_Informations(std::string, int, std::string, int, int);
@@ -60,6 +69,9 @@ signals:
 
 	//MoteurJeuPiano
 	
+	void AjoutNote(int);
+	void Update_score(int);
+
 	//MoteurJeuPeche
 	void jeuPecheMAJ_Riviere(int);
 	void jeuPecheMAJ_Pecheur(int);
@@ -67,6 +79,13 @@ signals:
 	void jeuPecheMAJ_ProgressBar(int);
 	void jeuPecheMAJ_Message();
 	void jeuPecheMAJ_Instruction();
+
+	//MoteurJeuMineur
+	void jeuMineur_menu();
+	void jeuMineur_block(float);
+	void jeuMineur_temps(int);
+	void jeuMineur_timer(int);
+
 
 	//Moteur...
 	
