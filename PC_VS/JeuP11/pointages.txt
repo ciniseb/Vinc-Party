@@ -16,3 +16,6 @@ Zahckarye;2;12;322
 ANNE-SOPHIE;4;28;702
 Bob;1;3;73
 Vincent;4;69;666
+oui;2;1.3027;36
+PeuplierBlanc;1;0.0833591;13
+PeuplierBlanc;2;0.709712;31
