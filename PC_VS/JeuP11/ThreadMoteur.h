@@ -62,6 +62,8 @@ signals:
 	void jeuPecheMAJ_Pecheur(int);
 	void jeuPecheMAJ_Baleine(int);
 	void jeuPecheMAJ_ProgressBar(int);
+	void jeuPecheMAJ_Message();
+	void jeuPecheMAJ_Instruction();
 
 	//Moteur...
 	

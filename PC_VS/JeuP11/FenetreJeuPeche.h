@@ -46,6 +46,7 @@ private:
     bool firstscan;
     bool pretPecher;
     bool Riviere1Etat;
+    bool Riviere2Etat;
     int comptePretPecher;
 
     double tempsInit;

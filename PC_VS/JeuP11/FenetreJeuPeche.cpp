@@ -32,6 +32,7 @@ void MoteurJeuPeche::initialiser()
     firstscan = true;
     pretPecher = false;
     Riviere1Etat = false;
+    Riviere2Etat = false;
     comptePretPecher = 0;
 
     tempsInit = 0;
@@ -207,15 +208,22 @@ void MoteurJeuPeche::AffichageEcran(int mode)
                 emit threadMoteur->jeuPecheMAJ_Riviere(1);
                 Riviere1Etat = false;
             }
+            emit threadMoteur->jeuPecheMAJ_Riviere(1);
+            emit threadMoteur->jeuPecheMAJ_Baleine(3);
+            emit threadMoteur->jeuPecheMAJ_Pecheur(1);
+            emit threadMoteur->jeuPecheMAJ_ProgressBar(foisReussi);
+            emit threadMoteur->jeuPecheMAJ_Instruction();
             break;
         case Jeu:
             if (pretPecher == false)
             {
                 std::cout << "Appuyez sur S pour descendre W pour monter" << '\n';
+                emit threadMoteur->jeuPecheMAJ_Baleine(positionPoisson);
             }
             else
             {
                 std::cout << "Appuyez sur H pour attraper le poisson        " << '\n';
+                emit threadMoteur->jeuPecheMAJ_Baleine(13);
             }
 
             std::cout << "Ligne de peche   Barre de progression" << std::endl;
@@ -323,19 +331,28 @@ void MoteurJeuPeche::AffichageEcran(int mode)
                     }
                 }
             }
-            if (bitCount > bitPrecedent && Riviere1Etat == false)
+            if (bitCount >= bitPrecedent && Riviere1Etat == false && Riviere2Etat == false)
             {
                 emit threadMoteur->jeuPecheMAJ_Riviere(2);
                 Riviere1Etat = true;
+                Riviere2Etat = false;
             }
-            else if (bitCount > bitPrecedent && Riviere1Etat == true)
+            else if (bitCount >= bitPrecedent && Riviere1Etat == true && Riviere2Etat == false)
             {
                 emit threadMoteur->jeuPecheMAJ_Riviere(1);
                 Riviere1Etat = false;
+                Riviere2Etat = true;
             }
-            emit threadMoteur->jeuPecheMAJ_Baleine(positionPoisson);
+            else if (bitCount >= bitPrecedent && Riviere1Etat == false && Riviere2Etat == true)
+            {
+                emit threadMoteur->jeuPecheMAJ_Riviere(3);
+                Riviere1Etat = false;
+                Riviere2Etat = false;
+            }
+
             emit threadMoteur->jeuPecheMAJ_Pecheur(positionJoueur);
             emit threadMoteur->jeuPecheMAJ_ProgressBar(foisReussi);
+            emit threadMoteur->jeuPecheMAJ_Message();
             break;
         }
         for (int i = 0; i < 14; i++)
@@ -522,6 +539,10 @@ void MoteurJeuPeche::getJoueur(Direction touche)
      {
          positionJoueur = 12;
      }
+    }
+    else
+    {
+        positionJoueur = 5;
     }
 
 }

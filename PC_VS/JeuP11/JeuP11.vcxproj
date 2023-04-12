@@ -188,6 +188,10 @@
     <Image Include="Pecheur2.png" />
     <Image Include="Riviere1.png" />
     <Image Include="Riviere2.png" />
+    <Image Include="riviere3.png" />
+    <Image Include="Snorlax3.png" />
+    <Image Include="Snorlax4.png" />
+    <Image Include="Snorlax5.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

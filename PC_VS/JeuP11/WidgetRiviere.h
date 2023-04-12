@@ -35,11 +35,17 @@ private:
 
     int posPeche;
 
+    bool baleineShake;
+    bool pretPecher;
+
     QPixmap* riviere1;
     QPixmap* riviere2;
+    QPixmap* riviere3;
     QPixmap* Pecheur;
     QPixmap* BaleineDroite;
     QPixmap* BaleineGauche;
+    QPixmap* Snorlax;
+    QPixmap* Snorlax2;
 
     QPainter* toile;
 

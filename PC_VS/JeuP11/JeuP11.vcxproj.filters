@@ -303,5 +303,17 @@
     <Image Include="Pecheur2.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="riviere3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Snorlax3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Snorlax4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Snorlax5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
