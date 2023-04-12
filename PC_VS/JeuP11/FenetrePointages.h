@@ -19,6 +19,7 @@ Description:
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+
 #include "ES.h"
 #include "Fenetre.h"
 #include "Pointage.h"
@@ -26,30 +27,31 @@ Description:
 #include "Bouton.h"
 #include "ThreadMoteur.h"
 
+
 class MoteurPointages : public Moteur
 {
-private:
-    //Attributs
-    std::vector<Pointage> pointages;
-public:
-    //Constructeurs & destructeurs
-    MoteurPointages(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
-    ~MoteurPointages();
+    private:
+        //Attributs
+        std::vector<Pointage> pointages;
+    public:
+        //Constructeurs & destructeurs
+        MoteurPointages(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);
+        ~MoteurPointages();
 
-    //Getteurs & setteurs
-    std::vector<Pointage> getPointages();
+        //Getteurs & setteurs
+        std::vector<Pointage> getPointages();
 
-    void setPointages(std::vector<Pointage>);
-    void ajoutPointage(Pointage);
+        void setPointages(std::vector<Pointage>);
+        void ajoutPointage(Pointage);
 
-    //Méthodes
-    bool chargerPointages();
-    bool enregistrerPointages();
+        //Méthodes
+        bool chargerPointages();
+        bool enregistrerPointages();
 
-    void initialiser();
-    void demarrer();
+        void initialiser();
+        void demarrer();
 
-    void affichage(int);
+        void affichage(int);
 };
 
 #endif

@@ -1,5 +1,5 @@
 /*====================================================================================================
-Fichier: FenetrePointages.cpp
+Fichier: ThreadMoteur.cpp
 Auteurs: Antoine Allard
 		 Charles Beaulieu
 		 Émile Bois

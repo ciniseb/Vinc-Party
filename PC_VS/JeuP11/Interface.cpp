@@ -25,9 +25,8 @@ Interface::Interface(ThreadMoteur *thread, QWidget *parent) : QStackedWidget(par
 
 	addWidget(widgetMenu);
 	addWidget(widgetJeu);
-	addWidget(widgetPointages); //temp
-	//addWidget(widgetPointages);
 	addWidget(widgetJeuPiano);
+	addWidget(widgetPointages); 
 	addWidget(widgetJeuPeche);
 	addWidget(widgetJeuMineur);
 

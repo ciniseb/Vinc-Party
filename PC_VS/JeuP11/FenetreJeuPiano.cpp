@@ -13,7 +13,10 @@ Description:
 #include "FenetreJeuPiano.h"
 
 //Constructeurs & destructeurs
-MoteurJeuPiano::MoteurJeuPiano(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur) { initialiser(); }
+MoteurJeuPiano::MoteurJeuPiano(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur) 
+{
+    initialiser(); 
+}
 MoteurJeuPiano::~MoteurJeuPiano() {}
 
 bool MoteurJeuPiano::chargerChanson(bool matrice[50001][4])
@@ -70,7 +73,6 @@ void MoteurJeuPiano::demarrer()
         noteE[i] = ' ';
         noteU[i] = ' ';
     }
-    system("cls");
     AffichageEcran(Menu);
     
     while (true)
@@ -94,7 +96,6 @@ void MoteurJeuPiano::demarrer()
             {
                 if (demarrage)
                 {          
-                    system("cls");
                     chrono.demarrer();
                     demarrage = false;
                 }              
@@ -139,8 +140,9 @@ void MoteurJeuPiano::demarrer()
                     }
                     else if(noteReussi > 0)
                     {
-                        
+                        noteReussi--;
                     }
+                    emit threadMoteur->Update_score(noteReussi);
                 }  
             }
         }
@@ -182,7 +184,7 @@ bool MoteurJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
 void MoteurJeuPiano::SetNote(int t)
 {
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 30});
-    std::cout << t << std::endl;
+
     for (int j = 21; j > 0; j--)
     {
         noteD[j] = noteD[j - 1];
@@ -216,15 +218,19 @@ void MoteurJeuPiano::SetNote(int t)
             {
             case 0:
                 noteD[0] = 'D';
+                emit threadMoteur->AjoutNote(1);
                 break;
             case 1:
                 noteI[0] = 'I';
+                emit threadMoteur->AjoutNote(2);
                 break;
             case 2:
                 noteE[0] = 'E';
+                emit threadMoteur->AjoutNote(3);
                 break;
             case 3:
                 noteU[0] = 'U';
+                emit threadMoteur->AjoutNote(4);
                 break;
             }
         }
@@ -240,6 +246,7 @@ void MoteurJeuPiano::AffichageEcran(int mode)
     switch (mode)
     {
     case Menu:
+        system("cls");
         std::cout << "Appuyez sur D,I,E ou U pour commencer" << '\n';
         for (int i = 0; i < 24; i++)
         {
@@ -260,6 +267,7 @@ void MoteurJeuPiano::AffichageEcran(int mode)
         }
         break;
     case Jeu:
+        system("cls");
         std::cout << "Appuyez sur D,I,E,U quand la note est jaune ou verte sur la manette" << std::endl
                   << "             Notes reussites : " << noteReussi << std::endl;
         //std::cout << "Affichage Jeu" << std::endl;

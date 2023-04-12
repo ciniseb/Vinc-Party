@@ -29,7 +29,7 @@ MoteurMenu::~MoteurMenu()
 void MoteurMenu::initialiser()
 {
     moteurs[0] = new MoteurJeu();
-    moteurs[1] = new MoteurJeuPeche(threadArduino, threadMoteur);
+    moteurs[1] = new MoteurJeuPiano(threadArduino, threadMoteur);
     moteurs[2] = new MoteurTests(threadArduino);
 }
 
