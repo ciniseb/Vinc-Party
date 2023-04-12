@@ -1,5 +1,5 @@
 /*====================================================================================================
-Fichier: Chronometre.h
+Fichier: WidgetJeuPiano.h
 Auteurs: Antoine Allard
          Charles Beaulieu
          Émile Bois
@@ -13,19 +13,57 @@ Description: UI du piano
 #pragma once
 
 #include <QWidget>
+#include <QtWidgets/QWidget>
+#include <QGridLayout>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QPainter>
+#include <QLabel>
+#include <QTimer>
+#include <QDateTime>
+#include <QStaticText>
+
 #include "ThreadMoteur.h"
+
+struct Note
+{
+    QPixmap image;
+    int x;
+    int y;
+    int noteType;
+    qreal initialY; 
+    qreal initialHeight;
+    qint64 creationTime;
+};
 
 class WidgetJeuPiano : public QWidget
 {
 	Q_OBJECT
 
 public:
+    
+    ThreadMoteur* threadMoteur;
+
 	WidgetJeuPiano(ThreadMoteur* thread = nullptr, QWidget *parent = nullptr);
 	~WidgetJeuPiano();
 
-	ThreadMoteur* threadMoteur;
+    void Ajout_Note(int);
+    void Update_score(int);
+
+protected:
+    void paintEvent(QPaintEvent* event) override;
 
 private:
     //Attributs
+    QPixmap* background;
+    qreal scaleFactor;
+    QPixmap vert, rouge, bleu, orange; 
+    QVector<Note> notes;
+    QTimer* timer;
+    int score = 0;
+    QString infoText;
+    bool firstNoteAppeared;
+    QStaticText infoStaticText;
 
+    void updateNotes();
 };

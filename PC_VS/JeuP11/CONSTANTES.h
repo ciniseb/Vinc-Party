@@ -21,7 +21,7 @@ Description: Constantes utiles à la compréhension du programme
 #define VISION_NOCTURNE true
 #define MODE_MOZART false
 #define MODE_FLASH_MC_QUEEN true
-#define MODE_TERRAIN_VAGUE true
+#define MODE_TERRAIN_VAGUE false
 
 #define LARGEUR_CARTE 60
 #define HAUTEUR_CARTE 30
@@ -77,6 +77,7 @@ enum class Etat
 
 //WidgetCarte
 #define TAILLE_MINIMUM_TUILE 16
+#define PADDING 2
 
 //WidgetRiviere
 #define TAILLE_RIVIERE 1400

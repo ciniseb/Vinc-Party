@@ -69,6 +69,9 @@ signals:
 
 	//MoteurJeuPiano
 	
+	void AjoutNote(int);
+	void Update_score(int);
+
 	//MoteurJeuPeche
 	void jeuPecheMAJ_Riviere(int);
 	void jeuPecheMAJ_Pecheur(int);
