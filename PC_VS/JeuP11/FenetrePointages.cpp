@@ -111,10 +111,17 @@ void MoteurPointages::demarrer()
 
                 if (lettreAppuyee == Dieu::D)
                 {
-                    system("cls");
+                    if (MODE_CONSOLE)
+                    {
+                        system("cls");
+                    }
+                    else
+                    {
+                        emit threadMoteur->changementWidgetActif(0);
+                    }
                     return;
                 }
-                else if (lettreAppuyee == Dieu::JOYSTICK)
+                else if (!MODE_CONSOLE && lettreAppuyee == Dieu::JOYSTICK)
                 {
                     emit threadMoteur->Pointage_Select();
                 }

@@ -73,6 +73,12 @@ void MoteurJeuMineur::demarrer()
                     threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                     nbCoups = 0;
                     PlaySound(NULL, NULL, SND_ASYNC);
+
+                    if (!MODE_CONSOLE)
+                    {
+                        emit threadMoteur->changementWidgetActif(1);
+                    }
+
                     return;
                 }
                 
@@ -90,9 +96,21 @@ void MoteurJeuMineur::demarrer()
             {
                 threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                 nbCoups = 0;
+
+                if (!MODE_CONSOLE)
+                {
+                    emit threadMoteur->changementWidgetActif(1);
+                }
+
                 return;
             }
             nbCoups = 0;
+
+            if (!MODE_CONSOLE)
+            {
+                emit threadMoteur->changementWidgetActif(1);
+            }
+
             return;
         }
     }
