@@ -610,7 +610,8 @@ void MoteurJeu::demarrer()
         if (directionActuelle != AUCUNE && deplacementJoueur(directionActuelle))
         {
             joueur.nb_tuiles_parcourues++;
-            affichage(AFFICHAGE_JOUEUR);
+            //affichage(AFFICHAGE_JOUEUR);
+            affichage(AFFICHAGE_COMPLET);
 
             //Determiner direction boussole;
             pointCardinalActuel = directionMiniJeuPlusProche(niveau.getNB_Mj_Restants());
@@ -757,7 +758,7 @@ void MoteurJeu::affichage(int selection)
         {
             for (int c = 0; c < LARGEUR_CARTE; c++)
             {
-                if (distance(joueur.position, { c, r }) > RAYON_VISION && !VISION_NOCTURNE)
+                if (distance(joueur.position, {c, r}) > RAYON_VISION && !VISION_NOCTURNE)
                 {
                     q_carte[r][c] = PLEIN;
                 }
