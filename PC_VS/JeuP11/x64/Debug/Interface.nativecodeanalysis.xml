@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>Interface.cpp</FILENAME>
+      <LINE>15</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Interface::widgetRiviere' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Interface::{ctor}</FUNCTION>
+    <DECORATED>??0Interface@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>15</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Interface::widgetRiviere</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>Interface.cpp</FILENAME>
+      <LINE>15</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Interface::inputDialog' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Interface::{ctor}</FUNCTION>
+    <DECORATED>??0Interface@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>15</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Interface::inputDialog</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

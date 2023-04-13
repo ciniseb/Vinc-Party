@@ -1,0 +1,59 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32215.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/niveau.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "2bdf1c987272bc70a77f9b7264073fb62a94515fc0bfcea1a6e87a1045824dec"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/niveau.h"
+          },
+          "hashes": {
+            "sha-256": "7fe543ac5c2b0dc2d88bb0113060818f965a30c79d5ab6b3d992bc51d952058f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/constantes.h"
+          },
+          "hashes": {
+            "sha-256": "82077741788a9472535ebc01ac6893015f4e6b8b329bb35fd559e0665b871902"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/hasardmuons.h"
+          },
+          "hashes": {
+            "sha-256": "c495d49d3dae3dbba1ad8c0d72dc4ed37c02f8aedeb21979947458ef9f6b3635"
+          }
+        }
+      ]
+    }
+  ]
+}

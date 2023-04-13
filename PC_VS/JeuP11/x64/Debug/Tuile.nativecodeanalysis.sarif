@@ -1,0 +1,51 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32215.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/tuile.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "573998a01adbcc256823a028c2421121a0766ca7e8d2e98cfaf582cf2f41b63e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/tuile.h"
+          },
+          "hashes": {
+            "sha-256": "cb7e7542a7188bcb2653dd0a8c62fe671b9eb65d688b6923fe54ea5123f3417a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/constantes.h"
+          },
+          "hashes": {
+            "sha-256": "82077741788a9472535ebc01ac6893015f4e6b8b329bb35fd559e0665b871902"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ThreadMoteur.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.3)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -14,7 +14,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'ThreadMoteur.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.4.3. It"
+#error "This file was generated using the moc from 6.4.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -28,7 +28,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_ThreadMoteur_t {
-    uint offsetsAndSizes[82];
+    uint offsetsAndSizes[84];
     char stringdata0[13];
     char stringdata1[22];
     char stringdata2[1];
@@ -59,17 +59,18 @@ struct qt_meta_stringdata_ThreadMoteur_t {
     char stringdata27[11];
     char stringdata28[10];
     char stringdata29[13];
-    char stringdata30[20];
+    char stringdata30[22];
     char stringdata31[20];
     char stringdata32[20];
-    char stringdata33[24];
-    char stringdata34[20];
-    char stringdata35[24];
-    char stringdata36[15];
-    char stringdata37[16];
+    char stringdata33[20];
+    char stringdata34[24];
+    char stringdata35[20];
+    char stringdata36[24];
+    char stringdata37[15];
     char stringdata38[16];
     char stringdata39[16];
-    char stringdata40[10];
+    char stringdata40[16];
+    char stringdata41[10];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_ThreadMoteur_t::offsetsAndSizes) + ofs), len 
@@ -105,17 +106,18 @@ Q_CONSTINIT static const qt_meta_stringdata_ThreadMoteur_t qt_meta_stringdata_Th
         QT_MOC_LITERAL(394, 10),  // "Coordonnee"
         QT_MOC_LITERAL(405, 9),  // "AjoutNote"
         QT_MOC_LITERAL(415, 12),  // "Update_score"
-        QT_MOC_LITERAL(428, 19),  // "jeuPecheMAJ_Riviere"
-        QT_MOC_LITERAL(448, 19),  // "jeuPecheMAJ_Pecheur"
-        QT_MOC_LITERAL(468, 19),  // "jeuPecheMAJ_Baleine"
-        QT_MOC_LITERAL(488, 23),  // "jeuPecheMAJ_ProgressBar"
-        QT_MOC_LITERAL(512, 19),  // "jeuPecheMAJ_Message"
-        QT_MOC_LITERAL(532, 23),  // "jeuPecheMAJ_Instruction"
-        QT_MOC_LITERAL(556, 14),  // "jeuMineur_menu"
-        QT_MOC_LITERAL(571, 15),  // "jeuMineur_block"
-        QT_MOC_LITERAL(587, 15),  // "jeuMineur_temps"
-        QT_MOC_LITERAL(603, 15),  // "jeuMineur_timer"
-        QT_MOC_LITERAL(619, 9)   // "nomJoueur"
+        QT_MOC_LITERAL(428, 21),  // "Demarrage_WidgetPiano"
+        QT_MOC_LITERAL(450, 19),  // "jeuPecheMAJ_Riviere"
+        QT_MOC_LITERAL(470, 19),  // "jeuPecheMAJ_Pecheur"
+        QT_MOC_LITERAL(490, 19),  // "jeuPecheMAJ_Baleine"
+        QT_MOC_LITERAL(510, 23),  // "jeuPecheMAJ_ProgressBar"
+        QT_MOC_LITERAL(534, 19),  // "jeuPecheMAJ_Message"
+        QT_MOC_LITERAL(554, 23),  // "jeuPecheMAJ_Instruction"
+        QT_MOC_LITERAL(578, 14),  // "jeuMineur_menu"
+        QT_MOC_LITERAL(593, 15),  // "jeuMineur_block"
+        QT_MOC_LITERAL(609, 15),  // "jeuMineur_temps"
+        QT_MOC_LITERAL(625, 15),  // "jeuMineur_timer"
+        QT_MOC_LITERAL(641, 9)   // "nomJoueur"
     },
     "ThreadMoteur",
     "changementWidgetActif",
@@ -147,6 +149,7 @@ Q_CONSTINIT static const qt_meta_stringdata_ThreadMoteur_t qt_meta_stringdata_Th
     "Coordonnee",
     "AjoutNote",
     "Update_score",
+    "Demarrage_WidgetPiano",
     "jeuPecheMAJ_Riviere",
     "jeuPecheMAJ_Pecheur",
     "jeuPecheMAJ_Baleine",
@@ -168,48 +171,49 @@ Q_CONSTINIT static const uint qt_meta_data_ThreadMoteur[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      32,   14, // methods
+      33,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      31,       // signalCount
+      32,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  206,    2, 0x06,    1 /* Public */,
-       4,    1,  209,    2, 0x06,    3 /* Public */,
-       6,    0,  212,    2, 0x06,    5 /* Public */,
-       7,    0,  213,    2, 0x06,    6 /* Public */,
-       8,    0,  214,    2, 0x06,    7 /* Public */,
-       9,    0,  215,    2, 0x06,    8 /* Public */,
-      10,    0,  216,    2, 0x06,    9 /* Public */,
-      11,    1,  217,    2, 0x06,   10 /* Public */,
-      14,    1,  220,    2, 0x06,   12 /* Public */,
-      15,    1,  223,    2, 0x06,   14 /* Public */,
-      16,    1,  226,    2, 0x06,   16 /* Public */,
-      17,    1,  229,    2, 0x06,   18 /* Public */,
-      18,    5,  232,    2, 0x06,   20 /* Public */,
-      19,    1,  243,    2, 0x06,   26 /* Public */,
-      20,    1,  246,    2, 0x06,   28 /* Public */,
-      21,    1,  249,    2, 0x06,   30 /* Public */,
-      22,    1,  252,    2, 0x06,   32 /* Public */,
-      24,    2,  255,    2, 0x06,   34 /* Public */,
-      26,    2,  260,    2, 0x06,   37 /* Public */,
-      28,    1,  265,    2, 0x06,   40 /* Public */,
-      29,    1,  268,    2, 0x06,   42 /* Public */,
-      30,    1,  271,    2, 0x06,   44 /* Public */,
-      31,    1,  274,    2, 0x06,   46 /* Public */,
-      32,    1,  277,    2, 0x06,   48 /* Public */,
-      33,    1,  280,    2, 0x06,   50 /* Public */,
-      34,    0,  283,    2, 0x06,   52 /* Public */,
-      35,    0,  284,    2, 0x06,   53 /* Public */,
-      36,    0,  285,    2, 0x06,   54 /* Public */,
-      37,    1,  286,    2, 0x06,   55 /* Public */,
-      38,    1,  289,    2, 0x06,   57 /* Public */,
-      39,    1,  292,    2, 0x06,   59 /* Public */,
+       1,    1,  212,    2, 0x06,    1 /* Public */,
+       4,    1,  215,    2, 0x06,    3 /* Public */,
+       6,    0,  218,    2, 0x06,    5 /* Public */,
+       7,    0,  219,    2, 0x06,    6 /* Public */,
+       8,    0,  220,    2, 0x06,    7 /* Public */,
+       9,    0,  221,    2, 0x06,    8 /* Public */,
+      10,    0,  222,    2, 0x06,    9 /* Public */,
+      11,    1,  223,    2, 0x06,   10 /* Public */,
+      14,    1,  226,    2, 0x06,   12 /* Public */,
+      15,    1,  229,    2, 0x06,   14 /* Public */,
+      16,    1,  232,    2, 0x06,   16 /* Public */,
+      17,    1,  235,    2, 0x06,   18 /* Public */,
+      18,    5,  238,    2, 0x06,   20 /* Public */,
+      19,    1,  249,    2, 0x06,   26 /* Public */,
+      20,    1,  252,    2, 0x06,   28 /* Public */,
+      21,    1,  255,    2, 0x06,   30 /* Public */,
+      22,    1,  258,    2, 0x06,   32 /* Public */,
+      24,    2,  261,    2, 0x06,   34 /* Public */,
+      26,    2,  266,    2, 0x06,   37 /* Public */,
+      28,    1,  271,    2, 0x06,   40 /* Public */,
+      29,    1,  274,    2, 0x06,   42 /* Public */,
+      30,    0,  277,    2, 0x06,   44 /* Public */,
+      31,    1,  278,    2, 0x06,   45 /* Public */,
+      32,    1,  281,    2, 0x06,   47 /* Public */,
+      33,    1,  284,    2, 0x06,   49 /* Public */,
+      34,    1,  287,    2, 0x06,   51 /* Public */,
+      35,    0,  290,    2, 0x06,   53 /* Public */,
+      36,    0,  291,    2, 0x06,   54 /* Public */,
+      37,    0,  292,    2, 0x06,   55 /* Public */,
+      38,    1,  293,    2, 0x06,   56 /* Public */,
+      39,    1,  296,    2, 0x06,   58 /* Public */,
+      40,    1,  299,    2, 0x06,   60 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      40,    1,  295,    2, 0x0a,   61 /* Public */,
+      41,    1,  302,    2, 0x0a,   62 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -233,6 +237,7 @@ Q_CONSTINIT static const uint qt_meta_data_ThreadMoteur[] = {
     QMetaType::Void, 0x80000000 | 27, 0x80000000 | 27,    2,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
@@ -323,6 +328,8 @@ Q_CONSTINIT const QMetaObject ThreadMoteur::staticMetaObject = { {
         // method 'Update_score'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'Demarrage_WidgetPiano'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'jeuPecheMAJ_Riviere'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
@@ -384,17 +391,18 @@ void ThreadMoteur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 18: _t->jeu_MAJ_Coordonnee((*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Coordonnee>>(_a[2]))); break;
         case 19: _t->AjoutNote((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 20: _t->Update_score((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 21: _t->jeuPecheMAJ_Riviere((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 22: _t->jeuPecheMAJ_Pecheur((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 23: _t->jeuPecheMAJ_Baleine((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 24: _t->jeuPecheMAJ_ProgressBar((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 25: _t->jeuPecheMAJ_Message(); break;
-        case 26: _t->jeuPecheMAJ_Instruction(); break;
-        case 27: _t->jeuMineur_menu(); break;
-        case 28: _t->jeuMineur_block((*reinterpret_cast< std::add_pointer_t<float>>(_a[1]))); break;
-        case 29: _t->jeuMineur_temps((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 30: _t->jeuMineur_timer((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 31: _t->nomJoueur((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
+        case 21: _t->Demarrage_WidgetPiano(); break;
+        case 22: _t->jeuPecheMAJ_Riviere((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 23: _t->jeuPecheMAJ_Pecheur((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 24: _t->jeuPecheMAJ_Baleine((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 25: _t->jeuPecheMAJ_ProgressBar((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 26: _t->jeuPecheMAJ_Message(); break;
+        case 27: _t->jeuPecheMAJ_Instruction(); break;
+        case 28: _t->jeuMineur_menu(); break;
+        case 29: _t->jeuMineur_block((*reinterpret_cast< std::add_pointer_t<float>>(_a[1]))); break;
+        case 30: _t->jeuMineur_temps((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 31: _t->jeuMineur_timer((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 32: _t->nomJoueur((*reinterpret_cast< std::add_pointer_t<std::string>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -558,72 +566,79 @@ void ThreadMoteur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
             }
         }
         {
-            using _t = void (ThreadMoteur::*)(int );
-            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Riviere; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (ThreadMoteur::*)();
+            if (_t _q_method = &ThreadMoteur::Demarrage_WidgetPiano; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 21;
                 return;
             }
         }
         {
             using _t = void (ThreadMoteur::*)(int );
-            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Pecheur; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Riviere; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 22;
                 return;
             }
         }
         {
             using _t = void (ThreadMoteur::*)(int );
-            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Baleine; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Pecheur; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 23;
                 return;
             }
         }
         {
             using _t = void (ThreadMoteur::*)(int );
-            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_ProgressBar; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Baleine; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 24;
                 return;
             }
         }
         {
-            using _t = void (ThreadMoteur::*)();
-            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Message; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (ThreadMoteur::*)(int );
+            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_ProgressBar; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 25;
                 return;
             }
         }
         {
             using _t = void (ThreadMoteur::*)();
-            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Instruction; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Message; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 26;
                 return;
             }
         }
         {
             using _t = void (ThreadMoteur::*)();
-            if (_t _q_method = &ThreadMoteur::jeuMineur_menu; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ThreadMoteur::jeuPecheMAJ_Instruction; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 27;
+                return;
+            }
+        }
+        {
+            using _t = void (ThreadMoteur::*)();
+            if (_t _q_method = &ThreadMoteur::jeuMineur_menu; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 28;
                 return;
             }
         }
         {
             using _t = void (ThreadMoteur::*)(float );
             if (_t _q_method = &ThreadMoteur::jeuMineur_block; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 28;
-                return;
-            }
-        }
-        {
-            using _t = void (ThreadMoteur::*)(int );
-            if (_t _q_method = &ThreadMoteur::jeuMineur_temps; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 29;
                 return;
             }
         }
         {
             using _t = void (ThreadMoteur::*)(int );
-            if (_t _q_method = &ThreadMoteur::jeuMineur_timer; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ThreadMoteur::jeuMineur_temps; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 30;
+                return;
+            }
+        }
+        {
+            using _t = void (ThreadMoteur::*)(int );
+            if (_t _q_method = &ThreadMoteur::jeuMineur_timer; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 31;
                 return;
             }
         }
@@ -649,13 +664,13 @@ int ThreadMoteur::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 32)
+        if (_id < 33)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 32;
+        _id -= 33;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 32)
+        if (_id < 33)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 32;
+        _id -= 33;
     }
     return _id;
 }
@@ -803,70 +818,76 @@ void ThreadMoteur::Update_score(int _t1)
 }
 
 // SIGNAL 21
-void ThreadMoteur::jeuPecheMAJ_Riviere(int _t1)
+void ThreadMoteur::Demarrage_WidgetPiano()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 21, _a);
+    QMetaObject::activate(this, &staticMetaObject, 21, nullptr);
 }
 
 // SIGNAL 22
-void ThreadMoteur::jeuPecheMAJ_Pecheur(int _t1)
+void ThreadMoteur::jeuPecheMAJ_Riviere(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 22, _a);
 }
 
 // SIGNAL 23
-void ThreadMoteur::jeuPecheMAJ_Baleine(int _t1)
+void ThreadMoteur::jeuPecheMAJ_Pecheur(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 23, _a);
 }
 
 // SIGNAL 24
-void ThreadMoteur::jeuPecheMAJ_ProgressBar(int _t1)
+void ThreadMoteur::jeuPecheMAJ_Baleine(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 24, _a);
 }
 
 // SIGNAL 25
-void ThreadMoteur::jeuPecheMAJ_Message()
+void ThreadMoteur::jeuPecheMAJ_ProgressBar(int _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 25, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 25, _a);
 }
 
 // SIGNAL 26
-void ThreadMoteur::jeuPecheMAJ_Instruction()
+void ThreadMoteur::jeuPecheMAJ_Message()
 {
     QMetaObject::activate(this, &staticMetaObject, 26, nullptr);
 }
 
 // SIGNAL 27
-void ThreadMoteur::jeuMineur_menu()
+void ThreadMoteur::jeuPecheMAJ_Instruction()
 {
     QMetaObject::activate(this, &staticMetaObject, 27, nullptr);
 }
 
 // SIGNAL 28
-void ThreadMoteur::jeuMineur_block(float _t1)
+void ThreadMoteur::jeuMineur_menu()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 28, _a);
+    QMetaObject::activate(this, &staticMetaObject, 28, nullptr);
 }
 
 // SIGNAL 29
-void ThreadMoteur::jeuMineur_temps(int _t1)
+void ThreadMoteur::jeuMineur_block(float _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 29, _a);
 }
 
 // SIGNAL 30
-void ThreadMoteur::jeuMineur_timer(int _t1)
+void ThreadMoteur::jeuMineur_temps(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 30, _a);
+}
+
+// SIGNAL 31
+void ThreadMoteur::jeuMineur_timer(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 31, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

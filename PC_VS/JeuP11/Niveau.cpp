@@ -14,6 +14,7 @@ Description:
 #include <vector>
 #include <map>
 #include <random>
+#include "HasardMuons.h"
 
 //Constructeurs & destructeurs
 Niveau::Niveau()
@@ -98,20 +99,18 @@ int Niveau::choixMiniJeu()
 
     if (index_mjx.empty())
     {
-        srand(time(NULL));
-        int nb = (rand() % (NB_MINI_JEUX - 1));
+        int nb = (HasardMuons::valeurAleatoire() % (NB_MINI_JEUX - 1));
         //std::cout << std::endl << "mj choisi : " << nb << std::endl;
         return nb;
     }
 
-    std::random_device rd;
-    std::mt19937 g(rd());
+    std::mt19937 g(HasardMuons::valeurAleatoire());
     std::shuffle(index_mjx.begin(), index_mjx.end(), g);
 
     //std::cout << std::endl << "mj choisi : " << index_mjx[0] << std::endl;
 
     //return index_mjx[0];
-    return 2;
+    return 1;
 }
 
 bool Niveau::niveauFinit()

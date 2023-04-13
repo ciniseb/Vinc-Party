@@ -10,6 +10,7 @@
 #include "Joystick.h"
 #include "Accel.h"
 #include "CONSTANTES.h"
+#include "HasardMuons.h"
 
 ES::ES() {
 
@@ -27,7 +28,7 @@ void ES::demarrer() {
     #if MODE_CLAVIER
 
     #else
-    com = "COM3";
+    com = "COM9";
     arduino = new SerialPort(com.c_str(), BAUD);
     if (!arduino->isConnected()) {
         std::cerr << "Impossible de se connecter au port " << std::string(com) << ". Fermeture du programme!" << std::endl;
@@ -125,7 +126,10 @@ void ES::exec() {
     char buf = 0;
     while (true) {
         int nbrLu = arduino->readSerialPort(&buf,1);
-        if (nbrLu > 0) {
+        if (nbrLu > 0 && HasardMuons::estMuon(buf)) {
+            HasardMuons::setValeur(buf);
+        }
+        else if (nbrLu > 0) {
             ajouterAuQueue(Evenement::decoder(buf));
         }
 
