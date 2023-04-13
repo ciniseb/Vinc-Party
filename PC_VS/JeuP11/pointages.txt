@@ -17,3 +17,5 @@ PeuplierBlanc;1;0.150009;22
 PeuplierBlanc;1;0.325012;25
 PeuplierBlanc;1;0.750029;114
 PeuplierBlanc;3;0.85703;167
+Wood;1;0.182446;50
+Wood;1;0.091675;29
