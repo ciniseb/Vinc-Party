@@ -58,6 +58,12 @@ void MoteurJeuPiano::demarrer()
     if (MODE_MOZART)
     {
         reussite = true;
+
+        if (!MODE_CONSOLE)
+        {
+            emit threadMoteur->changementWidgetActif(1);
+        }
+
         return;
     }
 
@@ -74,7 +80,7 @@ void MoteurJeuPiano::demarrer()
         noteU[i] = ' ';
     }
     AffichageEcran(Menu);
-    
+    emit threadMoteur->Demarrage_WidgetPiano();
     while (true)
     {
         //SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 27 });
@@ -158,10 +164,12 @@ void MoteurJeuPiano::demarrer()
             {
                 reussite = false;
             }
+
             if (!MODE_CONSOLE)
             {
                 emit threadMoteur->changementWidgetActif(1);
             }
+
             return;
         }
     }

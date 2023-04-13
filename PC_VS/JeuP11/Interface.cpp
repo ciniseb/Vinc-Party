@@ -72,5 +72,6 @@ void Interface::setWidgetActif(int index)
 	{
 		emit MAJ_NomJoueur("PeuplierBlanc");
 	}
+
 	setCurrentIndex(index);
 }
