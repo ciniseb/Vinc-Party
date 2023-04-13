@@ -99,12 +99,30 @@ int Niveau::choixMiniJeu()
 
     if (index_mjx.empty())
     {
-        int nb = (HasardMuons::valeurAleatoire() % (NB_MINI_JEUX - 1));
+        int nb = -1;
+        if (MODE_CLAVIER)
+        {
+            srand(time(NULL));
+            nb = (rand() % (NB_MINI_JEUX - 1));
+        }
+        else
+        {
+            nb = (HasardMuons::valeurAleatoire() % (NB_MINI_JEUX - 1));
+        }
         //std::cout << std::endl << "mj choisi : " << nb << std::endl;
         return nb;
     }
 
-    std::mt19937 g(HasardMuons::valeurAleatoire());
+    std::mt19937 g;
+    if (MODE_CLAVIER)
+    {
+        std::random_device rd;
+        g = std::mt19937(rd());
+    }
+    else
+    {
+        g = std::mt19937(HasardMuons::valeurAleatoire());
+    }
     std::shuffle(index_mjx.begin(), index_mjx.end(), g);
 
     //std::cout << std::endl << "mj choisi : " << index_mjx[0] << std::endl;

@@ -437,7 +437,15 @@ void MoteurJeuPeche::setPoisson()
     {
     if (firstscan == true)
     {
-        nombre = (HasardMuons::valeurAleatoire() % 10) + 2;
+        if (MODE_CLAVIER)
+        {
+            srand(time(NULL));
+            nombre = (rand() % 10) + 2;
+        }
+        else
+        {
+            nombre = (HasardMuons::valeurAleatoire() % 10) + 2;
+        }
         positionPoisson = nombre;
         firstscan = false;
     }
@@ -447,7 +455,15 @@ void MoteurJeuPeche::setPoisson()
         {
             if (positionPoisson <= 9 && positionPoisson >= 5)
             {
-                nombre = (HasardMuons::valeurAleatoire() % 2) + 1;
+                if (MODE_CLAVIER)
+                {
+                    nombre = (rand() % 2) + 1;
+                }
+                else
+                {
+                    nombre = (HasardMuons::valeurAleatoire() % 2) + 1;
+                }
+
                 switch (nombre)
                 {
                 case 1:
@@ -461,7 +477,15 @@ void MoteurJeuPeche::setPoisson()
 
             else if (positionPoisson < 5 && positionPoisson > 2)
             {
-                nombre = (HasardMuons::valeurAleatoire() % 4) + 1;
+                if (MODE_CLAVIER)
+                {
+                    nombre = (rand() % 4) + 1;
+                }
+                else
+                {
+                    nombre = (HasardMuons::valeurAleatoire() % 4) + 1;
+                }
+
                 switch (nombre)
                 {
                 case 1:
@@ -480,7 +504,15 @@ void MoteurJeuPeche::setPoisson()
             }
             else if (positionPoisson > 8 && positionPoisson < 11)
             {
-                nombre = (HasardMuons::valeurAleatoire() % 4) + 1;
+                if (MODE_CLAVIER)
+                {
+                    nombre = (rand() % 4) + 1;
+                }
+                else
+                {
+                    nombre = (HasardMuons::valeurAleatoire() % 4) + 1;
+                }
+
                 switch (nombre)
                 {
                 case 1:
@@ -513,7 +545,14 @@ void MoteurJeuPeche::setPoisson()
 
     /*if (bitCount == 0 || bitCount == 10 || bitCount == 20 || bitCount == 30 || bitCount == 40 || bitCount == 50)
     {
-        positionPoisson = (HasardMuons::valeurAleatoire() % 10) + 2;
+        if (MODE_CLAVIER)
+        {
+            positionPoisson = (rand() % 10) + 2;
+        }
+        else
+        {
+            positionPoisson = (HasardMuons::valeurAleatoire() % 10) + 2;
+        }
     }*/
 }
 

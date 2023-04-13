@@ -13,7 +13,7 @@ Description: Constantes utiles à la compréhension du programme
 #pragma once
 
 #define MODE_CONSOLE false
-#define MODE_CLAVIER false
+#define MODE_CLAVIER true
 
 //Cheat codes
 #define DEMANDER_NOM false
