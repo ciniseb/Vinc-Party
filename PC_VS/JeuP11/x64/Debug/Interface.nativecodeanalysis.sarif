@@ -1,0 +1,227 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Interface::widgetRiviere' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/nscak/OneDrive - USherbrooke/Documents/GitHub/Vinc-Party/PC_VS/JeuP11/Interface.cpp"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 12,
+                  "endLine": 15,
+                  "endColumn": 12
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Interface::{ctor}",
+                  "decoratedName": "??0Interface@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Interface::widgetRiviere"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Interface::inputDialog' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/nscak/OneDrive - USherbrooke/Documents/GitHub/Vinc-Party/PC_VS/JeuP11/Interface.cpp"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 12,
+                  "endLine": 15,
+                  "endColumn": 12
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Interface::{ctor}",
+                  "decoratedName": "??0Interface@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Interface::inputDialog"
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32215.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/nscak/OneDrive - USherbrooke/Documents/GitHub/Vinc-Party/PC_VS/JeuP11/Interface.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "c89c8d805a18f42ec7b9dad7ee45d286cb5022cfa2371ced20eb9dc6b03cb187"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/interface.h"
+          },
+          "hashes": {
+            "sha-256": "74fbd0fab45f3d7e079b4d668caa7fe11ba834ef98462f201d39a60e9e786163"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/threadmoteur.h"
+          },
+          "hashes": {
+            "sha-256": "920ba228d266aa0e78695d6d12aeb035b5f29f8497872ff062a0c9d6174f257f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/es.h"
+          },
+          "hashes": {
+            "sha-256": "fecb346bbcd7a4ec94fcef916fc8f4a12b0b5399be394b988a2e80ac0f9f9fa2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/include/serial/serialport.hpp"
+          },
+          "hashes": {
+            "sha-256": "56e41bc0424f3268ae23793a4982c8b9b947b1f1aeeb791c73698094e1c07649"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/evenement.h"
+          },
+          "hashes": {
+            "sha-256": "7dbd2c91c829e2d15055f691da02c3e4fd6d3d98e836f99cec8990c54a072781"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/constantes.h"
+          },
+          "hashes": {
+            "sha-256": "82077741788a9472535ebc01ac6893015f4e6b8b329bb35fd559e0665b871902"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/coordonnee.h"
+          },
+          "hashes": {
+            "sha-256": "7a5ccd4013b1070139c2dfc6fcd4fe8480fd7447ce1e73ef4930bbb04f6ae4cb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/acteur.h"
+          },
+          "hashes": {
+            "sha-256": "534e6985aa7fbbc9923ffb657d74047239d7446de43d7efe18c63c817feb848e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/widgetmenu.h"
+          },
+          "hashes": {
+            "sha-256": "d7228ab52c611c2a04d19d41530e077ab483aa629ae49bea4e2f25cccf58116d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/widgetjeu.h"
+          },
+          "hashes": {
+            "sha-256": "9e5e64f72e8af3c012ae7fd16b1eb62e7af7875b7e1b3b94e127808b1dc9266b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/widgetcarte.h"
+          },
+          "hashes": {
+            "sha-256": "90e3300a54eae62321d19a7ab4b85fb902b74ac151c75d7ee611fa880f52f3c8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/widgetjeupiano.h"
+          },
+          "hashes": {
+            "sha-256": "a11836be4404257050c6e23b3bdf08e8f7e064fef37e4a785b3abfd242f018a0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/widgetpointages.h"
+          },
+          "hashes": {
+            "sha-256": "6dbf2c38885e77e28301de787a5fa743256a9858ce6a19f090dcb4f5e26679c2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/widgetjeumineur.h"
+          },
+          "hashes": {
+            "sha-256": "1b2e64f06ffa2d5bacef153aad1bce686caac6e5dd457d7f25d931ac4f73e5b2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/widgetjeupeche.h"
+          },
+          "hashes": {
+            "sha-256": "84094ced536df8d38773439ba940fed3e00a92b2b6b28152a46856b233107614"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/widgetriviere.h"
+          },
+          "hashes": {
+            "sha-256": "cf707d4f7fb0cf8b46f1a5df3ecbf221e575e07c8e17e7386823f1ef16674309"
+          }
+        }
+      ]
+    }
+  ]
+}

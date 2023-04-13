@@ -1,0 +1,59 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32215.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/quadbargraph.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "a00defb6a3a30a84e32520772a9a3033e7a40075aa8919b873ee4a1974d6f32a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/quadbargraph.h"
+          },
+          "hashes": {
+            "sha-256": "0037b86fa9a038f65ddc2b6e8c89e40f3184612f64e223da6778e6898c46dd79"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/evenement.h"
+          },
+          "hashes": {
+            "sha-256": "7dbd2c91c829e2d15055f691da02c3e4fd6d3d98e836f99cec8990c54a072781"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/nscak/onedrive - usherbrooke/documents/github/vinc-party/pc_vs/jeup11/constantes.h"
+          },
+          "hashes": {
+            "sha-256": "82077741788a9472535ebc01ac6893015f4e6b8b329bb35fd559e0665b871902"
+          }
+        }
+      ]
+    }
+  ]
+}

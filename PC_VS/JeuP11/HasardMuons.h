@@ -10,5 +10,4 @@ public:
 	static void setValeur(char buf);
 };
 
-int HasardMuons::valeur = 0;
 

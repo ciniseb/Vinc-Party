@@ -141,6 +141,9 @@
     <ClCompile Include="HasardMuons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\serial\SerialPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
