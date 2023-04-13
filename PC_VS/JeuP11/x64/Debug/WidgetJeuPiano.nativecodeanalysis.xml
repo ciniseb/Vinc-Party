@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetJeuPiano.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Note::x' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Note::{ctor}</FUNCTION>
+    <DECORATED>??0Note@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Note::x</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetJeuPiano.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Note::y' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Note::{ctor}</FUNCTION>
+    <DECORATED>??0Note@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Note::y</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetJeuPiano.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Note::noteType' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Note::{ctor}</FUNCTION>
+    <DECORATED>??0Note@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Note::noteType</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetJeuPiano.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Note::initialY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Note::{ctor}</FUNCTION>
+    <DECORATED>??0Note@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Note::initialY</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetJeuPiano.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Note::initialHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Note::{ctor}</FUNCTION>
+    <DECORATED>??0Note@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Note::initialHeight</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetJeuPiano.h</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Note::creationTime' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Note::{ctor}</FUNCTION>
+    <DECORATED>??0Note@@QEAA@XZ</DECORATED>
+    <FUNCLINE>37</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Note::creationTime</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetRiviere.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'WidgetRiviere::toile' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>WidgetRiviere::{ctor}</FUNCTION>
+    <DECORATED>??0WidgetRiviere@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>WidgetRiviere::toile</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetRiviere.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'WidgetRiviere::taille_riviere' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>WidgetRiviere::{ctor}</FUNCTION>
+    <DECORATED>??0WidgetRiviere@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>WidgetRiviere::taille_riviere</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetRiviere.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'WidgetRiviere::espace_y' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>WidgetRiviere::{ctor}</FUNCTION>
+    <DECORATED>??0WidgetRiviere@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>WidgetRiviere::espace_y</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetRiviere.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'WidgetRiviere::espace_x' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>WidgetRiviere::{ctor}</FUNCTION>
+    <DECORATED>??0WidgetRiviere@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>WidgetRiviere::espace_x</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetRiviere.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'WidgetRiviere::posBal' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>WidgetRiviere::{ctor}</FUNCTION>
+    <DECORATED>??0WidgetRiviere@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>WidgetRiviere::posBal</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetRiviere.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'WidgetRiviere::lastPos' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>WidgetRiviere::{ctor}</FUNCTION>
+    <DECORATED>??0WidgetRiviere@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>WidgetRiviere::lastPos</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>WidgetRiviere.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'WidgetRiviere::posPeche' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>WidgetRiviere::{ctor}</FUNCTION>
+    <DECORATED>??0WidgetRiviere@@QEAA@PEAVThreadMoteur@@PEAVQWidget@@@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>WidgetRiviere::posPeche</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

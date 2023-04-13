@@ -11,6 +11,9 @@ Auteurs: Antoine Allard
 Description:
 ====================================================================================================*/
 #include "FenetreJeuPeche.h"
+#include "HasardMuons.h"
+
+
 
 MoteurJeuPeche::MoteurJeuPeche(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur) // Main du jeu
 {
@@ -434,9 +437,7 @@ void MoteurJeuPeche::setPoisson()
     {
     if (firstscan == true)
     {
-        srand(time(NULL));
-
-        nombre = (rand() % 10) + 2;
+        nombre = (HasardMuons::valeurAleatoire() % 10) + 2;
         positionPoisson = nombre;
         firstscan = false;
     }
@@ -446,7 +447,7 @@ void MoteurJeuPeche::setPoisson()
         {
             if (positionPoisson <= 9 && positionPoisson >= 5)
             {
-                nombre = (rand() % 2) + 1;
+                nombre = (HasardMuons::valeurAleatoire() % 2) + 1;
                 switch (nombre)
                 {
                 case 1:
@@ -460,7 +461,7 @@ void MoteurJeuPeche::setPoisson()
 
             else if (positionPoisson < 5 && positionPoisson > 2)
             {
-                nombre = (rand() % 4) + 1;
+                nombre = (HasardMuons::valeurAleatoire() % 4) + 1;
                 switch (nombre)
                 {
                 case 1:
@@ -479,7 +480,7 @@ void MoteurJeuPeche::setPoisson()
             }
             else if (positionPoisson > 8 && positionPoisson < 11)
             {
-                nombre = (rand() % 4) + 1;
+                nombre = (HasardMuons::valeurAleatoire() % 4) + 1;
                 switch (nombre)
                 {
                 case 1:
@@ -512,7 +513,7 @@ void MoteurJeuPeche::setPoisson()
 
     /*if (bitCount == 0 || bitCount == 10 || bitCount == 20 || bitCount == 30 || bitCount == 40 || bitCount == 50)
     {
-        positionPoisson = (rand() % 10) + 2;
+        positionPoisson = (HasardMuons::valeurAleatoire() % 10) + 2;
     }*/
 }
 

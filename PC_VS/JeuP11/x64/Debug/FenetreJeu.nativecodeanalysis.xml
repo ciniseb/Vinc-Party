@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>FenetreJeu.cpp</FILENAME>
+      <LINE>17</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MoteurJeu::mini_jeux' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MoteurJeu::{ctor}</FUNCTION>
+    <DECORATED>??0MoteurJeu@@QEAA@XZ</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MoteurJeu::mini_jeux</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>FenetreJeu.cpp</FILENAME>
+      <LINE>17</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MoteurJeu::carte_gabarit' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MoteurJeu::{ctor}</FUNCTION>
+    <DECORATED>??0MoteurJeu@@QEAA@XZ</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MoteurJeu::carte_gabarit</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>FenetreJeu.cpp</FILENAME>
+      <LINE>17</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MoteurJeu::nb_p_variables' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MoteurJeu::{ctor}</FUNCTION>
+    <DECORATED>??0MoteurJeu@@QEAA@XZ</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MoteurJeu::nb_p_variables</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>FenetreJeu.cpp</FILENAME>
+      <LINE>17</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MoteurJeu::nb_mj_variables' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MoteurJeu::{ctor}</FUNCTION>
+    <DECORATED>??0MoteurJeu@@QEAA@XZ</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MoteurJeu::nb_mj_variables</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\nscak\OneDrive - USherbrooke\Documents\GitHub\Vinc-Party\PC_VS\JeuP11\</FILEPATH>
+      <FILENAME>FenetreJeu.cpp</FILENAME>
+      <LINE>17</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MoteurJeu::nb_affichages' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MoteurJeu::{ctor}</FUNCTION>
+    <DECORATED>??0MoteurJeu@@QEAA@XZ</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MoteurJeu::nb_affichages</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

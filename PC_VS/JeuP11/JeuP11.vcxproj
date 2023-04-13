@@ -31,7 +31,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>C:\Qt\6.4.2\msvc2019_64</QtInstall>
+    <QtInstall>C:\Qt\6.4.3\msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets;svg;svgwidgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -104,6 +104,8 @@
     <ClCompile Include="FenetreMiniJeu.cpp" />
     <ClCompile Include="FenetrePointages.cpp" />
     <ClCompile Include="FenetreTests.cpp" />
+    <ClCompile Include="HasardMuons.cpp" />
+    <ClCompile Include="include\serial\SerialPort.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="Muons.cpp" />
@@ -160,6 +162,7 @@
     <QtMoc Include="WidgetJeu.h" />
     <QtMoc Include="WidgetMenu.h" />
     <QtMoc Include="Interface.h" />
+    <ClInclude Include="HasardMuons.h" />
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="Muons.h" />
     <ClInclude Include="Niveau.h" />
