@@ -16,13 +16,13 @@ public:
     WidgetCarte(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
     ~WidgetCarte();
 
-    ThreadMoteur* threadMoteur;
-
 protected:
     void paintEvent(QPaintEvent* event) override;
     void resizeEvent(QResizeEvent* event) override;
 
 private:
+    ThreadMoteur* threadMoteur;
+
     float taille_tuile;
 
     float espace_y;
@@ -38,5 +38,5 @@ private:
 public slots:
     void MAJ_Carte(QVector<QVector<int>>);
     void MAJ_Acteur(int, Acteur);
-    void MAJ_Coordonnee(Coordonnee, Coordonnee);
+    //void MAJ_Coordonnee(Coordonnee, Coordonnee);
 };

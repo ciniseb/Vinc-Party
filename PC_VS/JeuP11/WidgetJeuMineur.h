@@ -23,9 +23,6 @@ Description: UI du mineur
 #include <QRect>
 #include <QPropertyAnimation>
 
-
-
-
 class WidgetJeuMineur : public QWidget
 {
 	Q_OBJECT
@@ -36,14 +33,14 @@ public:
 	WidgetJeuMineur(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
     ~WidgetJeuMineur();
 
-    ThreadMoteur* threadMoteur;
-
     QRect blockRect() const;
     void setBlockRect(const QRect& rect);
 
 private:
     
     void startShakingAnimation();
+
+    ThreadMoteur* threadMoteur;
 
     //Mine Layout Section
     QPixmap* mine_background;

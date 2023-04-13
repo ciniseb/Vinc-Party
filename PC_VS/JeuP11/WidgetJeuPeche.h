@@ -30,10 +30,9 @@ public:
 	WidgetJeuPeche(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
 	~WidgetJeuPeche();
 
-    ThreadMoteur* threadMoteur;
-
 private:
     //Attributs
+    ThreadMoteur* threadMoteur;
 
     QProgressBar* progressBar;
 

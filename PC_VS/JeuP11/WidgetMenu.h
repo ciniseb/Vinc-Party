@@ -26,10 +26,10 @@ public:
     WidgetMenu(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
     ~WidgetMenu();
 
-    ThreadMoteur* threadMoteur;
-
 private:
     //Attributs
+    ThreadMoteur* threadMoteur;
+
     QGridLayout *layout_principal;
     QVBoxLayout *layout_boutons;
 

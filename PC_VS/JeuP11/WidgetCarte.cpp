@@ -170,9 +170,9 @@ void WidgetCarte::MAJ_Acteur(int type, Acteur acteur)
     //repaint(espace_x + taille_tuile * acteur.ancienne_position.X, espace_y + taille_tuile * acteur.ancienne_position.Y, taille_tuile, taille_tuile);
     //repaint(espace_x + taille_tuile * acteur.position.X, espace_y + taille_tuile * acteur.position.Y, taille_tuile, taille_tuile);
 }
-void WidgetCarte::MAJ_Coordonnee(Coordonnee xc, Coordonnee c)
+/*void WidgetCarte::MAJ_Coordonnee(Coordonnee xc, Coordonnee c)
 {
-    /*if (q_carte[xc.Y][xc.X] != MINI_JEU)
+    if (q_carte[xc.Y][xc.X] != MINI_JEU)
     {
         q_carte[xc.Y][xc.X] = VIDE;
         std::cout << "Case painte VIDE : (" << xc.X << ", " << xc.Y << ")" << std::endl;
@@ -206,5 +206,5 @@ void WidgetCarte::MAJ_Coordonnee(Coordonnee xc, Coordonnee c)
     if (mj)
     {
         q_carte[c.Y][c.X] = MINI_JEU;
-    }*/
-}
+    }
+}*/

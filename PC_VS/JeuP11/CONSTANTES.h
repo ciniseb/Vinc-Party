@@ -16,7 +16,7 @@ Description: Constantes utiles à la compréhension du programme
 #define MODE_CLAVIER true
 
 //Cheat codes
-#define DEMANDER_NOM true
+#define DEMANDER_NOM false
 #define ENNEMI_INNOFFENSIF false
 #define VISION_NOCTURNE true
 #define MODE_MOZART false

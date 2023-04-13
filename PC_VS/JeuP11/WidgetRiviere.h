@@ -16,13 +16,12 @@ public:
     WidgetRiviere(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
     ~WidgetRiviere();
 
-    ThreadMoteur* threadMoteur;
-
 protected:
     void paintEvent(QPaintEvent* event) override;
     void resizeEvent(QResizeEvent* event) override;
 
 private:
+    ThreadMoteur* threadMoteur;
 
     float taille_riviere;
 

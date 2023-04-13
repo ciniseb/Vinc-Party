@@ -31,12 +31,11 @@ public:
     WidgetPointages(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
 	~WidgetPointages();
 
-    ThreadMoteur* threadMoteur;
-
 protected:
     void paintEvent(QPaintEvent* event) override;
 
 private:
+    ThreadMoteur* threadMoteur;
 
     void updateButtons();
     int currentPage = 0;
@@ -84,7 +83,4 @@ public slots:
     void time(double);
     void timeperlev(double);
     void distance(int);
-
-    //Attributs
-
 };

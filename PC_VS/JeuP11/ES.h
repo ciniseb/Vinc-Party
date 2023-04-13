@@ -45,7 +45,6 @@ private:
     bool Enter = 0;
 #endif // MODE_CLAVIER
 
-   
     
 public:
     ES();

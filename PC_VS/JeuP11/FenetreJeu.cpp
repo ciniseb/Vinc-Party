@@ -140,7 +140,7 @@ std::vector<bool> variablesAleatoires(int nb_total, int nb_variables)
         variables.push_back(false);
     }
 
-    std::random_device rd;
+    std::random_device rd; //Muons
     std::mt19937 g(rd());
     std::shuffle(variables.begin(), variables.end(), g);
 

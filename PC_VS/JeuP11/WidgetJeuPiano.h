@@ -41,9 +41,6 @@ class WidgetJeuPiano : public QWidget
 	Q_OBJECT
 
 public:
-    
-    ThreadMoteur* threadMoteur;
-
 	WidgetJeuPiano(ThreadMoteur* thread = nullptr, QWidget *parent = nullptr);
 	~WidgetJeuPiano();
 
@@ -56,6 +53,8 @@ protected:
 
 private:
     //Attributs
+    ThreadMoteur* threadMoteur;
+
     QPixmap* background;
     qreal scaleFactor;
     QPixmap vert, rouge, bleu, orange; 

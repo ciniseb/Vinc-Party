@@ -35,10 +35,10 @@ public:
 	WidgetJeu(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
 	~WidgetJeu();
 
-	ThreadMoteur* threadMoteur;
-
 private:
     //Attributs
+    ThreadMoteur* threadMoteur;
+
     QVBoxLayout *layout_principal;
 
 
