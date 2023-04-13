@@ -27,38 +27,6 @@ WidgetRiviere::WidgetRiviere(ThreadMoteur* thread, QWidget* parent) : QWidget(pa
 
     riviere = 1;
  
-    /*float hauteur_image = 0;
-    float largeur_image = 0;
-    float ratio_image = riviere1->height() / (riviere1->width() * 1.0);
-
-    //toile = new QPainter(this);
-    //toile->setRenderHint(QPainter::Antialiasing);
-    //toile->setPen(Qt::NoPen);
-
-    /*setMinimumSize(LARGEUR_MINIMUM_RIVIERE, HAUTEUR_MINIMUM_RIVIERE);
-
-    if (width() * HAUTEUR_RIVIERE > height() * LARGEUR_RIVIERE)
-    {
-        hauteur_image = ratio_image * float(height() / (HAUTEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
-        largeur_image = float(height() / (HAUTEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
-    }
-    else
-    {
-        hauteur_image = ratio_image * float(width() / (LARGEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
-        largeur_image = float(width() / (LARGEUR_RIVIERE * 1.0)) * TAILLE_RIVIERE;
-    }
-
-    system("cls");
-    std::cout << riviere1->height() << std::endl << riviere1->width() << std::endl;
-    std::cout << ratio_image << std::endl;
-    std::cout << hauteur_image << std::endl << largeur_image << std::endl;
-
-    int cropX = (riviere1->width() - largeur_image) / 2;
-    int cropY = (riviere1->height() - hauteur_image) / 2;
-
-    QPixmap riviereCopy = riviere1->copy(cropX, cropY, largeur_image, hauteur_image);
-
-    QPixmap riviereScaled = riviereCopy.scaled(size());*/
 
     //Connexions
     connect(threadMoteur, SIGNAL(jeuPecheMAJ_Riviere(int)), this, SLOT(MAJ_Riviere(int)));
@@ -81,35 +49,6 @@ WidgetRiviere::~WidgetRiviere()
 void WidgetRiviere::paintEvent(QPaintEvent* event)
 {
 
-    /*QPainter painter(this);
-
-    qreal targetAspectRatio = qreal(width()) / qreal(height());
-
-    qreal sourceAspectRatio = qreal(riviere1.width()) / qreal(riviere1.height());
-
-    int cropWidth;
-    int cropHeight;
-
-    if (targetAspectRatio > sourceAspectRatio)
-    {
-        cropWidth = riviere1.width();
-        cropHeight = int(cropWidth / targetAspectRatio);
-    }
-    else
-    {
-        cropHeight = riviere1.height();
-        cropWidth = int(cropHeight * targetAspectRatio);
-    }
-
-    int cropX = (riviere1.width() - cropWidth) / 2;
-    int cropY = (riviere1.height() - cropHeight) / 2;
-
-    QPixmap cropped_background = riviere1.copy(cropX, cropY, cropWidth, cropHeight);
-
-    QPixmap scaled_backgroup = cropped_background.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-
-    painter.drawPixmap(0, 0, scaled_backgroup);*/
-
 
 
          toile = new QPainter(this);
@@ -123,7 +62,6 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
              float largeur_riviere = 0;
              float targetRatioRiviere = qreal(width()) / qreal(height());
              float ratio_riviere = riviere1->height() / (riviere1->width() * 1.0);
-             //#define TAILLE_IMAGE 10;
 
              if (targetRatioRiviere > ratio_riviere)
              {
@@ -178,7 +116,6 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
              float largeur_riviere = 0;
              float targetRatioRiviere = qreal(width()) / qreal(height());
              float ratio_riviere = riviere2->height() / (riviere2->width() * 1.0);
-             //#define TAILLE_IMAGE 10;
 
              if (targetRatioRiviere > ratio_riviere)
              {
@@ -233,7 +170,6 @@ void WidgetRiviere::paintEvent(QPaintEvent* event)
              float largeur_riviere = 0;
              float targetRatioRiviere = qreal(width()) / qreal(height());
              float ratio_riviere = riviere3->height() / (riviere3->width() * 1.0);
-             //#define TAILLE_IMAGE 10;
 
              if (targetRatioRiviere > ratio_riviere)
              {
