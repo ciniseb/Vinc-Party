@@ -61,6 +61,7 @@ private:
     void updateCountdownLabel();
     void updateTimerLabelFontSize();
     bool timerStarted;
+    int debute;
 
     //Rules Section
     QLabel* rulesLabel;

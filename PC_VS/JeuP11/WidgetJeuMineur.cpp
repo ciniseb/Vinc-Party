@@ -79,6 +79,10 @@ WidgetJeuMineur::WidgetJeuMineur(ThreadMoteur* thread, QWidget* parent) : QWidge
 
 void WidgetJeuMineur::blockUpadate(float pourcentage)
 {
+    int block_width = width() / 3 * 1.2;
+    int block_height = height() / 2 * 1.2;
+    block_rect = QRect((width() - block_width) / 2, (height() - block_height) / 2, block_width, block_height);
+
     if (pourcentage <= 100 * (1 / 5.0))
     {
         block_shape->load(shapes[0]);
@@ -103,13 +107,15 @@ void WidgetJeuMineur::blockUpadate(float pourcentage)
     {
         block_shape->load(shapes[5]);
         countdownTimer->stop();
+        timerStarted = false;
     }
 
     if (!timerStarted) {
-        countdownLabel->show();
         countdownTimer->start();
         timerStarted = true;
-    }
+    } 
+
+    countdownLabel->show();
     rulesLabel->hide();
     startShakingAnimation();
     update();
@@ -118,7 +124,11 @@ void WidgetJeuMineur::blockUpadate(float pourcentage)
 
 void WidgetJeuMineur::debut()
 {
-
+    block_shape->load(shapes[0]);
+    countdownLabel->hide();
+    rulesLabel->show();
+    countdownTimer->start();
+    countdownTimer->setInterval(1000);
 }
 
 void WidgetJeuMineur::updateCountdownLabel() 
@@ -145,6 +155,16 @@ void WidgetJeuMineur::updateCountdown()
     {
         countdownLabel->setStyleSheet("color: black;"
             "background-color: red;"
+            "selection-color: black;"
+            "selection-background-color: black;"
+            "border: 5px solid black;"
+            "border-radius: 10px;"
+            "padding: 10px;");
+    }
+    else if (countdownTime >= 7)
+    {
+        countdownLabel->setStyleSheet("color: black;"
+            "background-color: green;"
             "selection-color: black;"
             "selection-background-color: black;"
             "border: 5px solid black;"
