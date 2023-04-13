@@ -138,6 +138,12 @@
     <ClCompile Include="WidgetRiviere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HasardMuons.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\serial\SerialPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bargraph.h">
@@ -228,6 +234,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FenetreJeuPeche.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HasardMuons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

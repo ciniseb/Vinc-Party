@@ -27,6 +27,14 @@ void MoteurJeuMineur::demarrer()
     system("cls");
     affichageEcran(Menu);
 
+    if (!MODE_CONSOLE)
+    {
+        emit threadMoteur->jeuMineur_timer(tempsMax);
+    }
+
+    const wchar_t* chanson_ambiance = L"MineurSon.wav";
+    bool played = PlaySound(chanson_ambiance, NULL, SND_ASYNC);
+
     while (true)
     {
         if (threadArduino->evenementDisponible())
@@ -44,6 +52,12 @@ void MoteurJeuMineur::demarrer()
                 Accel* aaccel = static_cast<Accel*>(evenement.get());
                 TypeMotion mouvement = aaccel->getType();
                 variationAxe(mouvement);
+                
+                if (!MODE_CONSOLE)
+                {               
+                    emit threadMoteur->jeuMineur_block(nbCoups / (nbVoulu * 1.0) * 100);
+                }
+
                 affichageEcran(Jeu);
             }
         }
@@ -58,6 +72,7 @@ void MoteurJeuMineur::demarrer()
                     demarrage = false;
                     threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
                     nbCoups = 0;
+                    Sleep(2000);
                     PlaySound(NULL, NULL, SND_ASYNC);
 
                     if (!MODE_CONSOLE)
@@ -75,6 +90,7 @@ void MoteurJeuMineur::demarrer()
             echouer = true;
             system("cls");
             std::cout << "booooooo :(                                                                 ";
+            PlaySound(NULL, NULL, SND_ASYNC);
             if (evenement->getCode() == BOUTON)
             {
                 threadArduino->envoyerEvenement(std::make_unique<QuadBargraph>(0));
@@ -107,48 +123,61 @@ void MoteurJeuMineur::affichageEcran(int mode)
     switch (mode)
     {
     case Menu:
-        std::cout << "Creusez pour commencer (h/b clavier), "<< nbVoulu << " coups voulus en " << tempsMax << " secondes :o" << std::endl << std::endl; // donnez un coup pour commencer - avec accelerometre
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (i == nbVoulu && j == nbVoulu) {
-                    matrice[i][j] = '*';
-                }
-                else {
-                    matrice[i][j] = '#';
+        if (MODE_CONSOLE)
+        {
+            std::cout << "Creusez pour commencer (h/b clavier), " << nbVoulu << " coups voulus en " << tempsMax << " secondes :o" << std::endl << std::endl; // donnez un coup pour commencer - avec accelerometre
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (i == nbVoulu && j == nbVoulu) {
+                        matrice[i][j] = '*';
+                    }
+                    else {
+                        matrice[i][j] = '#';
+                    }
                 }
             }
+        }
+        else
+        {
+            emit threadMoteur->jeuMineur_menu();
+            emit threadMoteur->jeuMineur_timer(tempsMax);
         }
         break;
     case Jeu:
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), {0, 0});
-        std::cout << "Creusez jusqu'au diamant pour gagner!" << std::endl << std::endl;
-        
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (i == nbVoulu && j == nbVoulu) {
-                    matrice[i][j] = '*';
-                }
-                else if (i < (0 + nbCoups) || i >((nbVoulu*2) - nbCoups) || j < (0 + nbCoups) || j >((nbVoulu * 2) - nbCoups)) {
-                    matrice[i][j] = ' ';
-                }
-                else {
-                    matrice[i][j] = '#';
+        if (MODE_CONSOLE)
+        {
+            std::cout << "Creusez jusqu'au diamant pour gagner!" << std::endl << std::endl;
+
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (i == nbVoulu && j == nbVoulu) {
+                        matrice[i][j] = '*';
+                    }
+                    else if (i < (0 + nbCoups) || i >((nbVoulu * 2) - nbCoups) || j < (0 + nbCoups) || j >((nbVoulu * 2) - nbCoups)) {
+                        matrice[i][j] = ' ';
+                    }
+                    else {
+                        matrice[i][j] = '#';
+                    }
                 }
             }
         }
         break;
     }
-
-    // affichage matrice
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            std::cout << matrice[i][j];
-            std::cout << ' ';
+    if (MODE_CONSOLE)
+    {
+        // affichage matrice
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                std::cout << matrice[i][j];
+                std::cout << ' ';
+            }
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
+        std::cout << std::endl << "nbCoups: " << nbCoups << "/" << nbVoulu << " coups" << std::endl;
+        std::cout << std::endl << positionHaut << positionBas << std::endl;
     }
-    std::cout << std::endl << "nbCoups: " << nbCoups << "/" << nbVoulu << " coups" << std::endl;
-    std::cout << std::endl << positionHaut << positionBas << std::endl;
 }
 
 int MoteurJeuMineur::getCoup() {
@@ -177,10 +206,6 @@ void MoteurJeuMineur::variationAxe(TypeMotion variation) {
 
 bool MoteurJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
 {
-    bit = bitCount - chrono.tempsEcoule_s();
-    if (bit == 0 && bitCount < tempsMax) {
-        bitCount++;
-    }
     return true;
 }
 
@@ -189,8 +214,8 @@ void MoteurJeuMineur::initialiser()
     chrono = Chronometre();
 
     nbCoups = 0; // compteur
-    nbVoulu = 5; // changer pour augmenter la difficulte
-    tempsMax = 30; // changer pour augmenter la difficulte
+    nbVoulu = 17; // changer pour augmenter la difficulte
+    tempsMax = 15; // changer pour augmenter la difficulte
 
     bitCount = 0;
     positionHaut = false;

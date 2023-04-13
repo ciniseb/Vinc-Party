@@ -11,6 +11,7 @@ Auteurs: Antoine Allard
 Description: 
 ====================================================================================================*/
 #include "FenetreJeu.h"
+#include "HasardMuons.h"
 
 //Constructeurs & destructeurs
 MoteurJeu::MoteurJeu() {}
@@ -140,8 +141,7 @@ std::vector<bool> variablesAleatoires(int nb_total, int nb_variables)
         variables.push_back(false);
     }
 
-    std::random_device rd; //Muons
-    std::mt19937 g(rd());
+    std::mt19937 g(HasardMuons::valeurAleatoire());
     std::shuffle(variables.begin(), variables.end(), g);
 
     return variables;
@@ -460,9 +460,9 @@ void MoteurJeu::deplacementAdversaireRandom()
         adversaire.position.X = temp_c.X;
         adversaire.position.Y = temp_c.Y;
     }
-    else if (nb_choix == 1 || rand() % 4 + 1 <= 3)
+    else if (nb_choix == 1 || HasardMuons::valeurAleatoire() % 4 + 1 <= 3)
     {
-        Coordonnee NouvelleCoord = coords_possibles[rand() % nb_choix];
+        Coordonnee NouvelleCoord = coords_possibles[HasardMuons::valeurAleatoire() % nb_choix];
 
         adversaire.ancienne_position.X = adversaire.position.X;
         adversaire.ancienne_position.Y = adversaire.position.Y;

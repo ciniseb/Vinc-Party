@@ -13,14 +13,14 @@ Description: Constantes utiles à la compréhension du programme
 #pragma once
 
 #define MODE_CONSOLE false
-#define MODE_CLAVIER true
+#define MODE_CLAVIER false
 
 //Cheat codes
 #define DEMANDER_NOM false
 #define ENNEMI_INNOFFENSIF false
 #define VISION_NOCTURNE true
 #define MODE_MOZART false
-#define MODE_FLASH_MC_QUEEN true
+#define MODE_FLASH_MC_QUEEN false
 #define MODE_TERRAIN_VAGUE true
 
 #define LARGEUR_CARTE 60
