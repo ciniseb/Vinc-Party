@@ -54,7 +54,7 @@ private:
     //Timer Section
     QLabel* countdownLabel;
     QTimer* countdownTimer;
-    int countdownTime=0;
+    int countdownTime=15;
     void updateCountdownLabel();
     void updateTimerLabelFontSize();
     bool timerStarted;
