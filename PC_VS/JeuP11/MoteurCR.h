@@ -41,7 +41,7 @@ public:
     ~MoteurCR();
 
 
-    //Méthodes
+    //MÃ©thodes
     void initialiser();
     void demarrer();
 };
