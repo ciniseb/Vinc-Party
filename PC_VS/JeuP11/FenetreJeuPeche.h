@@ -57,8 +57,8 @@ private:
     double bitPrecedent;
     // Methodes
 
-    bool Temps(); // G�re le temps et l'appel des methodes
-    void AffichageEcran(int mode); // affiche l'ecran et ses valeurs
+    bool temps(); // G�re le temps et l'appel des methodes
+    void affichage(int); // affiche l'ecran et ses valeurs
 
 public:
     //Constructeurs & destructeurs
@@ -68,7 +68,7 @@ public:
     //Getteurs & setteurs
     void setPoisson();
     void getJoueur(Direction touche);
-    void VerificationJoueurPoisson();
+    void verificationJoueurPoisson();
     void initialiser();
     //M�thodes
     void demarrer();

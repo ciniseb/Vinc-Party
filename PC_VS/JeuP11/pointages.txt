@@ -21,3 +21,4 @@ Wood;1;0.182446;50
 Wood;1;0.091675;29
 PeuplierBlanc;1;1.13562;35
 PeuplierBlanc;2;1.99445;112
+PeuplierBlanc;1;0.41668;49

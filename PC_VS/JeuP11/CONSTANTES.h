@@ -17,10 +17,10 @@ Description: Constantes utiles à la compréhension du programme
 
 //Cheat codes
 #define DEMANDER_NOM false
-#define ENNEMI_INNOFFENSIF false
+#define ENNEMI_INNOFFENSIF true
 #define VISION_NOCTURNE true
 #define MODE_MOZART false
-#define MODE_FLASH_MC_QUEEN false
+#define MODE_FLASH_MC_QUEEN true
 #define MODE_TERRAIN_VAGUE true
 
 #define LARGEUR_CARTE 60
@@ -40,6 +40,11 @@ Description: Constantes utiles à la compréhension du programme
 #define Menu 0
 #define Jeu 1
 #define Score 2
+
+//MoteurJeuPeche
+#define NB_HAMECONNAGE 12
+#define TEMPS_HAMECONNAGE 25
+#define TEMPS_PECHE 8
 
 #if MODE_FLASH_MC_QUEEN
     #define DT_DEPLACEMENT_JOUEUR 100 //Milisecondes
@@ -68,7 +73,7 @@ enum class Etat
     Pause
 };
 
-//Affichage MoteurJeu
+//affichage MoteurJeu
 #define AFFICHAGE_COMPLET 0
 #define AFFICHAGE_TEMPS 1
 #define AFFICHAGE_ADVERSAIRE 2

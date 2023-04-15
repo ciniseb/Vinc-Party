@@ -63,7 +63,7 @@ private:
 	void variationAxe(TypeMotion variation);
 	int getCoup(); // accelerometre
 	void setCoup(int x); // accelerometre
-	bool Temps();
+	bool temps();
 
 public:
 	MoteurJeuMineur(ES* threadArduino = nullptr, ThreadMoteur* threadMoteur = nullptr);

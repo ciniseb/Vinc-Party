@@ -20,8 +20,6 @@ Description: UI du jeu
 #include <QGridLayout>
 #include <QLabel>
 #include <QGraphicsView>
-#include <QtSvg>
-#include <QSvgWidget>
 #include <QString>
 #include <QImage>
 #include <QFrame>

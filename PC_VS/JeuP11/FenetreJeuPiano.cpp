@@ -79,7 +79,7 @@ void MoteurJeuPiano::demarrer()
         noteE[i] = ' ';
         noteU[i] = ' ';
     }
-    AffichageEcran(Menu);
+    affichage(Menu);
     emit threadMoteur->Demarrage_WidgetPiano();
     while (true)
     {
@@ -152,7 +152,7 @@ void MoteurJeuPiano::demarrer()
                 }  
             }
         }
-        Temps();
+        temps();
 
         if (chrono.tempsEcoule_ms() > 43000)
         {
@@ -175,9 +175,9 @@ void MoteurJeuPiano::demarrer()
     }
 }
 
-bool MoteurJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
+bool MoteurJeuPiano::temps() // Fonction qui fait le refresh des fonctions
 {
-    //std::cout << "Temps" << std::endl;   
+    //std::cout << "temps" << std::endl;   
     //system("cls");
 
         bit = bitCount - chrono.tempsEcoule_ms();
@@ -185,7 +185,7 @@ bool MoteurJeuPiano::Temps() // Fonction qui fait le refresh des fonctions
         if (bit <= 0)
         {
             SetNote(bitCount/250);
-            AffichageEcran(Jeu);
+            affichage(Jeu);
             bitCount = bitCount + 250;
             //SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 31 });
             //std::cout << bitCount << std::endl;
@@ -249,9 +249,9 @@ void MoteurJeuPiano::SetNote(int t)
     }
 }
 
-void MoteurJeuPiano::AffichageEcran(int mode)
+void MoteurJeuPiano::affichage(int mode)
 {
-    //std::cout << "Affichage" << std::endl;
+    //std::cout << "affichage" << std::endl;
     char screen[25][50];
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
 
@@ -282,7 +282,7 @@ void MoteurJeuPiano::AffichageEcran(int mode)
         system("cls");
         std::cout << "Appuyez sur D,I,E,U quand la note est jaune ou verte sur la manette" << std::endl
                   << "             Notes reussites : " << noteReussi << std::endl;
-        //std::cout << "Affichage Jeu" << std::endl;
+        //std::cout << "affichage Jeu" << std::endl;
         for (int i = 0; i < 24; i++)
         {
             for (int j = 0; j < 50; j++)

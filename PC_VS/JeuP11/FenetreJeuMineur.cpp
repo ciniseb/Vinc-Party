@@ -61,7 +61,7 @@ void MoteurJeuMineur::demarrer()
                 affichageEcran(Jeu);
             }
         }
-        Temps();
+        temps();
 
                 if (nbCoups == nbVoulu)
                 {
@@ -204,7 +204,7 @@ void MoteurJeuMineur::variationAxe(TypeMotion variation) {
     }
 }
 
-bool MoteurJeuMineur::Temps() // Fonction qui fait le refresh des fonctions
+bool MoteurJeuMineur::temps() // Fonction qui fait le refresh des fonctions
 {
     return true;
 }

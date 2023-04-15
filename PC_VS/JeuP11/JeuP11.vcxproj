@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -11,107 +11,160 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{74205A31-BA41-4B1C-8C43-2FE3E47660A9}</ProjectGuid>
-    <Keyword>QtVS_v304</Keyword>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
-    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+    <ProjectGuid>{321F45BE-503D-3FA8-A747-6B35387ED20A}</ProjectGuid>
+    <RootNamespace>JeuP11</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.22000.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="Configuration">
     <PlatformToolset>v143</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>JeuP11</PrimaryOutput>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="Configuration">
     <PlatformToolset>v143</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>JeuP11</PrimaryOutput>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
-    <Import Project="$(QtMsBuild)\qt_defaults.props" />
-  </ImportGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>C:\Qt\6.4.3\msvc2019_64</QtInstall>
-    <QtModules>core;gui;widgets;svg;svgwidgets</QtModules>
-    <QtBuildConfig>debug</QtBuildConfig>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>QT6.4.1</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
-    <QtBuildConfig>release</QtBuildConfig>
-  </PropertyGroup>
-  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
-    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
-  </Target>
   <ImportGroup Label="ExtensionSettings" />
-  <ImportGroup Label="Shared" />
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="$(QtMsBuild)\Qt.props" />
+  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="$(QtMsBuild)\Qt.props" />
+  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+  <PropertyGroup>
+    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\</OutDir>
+    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\</IntDir>
+    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">JeuP11</TargetName>
+    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</IgnoreImportLibrary>
+    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\</OutDir>
+    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\</IntDir>
+    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">JeuP11</TargetName>
+    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">false</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(Qt_LIBS_);winmm.lib</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
     <ClCompile>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>.;include\serial;C:\Qt\6.4.1\msvc2019_64\include;C:\Qt\6.4.1\msvc2019_64\include\QtWidgets;C:\Qt\6.4.1\msvc2019_64\include\QtGui;C:\Qt\6.4.1\msvc2019_64\include\QtCore;debug;/include;C:\Qt\6.4.1\msvc2019_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -utf-8 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>debug\</ObjectFileName>
       <Optimization>Disabled</Optimization>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
-    <ClCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <DebugInformationFormat>None</DebugInformationFormat>
-      <Optimization>MaxSpeed</Optimization>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>winmm.lib;C:\Qt\6.4.1\msvc2019_64\lib\Qt6Widgetsd.lib;C:\Qt\6.4.1\msvc2019_64\lib\Qt6Guid.lib;C:\Qt\6.4.1\msvc2019_64\lib\Qt6Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/DEBUG &quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\JeuP11.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;include\serial;C:\Qt\6.4.1\msvc2019_64\include;C:\Qt\6.4.1\msvc2019_64\include\QtWidgets;C:\Qt\6.4.1\msvc2019_64\include\QtGui;C:\Qt\6.4.1\msvc2019_64\include\QtCore;release;/include;C:\Qt\6.4.1\msvc2019_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -utf-8 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;C:\Qt\6.4.1\msvc2019_64\lib\Qt6Widgets.lib;C:\Qt\6.4.1\msvc2019_64\lib\Qt6Gui.lib;C:\Qt\6.4.1\msvc2019_64\lib\Qt6Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\JeuP11.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Accel.cpp" />
+    <ClCompile Include="Bargraph.cpp" />
+    <ClCompile Include="Boussole.cpp" />
     <ClCompile Include="Bouton.cpp" />
-    <ClCompile Include="Chronometre.cpp" />
     <ClCompile Include="CR_Vehicule.cpp" />
+    <ClCompile Include="Chronometre.cpp" />
     <ClCompile Include="ES.cpp" />
     <ClCompile Include="Evenement.cpp" />
     <ClCompile Include="Fenetre.cpp" />
     <ClCompile Include="FenetreCR.cpp" />
     <ClCompile Include="FenetreJeu.cpp" />
-    <ClCompile Include="FenetreJeuPeche.cpp" />
     <ClCompile Include="FenetreJeuMineur.cpp" />
+    <ClCompile Include="FenetreJeuPeche.cpp" />
     <ClCompile Include="FenetreJeuPiano.cpp" />
     <ClCompile Include="FenetreMenu.cpp" />
     <ClCompile Include="FenetreMiniJeu.cpp" />
     <ClCompile Include="FenetrePointages.cpp" />
     <ClCompile Include="FenetreTests.cpp" />
     <ClCompile Include="HasardMuons.cpp" />
-    <ClCompile Include="include\serial\SerialPort.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="Muons.cpp" />
     <ClCompile Include="Niveau.cpp" />
     <ClCompile Include="Pointage.cpp" />
-    <ClCompile Include="QSvgRatioWidget.cpp" />
     <ClCompile Include="QuadBargraph.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="ThreadMoteur.cpp" />
@@ -119,15 +172,12 @@
     <ClCompile Include="Vibration.cpp" />
     <ClCompile Include="WidgetCarte.cpp" />
     <ClCompile Include="WidgetJeu.cpp" />
-    <ClCompile Include="WidgetMenu.cpp" />
     <ClCompile Include="WidgetJeuMineur.cpp" />
     <ClCompile Include="WidgetJeuPeche.cpp" />
     <ClCompile Include="WidgetJeuPiano.cpp" />
+    <ClCompile Include="WidgetMenu.cpp" />
     <ClCompile Include="WidgetPointages.cpp" />
     <ClCompile Include="WidgetRiviere.cpp" />
-    <QtRcc Include="JeuP11.qrc" />
-    <ClCompile Include="Bargraph.cpp" />
-    <ClCompile Include="Boussole.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,10 +186,10 @@
     <ClInclude Include="Bargraph.h" />
     <ClInclude Include="Boussole.h" />
     <ClInclude Include="Bouton.h" />
-    <ClInclude Include="Chronometre.h" />
     <ClInclude Include="CONSTANTES.h" />
-    <ClInclude Include="Coordonnee.h" />
     <ClInclude Include="CR_Vehicule.h" />
+    <ClInclude Include="Chronometre.h" />
+    <ClInclude Include="Coordonnee.h" />
     <ClInclude Include="ES.h" />
     <ClInclude Include="Evenement.h" />
     <ClInclude Include="Fenetre.h" />
@@ -153,58 +203,194 @@
     <ClInclude Include="FenetrePointages.h" />
     <ClInclude Include="FenetreTests.h" />
     <ClInclude Include="GABARIT_CLASS.h" />
-    <QtMoc Include="WidgetRiviere.h" />
-    <QtMoc Include="WidgetCarte.h" />
-    <QtMoc Include="WidgetJeuMineur.h" />
-    <QtMoc Include="WidgetJeuPeche.h" />
-    <QtMoc Include="WidgetJeuPiano.h" />
-    <QtMoc Include="WidgetPointages.h" />
-    <QtMoc Include="WidgetJeu.h" />
-    <QtMoc Include="WidgetMenu.h" />
-    <QtMoc Include="Interface.h" />
     <ClInclude Include="HasardMuons.h" />
+    <CustomBuild Include="Interface.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">Interface.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; Interface.h -o debug\moc_Interface.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC Interface.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_Interface.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">Interface.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; Interface.h -o release\moc_Interface.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC Interface.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_Interface.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="Muons.h" />
     <ClInclude Include="Niveau.h" />
     <ClInclude Include="Pointage.h" />
-    <QtMoc Include="QSvgRatioWidget.h" />
     <ClInclude Include="QuadBargraph.h" />
     <ClInclude Include="Tests.h" />
-    <QtMoc Include="ThreadMoteur.h" />
+    <CustomBuild Include="ThreadMoteur.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">ThreadMoteur.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; ThreadMoteur.h -o debug\moc_ThreadMoteur.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC ThreadMoteur.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_ThreadMoteur.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">ThreadMoteur.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; ThreadMoteur.h -o release\moc_ThreadMoteur.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC ThreadMoteur.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_ThreadMoteur.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
     <ClInclude Include="Tuile.h" />
     <ClInclude Include="Vibration.h" />
+    <CustomBuild Include="WidgetCarte.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">WidgetCarte.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetCarte.h -o debug\moc_WidgetCarte.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC WidgetCarte.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WidgetCarte.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">WidgetCarte.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetCarte.h -o release\moc_WidgetCarte.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC WidgetCarte.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WidgetCarte.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="WidgetJeu.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">WidgetJeu.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetJeu.h -o debug\moc_WidgetJeu.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC WidgetJeu.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WidgetJeu.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">WidgetJeu.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetJeu.h -o release\moc_WidgetJeu.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC WidgetJeu.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WidgetJeu.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="WidgetJeuMineur.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">WidgetJeuMineur.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetJeuMineur.h -o debug\moc_WidgetJeuMineur.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC WidgetJeuMineur.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WidgetJeuMineur.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">WidgetJeuMineur.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetJeuMineur.h -o release\moc_WidgetJeuMineur.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC WidgetJeuMineur.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WidgetJeuMineur.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="WidgetJeuPeche.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">WidgetJeuPeche.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetJeuPeche.h -o debug\moc_WidgetJeuPeche.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC WidgetJeuPeche.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WidgetJeuPeche.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">WidgetJeuPeche.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetJeuPeche.h -o release\moc_WidgetJeuPeche.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC WidgetJeuPeche.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WidgetJeuPeche.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="WidgetJeuPiano.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">WidgetJeuPiano.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetJeuPiano.h -o debug\moc_WidgetJeuPiano.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC WidgetJeuPiano.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WidgetJeuPiano.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">WidgetJeuPiano.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetJeuPiano.h -o release\moc_WidgetJeuPiano.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC WidgetJeuPiano.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WidgetJeuPiano.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="WidgetMenu.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">WidgetMenu.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetMenu.h -o debug\moc_WidgetMenu.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC WidgetMenu.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WidgetMenu.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">WidgetMenu.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetMenu.h -o release\moc_WidgetMenu.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC WidgetMenu.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WidgetMenu.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="WidgetPointages.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">WidgetPointages.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetPointages.h -o debug\moc_WidgetPointages.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC WidgetPointages.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WidgetPointages.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">WidgetPointages.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetPointages.h -o release\moc_WidgetPointages.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC WidgetPointages.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WidgetPointages.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="WidgetRiviere.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">WidgetRiviere.h;debug\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/debug/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetRiviere.h -o debug\moc_WidgetRiviere.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC WidgetRiviere.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_WidgetRiviere.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">WidgetRiviere.h;release\moc_predefs.h;C:\Qt\6.4.1\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/release/moc_predefs.h&quot; -IC:/Qt/6.4.1/msvc2019_64/mkspecs/win32-msvc -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11&quot; -I&quot;C:/Users/sebas/OneDrive - USherbrooke/Bureau/Université/S2/PROJET/Vinc-Party/PC_VS/JeuP11/include/serial&quot; -IC:/Qt/6.4.1/msvc2019_64/include -IC:/Qt/6.4.1/msvc2019_64/include/QtWidgets -IC:/Qt/6.4.1/msvc2019_64/include/QtGui -IC:/Qt/6.4.1/msvc2019_64/include/QtCore -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\ATLMFC\include&quot; -I&quot;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt&quot; WidgetRiviere.h -o release\moc_WidgetRiviere.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC WidgetRiviere.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_WidgetRiviere.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="chanson_1.csv" />
-    <None Include="c_gabarit_20_40.csv" />
-    <None Include="c_gabarit_30_60.csv" />
-    <None Include="losange.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="pointages.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="StillDre.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="clef.png" />
-    <Image Include="clef2.png" />
-    <Image Include="distance.png" />
-    <Image Include="MicrosoftTeams-image.png" />
-    <Image Include="Pecheur2.png" />
-    <Image Include="Riviere1.png" />
-    <Image Include="Riviere2.png" />
-    <Image Include="riviere3.png" />
-    <Image Include="Snorlax3.png" />
-    <Image Include="Snorlax4.png" />
-    <Image Include="Snorlax5.png" />
-    <Image Include="Wailord_gauche.png" />
-    <Image Include="temps.png" />
+    <ClCompile Include="debug\moc_Interface.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_Interface.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_ThreadMoteur.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_ThreadMoteur.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetCarte.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetCarte.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetJeu.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetJeu.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetJeuMineur.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetJeuMineur.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetJeuPeche.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetJeuPeche.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetJeuPiano.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetJeuPiano.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetMenu.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetMenu.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetPointages.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetPointages.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetRiviere.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetRiviere.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\Qt\6.4.1\msvc2019_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">cl -BxC:\Qt\6.4.1\msvc2019_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -Zi -MDd -std:c++17 -utf-8 -E C:\Qt\6.4.1\msvc2019_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">Generate moc_predefs.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\Qt\6.4.1\msvc2019_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">cl -BxC:\Qt\6.4.1\msvc2019_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -O2 -MD -std:c++17 -utf-8 -E C:\Qt\6.4.1\msvc2019_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">Generate moc_predefs.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
-    <Import Project="$(QtMsBuild)\qt.targets" />
-  </ImportGroup>
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

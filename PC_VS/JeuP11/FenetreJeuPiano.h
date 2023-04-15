@@ -55,8 +55,8 @@ private:
     // Methodes
 
     bool chargerChanson(bool matrice[50001][4]);
-    bool Temps(); // Gère le temps et l'appel des methodes
-    void AffichageEcran(int mode); // affiche l'ecran et ses valeurs
+    bool temps(); // Gère le temps et l'appel des methodes
+    void affichage(int mode); // affiche l'ecran et ses valeurs
     char GetNote(int btn, int ligne); // Renvoie les 4 tableaux de note
     void SetNote(int t); // prend la matrice et change les 4 tableaux de note
     char Dieu_en_char(Dieu dieu); // Convertie Dieu en char
