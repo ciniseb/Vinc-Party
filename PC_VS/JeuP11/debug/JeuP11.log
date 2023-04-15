@@ -1,4 +1,4 @@
-﻿  FenetreJeuPeche.cpp
+﻿  MoteurJeuPeche.cpp
 C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xbd et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
 C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x11e et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
 C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Chronometre.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x144 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
@@ -10,4 +10,12 @@ C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC
 C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xbc et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
 C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x11d et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
 C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x143 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+  WidgetCarte.cpp
+WidgetCarte.cpp(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x13bb et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\WidgetCarte.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x298 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xbc et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x11d et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\Coordonnee.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0x143 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+WidgetCarte.cpp(45,43): warning C4100: 'event' : paramètre formel non référencé
+  Génération de code en cours...
   JeuP11.vcxproj -> C:\Users\sebas\OneDrive - USherbrooke\Bureau\Université\S2\PROJET\Vinc-Party\PC_VS\JeuP11\debug\JeuP11.exe

@@ -12,9 +12,8 @@ Description:
 ====================================================================================================*/
 #include <iostream>
 #include "ES.h"
-#include "Fenetre.h"
 #include "Chronometre.h"
-#include "FenetreTests.h"
+#include "MoteurTests.h"
 #include "Joystick.h"
 #include "Bouton.h"
 #include "Evenement.h"

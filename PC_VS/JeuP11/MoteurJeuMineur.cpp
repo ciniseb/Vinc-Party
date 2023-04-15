@@ -10,7 +10,7 @@ Auteurs: Antoine Allard
          Date: 05 f�vrier 2023
 Description: Fenetre du jeu mineur 
 ====================================================================================================*/
-#include "FenetreJeuMineur.h"
+#include "MoteurJeuMineur.h"
 
 MoteurJeuMineur::MoteurJeuMineur(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur)
 {

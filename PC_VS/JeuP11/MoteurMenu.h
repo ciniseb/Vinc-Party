@@ -10,20 +10,20 @@ Auteurs: Antoine Allard
          Date: 05 f�vrier 2023
 Description: 
 ====================================================================================================*/
-#ifndef FENETREMENU_H
-#define FENETREMENU_H
+#ifndef MOTEURMENU_H
+#define MOTEURMENU_H
 
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
-#include "Fenetre.h"
+#include "Moteur.h"
 #include "ES.h"
-#include "FenetreJeu.h"
-#include "FenetrePointages.h"
-#include "FenetreTests.h"
+#include "MoteurJeu.h"
+#include "MoteurPointages.h"
+#include "MoteurTests.h"
 #include "Joystick.h"
 #include "Bouton.h"
-#include "FenetreCR.h"
+#include "MoteurCR.h"
 #include "ThreadMoteur.h"
 
 class ThreadMoteur;

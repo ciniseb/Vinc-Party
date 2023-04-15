@@ -10,7 +10,7 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: 
 ====================================================================================================*/
-#include "FenetreMiniJeu.h"
+#include "MoteurMiniJeu.h"
 
 //Constructeurs & destructeurs
 MoteurMiniJeu::MoteurMiniJeu(ES* threadArduino, ThreadMoteur* threadMoteur) : Moteur(threadArduino, threadMoteur)

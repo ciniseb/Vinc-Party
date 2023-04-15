@@ -51,36 +51,6 @@
     <ClCompile Include="Evenement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Fenetre.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreCR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreJeu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreJeuMineur.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreJeuPeche.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreJeuPiano.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreMiniJeu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetrePointages.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreTests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HasardMuons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -88,6 +58,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Joystick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Moteur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurCR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurJeu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurJeuMineur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurJeuPeche.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurJeuPiano.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurMiniJeu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurPointages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Muons.cpp">
@@ -176,36 +176,6 @@
     <ClInclude Include="Evenement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Fenetre.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreCR.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreJeu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreJeuMineur.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreJeuPeche.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreJeuPiano.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreMiniJeu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetrePointages.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreTests.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GABARIT_CLASS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -216,6 +186,36 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <ClInclude Include="Joystick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Moteur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurCR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurJeu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurJeuMineur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurJeuPeche.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurJeuPiano.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurMiniJeu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurPointages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Muons.h">

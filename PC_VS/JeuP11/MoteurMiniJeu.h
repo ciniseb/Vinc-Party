@@ -10,11 +10,11 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: Classe abstraite pour chaque classe d'un mini-jeu spécifique
 ====================================================================================================*/
-#ifndef FENETREMINIJEU_H
-#define FENETREMINIJEU_H
+#ifndef MOTEURMINIJEU_H
+#define MOTEURMINIJEU_H
 
 #include <iostream>
-#include "Fenetre.h"
+#include "Moteur.h"
 
 class MoteurMiniJeu : public Moteur
 {

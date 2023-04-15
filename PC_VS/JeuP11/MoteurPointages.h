@@ -10,8 +10,8 @@ Auteurs: Antoine Allard
          Date: 05 f�vrier 2023
 Description:
 ====================================================================================================*/
-#ifndef FENETREPOINTAGES_H
-#define FENETREPOINTAGES_H
+#ifndef MOTEURPOINTAGES_H
+#define MOTEURPOINTAGES_H
 
 #include <iostream>
 #include <iomanip>
@@ -21,7 +21,7 @@ Description:
 #include <algorithm>
 
 #include "ES.h"
-#include "Fenetre.h"
+#include "Moteur.h"
 #include "Pointage.h"
 #include "Joystick.h"
 #include "Bouton.h"

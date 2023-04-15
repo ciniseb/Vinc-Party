@@ -1,5 +1,5 @@
 #pragma once
-#include "FenetreMiniJeu.h"
+#include "MoteurMiniJeu.h"
 
 #include <iostream>
 #include <sstream>
@@ -12,7 +12,7 @@
 #include "Joystick.h"
 #include "Bouton.h"
 #include "Chronometre.h"
-#include "Fenetre.h"
+#include "Moteur.h"
 #include "ES.h"
 #include "CR_Vehicule.h"
 #include "CONSTANTES.h"

@@ -11,8 +11,8 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: Mini-jeu de piano style Piano tiles
 ====================================================================================================*/
-#ifndef FENETREJEUMINEUR_H
-#define FENETREJEUMINEUR_H
+#ifndef MOTEURJEUMINEUR_H
+#define MOTEURJEUMINEUR_H
 
 #include <iostream>
 #include <sstream>
@@ -25,10 +25,10 @@ Description: Mini-jeu de piano style Piano tiles
 #include "Joystick.h"
 #include "Bouton.h"
 #include "Chronometre.h"
-#include "Fenetre.h"
+#include "Moteur.h"
 #include "ES.h"
 #include "Accel.h"
-#include "FenetreMiniJeu.h"
+#include "MoteurMiniJeu.h"
 #include "CONSTANTES.h"
 #include "Bargraph.h"
 #include "QuadBargraph.h"
@@ -37,10 +37,6 @@ Description: Mini-jeu de piano style Piano tiles
 #include <conio.h>
 #include "Vibration.h"
 #include "ThreadMoteur.h"
-
-
-
-
 
 class MoteurJeuMineur : public MoteurMiniJeu
 {

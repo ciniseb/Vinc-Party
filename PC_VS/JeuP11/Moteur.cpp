@@ -10,7 +10,7 @@ Auteurs: Antoine Allard
          Date: 02 février 2023
 Description: 
 ====================================================================================================*/
-#include "Fenetre.h"
+#include "Moteur.h"
 
 //Constructeurs & destructeurs
 Moteur::Moteur(ES* threadArduino, ThreadMoteur* threadMoteur)

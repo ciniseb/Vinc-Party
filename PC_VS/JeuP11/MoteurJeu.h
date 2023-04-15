@@ -10,8 +10,8 @@ Auteurs: Antoine Allard
          Date: 05 f�vrier 2023
 Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 ====================================================================================================*/
-#ifndef FENETREJEU_H
-#define FENETREJEU_H
+#ifndef MOTEURJEU_H
+#define MOTEURJEU_H
 
 #include <iostream>
 #include <vector>
@@ -26,16 +26,16 @@ Description: C'est ici que le vrai jam se fait, celui aux multi-fruits.
 #include "Vibration.h"
 #include "ES.h"
 #include "CONSTANTES.h"
-#include "Fenetre.h"
-#include "FenetreMiniJeu.h"
+#include "Moteur.h"
+#include "MoteurMiniJeu.h"
 #include "Niveau.h"
 #include "Tuile.h"
 #include "Acteur.h"
 #include "Chronometre.h"
 #include "Pointage.h"
-#include "FenetreJeuPiano.h"
-#include "FenetreJeuPeche.h"
-#include "FenetreJeuMineur.h"
+#include "MoteurJeuPiano.h"
+#include "MoteurJeuPeche.h"
+#include "MoteurJeuMineur.h"
 #include "Joystick.h"
 #include "Boussole.h"
 

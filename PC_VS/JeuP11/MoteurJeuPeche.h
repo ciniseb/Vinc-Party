@@ -11,8 +11,8 @@ Auteurs: Antoine Allard
          Date: 05 f�vrier 2023
 Description: Mini-jeu de piano style Piano tiles
 ====================================================================================================*/
-#ifndef FENETREJEUPECHE_H
-#define FENETREJEUPECHE_H
+#ifndef MOTEURJEUPECHE_H
+#define MOTEURJEUPECHE_H
 
 #include <iostream>
 #include <sstream>
@@ -25,9 +25,9 @@ Description: Mini-jeu de piano style Piano tiles
 #include "Joystick.h"
 #include "Bouton.h"
 #include "Chronometre.h"
-#include "Fenetre.h"
+#include "Moteur.h"
 #include "ES.h"
-#include "FenetreMiniJeu.h"
+#include "MoteurMiniJeu.h"
 #include "CONSTANTES.h"
 #include "QuadBargraph.h"
 #include "Accel.h"

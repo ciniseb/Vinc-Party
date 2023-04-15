@@ -10,12 +10,12 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description:
 ====================================================================================================*/
-#ifndef FENETRETESTS_H
-#define FENETRETESTS_H
+#ifndef MOTEURTESTS_H
+#define MOTEURTESTS_H
 
 #include <iostream>
 #include "ES.h"
-#include "Fenetre.h"
+#include "Moteur.h"
 #include "Chronometre.h"
 #include "Joystick.h"
 #include "Bouton.h"

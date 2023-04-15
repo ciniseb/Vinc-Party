@@ -1,4 +1,3 @@
-#include "FenetreCR.h"
 /*====================================================================================================
 Fichier: FenetreCR.cpp
 Auteurs: Antoine Allard
@@ -11,7 +10,7 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description:
 ====================================================================================================*/
-#include "FenetreCR.h"
+#include "MoteurCR.h"
 #include "CR_Vehicule.h"
 
 //Constructeurs & destructeurs

@@ -10,7 +10,7 @@ Auteurs: Antoine Allard
          Date: 05 f�vrier 2023
 Description:
 ====================================================================================================*/
-#include "FenetreJeuPeche.h"
+#include "MoteurJeuPeche.h"
 #include "HasardMuons.h"
 
 
@@ -352,8 +352,6 @@ bool MoteurJeuPeche::temps() // Fonction qui fait le refresh des fonctions
         if (pretPecher)
         {
             comptePretPecher++;
-            std::cout << comptePretPecher << std::endl;
-
         }
     }
     return true;

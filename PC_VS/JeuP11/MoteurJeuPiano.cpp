@@ -10,7 +10,7 @@ Auteurs: Antoine Allard
          Date: 05 février 2023
 Description: 
 ====================================================================================================*/
-#include "FenetreJeuPiano.h"
+#include "MoteurJeuPiano.h"
 
 //Constructeurs & destructeurs
 MoteurJeuPiano::MoteurJeuPiano(ES* threadArduino, ThreadMoteur* threadMoteur) : MoteurMiniJeu(threadArduino, threadMoteur) 
