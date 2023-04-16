@@ -16,12 +16,12 @@ Description: Constantes utiles à la compréhension du programme
 #define MODE_CLAVIER true
 
 //Cheat codes
-#define DEMANDER_NOM false
-#define ENNEMI_INNOFFENSIF true
-#define VISION_NOCTURNE true
+#define DEMANDER_NOM true
+#define ENNEMI_INNOFFENSIF false
+#define VISION_NOCTURNE false
 #define MODE_MOZART false
-#define MODE_FLASH_MC_QUEEN true
-#define MODE_TERRAIN_VAGUE true
+#define MODE_FLASH_MC_QUEEN false
+#define MODE_TERRAIN_VAGUE false
 
 #define LARGEUR_CARTE 60
 #define HAUTEUR_CARTE 30
