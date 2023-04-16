@@ -29,7 +29,7 @@ WidgetJeuPeche::WidgetJeuPeche(ThreadMoteur* thread, QWidget* parent) : QWidget(
     label->setFont(font);
 
 
-    progressBar->setRange(0, 10);
+    progressBar->setRange(0, NB_HAMECONNAGE);
 
 
     layout = new QVBoxLayout(widget);

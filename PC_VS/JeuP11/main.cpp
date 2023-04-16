@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
     //UI
     Interface interfaceApp(&threadMoteur);
 
-    //Affichage
+    //affichage
     interfaceApp.show();
 
     //Démarrage des threads

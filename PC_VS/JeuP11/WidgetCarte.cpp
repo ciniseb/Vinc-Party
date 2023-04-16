@@ -36,7 +36,7 @@ WidgetCarte::WidgetCarte(ThreadMoteur* thread, QWidget* parent) : QWidget(parent
     //Connexions
     connect(threadMoteur, SIGNAL(jeu_MAJ_Carte(QVector<QVector<int>>)), this, SLOT(MAJ_Carte(QVector<QVector<int>>)));
     connect(threadMoteur, SIGNAL(jeu_MAJ_Acteur(int, Acteur)), this, SLOT(MAJ_Acteur(int, Acteur)));
-    connect(threadMoteur, SIGNAL(jeu_MAJ_Coordonnee(Coordonnee, Coordonnee)), this, SLOT(MAJ_Coordonnee(Coordonnee, Coordonnee)));
+    //connect(threadMoteur, SIGNAL(jeu_MAJ_Coordonnee(Coordonnee, Coordonnee)), this, SLOT(MAJ_Coordonnee(Coordonnee, Coordonnee)));
 }
 
 WidgetCarte::~WidgetCarte()

@@ -17,11 +17,11 @@ Description: Tests unitaires et d'int�gration
 #include <thread>
 #include "ES.h"
 #include "Chronometre.h"
-#include "FenetreJeu.h"
-#include "FenetreJeuPiano.h"
-#include "FenetrePointages.h"
-#include "FenetreJeuPeche.h"
-#include "FenetreJeuMineur.h"
+#include "MoteurJeu.h"
+#include "MoteurJeuPiano.h"
+#include "MoteurPointages.h"
+#include "MoteurJeuPeche.h"
+#include "MoteurJeuMineur.h"
 
 class Tests
 {

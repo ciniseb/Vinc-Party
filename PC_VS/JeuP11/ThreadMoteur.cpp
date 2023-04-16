@@ -11,7 +11,7 @@ Auteurs: Antoine Allard
 Description:
 ====================================================================================================*/
 #include "ThreadMoteur.h"
-#include "FenetreMenu.h"
+#include "MoteurMenu.h"
 
 ThreadMoteur::ThreadMoteur(ES* threadArduino, QObject *parent)
 	: QThread(parent)

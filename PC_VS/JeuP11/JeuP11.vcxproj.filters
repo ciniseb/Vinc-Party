@@ -1,69 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
     </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Translation Files">
-      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
-      <Extensions>ts</Extensions>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="JeuP11.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Accel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Bargraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Boussole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vibration.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Accel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Joystick.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Pointage.cpp">
+    <ClCompile Include="Bouton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CR_Vehicule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Chronometre.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreCR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreMiniJeu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Fenetre.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bouton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ES.cpp">
@@ -72,19 +51,43 @@
     <ClCompile Include="Evenement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetreJeu.cpp">
+    <ClCompile Include="HasardMuons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetreJeuPiano.cpp">
+    <ClCompile Include="Interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetreMenu.cpp">
+    <ClCompile Include="Joystick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetrePointages.cpp">
+    <ClCompile Include="Moteur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FenetreTests.cpp">
+    <ClCompile Include="MoteurCR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurJeu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurJeuMineur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurJeuPeche.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurJeuPiano.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurMiniJeu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurPointages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoteurTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Muons.cpp">
@@ -93,84 +96,69 @@
     <ClCompile Include="Niveau.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pointage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="QuadBargraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tuile.cpp">
+    <ClCompile Include="Tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ThreadMoteur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Interface.cpp">
+    <ClCompile Include="Tuile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WidgetMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WidgetJeu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WidgetPointages.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WidgetJeuPiano.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WidgetJeuPeche.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WidgetJeuMineur.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreJeuPeche.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FenetreJeuMineur.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="QSvgRatioWidget.cpp">
+    <ClCompile Include="Vibration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WidgetCarte.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WidgetJeu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetJeuMineur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetJeuPeche.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetJeuPiano.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetPointages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="WidgetRiviere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HasardMuons.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\serial\SerialPort.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Accel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Acteur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Bargraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Boussole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vibration.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Accel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Bouton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Joystick.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Acteur.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pointage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tests.h">
+    <ClInclude Include="CONSTANTES.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CR_Vehicule.h">
@@ -179,16 +167,7 @@
     <ClInclude Include="Chronometre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreCR.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetreMiniJeu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FenetrePointages.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CONSTANTES.h">
+    <ClInclude Include="Coordonnee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ES.h">
@@ -197,19 +176,46 @@
     <ClInclude Include="Evenement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Fenetre.h">
+    <ClInclude Include="GABARIT_CLASS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreJeu.h">
+    <ClInclude Include="HasardMuons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreJeuPiano.h">
+    <CustomBuild Include="Interface.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <ClInclude Include="Joystick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreMenu.h">
+    <ClInclude Include="Moteur.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreTests.h">
+    <ClInclude Include="MoteurCR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurJeu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurJeuMineur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurJeuPeche.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurJeuPiano.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurMiniJeu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurPointages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoteurTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Muons.h">
@@ -218,126 +224,115 @@
     <ClInclude Include="Niveau.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pointage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="QuadBargraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Coordonnee.h">
+    <ClInclude Include="Tests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GABARIT_CLASS.h">
+    <CustomBuild Include="ThreadMoteur.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </CustomBuild>
     <ClInclude Include="Tuile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreJeuMineur.h">
+    <ClInclude Include="Vibration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FenetreJeuPeche.h">
+    <CustomBuild Include="WidgetCarte.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HasardMuons.h">
+    </CustomBuild>
+    <CustomBuild Include="WidgetJeu.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </CustomBuild>
+    <CustomBuild Include="WidgetJeuMineur.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetJeuPeche.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetJeuPiano.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetMenu.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetPointages.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetRiviere.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="chanson_1.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="c_gabarit_30_60.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="c_gabarit_20_40.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="losange.svg">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="StillDre.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="pointages.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="ThreadMoteur.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Interface.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetMenu.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetJeu.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetPointages.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetJeuPiano.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetJeuPeche.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetJeuMineur.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="QSvgRatioWidget.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetCarte.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="WidgetRiviere.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="MicrosoftTeams-image.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Riviere2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Riviere1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Pecheur2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="riviere3.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Snorlax3.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Snorlax4.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Snorlax5.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Wailord_gauche.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="clef.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="clef2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="temps.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="distance.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <ClCompile Include="debug\moc_Interface.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_Interface.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_ThreadMoteur.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_ThreadMoteur.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetCarte.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetCarte.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetJeu.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetJeu.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetJeuMineur.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetJeuMineur.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetJeuPeche.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetJeuPeche.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetJeuPiano.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetJeuPiano.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetMenu.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetMenu.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetPointages.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetPointages.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_WidgetRiviere.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_WidgetRiviere.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
