@@ -6,3 +6,5 @@ SOURCES     += *.cpp
 INCLUDEPATH += include/serial
 LIBS		+= -lwinmm
 QT          += widgets
+QT		+= core gui svg
+QT		+= svgwidgets

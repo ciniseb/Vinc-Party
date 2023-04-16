@@ -17,6 +17,9 @@ Description: UI du menu
 #include <QGridLayout>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QPainter>
+#include <QSvgRenderer>
+#include <QSvgWidget>
 
 class WidgetMenu : public QWidget
 {
@@ -26,6 +29,10 @@ public:
     WidgetMenu(ThreadMoteur* thread = nullptr, QWidget* parent = nullptr);
     ~WidgetMenu();
 
+protected:
+    void paintEvent(QPaintEvent* event) override;
+    void resizeEvent(QResizeEvent* event) override;
+
 private:
     //Attributs
     ThreadMoteur* threadMoteur;
@@ -33,9 +40,17 @@ private:
     QGridLayout *layout_principal;
     QVBoxLayout *layout_boutons;
 
+    QSpacerItem* horizontalSpacer;
+    QSpacerItem* verticalSpacer;
+
     QPushButton *bouton_jouer;
     QPushButton *bouton_pointages;
     QPushButton *bouton_quitter;
+
+    QSvgRenderer *svg_fond;
+
+    float espace_y;
+    float espace_x;
 
 public slots:
     void selection(int);
