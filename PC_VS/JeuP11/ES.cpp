@@ -12,7 +12,8 @@
 #include "CONSTANTES.h"
 #include "HasardMuons.h"
 
-ES::ES() {
+ES::ES() 
+{
 
 }
 
@@ -28,7 +29,7 @@ void ES::demarrer() {
     #if MODE_CLAVIER
 
     #else
-    com = "COM9";
+    com = "COM3";
     arduino = new SerialPort(com.c_str(), BAUD);
     if (!arduino->isConnected()) {
         std::cerr << "Impossible de se connecter au port " << std::string(com) << ". Fermeture du programme!" << std::endl;

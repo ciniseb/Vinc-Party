@@ -44,10 +44,6 @@ public:
 	WidgetJeuPiano(ThreadMoteur* thread = nullptr, QWidget *parent = nullptr);
 	~WidgetJeuPiano();
 
-    void Ajout_Note(int);
-    void Update_score(int);
-    void Demarrage();
-
 protected:
     void paintEvent(QPaintEvent* event) override;
 
@@ -65,5 +61,8 @@ private:
     bool firstNoteAppeared;
     QStaticText infoStaticText;
 
+    void Ajout_Note(int);
+    void Update_score(int);
+    void Demarrage();
     void updateNotes();
 };
