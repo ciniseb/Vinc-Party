@@ -71,6 +71,11 @@ private:
     void updateTitleLabelFontSize();
     void updatePlayerCard();
 
+    void sortByDistance();
+    void sortByTimePerLevel();
+    bool sortByDistancebool = false;
+
+
 public slots:
     void right();
     void left();
@@ -83,4 +88,6 @@ public slots:
     void time(double);
     void timeperlev(double);
     void distance(int);
+
+    void switchmode();
 };
