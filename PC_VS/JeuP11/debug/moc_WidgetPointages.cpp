@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WidgetPointages.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.1)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -13,7 +13,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'WidgetPointages.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.4.1. It"
+#error "This file was generated using the moc from 6.4.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -27,7 +27,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_WidgetPointages_t {
-    uint offsetsAndSizes[28];
+    uint offsetsAndSizes[30];
     char stringdata0[16];
     char stringdata1[6];
     char stringdata2[1];
@@ -42,6 +42,7 @@ struct qt_meta_stringdata_WidgetPointages_t {
     char stringdata11[5];
     char stringdata12[11];
     char stringdata13[9];
+    char stringdata14[11];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_WidgetPointages_t::offsetsAndSizes) + ofs), len 
@@ -60,7 +61,8 @@ Q_CONSTINIT static const qt_meta_stringdata_WidgetPointages_t qt_meta_stringdata
         QT_MOC_LITERAL(72, 5),  // "level"
         QT_MOC_LITERAL(78, 4),  // "time"
         QT_MOC_LITERAL(83, 10),  // "timeperlev"
-        QT_MOC_LITERAL(94, 8)   // "distance"
+        QT_MOC_LITERAL(94, 8),  // "distance"
+        QT_MOC_LITERAL(103, 10)   // "switchmode"
     },
     "WidgetPointages",
     "right",
@@ -75,7 +77,8 @@ Q_CONSTINIT static const qt_meta_stringdata_WidgetPointages_t qt_meta_stringdata
     "level",
     "time",
     "timeperlev",
-    "distance"
+    "distance",
+    "switchmode"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -86,7 +89,7 @@ Q_CONSTINIT static const uint qt_meta_data_WidgetPointages[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -94,16 +97,17 @@ Q_CONSTINIT static const uint qt_meta_data_WidgetPointages[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   74,    2, 0x0a,    1 /* Public */,
-       3,    0,   75,    2, 0x0a,    2 /* Public */,
-       4,    0,   76,    2, 0x0a,    3 /* Public */,
-       5,    0,   77,    2, 0x0a,    4 /* Public */,
-       6,    0,   78,    2, 0x0a,    5 /* Public */,
-       7,    1,   79,    2, 0x0a,    6 /* Public */,
-      10,    1,   82,    2, 0x0a,    8 /* Public */,
-      11,    1,   85,    2, 0x0a,   10 /* Public */,
-      12,    1,   88,    2, 0x0a,   12 /* Public */,
-      13,    1,   91,    2, 0x0a,   14 /* Public */,
+       1,    0,   80,    2, 0x0a,    1 /* Public */,
+       3,    0,   81,    2, 0x0a,    2 /* Public */,
+       4,    0,   82,    2, 0x0a,    3 /* Public */,
+       5,    0,   83,    2, 0x0a,    4 /* Public */,
+       6,    0,   84,    2, 0x0a,    5 /* Public */,
+       7,    1,   85,    2, 0x0a,    6 /* Public */,
+      10,    1,   88,    2, 0x0a,    8 /* Public */,
+      11,    1,   91,    2, 0x0a,   10 /* Public */,
+      12,    1,   94,    2, 0x0a,   12 /* Public */,
+      13,    1,   97,    2, 0x0a,   14 /* Public */,
+      14,    0,  100,    2, 0x0a,   16 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -116,6 +120,7 @@ Q_CONSTINIT static const uint qt_meta_data_WidgetPointages[] = {
     QMetaType::Void, QMetaType::Double,    2,
     QMetaType::Void, QMetaType::Double,    2,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -153,7 +158,9 @@ Q_CONSTINIT const QMetaObject WidgetPointages::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<double, std::false_type>,
         // method 'distance'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'switchmode'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -174,6 +181,7 @@ void WidgetPointages::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 7: _t->time((*reinterpret_cast< std::add_pointer_t<double>>(_a[1]))); break;
         case 8: _t->timeperlev((*reinterpret_cast< std::add_pointer_t<double>>(_a[1]))); break;
         case 9: _t->distance((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 10: _t->switchmode(); break;
         default: ;
         }
     }
@@ -198,13 +206,13 @@ int WidgetPointages::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 11)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

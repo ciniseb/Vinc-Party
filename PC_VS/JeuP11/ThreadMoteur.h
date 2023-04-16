@@ -56,6 +56,7 @@ signals:
 	void Pointages_Time(double);
 	void Pointages_TimePerLev(double);
 	void Pointages_Distance(int);
+	void switchmode();
 
 	//MoteurJeu
 	void jeu_MAJ_Informations(std::string, int, std::string, int, int);

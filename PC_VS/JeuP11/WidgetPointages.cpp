@@ -32,7 +32,7 @@ WidgetPointages::WidgetPointages(ThreadMoteur* thread, QWidget* parent) : QWidge
     //Title
     titlelabel = new QLabel(this);
     titlelabel->setAlignment(Qt::AlignCenter);
-    titlelabel->setText("Classement");
+    titlelabel->setText("Classement - Temps");
     QFont timerFont("Consolas", 40, QFont::Bold);
     titlelabel->setFont(timerFont);
     titlelabel->setStyleSheet("color: black;"
@@ -78,6 +78,25 @@ WidgetPointages::WidgetPointages(ThreadMoteur* thread, QWidget* parent) : QWidge
     playerCardLabel->setVisible(false);
 
 
+    ///rules
+    // Add control instructions label
+    rulesLabel = new QLabel(this);
+    if(MODE_CLAVIER)
+    { 
+        rulesLabel->setText("Z - Menu \nX - Mode distance/temps \nEnter - Carte du joueur");\
+
+    }
+    else
+    {
+        rulesLabel->setText("D - Menu \nI - Mode distance/temps \nJOYSTICK - Carte du joueur");\
+    }
+    QFont rulesFont("Arial", 12);
+    rulesLabel->setFont(rulesFont);
+    rulesLabel->setStyleSheet("color: black;");
+    rulesLabel->setGeometry(10, height(), 400, 50);
+
+
+
 
     ///Connect
     connect(threadMoteur, SIGNAL(Pointages_Right()), this, SLOT(right()));
@@ -90,6 +109,9 @@ WidgetPointages::WidgetPointages(ThreadMoteur* thread, QWidget* parent) : QWidge
     connect(threadMoteur, &ThreadMoteur::Pointages_Time, this, &WidgetPointages::time);
     connect(threadMoteur, &ThreadMoteur::Pointages_TimePerLev, this, &WidgetPointages::timeperlev);
     connect(threadMoteur, &ThreadMoteur::Pointages_Distance, this, &WidgetPointages::distance);
+    connect(threadMoteur, SIGNAL(switchmode()), this, SLOT(switchmode()));
+
+    
 
     updateButtons();
     selectButton(0);
@@ -103,6 +125,7 @@ WidgetPointages::~WidgetPointages()
     delete button;
     delete background;
     delete buttonLayouts;
+    delete rulesLabel;
 }
 
 void WidgetPointages::distance(int distance)
@@ -224,7 +247,21 @@ void WidgetPointages::down()
 }
 
 
-
+void WidgetPointages::switchmode()
+{
+    if (!sortByDistancebool)
+    {        
+        titlelabel->setText("Classement - Distance");
+        sortByDistancebool = true;
+        sortByDistance();
+    }
+    else
+    {
+        titlelabel->setText("Classement - Temps");
+        sortByDistancebool = false;
+        sortByTimePerLevel();
+    }
+}
 int WidgetPointages::maxPage()
 {
     maxPages = static_cast<int>(ceil(static_cast<double>(nameVector->size()) / numButtons) - 1);
@@ -370,6 +407,83 @@ void WidgetPointages::updatePlayerCard()
         playerCardLabel->setVisible(false);
     }
 }
+
+void WidgetPointages::sortByDistance()
+{
+    QVector<int> sortedIndices(nameVector->size());
+    std::iota(sortedIndices.begin(), sortedIndices.end(), 0);
+
+    std::sort(sortedIndices.begin(), sortedIndices.end(), [this](int a, int b) {
+        if (levelVector->at(a) == levelVector->at(b))
+        {
+            return distanceVector->at(a) < distanceVector->at(b);
+        }
+        return levelVector->at(a) > levelVector->at(b);
+        });
+
+    QVector<std::string> sortedNames = *nameVector;
+    QVector<int> sortedLevels = *levelVector;
+    QVector<double> sortedTimes = *timeVector;
+    QVector<double> sortedTimePerLevels = *timelevelVector;
+    QVector<int> sortedDistances = *distanceVector;
+
+    for (int i = 0; i < sortedIndices.size(); ++i)
+    {
+        int index = sortedIndices[i];
+        sortedNames[i] = nameVector->at(index);
+        sortedLevels[i] = levelVector->at(index);
+        sortedTimes[i] = timeVector->at(index);
+        sortedTimePerLevels[i] = timelevelVector->at(index);
+        sortedDistances[i] = distanceVector->at(index);
+    }
+
+    *nameVector = sortedNames;
+    *levelVector = sortedLevels;
+    *timeVector = sortedTimes;
+    *timelevelVector = sortedTimePerLevels;
+    *distanceVector = sortedDistances;
+
+    updateButtons();
+}
+
+void WidgetPointages::sortByTimePerLevel()
+{
+    QVector<int> sortedIndices(nameVector->size());
+    std::iota(sortedIndices.begin(), sortedIndices.end(), 0);
+
+    std::sort(sortedIndices.begin(), sortedIndices.end(), [&](int i, int j)
+        {
+            if (levelVector->at(i) == levelVector->at(j))
+            {
+                return timeVector->at(i) / levelVector->at(i) < timeVector->at(j) / levelVector->at(j);
+            }
+            return levelVector->at(i) > levelVector->at(j);
+        });
+
+    QVector<std::string> sortedNames(*nameVector);
+    QVector<int> sortedLevels(*levelVector);
+    QVector<double> sortedTimes(*timeVector);
+    QVector<double> sortedTimePerLevel(*timelevelVector);
+    QVector<int> sortedDistances(*distanceVector);
+
+    for (int i = 0; i < nameVector->size(); ++i)
+    {
+        sortedNames[i] = nameVector->at(sortedIndices[i]);
+        sortedLevels[i] = levelVector->at(sortedIndices[i]);
+        sortedTimes[i] = timeVector->at(sortedIndices[i]);
+        sortedTimePerLevel[i] = timelevelVector->at(sortedIndices[i]);
+        sortedDistances[i] = distanceVector->at(sortedIndices[i]);
+    }
+
+    *nameVector = sortedNames;
+    *levelVector = sortedLevels;
+    *timeVector = sortedTimes;
+    *timelevelVector = sortedTimePerLevel;
+    *distanceVector = sortedDistances;
+
+    updateButtons();
+}
+
 
 
 void WidgetPointages::updateButtonFontSizes()

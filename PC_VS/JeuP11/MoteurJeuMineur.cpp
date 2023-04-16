@@ -31,6 +31,7 @@ void MoteurJeuMineur::demarrer()
     {
         emit threadMoteur->jeuMineur_timer(tempsMax);
     }
+    
 
     const wchar_t* chanson_ambiance = L"MineurSon.wav";
     bool played = PlaySound(chanson_ambiance, NULL, SND_ASYNC);
