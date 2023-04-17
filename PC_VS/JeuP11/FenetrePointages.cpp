@@ -92,6 +92,9 @@ void MoteurPointages::initialiser()
 
 void MoteurPointages::demarrer()
 {
+    const wchar_t* chanson_ambiance = L"alo.wav";
+    bool played = PlaySound(chanson_ambiance, NULL, SND_ASYNC);
+
     chargerPointages();
 
     std::unique_ptr<Evenement> evenement;
@@ -111,6 +114,7 @@ void MoteurPointages::demarrer()
 
                 if (lettreAppuyee == Dieu::D)
                 {
+                    bool played = PlaySound(NULL, NULL, SND_ASYNC);
                     if (MODE_CONSOLE)
                     {
                         system("cls");
