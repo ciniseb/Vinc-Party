@@ -6,18 +6,10 @@ Enes;2;10;512
 Zahckarye;2;12;322
 ANNE-SOPHIE;4;28;702
 Bob;1;3;73
-Vincent;4;69;666
 Roger Laperdrie;1;32;2000
-PeuplierBlanc;1;0.943364;138
-PeuplierBlanc;1;0.183342;26
-PeuplierBlanc;1;0.204118;22
-PeuplierBlanc;1;1.14169;165
-PeuplierBlanc;1;0.0833483;11
-PeuplierBlanc;1;0.150009;22
-PeuplierBlanc;1;0.325012;25
-PeuplierBlanc;1;0.750029;114
-PeuplierBlanc;3;0.85703;167
-Wood;1;0.182446;50
-Wood;1;0.091675;29
-PeuplierBlanc;1;1.13562;35
-PeuplierBlanc;2;1.99445;112
+JESS;4;1;1PeuplierBlanc;3;4.66308;353
+PeuplierBlanc;2;2.07718;183
+PeuplierBlanc;2;2.14039;161
+PeuplierBlanc;2;3.71818;339
+PeuplierBlanc;3;7.06627;676
+PeuplierBlanc;3;3.4235;309

@@ -124,7 +124,7 @@ void WidgetJeuMineur::blockUpadate(float pourcentage)
 
 void WidgetJeuMineur::debut()
 {
-    block_shape->load(shapes[0]);
+    blockUpadate(0);
     countdownLabel->hide();
     rulesLabel->show();
     countdownTimer->start();

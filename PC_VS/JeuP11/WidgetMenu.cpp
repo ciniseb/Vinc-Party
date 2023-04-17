@@ -14,6 +14,9 @@ Description: UI du menu
 
 WidgetMenu::WidgetMenu(ThreadMoteur* thread, QWidget* parent) : QWidget(parent)
 {
+    background = new QPixmap;
+    background->load("MenuBackGround.png");
+
     threadMoteur = thread;
 
     //UI
@@ -80,4 +83,37 @@ void WidgetMenu::selection(int selection)
     default:
         break;
     }
+}
+
+
+void WidgetMenu::paintEvent(QPaintEvent* event)
+{
+
+    QPainter painter(this);
+
+    /////background/////
+    qreal targetAspectRatio = qreal(width()) / qreal(height());
+    qreal sourceAspectRatio = qreal(background->width()) / qreal(background->height());
+
+    int cropWidth;
+    int cropHeight;
+
+    if (targetAspectRatio > sourceAspectRatio)
+    {
+        cropWidth = background->width();
+        cropHeight = int(cropWidth / targetAspectRatio);
+    }
+    else
+    {
+        cropHeight = background->height();
+        cropWidth = int(cropHeight * targetAspectRatio);
+    }
+
+    int cropX = (background->width() - cropWidth) / 2;
+    int cropY = (background->height() - cropHeight) / 2;
+
+    QPixmap cropped_background = background->copy(cropX, cropY, cropWidth, cropHeight);
+    QPixmap scaled_background = cropped_background.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    painter.drawPixmap(0, 0, scaled_background);
 }

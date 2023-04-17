@@ -17,6 +17,7 @@ Description: UI du menu
 #include <QGridLayout>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QPainter>
 
 class WidgetMenu : public QWidget
 {
@@ -37,8 +38,14 @@ private:
     QPushButton *bouton_pointages;
     QPushButton *bouton_quitter;
 
+
+    QPixmap* background;
+
+
 public slots:
     void selection(int);
+protected:
+    void paintEvent(QPaintEvent* event) override;
 
 signals:
 
